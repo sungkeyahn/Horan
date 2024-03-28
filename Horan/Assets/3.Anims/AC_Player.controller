@@ -27,6 +27,28 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-7161611203951288196
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.86238533
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1102 &-6856673538962685337
 AnimatorState:
   serializedVersion: 6
@@ -592,16 +614,19 @@ AnimatorStateMachine:
     m_Position: {x: 20, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3269043288399513751}
-    m_Position: {x: 160, y: 640, z: 0}
+    m_Position: {x: 20, y: 600, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6318379023336369120}
     m_Position: {x: 460, y: 450, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3828728275594254466}
-    m_Position: {x: 160, y: 540, z: 0}
+    m_Position: {x: 290, y: 640, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5746709944012192647}
-    m_Position: {x: 160, y: 590, z: 0}
+    m_Position: {x: 20, y: 660, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 7406422152711097197}
+    m_Position: {x: 20, y: 480, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: -2960178872179192196}
@@ -834,6 +859,33 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 6175c5fd46c57e44b930efa68c8b2b81, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &7406422152711097197
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DASHATTACK
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -7161611203951288196}
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 600ec1ffa01ff4f4fa5421d6a805c634, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

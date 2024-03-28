@@ -13,7 +13,11 @@ public class MonsterController : UnitController
     {
         Anim = GetComponent<Animator>();
         Nav = GetComponent<NavMeshAgent>();
+
         stat = GetComponent<PlayerStat>();
+        stat.isRegenable = true;
+        stat.isDamageable = true;
+
         State = MonsterState.DEFAULT;
         CurAction = MonsterAcion.WAIT;
         //stat.OnHit += Hit;

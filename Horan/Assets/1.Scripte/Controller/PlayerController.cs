@@ -5,49 +5,23 @@ using UnityEngine;
 
 public class PlayerController : UnitController
 {
-    Animator anim;
     public enum EPlayerAnimState
     {
         IDLE,
         MOVE,
         DASH
     }
-    EPlayerAnimState ePlayerAnimState;
-    public EPlayerAnimState AnimState 
-    { 
-        get { return ePlayerAnimState; }
-        set 
-        { 
-            ePlayerAnimState = value;
-            if (anim)
-            {
-                anim.SetInteger("AnimState", (int)ePlayerAnimState);
-                switch (ePlayerAnimState)
-                {
-                    case EPlayerAnimState.IDLE:
-                        move.SetMoveDir(Vector3.zero, 0);
-                        break;
-                    case EPlayerAnimState.MOVE:
-                        float hor = Input.GetAxis("Horizontal"); //ad
-                        float ver = Input.GetAxis("Vertical"); //ws
-                        move.SetMoveDir(new Vector3(hor, 0, ver), stat.speed);
-                        anim.SetFloat("WalkX", hor);
-                        anim.SetFloat("WalkY", ver);
-                        break;
-                    case EPlayerAnimState.DASH:
-                        break;
-                }
-               
-            }
-        } 
-    }
 
+    Animator anim;
     PlayerStat stat;
+    ActComponent Act;
+
+    Weapon equippedWeapon;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-       
+
         input = GetComponent<InputComponent>();
         input.MouseAction -= OnPlayerMouseEvent;
         input.MouseAction += OnPlayerMouseEvent;
@@ -56,15 +30,53 @@ public class PlayerController : UnitController
 
         move = GetComponent<MoveComponent>();
         stat = GetComponent<PlayerStat>();
-        stat.OnHit += () => { isHit = true; };
     }
     private void Start()
     {
+        //수정 예정 코드
         equippedWeapon = GetComponentInChildren<Weapon>();
-      
-        AnimState = EPlayerAnimState.IDLE;
-    }
 
+        #region Acts 
+        Act attack = new Act((int)KindOfAct.Attack, Attack);
+        attack.AddAllowActID((int)KindOfAct.Attack);
+        attack.AddAllowActID((int)KindOfAct.Guard);
+        attack.AddAllowActID((int)KindOfAct.Dash);
+
+        Act move = new Act((int)KindOfAct.Move, Move);
+        move.AddAllowActID((int)KindOfAct.Dash);
+        move.AddAllowActID((int)KindOfAct.Move);
+
+        Act guard = new Act((int)KindOfAct.Guard, Guard);
+        guard.AddAllowActID((int)KindOfAct.Attack);
+        guard.AddAllowActID((int)KindOfAct.Counter);
+
+        Act dash = new Act((int)KindOfAct.Dash, Dash);
+        dash.AddAllowActID((int)KindOfAct.Dash);
+        dash.AddAllowActID((int)KindOfAct.DashAttack);
+
+        Act dashAtttack = new Act((int)KindOfAct.DashAttack, DashAttack);
+
+        Act counter = new Act((int)KindOfAct.Counter, Counter);
+
+        //행동 등록
+        Act = GetComponent<ActComponent>();
+        Act.AddAct(attack);
+        Act.AddAct(move);
+        Act.AddAct(guard);
+        Act.AddAct(dash);
+        Act.AddAct(dashAtttack);
+        Act.AddAct(counter);
+        //행동 실행 및 종료 호출
+        //Act.Execution((int)KindOfAct.Attack);
+        //Act.Finish((int)KindOfAct.Attack);
+
+        #endregion
+
+
+        stat.isRegenable = true;
+        stat.isDamageable = true;
+        stat.OnHit += ()=>isCounter = true; 
+    }
 
     #region Input
     InputComponent input;
@@ -94,8 +106,11 @@ public class PlayerController : UnitController
                 break;
             case InputComponent.MouseEvent.Click:
                 {
-                    Attack();
-                    //Debug.Log("Click");
+                    if (atkAble && atkCount < equippedWeapon.AttackAnimNames.Length)
+                    {
+                        Act.Execution((int)KindOfAct.Attack);
+                        DashAtkInput = true;
+                    }//Debug.Log("Click");
                 }
                 break;
             default:
@@ -104,27 +119,34 @@ public class PlayerController : UnitController
     }
     void OnPlayerKeyBoardEvent(InputComponent.KeyBoardEvent evt)
     {
-        switch (evt)    
+        switch (evt)
         {
             case InputComponent.KeyBoardEvent.None:
-                AnimState = EPlayerAnimState.IDLE;
+                {
+                    Act.Finish((int)KindOfAct.Move);
+                    move.SetMoveDir(Vector3.zero, 0);
+                    anim.SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
+                }
                 break;
             case InputComponent.KeyBoardEvent.Press:
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-                    AnimState = EPlayerAnimState.MOVE;
-                if (Input.GetKey(KeyCode.E))
                 {
-                    Guard();
+                    Act.Execution((int)KindOfAct.Move);
+                }
+                if (Input.GetKey(KeyCode.E)&& !isGuard)
+                {
+                    Act.Execution((int)KindOfAct.Guard);
                 }
                 break;
             case InputComponent.KeyBoardEvent.ButtonDown:
-                if (Input.GetKey(KeyCode.Space))
-                    Dash();
+                if (Input.GetKey(KeyCode.Space) && 0 < DashCount && stat.UseSP(20))
+                    Act.Execution((int)KindOfAct.Dash);
                 break;
             case InputComponent.KeyBoardEvent.ButtonUp:
                 if (isGuard && !Input.GetKeyDown(KeyCode.E))
                 {
                     isGuard = false;
+                    Act.Finish((int)KindOfAct.Guard);
                 }
                 break;
             default:
@@ -135,131 +157,163 @@ public class PlayerController : UnitController
 
     #region Move
     MoveComponent move;
-
+    void Move()
+    {
+        float hor = Input.GetAxis("Horizontal"); //ad
+        float ver = Input.GetAxis("Vertical"); //ws
+        move.SetMoveDir(new Vector3(hor, 0, ver), stat.speed);
+        anim.SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
+        anim.SetFloat("WalkX", hor);
+        anim.SetFloat("WalkY", ver);
+    }
     #endregion
 
     #region Attack
 
-    Weapon equippedWeapon;
+    bool atkAble = true;
+    int atkCount = 0;
 
-    public Action OnAttackStart;
-    public Action OnAttackEnd;
-
-    int atkCount;
-    bool atkAble=true;
-
-    public void Attack()
+    void Attack()
     {
-        if (equippedWeapon == null) return;
-        if (equippedWeapon.AttackNames.Length <= atkCount) return;
-        string atkName = equippedWeapon.AttackNames[atkCount];
-        if (atkName == null) return;
-
-        if (atkAble)
-        {
-            atkCount += 1;
-            StopCoroutine("ATTACK");
-            StartCoroutine("ATTACK", atkName);
-        }
-        //equippedWeapon.AttackNames[atkCount]
+        StopCoroutine("ATTACK");
+        StartCoroutine("ATTACK");
     }
-    IEnumerator ATTACK(string atkName) //해당 매개변수를 atkinfo같은 구조체 형식으로 변경해도 전달할 예정
+    IEnumerator ATTACK()
     {
-        if (OnAttackStart != null)
-            OnAttackStart.Invoke();
+        if (atkCount < equippedWeapon.AttackAnimNames.Length)
+        {
+            anim.Play(equippedWeapon.AttackAnimNames[atkCount], -1, 0);
+            atkCount += 1;
+            atkAble = false;
+        }
+        else
+        {
+            atkCount = 0;
+            Act.Finish((int)KindOfAct.Attack);
+            yield return null;
+        }
 
-        var curAnimStateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        anim.Play(atkName, -1, 0);
-        atkAble = false;
-
-        yield return new WaitForSeconds(0.3f); // 모션 선 딜레이
-
+        yield return new WaitForSeconds(0.3f); // 공격 활성화 equippedWeapon.AtkDelayTimes[atkCount]
         equippedWeapon.Area.enabled = true;
-        yield return new WaitForSeconds(0.3f); // 공격 판정 
+        yield return new WaitForSeconds(0.3f); // 공격 비활성화 
         equippedWeapon.Area.enabled = false;
 
-        yield return new WaitForSeconds(0.25f); //연속 공격 판정
         atkAble = true;
-
-        yield return new WaitForSeconds(curAnimStateInfo.length-0.85f);   // 공격 모션 완전 종료
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 0.8f); //curAnimStateInfo.length - (equippedWeapon.AtkDelayTimes[atkCount]+0.3f)
         atkCount = 0;
-
-        if (OnAttackEnd != null)
-            OnAttackEnd.Invoke();
+        Act.Finish((int)KindOfAct.Attack);
     }
-    
+
     #endregion
 
     #region Guard
 
     bool isGuard;
-    public bool isHit; 
-    float GuardSuccessTime=0.3f;
+    public bool isCounter; //해당 변수는 stat에서 접근해서 변경해야 함
+    const float GuardSuccessTime = 0.3f;
 
     void Guard()
     {
-        if (!isGuard)
-        {
-            isGuard = true;
-            StartCoroutine("GUARD");
-        }
+        StartCoroutine("GUARD");
     }
     IEnumerator GUARD()
     {
-        isHit = false;
-        stat.isDamageable = !isGuard;
-        anim.SetBool("GuardEnd", false);
+        isGuard = true;
         anim.Play("GUARD");
-        yield return new WaitForSeconds(GuardSuccessTime); //해당 시간안에 공격이 들어올시 카운터 어택 (이 시간은 아마 가드애니메이션 선딜시간이될듯?)
+        anim.SetBool("GuardEnd", false);
 
-        //while() 으로 스텟이 다 떨어질때 까지 가드하고 있도록 할예정 지금은 무제한 
-        if (isHit)
+        stat.isDamageable = false;
+
+        isCounter = false;
+        yield return new WaitForSeconds(GuardSuccessTime); //해당 시간안에 공격이 들어올시 카운터 어택 (이 시간은 아마 가드애니메이션 선딜시간이될듯?)
+        if (isCounter)
         {
-            stat.isDamageable = true;
-            anim.SetBool("GuardEnd", true);
-            StartCoroutine("ATTACK", "COUNTER");
+            Act.Execution((int)KindOfAct.Counter);
+            yield return null;
         }
 
         yield return new WaitUntil(() => !isGuard);
-        anim.SetBool("GuardEnd",true);
-        stat.isDamageable = !isGuard;
+        isGuard = false;
+        anim.SetBool("GuardEnd", true);
+
+        stat.isDamageable = true;
     }
 
-  
+    void Counter()
+    {
+        StartCoroutine("COUNTER");
+    }
+    IEnumerator COUNTER()
+    {
+        anim.SetBool("GuardEnd", true);
+
+        anim.Play("COUNTER");
+
+        equippedWeapon.Area.enabled = true;
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length); // 공격 활성화 
+        equippedWeapon.Area.enabled = false;
+
+        isGuard = false;
+
+        stat.isDamageable = true;
+       
+        Act.Finish((int)KindOfAct.Counter);
+    }
+
+
     #endregion
 
     #region Dash
 
-    const float DashCoolTime=3.0f;
+    const float DashCoolTime = 3.0f;
     [SerializeField]
     float DashCount = 1;
-    bool isDash;
     void Dash()
     {
-        //무적 추가 예정 
-        if  (0 < DashCount&&!isDash)
-        {
-            StartCoroutine("DASH");
-        }
+        Debug.Log(stat.sp);
+        StopCoroutine("DASH");
+        StartCoroutine("DASH");
     }
     IEnumerator DASH()
     {
-        isDash = true;
         DashCount -= 1;
-        move.MoveActive = false;
+        stat.isDamageable = false;
 
-        anim.Play("DASH");      
-        move.MoveByPower(transform.forward,10);
-        yield return new WaitForSeconds(0.4f); //애니메이션 모션 
-   
-        isDash = false;
-        move.MoveActive = true;
-   
+        move.MoveByPower(transform.forward, 10);
+        anim.Play("DASH");
+
+        DashAtkInput = false;
+        yield return new WaitForSeconds(0.2f);
+        if (DashAtkInput)
+        {
+            Act.Execution((int)KindOfAct.DashAttack);
+            yield return null;
+        }
+
+
+        yield return new WaitForSeconds(0.2f); //애니메이션 모션 
+        stat.isDamageable = false;
+        Act.Finish((int)KindOfAct.Dash);
+
         yield return new WaitForSeconds(DashCoolTime);
- 
         DashCount += 1;
     }
 
+    bool DashAtkInput; 
+    void DashAttack()
+    {
+        StartCoroutine("DASHATTACK");
+    }
+    IEnumerator DASHATTACK()
+    {
+        anim.Play("DASHATTACK");
+        equippedWeapon.Area.enabled = true;
+        yield return new WaitForSeconds(0.3f); // 공격 활성화 
+        equippedWeapon.Area.enabled = false;
+
+        yield return new WaitForSeconds(0.7f);//애니메이션 종료
+        Act.Finish((int)KindOfAct.DashAttack);
+    }
     #endregion
 
     #region Loot&Equip
@@ -272,12 +326,9 @@ public class PlayerController : UnitController
         //인벤토리UI에서 아이템 선택후 이 함수 호출시  해당 아이템을 장착   
         //인벤토리 기능 구현 필요 
     }
-    void WeaponEquip(Weapon weapon)   
+    void WeaponEquip(Weapon weapon)
     {
         //만약 기존에 장비하고 있던 장비가 존재한다면 장착된 장비를 비활성화 이후 장착하는 코드필요
     }
     #endregion
-
-    //행동 제어 구조화 고민좀 하기 
-    //이후 몬스터 제작 
 }

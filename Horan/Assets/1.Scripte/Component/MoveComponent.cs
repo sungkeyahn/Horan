@@ -22,11 +22,13 @@ public class MoveComponent : MonoBehaviour
     }
     public void SetMoveDir(Vector3 dir,float speed=0)
     {
+        MoveActive = true;
         MoveDir = dir;
         MoveSpeed = speed;
     }
     public void MoveByPower(Vector3 dir, float power)
     {
+        MoveActive = false;
         rigid.velocity = dir * power;
     }
 

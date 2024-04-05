@@ -7,12 +7,12 @@ public class HPBarUI : BaseUI
 {
     enum GameObjects { HPBar, }
 
-    PlayerStat stat;
+    MonsterStat stat;
 
     public override void Init()
     {
         Bind<GameObject>(typeof(GameObjects));
-        stat = transform.parent.GetComponent<PlayerStat>();
+        stat = transform.parent.GetComponent<MonsterStat>();
     }
     void Update()
     {

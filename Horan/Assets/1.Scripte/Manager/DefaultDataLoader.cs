@@ -9,21 +9,19 @@ public interface IDataBind
 }
 public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
 {
-    /* 
-     * 추후 데이터 파일을 받아서 적용 시키는 형태로 변경
-     * 자신이 어떤 데이터를 받아야하는지 식별자를 정의해야함 (enum형태)
-     * 
-     * 1.로드가 필요한 데이터 종류 검색  
-     * 2.저장된 데이터를 로드
-     * 3.데이터 적용
-     */
-
     public Dictionary<int, Data.Stat_Player> playerStatDict { get; private set; } = new Dictionary<int, Data.Stat_Player>();
-    
+    public Dictionary<string, Data.DataSet_Monster> DataCache_Monsters { get; private set; } = new Dictionary<string, Data.DataSet_Monster>();
+    public Dictionary<int, Data.DataSet_Group> DataCache_Groups { get; private set; } = new Dictionary<int, Data.DataSet_Group>();
+
+
     //예외처리 코드 추가 예정...
     public void DefaultDataLoad()
     {
         playerStatDict = LoadData<Data.Stat_PlayerDataSeparator, int, Data.Stat_Player>("PlayerStatData").MakeDict();
+
+        DataCache_Monsters = LoadData<Data.Separator_MonsterTable, string, Data.DataSet_Monster>("MonsterTable").MakeDict();
+
+        DataCache_Groups = LoadData<Data.Separator_GroupTable, int, Data.DataSet_Group>("GroupTable").MakeDict();
     }
 
     //예외처리 코드 추가 예정...

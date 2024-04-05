@@ -3,24 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
+public enum AttackType { Melee, Range }
 public class MonsterController : UnitController
 {
+    public string MyName;
+    public AttackType AttackType { get; protected set; }
     public Animator Anim { get; protected set; }
-
     public MonsterStat Stat { get; protected set; }
-
-    public BTRunner Runner { get; protected set; }
-    
     public NavMeshAgent Nav { get; protected set; }
 
-    private void Update()
-    {
-        if (Runner != null)
-        {
-            Runner.Operate();
-            Runner.ServiceOperate();
-        }
-    }
+
 
     protected bool IsAnimationRunning(string stateName)
     {
@@ -36,13 +29,11 @@ public class MonsterController : UnitController
         return false;
     }
 
-    protected void StopUnit(bool isStop)
-    {
-        Runner.isActive = !isStop;
-        Nav.isStopped = isStop;
-    }
+
 
     /*
+
+     * 
     Vector3 DestPos;
     DestPos = transform.position + new Vector3(UnityEngine.Random.Range(-5, 5), 0, UnityEngine.Random.Range(-5, 5));
     Nav.SetDestination(DestPos);

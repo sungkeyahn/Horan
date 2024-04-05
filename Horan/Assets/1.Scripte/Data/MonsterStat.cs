@@ -1,53 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum StatIdentifier_Monster
+{ maxhp=1, hp, sp }
 public class MonsterStat : Stat, IDataBind, IDamageInteraction
 {
-    [SerializeField]
-    public float maxhp;
-    [SerializeField]
-    public float hp;
-
-    [SerializeField]
-    public float maxsp;
-    [SerializeField]
-    public float sp;
-
-    [SerializeField]
-    public float attack;
-
-    [SerializeField]
-    public float speed;
-
-    [SerializeField]
-    public float critical;
-
     const float spregenTime = 5;
     public bool isRegenable;
+    public bool isDamageable;
     float CurregenTime;
 
-    public bool isDamageable;
+    public float maxhp;
+    public float maxsp;
+    public float damage;
+    public float walkspeed;
+    public float runspeed;
+    public float atkrange;
+    public float sensingrange;
 
+    //테이블에 추가하지 않은 임시 속성들
+    float WanderInterval = 3.0f;
+    float WanderTime = 0;
 
+    [SerializeField]
+    public float hp;
+    [SerializeField]
+    public float sp;
 
     void Start()
     {
         BindData();
         hp = maxhp;
-
-        maxsp = 100;
         sp = maxsp;
-
-        critical = 0.5f;
-
-        speed = 5.5f;
     }
 
     public void BindData()
     {
-        maxhp = Managers.DataLoder.playerStatDict[(int)StatIdentifier_Player.level].maxHp;
-        attack = Managers.DataLoder.playerStatDict[(int)StatIdentifier_Player.level].attack;
+        MonsterController ctrl=GetComponent<MonsterController>();
+        if (ctrl == null) return;
+
+        maxhp = Managers.DataLoder.DataCache_Monsters[ctrl.MyName].maxHp;
+        maxsp = Managers.DataLoder.DataCache_Monsters[ctrl.MyName].maxSp;
+        damage = Managers.DataLoder.DataCache_Monsters[ctrl.MyName].damage;
+        walkspeed = Managers.DataLoder.DataCache_Monsters[ctrl.MyName].walkspeed;
+        runspeed = Managers.DataLoder.DataCache_Monsters[ctrl.MyName].runspeed;
+        atkrange = Managers.DataLoder.DataCache_Monsters[ctrl.MyName].atkrange;
+        sensingrange = Managers.DataLoder.DataCache_Monsters[ctrl.MyName].sensingrange;
     }
 
     public void TakeDamage(float damage)
@@ -58,7 +56,7 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
             {
                 hp = Mathf.Clamp(hp - damage, -1, maxhp);
                 if (OnStatChanged != null)
-                    OnStatChanged.Invoke((int)StatIdentifier_Player.hp, (int)(hp / maxhp * 100));
+                    OnStatChanged.Invoke((int)StatIdentifier_Monster.hp, (int)(hp / maxhp * 100));
             }
         }
     }
@@ -69,7 +67,7 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
         {
             sp = Mathf.Clamp(sp - usedSP, 0, maxsp);
             if (OnStatChanged != null)
-                OnStatChanged.Invoke((int)StatIdentifier_Player.sp, (int)(sp / maxsp * 100));
+                OnStatChanged.Invoke((int)StatIdentifier_Monster.sp, (int)(sp / maxsp * 100));
             return true;
         }
         return false;

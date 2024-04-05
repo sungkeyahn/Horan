@@ -1,0 +1,38 @@
+{
+  "monsters": [
+    {
+      "name": "Soldier_Sword",
+      "maxHp": "100",
+      "maxSp": "100",
+      "damage": "20",
+      "walkspeed": "5",
+      "runspeed": "7",
+      "atkrange": "3",
+      "sensingrange": "8",
+      "dropitems": [
+        {
+          "name": "Gold",
+          "amount": 15,
+          "probability": 50
+        }
+      ]
+    },
+    {
+      "name": "Soldier_Bow",
+      "maxHp": "100",
+      "maxSp": "100",
+      "damage": "20",
+      "walkspeed": "5",
+      "runspeed": "7",
+      "atkrange": "3",
+      "sensingrange": "8",
+      "dropitems": [
+        {
+          "name": "Gold",
+          "amount": 15,
+          "probability": 50
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+public enum StatIdentifier_Player
+{ level = 1, maxhp, hp, sp }
 public class PlayerStat : Stat, IDataBind, IDamageInteraction
 {
     [SerializeField]

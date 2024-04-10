@@ -9,17 +9,17 @@ public class BT_Service : BT_Node
 
     public Action ServiceFun=null;
 
-    MonsterGroup Group;
+    MonsterGroup BTOwner;
     
     float Interval;
     float time;
 
-    public BT_Service(BT_Node child, MonsterGroup group, Action serviceFun, float interval=1)
+    public BT_Service(BT_Node child, MonsterGroup owner, Action serviceFun, float interval=1)
     {
         if (child != null)
         {
             Child = child;
-            Group = group;
+            BTOwner = owner;
             ServiceFun = serviceFun;
             Interval = interval;
             time = interval;
@@ -29,10 +29,10 @@ public class BT_Service : BT_Node
     {
         State = Child.Evaluate();
 
-        if (Group && State == NodeState.Running)
+        if (BTOwner && State != NodeState.Failure)
         {
-            Group.Runner.OnService -= OnService;
-            Group.Runner.OnService += OnService;
+            BTOwner.Runner.OnService -= OnService;
+            BTOwner.Runner.OnService += OnService;
         }
 
         return State;
@@ -40,9 +40,9 @@ public class BT_Service : BT_Node
     void OnService()
     {
         State = Child.State;
-        if (State != NodeState.Running)
+        if (State == NodeState.Failure)
         {
-            Group.Runner.OnService -= OnService;
+            BTOwner.Runner.OnService -= OnService;
             return;
         }
 

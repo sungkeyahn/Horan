@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8123823764608305093}
-  - component: {fileID: 8123823764608305092}
+  - component: {fileID: 1546987811325742425}
   m_Layer: 0
   m_Name: MonsterGroup1
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8123823764608305092
+--- !u!114 &1546987811325742425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,14 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8123823764608305090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 337020ba711f6254e93d559958244faf, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c92c9076e0c3b744a304f15f2121616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterNames:
-  - Soldier_Sword
-  - Soldier_Sword
-  - Soldier_Sword
-  spawnpoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  GroupId: 3

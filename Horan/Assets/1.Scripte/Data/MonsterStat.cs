@@ -18,10 +18,6 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
     public float atkrange;
     public float sensingrange;
 
-    //테이블에 추가하지 않은 임시 속성들
-    float WanderInterval = 3.0f;
-    float WanderTime = 0;
-
     [SerializeField]
     public float hp;
     [SerializeField]
@@ -32,6 +28,9 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
         BindData();
         hp = maxhp;
         sp = maxsp;
+
+        isRegenable = true;
+        isDamageable = true;
     }
 
     public void BindData()
@@ -55,6 +54,9 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
             if (isDamageable)
             {
                 hp = Mathf.Clamp(hp - damage, -1, maxhp);
+                if (hp <= 0)
+                    OnUnitDead.Invoke();
+                
                 if (OnStatChanged != null)
                     OnStatChanged.Invoke((int)StatIdentifier_Monster.hp, (int)(hp / maxhp * 100));
             }

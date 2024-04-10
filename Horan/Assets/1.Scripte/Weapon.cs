@@ -21,6 +21,8 @@ public class Weapon : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        print(string.Format("{0} 오브젝트가 {1} 와 충돌했습니다.", gameObject.name, other.gameObject.name));
+
         Stat onwerStat = GetComponentInParent<Stat>(); //구조 개선 고민
         int critical = UnityEngine.Random.Range(0, 100);
         GameObject hitob = other.gameObject;
@@ -32,12 +34,10 @@ public class Weapon : MonoBehaviour
                 if (critical < 50)
                 {
                     damageable.TakeDamage(damage * 1.5f);
-                    Debug.Log(damage * 1.5f);
                 }
                 else
                 {
                     damageable.TakeDamage(damage);
-                    Debug.Log(damage);
                 }
 
             }

@@ -20,7 +20,7 @@ public class BTRunner
     }
     public void ServiceOperate()
     {
-        if (OnService != null)
-            OnService.Invoke();
+            if (OnService != null&& isActive)
+                OnService.Invoke();
     }
 }

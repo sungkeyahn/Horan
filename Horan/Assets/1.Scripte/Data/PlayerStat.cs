@@ -46,6 +46,10 @@ public class PlayerStat : Stat, IDataBind, IDamageInteraction
         critical = 0.5f;
 
         speed = 5.5f;
+
+
+        isRegenable = true;
+        isDamageable = true;
     }
 
     public void BindData()

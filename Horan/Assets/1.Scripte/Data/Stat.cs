@@ -12,4 +12,5 @@ public interface IDamageInteraction
 public abstract class Stat : MonoBehaviour
 {
     public Action<int,int> OnStatChanged; //스텟 식별자, 변화량 백분률
+    public Action OnUnitDead;
 }

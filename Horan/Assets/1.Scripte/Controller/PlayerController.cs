@@ -71,10 +71,6 @@ public class PlayerController : UnitController
         //Act.Finish((int)KindOfAct.Attack);
 
         #endregion
-
-
-        stat.isRegenable = true;
-        stat.isDamageable = true;
         stat.OnHit += ()=>isCounter = true; 
     }
 

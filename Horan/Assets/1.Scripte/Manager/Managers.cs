@@ -16,6 +16,8 @@ public class Managers : MonoBehaviour
     MySceneManager mySceneManager = new MySceneManager();
     public static MySceneManager MySceneManager { get { return Instance.mySceneManager; } }
 
+    ContentsManager contentsManager = new ContentsManager();
+    public static ContentsManager ContentsManager { get { return Instance.contentsManager; } }
 
     static void Init()
     {

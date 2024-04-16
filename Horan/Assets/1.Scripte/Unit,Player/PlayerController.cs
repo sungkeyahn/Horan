@@ -3,15 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EPlayerAnimState
+{
+    IDLE,
+    MOVE,
+    DASH
+}
+
+
 public class PlayerController : UnitController
 {
-    public enum EPlayerAnimState
-    {
-        IDLE,
-        MOVE,
-        DASH
-    }
-
     Animator anim;
     PlayerStat stat;
     ActComponent Act;
@@ -30,12 +31,10 @@ public class PlayerController : UnitController
 
         move = GetComponent<MoveComponent>();
         stat = GetComponent<PlayerStat>();
+        stat.OnHit += () => isCounter = true;
     }
     private void Start()
     {
-        //수정 예정 코드
-        equippedWeapon = GetComponentInChildren<Weapon>();
-
         #region Acts 
         Act attack = new Act((int)KindOfAct.Attack, Attack);
         attack.AddAllowActID((int)KindOfAct.Attack);
@@ -71,8 +70,33 @@ public class PlayerController : UnitController
         //Act.Finish((int)KindOfAct.Attack);
 
         #endregion
-        stat.OnHit += ()=>isCounter = true; 
+        
+        //삭제 예정 코드
+        equippedWeapon = GetComponentInChildren<Weapon>();
     }
+    private void Update()
+    {
+        //플레이어가 일정거리 이내에 적이 존재하면 전투 모드로 변경되어 해당 적을 향하여 회전하도록
+        isCombat = SearchEnemy();
+    }
+    Vector3 targetDir = Vector3.zero;
+    Vector3 moveDir = Vector3.zero;
+    [SerializeField]
+    bool isCombat;
+    bool SearchEnemy()
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position, 6f, LayerMask.GetMask("Enemy"));
+        GameObject closedUnit = null;
+        for (int i = 0; i < cols.Length; i++)
+        {
+            closedUnit = cols[i].gameObject;
+        }
+        Debug.Log(closedUnit);
+        if (closedUnit == null) return false;
+        targetDir = (closedUnit.transform.position - transform.position).normalized;
+        return true;
+    }
+
 
     #region Input
     InputComponent input;
@@ -119,9 +143,9 @@ public class PlayerController : UnitController
         {
             case InputComponent.KeyBoardEvent.None:
                 {
-                    Act.Finish((int)KindOfAct.Move);
-                    move.SetMoveDir(Vector3.zero, 0);
+                    move.SetMove(0);
                     anim.SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
+                    Act.Finish((int)KindOfAct.Move);
                 }
                 break;
             case InputComponent.KeyBoardEvent.Press:
@@ -152,15 +176,20 @@ public class PlayerController : UnitController
     #endregion
 
     #region Move
-    MoveComponent move;
+    MoveComponent move; 
     void Move()
     {
-        float hor = Input.GetAxis("Horizontal"); //ad
-        float ver = Input.GetAxis("Vertical"); //ws
-        move.SetMoveDir(new Vector3(hor, 0, ver), stat.speed);
+        moveDir.x = Input.GetAxis("Horizontal");
+        moveDir.z = Input.GetAxis("Vertical");
+
+        if (isCombat)
+            move.SetMove(moveDir, targetDir, stat.speed);
+        else
+            move.SetMove(moveDir, moveDir, stat.speed);
+
         anim.SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
-        anim.SetFloat("WalkX", hor);
-        anim.SetFloat("WalkY", ver);
+        anim.SetFloat("WalkX", moveDir.x);
+        anim.SetFloat("WalkY", moveDir.z);
     }
     #endregion
 
@@ -273,9 +302,12 @@ public class PlayerController : UnitController
     IEnumerator DASH()
     {
         DashCount -= 1;
+        
         stat.isDamageable = false;
 
+        move.MoveActive = false;
         move.MoveByPower(transform.forward, 10);
+        
         anim.Play("DASH");
 
         DashAtkInput = false;
@@ -289,6 +321,7 @@ public class PlayerController : UnitController
 
         yield return new WaitForSeconds(0.2f); //애니메이션 모션 
         stat.isDamageable = false;
+        move.MoveActive = true;
         Act.Finish((int)KindOfAct.Dash);
 
         yield return new WaitForSeconds(DashCoolTime);
@@ -327,4 +360,5 @@ public class PlayerController : UnitController
         //만약 기존에 장비하고 있던 장비가 존재한다면 장착된 장비를 비활성화 이후 장착하는 코드필요
     }
     #endregion
+
 }

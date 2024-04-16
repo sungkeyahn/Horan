@@ -15,7 +15,8 @@ public class MonsterController : UnitController
     public Rigidbody Rigid { get; protected set; }
     public Vector3 DestPos;
     public bool isActing { get; protected set; }
-    public PlayerController Target=null;
+    public GameObject Target=null;
+    public bool isCombat;
 
     private void Awake()
     {

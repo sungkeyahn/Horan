@@ -26,12 +26,15 @@ public class MonsterGroup : MonoBehaviour,IDataBind
     public BTRunner Runner { get; protected set; }
 
     List<MonsterController> MyGroup=new List<MonsterController>();
+
     [SerializeField]
     MonsterController ActableCtrl; // 현재 행동을 실행할 구성원
-    [SerializeField]
-    MonsterController CombatUnit; // 현재 전투중인 구성원
-    [SerializeField]
-    bool GroupCombat; // 전투 여부
+
+
+    GameObject player;
+    bool isinbattle;
+  
+
 
     public void BindData()
     {
@@ -75,43 +78,26 @@ public class MonsterGroup : MonoBehaviour,IDataBind
                 (
                     new List<BT_Node>()
                     {
-                        new BT_Decorator(new BT_Sequence //전투 대기
+                       new BT_Sequence //플레이어 인식 
                         (
                             new List<BT_Node>()
-                            {
-                                new BT_Task(CombatWait)
-                            }
-                        ),IsGroupCombat),
-                        new BT_Decorator(new BT_Selector //공,방
-                        (
-                           new List<BT_Node>()
-                           {
-                                new BT_Decorator(new BT_Selector //공격, 방어
+                            { 
+                                new BT_Task(SetTarget),
+                                new BT_Decorator(new BT_Task(CombatWait),IsCombatWait), //전투 중인 유닛이 아니면 대기
+                                new BT_Decorator(new BT_Selector //전투 중인 유닛이며 공격거리에 존재하면 공격
                                 (
-                                    new List<BT_Node>()
-                                    {
-                                        new BT_Decorator(new BT_Task(Attack),RandomSelectAtkorGuard),
-                                        new BT_Task(Guard) 
-                                    }
-                                ),IsCombatable)
-                           }
-                        ),IsPlayerInAtkRange),
-                        new BT_Decorator(new BT_Sequence // 탐지 거리 안에 존재하는 경우
-                        (
-                            new List<BT_Node>()
-                            {
-                                new BT_Task(Chase)
+                                   new List<BT_Node>()
+                                   {
+                                       new BT_Decorator(new BT_Task(Attack),RandomSelectAtkorGuard),
+                                       new BT_Task(Guard)
+                                   }
+                                ),IsInAtkRange),
+                                new BT_Decorator(new BT_Task(Chase),IsInSearchRange) //전투 유닛 이지만 공격 거리에 없으면 추격
                             }
-                        ),IsPlayerInSenseRange),
-                        new BT_Sequence //순찰
-                        (
-                            new List<BT_Node>()
-                            {
-                                new BT_Task(Wandering)
-                            }
-                        )
+                        ),
+                        new BT_Service(new BT_Task(Wandering),this,SetWanderingDestination,6f)
                     }
-                ), this, SetWanderingDestination, 7),SelectMember)
+                ), this, SearchPlayer, 2), SelectMember)
             );
         #endregion
 
@@ -172,75 +158,34 @@ public class MonsterGroup : MonoBehaviour,IDataBind
         Debug.Log("Exhaustion");
         return BT_Node.NodeState.Success;
     }
+    BT_Node.NodeState SetTarget()
+    {
+        if (ActableCtrl == null) return BT_Node.NodeState.Failure;
+
+        if (ActableCtrl.Target == null)
+        {
+            ActableCtrl.Target = player;
+            return BT_Node.NodeState.Success;
+        }
+        Debug.Log("Exhaustion");
+        return BT_Node.NodeState.Success;
+    }
+
     #endregion
     #region Service And Deco
-    void SetWanderingDestination()
-    {
-        Vector3 pos = transform.position + new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
-        for (int i = 0; i < MyGroup.Count; i++)
-        {
-            MyGroup[i].DestPos = pos;
-        }
-    }
-
-    bool IsPlayerInAtkRange()
-    {
-        PlayerController player = FindObjectOfType<PlayerController>();
-        if (player == null|| ActableCtrl==null) return false;
-
-        if (Vector3.Distance(ActableCtrl.transform.position ,player.transform.position) <= ActableCtrl.Stat.atkrange)
-        {
-            CombatUnit = ActableCtrl;
-            GroupCombat = true;
-            return true;
-        }
-        else
-            return false;
-    }
-    bool IsPlayerInSenseRange()
-    {
-        PlayerController player = FindObjectOfType<PlayerController>();
-        if (player == null) return false;
-
-        // 1명만 감지해도 타겟 on 하지만 
-        // 모두 감지 못하면 타겟 off
-        bool isSensing = false;
-        for (int i = 0; i < MyGroup.Count; i++)
-        {
-            if (Vector3.Distance(MyGroup[i].transform.position, player.transform.position) <= MyGroup[i].Stat.sensingrange)
-                isSensing = true;
-        }
-
-        if (isSensing)
-        {
-            for (int i = 0; i < MyGroup.Count; i++)
-            {
-                MyGroup[i].Target = player;
-            }
-            return true;
-        }
- 
-        for (int i = 0; i < MyGroup.Count; i++)
-        {
-            MyGroup[i].Target = null;
-        }
-        CombatUnit = null;
-        GroupCombat = false;
-        return false;
-    }
     bool SelectMember() // 행동을 수행중이지 않은 멤버를 선택
     {
         int count = 0;
-        for (int i = 0; i < MyGroup.Count; i++) //그룹 구성원 사망했을 경우 그룹 리셋 
+        for (int i = 0; i < MyGroup.Count; i++) //그룹 구성원 사망했을 경우 리셋 
         {
-            if (!MyGroup[i].gameObject.activeSelf && MyGroup[i] == CombatUnit) 
+            if (!MyGroup[i].gameObject.activeSelf)
             {
                 count++;
-                CombatUnit = null;
-                GroupCombat = false;
+               // CombatUnit = null;
             }
         }
-        if (MyGroup.Count == count)
+
+        if (MyGroup.Count == count) //구성원이 모두 사망시 BT정지
         {
             Runner.isActive = false;
             return false;
@@ -259,27 +204,76 @@ public class MonsterGroup : MonoBehaviour,IDataBind
 
         return false;
     }
-    bool RandomSelectAtkorGuard() // 공격or방어 랜덤 선택
+    void SearchPlayer()
     {
-        return true;
+        Collider[] cols = Physics.OverlapSphere(transform.position, 10f, LayerMask.GetMask("Player"));
+        if (cols != null)
+            player = cols[0].gameObject;
     }
-    bool IsCombatable() //전투가능 상황 인지 판단 
+    
+
+    bool IsCombatWait() //그룹과 나의 전투상태 여부
     {
-        if (ActableCtrl.Target == null) return false; // 플레이어 미 인지 상황  
+        if (ActableCtrl.isCombat)
+            return false;
+        for (int i = 0; i < MyGroup.Count; i++)
+        {
+            if (ActableCtrl == MyGroup[i]) continue;
+            if (MyGroup[i].isCombat)
+                return true;
+        }
+        return false;
+    }
+    bool IsInAtkRange()
+    {
+        if(ActableCtrl == null) return false;
 
-        if (IsGroupCombat()) return false;
-
-        if (CombatUnit == ActableCtrl)
+        if (Vector3.Distance(ActableCtrl.transform.position, player.transform.position) <= ActableCtrl.Stat.atkrange)
             return true;
         
         return false;
     }
-    bool IsGroupCombat() 
+    bool IsInSearchRange()
     {
-        if (GroupCombat && ActableCtrl != CombatUnit )
+        if (Vector3.Distance(ActableCtrl.transform.position, player.transform.position) <= ActableCtrl.Stat.sensingrange)
             return true;
         else
             return false;
+        /*  bool isSensing = false;
+        for (int i = 0; i < MyGroup.Count; i++)
+        {
+            if (Vector3.Distance(MyGroup[i].transform.position, MyGroup[i].Target.transform.position) <= MyGroup[i].Stat.sensingrange)
+                isSensing = true;
+        }
+
+        if (isSensing)
+        {
+            for (int i = 0; i < MyGroup.Count; i++)
+            {
+               MyGroup[i].Target = player;
+            }
+            return true;
+        }
+ 
+        for (int i = 0; i < MyGroup.Count; i++)
+        {
+            MyGroup[i].Target = null;
+        }
+        return false;*/
+
+    }
+
+    bool RandomSelectAtkorGuard() // 공격or방어 랜덤 선택
+    {
+        return true;
+    }
+    void SetWanderingDestination()
+    {
+        Vector3 pos = transform.position + new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
+        for (int i = 0; i < MyGroup.Count; i++)
+        {
+            MyGroup[i].DestPos = pos;
+        }
     }
     #endregion
 

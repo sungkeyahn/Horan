@@ -14,8 +14,9 @@ public class MonsterController : UnitController
     public NavMeshAgent Nav { get; protected set; }
     public Rigidbody Rigid { get; protected set; }
     public Vector3 DestPos;
+    
+    public GameObject Target = null;
     public bool isActing { get; protected set; }
-    public GameObject Target=null;
     public bool isCombat;
 
     private void Awake()

@@ -32,8 +32,6 @@ public class MonsterGroup : MonoBehaviour,IDataBind
 
 
     GameObject player;
-    bool isinbattle;
-  
 
 
     public void BindData()
@@ -74,30 +72,35 @@ public class MonsterGroup : MonoBehaviour,IDataBind
         #region BT
         Runner = new BTRunner
             (
-               new BT_Decorator(new BT_Service(new BT_Selector
+               new BT_Decorator(new BT_Selector
                 (
                     new List<BT_Node>()
                     {
-                       new BT_Sequence //플레이어 인식 
+                       new BT_Decorator(new BT_Selector //플레이어 인식 
                         (
                             new List<BT_Node>()
                             { 
-                                new BT_Task(SetTarget),
-                                new BT_Decorator(new BT_Task(CombatWait),IsCombatWait), //전투 중인 유닛이 아니면 대기
-                                new BT_Decorator(new BT_Selector //전투 중인 유닛이며 공격거리에 존재하면 공격
+                                new BT_Decorator( new BT_Selector // 해당 유닛이 전투 상태 인지 체크[미구현]  
                                 (
-                                   new List<BT_Node>()
-                                   {
-                                       new BT_Decorator(new BT_Task(Attack),RandomSelectAtkorGuard),
-                                       new BT_Task(Guard)
-                                   }
-                                ),IsInAtkRange),
-                                new BT_Decorator(new BT_Task(Chase),IsInSearchRange) //전투 유닛 이지만 공격 거리에 없으면 추격
+                                    new List<BT_Node>()
+                                    {
+                                        new BT_Decorator(new BT_Selector //전투 중인 유닛이며 공격거리에 존재하면 공격
+                                        (
+                                           new List<BT_Node>()
+                                           {
+                                               new BT_Decorator(new BT_Task(Attack),RandomSelectAtkorGuard),
+                                               new BT_Task(Guard)
+                                           }
+                                        ),IsInAtkRange),
+                                        new BT_Task(Chase) //전투 유닛 이지만 공격 거리에 없으면 추격
+                                    }
+                                ),IsCombat),
+                                new BT_Task(CombatWait) //전투 중인 유닛이 아니면 대기
                             }
-                        ),
+                        ),SearchPlayer),
                         new BT_Service(new BT_Task(Wandering),this,SetWanderingDestination,6f)
                     }
-                ), this, SearchPlayer, 2), SelectMember)
+                ), SelectMember)
             );
         #endregion
 
@@ -158,18 +161,6 @@ public class MonsterGroup : MonoBehaviour,IDataBind
         Debug.Log("Exhaustion");
         return BT_Node.NodeState.Success;
     }
-    BT_Node.NodeState SetTarget()
-    {
-        if (ActableCtrl == null) return BT_Node.NodeState.Failure;
-
-        if (ActableCtrl.Target == null)
-        {
-            ActableCtrl.Target = player;
-            return BT_Node.NodeState.Success;
-        }
-        Debug.Log("Exhaustion");
-        return BT_Node.NodeState.Success;
-    }
 
     #endregion
     #region Service And Deco
@@ -204,65 +195,48 @@ public class MonsterGroup : MonoBehaviour,IDataBind
 
         return false;
     }
-    void SearchPlayer()
+    bool SearchPlayer()
     {
-        Collider[] cols = Physics.OverlapSphere(transform.position, 10f, LayerMask.GetMask("Player"));
-        if (cols != null)
-            player = cols[0].gameObject;
-    }
-    
-
-    bool IsCombatWait() //그룹과 나의 전투상태 여부
-    {
-        if (ActableCtrl.isCombat)
-            return false;
+        GameObject ob=null;
         for (int i = 0; i < MyGroup.Count; i++)
         {
-            if (ActableCtrl == MyGroup[i]) continue;
-            if (MyGroup[i].isCombat)
-                return true;
+            Collider[] cols = Physics.OverlapSphere(MyGroup[i].transform.position, MyGroup[i].Stat.sensingrange, LayerMask.GetMask("Player"));
+            if (cols != null)
+            {
+                ob= cols[0].gameObject;
+                break;
+            }
         }
+
+        for (int i = 0; i < MyGroup.Count; i++)
+            MyGroup[i].Target = ob;
+        if (ob)
+            return true;
+
+        return false;
+    }
+    bool IsCombat() //나의 전투참여 가능 여부 
+    {
+        PlayerController p = player.GetComponent<PlayerController>();
+        if (ActableCtrl.isCombat && p.TargetEnemy == ActableCtrl.gameObject) return true;
+        
+        //모든 구성원이 전투 중이 아님 + 플레이어가 전투 타겟이 없는 경우 
+        if (p.TargetEnemy == null && !ActableCtrl.isCombat)
+        {
+            p.TargetEnemy = ActableCtrl.gameObject;
+            ActableCtrl.isCombat = true;
+            return true;
+        }
+       
         return false;
     }
     bool IsInAtkRange()
     {
         if(ActableCtrl == null) return false;
-
         if (Vector3.Distance(ActableCtrl.transform.position, player.transform.position) <= ActableCtrl.Stat.atkrange)
             return true;
-        
         return false;
     }
-    bool IsInSearchRange()
-    {
-        if (Vector3.Distance(ActableCtrl.transform.position, player.transform.position) <= ActableCtrl.Stat.sensingrange)
-            return true;
-        else
-            return false;
-        /*  bool isSensing = false;
-        for (int i = 0; i < MyGroup.Count; i++)
-        {
-            if (Vector3.Distance(MyGroup[i].transform.position, MyGroup[i].Target.transform.position) <= MyGroup[i].Stat.sensingrange)
-                isSensing = true;
-        }
-
-        if (isSensing)
-        {
-            for (int i = 0; i < MyGroup.Count; i++)
-            {
-               MyGroup[i].Target = player;
-            }
-            return true;
-        }
- 
-        for (int i = 0; i < MyGroup.Count; i++)
-        {
-            MyGroup[i].Target = null;
-        }
-        return false;*/
-
-    }
-
     bool RandomSelectAtkorGuard() // 공격or방어 랜덤 선택
     {
         return true;

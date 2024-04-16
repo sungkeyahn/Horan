@@ -74,28 +74,9 @@ public class PlayerController : UnitController
         //삭제 예정 코드
         equippedWeapon = GetComponentInChildren<Weapon>();
     }
-    private void Update()
-    {
-        //플레이어가 일정거리 이내에 적이 존재하면 전투 모드로 변경되어 해당 적을 향하여 회전하도록
-        isCombat = SearchEnemy();
-    }
-    Vector3 targetDir = Vector3.zero;
     Vector3 moveDir = Vector3.zero;
-    [SerializeField]
-    bool isCombat;
-    bool SearchEnemy()
-    {
-        Collider[] cols = Physics.OverlapSphere(transform.position, 6f, LayerMask.GetMask("Enemy"));
-        GameObject closedUnit = null;
-        for (int i = 0; i < cols.Length; i++)
-        {
-            closedUnit = cols[i].gameObject;
-        }
-        Debug.Log(closedUnit);
-        if (closedUnit == null) return false;
-        targetDir = (closedUnit.transform.position - transform.position).normalized;
-        return true;
-    }
+    public GameObject TargetEnemy=null;
+
 
 
     #region Input
@@ -182,8 +163,11 @@ public class PlayerController : UnitController
         moveDir.x = Input.GetAxis("Horizontal");
         moveDir.z = Input.GetAxis("Vertical");
 
-        if (isCombat)
+        if (TargetEnemy)
+        {
+            Vector3 targetDir = (TargetEnemy.transform.position - transform.position).normalized;
             move.SetMove(moveDir, targetDir, stat.speed);
+        }
         else
             move.SetMove(moveDir, moveDir, stat.speed);
 

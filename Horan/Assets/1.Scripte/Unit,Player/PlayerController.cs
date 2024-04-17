@@ -17,6 +17,9 @@ public class PlayerController : UnitController
     PlayerStat stat;
     ActComponent Act;
 
+    public GameObject TargetEnemy = null;
+
+    Vector3 moveDir = Vector3.zero;
     Weapon equippedWeapon;
 
     private void Awake()
@@ -74,10 +77,20 @@ public class PlayerController : UnitController
         //삭제 예정 코드
         equippedWeapon = GetComponentInChildren<Weapon>();
     }
-    Vector3 moveDir = Vector3.zero;
-    public GameObject TargetEnemy=null;
-
-
+    private void FixedUpdate()
+    {
+        if (TargetEnemy == null)
+        {
+            Collider[] cols = Physics.OverlapSphere(transform.position, 10, LayerMask.GetMask("Enemy"));
+            for (int i = 0; i < cols.Length; i++)
+            {
+                Debug.Log(cols[i]);
+                //가장 가까운 적을 타겟팅 하게 하기 + 대쉬시 잠시 타겟 끄기 
+                if (TargetEnemy == null)
+                    TargetEnemy = cols[i].gameObject;
+            }
+        }
+    }
 
     #region Input
     InputComponent input;
@@ -279,7 +292,6 @@ public class PlayerController : UnitController
     float DashCount = 1;
     void Dash()
     {
-        Debug.Log(stat.sp);
         StopCoroutine("DASH");
         StartCoroutine("DASH");
     }
@@ -290,8 +302,9 @@ public class PlayerController : UnitController
         stat.isDamageable = false;
 
         move.MoveActive = false;
-        move.MoveByPower(transform.forward, 10);
-        
+        //move.MoveByPower(transform.forward, 10);
+        move.MoveByPower(moveDir, 10);
+
         anim.Play("DASH");
 
         DashAtkInput = false;

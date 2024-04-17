@@ -30,9 +30,9 @@ public class MonsterGroup : MonoBehaviour,IDataBind
     [SerializeField]
     MonsterController ActableCtrl; // 현재 행동을 실행할 구성원
 
-
-    GameObject player;
-
+    [SerializeField]
+    PlayerController player;
+    Vector3 Destpos = Vector3.zero;
 
     public void BindData()
     {
@@ -80,7 +80,7 @@ public class MonsterGroup : MonoBehaviour,IDataBind
                         (
                             new List<BT_Node>()
                             { 
-                                new BT_Decorator( new BT_Selector // 해당 유닛이 전투 상태 인지 체크[미구현]  
+                                new BT_Decorator(new BT_Selector // 해당 유닛이 전투 상태 인지 체크[미구현]  
                                 (
                                     new List<BT_Node>()
                                     {
@@ -115,40 +115,25 @@ public class MonsterGroup : MonoBehaviour,IDataBind
     }
 
     #region Task
+
     BT_Node.NodeState Wandering()
     {
-        if (ActableCtrl.isActing)
-            return BT_Node.NodeState.Running;
-
-        ActableCtrl.Wandering(Runner);
-
+        ActableCtrl.Wandering(Destpos);
         return BT_Node.NodeState.Success;
     }
     BT_Node.NodeState Attack()
     {
-        if (ActableCtrl.isActing)
-            return BT_Node.NodeState.Running;
-
-        ActableCtrl.Attack(Runner);
-
+        ActableCtrl.Attack(player.gameObject);
         return BT_Node.NodeState.Success;
     }
     BT_Node.NodeState Chase()
     {
-        if (ActableCtrl.isActing)
-            return BT_Node.NodeState.Running;
-
-        ActableCtrl.Chase(Runner);
-
+        ActableCtrl.Chase(player.gameObject);
         return BT_Node.NodeState.Success;
     }
     BT_Node.NodeState CombatWait()
     {
-        if (ActableCtrl.isActing)
-            return BT_Node.NodeState.Running;
-
-        ActableCtrl.CombatWait(Runner);
-
+        ActableCtrl.CombatWait(player.gameObject);
         return BT_Node.NodeState.Success;
     }
     BT_Node.NodeState Guard()
@@ -163,70 +148,59 @@ public class MonsterGroup : MonoBehaviour,IDataBind
     }
 
     #endregion
+
     #region Service And Deco
-    bool SelectMember() // 행동을 수행중이지 않은 멤버를 선택
+    int ctrlnum;
+    bool SelectMember() 
     {
         int count = 0;
-        for (int i = 0; i < MyGroup.Count; i++) //그룹 구성원 사망했을 경우 리셋 
+        for (int i = 0; i < MyGroup.Count; i++) //그룹 구성원 사망 체크
         {
-            if (!MyGroup[i].gameObject.activeSelf)
-            {
+            if (MyGroup[i]==null)
                 count++;
-               // CombatUnit = null;
+            if (MyGroup.Count == count) //구성원이 모두 사망시 BT정지
+            {
+                Runner.isActive = false;
+                return false;
             }
         }
+        
+        if (MyGroup.Count-1 < ctrlnum)
+            ctrlnum = 0;
 
-        if (MyGroup.Count == count) //구성원이 모두 사망시 BT정지
+        if (MyGroup[ctrlnum] != null)
         {
-            Runner.isActive = false;
+            ActableCtrl = MyGroup[ctrlnum];
+            ctrlnum++;
+            return true;
+        }
+        else
+        {
+            ctrlnum++;
             return false;
         }
-
-        for (int i = 0; i < MyGroup.Count; i++)
-        {
-            if (MyGroup[i].isActing == false)
-            {
-                ActableCtrl = MyGroup[i];
-                return true;
-            }
-        }
-
-        ActableCtrl = null;
-
-        return false;
     }
     bool SearchPlayer()
     {
-        GameObject ob=null;
-        for (int i = 0; i < MyGroup.Count; i++)
+        Collider[] cols = Physics.OverlapSphere(ActableCtrl.transform.position, ActableCtrl.Stat.sensingrange, LayerMask.GetMask("Player"));
+        if (cols.Length != 0)
         {
-            Collider[] cols = Physics.OverlapSphere(MyGroup[i].transform.position, MyGroup[i].Stat.sensingrange, LayerMask.GetMask("Player"));
-            if (cols != null)
-            {
-                ob= cols[0].gameObject;
-                break;
-            }
+            player = cols[0].GetComponent<PlayerController>();
+            if (player) //set target
+                return true;
         }
-
-        for (int i = 0; i < MyGroup.Count; i++)
-            MyGroup[i].Target = ob;
-        if (ob)
+        else if (player) //other member set target
             return true;
+       
 
+        // search fail
+        player = null;  
         return false;
     }
-    bool IsCombat() //나의 전투참여 가능 여부 
+    bool IsCombat()
     {
-        PlayerController p = player.GetComponent<PlayerController>();
-        if (ActableCtrl.isCombat && p.TargetEnemy == ActableCtrl.gameObject) return true;
-        
-        //모든 구성원이 전투 중이 아님 + 플레이어가 전투 타겟이 없는 경우 
-        if (p.TargetEnemy == null && !ActableCtrl.isCombat)
-        {
-            p.TargetEnemy = ActableCtrl.gameObject;
-            ActableCtrl.isCombat = true;
+        if (player.TargetEnemy == ActableCtrl.gameObject) 
             return true;
-        }
        
         return false;
     }
@@ -235,20 +209,19 @@ public class MonsterGroup : MonoBehaviour,IDataBind
         if(ActableCtrl == null) return false;
         if (Vector3.Distance(ActableCtrl.transform.position, player.transform.position) <= ActableCtrl.Stat.atkrange)
             return true;
+       
         return false;
     }
     bool RandomSelectAtkorGuard() // 공격or방어 랜덤 선택
     {
         return true;
     }
+
     void SetWanderingDestination()
     {
-        Vector3 pos = transform.position + new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
-        for (int i = 0; i < MyGroup.Count; i++)
-        {
-            MyGroup[i].DestPos = pos;
-        }
+        Destpos = transform.position + new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
     }
+
     #endregion
 
 

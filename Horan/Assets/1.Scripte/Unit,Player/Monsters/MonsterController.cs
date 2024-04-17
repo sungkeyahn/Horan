@@ -12,19 +12,14 @@ public class MonsterController : UnitController
     public Animator Anim { get; protected set; }
     public MonsterStat Stat { get; protected set; }
     public NavMeshAgent Nav { get; protected set; }
-    public Rigidbody Rigid { get; protected set; }
-    public Vector3 DestPos;
-    
-    public GameObject Target = null;
-    public bool isActing { get; protected set; }
-    public bool isCombat;
+
+    bool isDead;
 
     private void Awake()
     {
         Anim = GetComponent<Animator>();
         Stat = GetComponent<MonsterStat>();
         Nav = GetComponent<NavMeshAgent>();
-        Rigid = GetComponent<Rigidbody>();
     }
     protected void Start()
     {
@@ -45,16 +40,123 @@ public class MonsterController : UnitController
         return false;
     }
 
-    public void Wandering(BTRunner runner)
+    public void Wandering(Vector3 DestPos)
     {
+        if (isDead) return;
+        if (IsAnimationRunning("ATTACK")) return;
+        if (DestPos != Vector3.zero)
+        {
+            Vector3 pos = DestPos;
+            if (Vector3.Distance(transform.position, pos) < Nav.stoppingDistance)
+            {
+                Anim.Play("WAIT");
+                Nav.isStopped = true;
+                Nav.velocity = Vector3.zero;
+                return;
+            }
+            Anim.Play("MOVE");
+            Nav.SetDestination(pos);
+            Nav.isStopped = false;
+            Nav.speed = Stat.walkspeed;
+        }
+    }
+    public void Chase(GameObject Target)
+    {
+        if (isDead) return;
+        if (IsAnimationRunning("ATTACK")) return;
+        if (IsAnimationRunning("RUN")) return;
+        if (Vector3.Distance(transform.position, Target.transform.position) < Stat.atkrange) return;
+
+        Anim.Play("RUN");
+        Nav.SetDestination(Target.transform.position);
+        Nav.isStopped = false;
+        Nav.speed = Stat.runspeed;
+    }
+        
+
+    public void Attack(GameObject Target)
+    {
+        if (isDead) return;
+        if (IsAnimationRunning("ATTACK")) return;
+        if (!RotateToAtkTarget(Target)) return;
+
+        Anim.Play("ATTACK");
+
+        Weapon equippedWeapon = GetComponentInChildren<Weapon>();
+        equippedWeapon.Area.enabled = true;
+    }
+    bool RotateToAtkTarget(GameObject Target)
+    {
+        if (Target)
+        {
+            Vector3 dir = Target.transform.position - transform.position;
+            if (Vector3.Angle(transform.forward, dir) <= 45f / 2f) //몬스터 시야각 
+            {
+                return true;
+            }
+            Quaternion quat = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, quat, 5 * Time.deltaTime);
+            return false;
+        }
+        return false;
+    }
+
+    public void CombatWait(GameObject Target)
+    {
+        if (isDead) return;
+        if (IsAnimationRunning("ATTACK")) return;
+
+        if (Vector3.Distance(transform.position, Target.transform.position) < Stat.atkrange * 2)
+        {
+            Anim.Play("WAIT");
+            Nav.isStopped = true;
+        }
+        else
+        {
+            Anim.Play("MOVE");
+            Nav.isStopped = false;
+            Nav.speed = Stat.walkspeed;
+            Nav.SetDestination(Target.transform.position);
+        }
+    }
+
+    void Dead()
+    {
+        Managers.ContentsManager.WaveMonsterCounts -= 1;
+        //이후 BT에 영향이 갈 부분을 어떻게 처리할 것인가?
+        isDead = true;
+        Anim.Play("DEAD");
+        StopAllCoroutines();
+        StartCoroutine("DEAD");
+    }
+    IEnumerator DEAD()
+    {
+        yield return new WaitForSeconds(2);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
+
+    public void ReSetAct()
+    {
+        if (gameObject.activeSelf)
+        {
+            Anim.Play("WAIT");
+            Nav.isStopped = true;
+            Nav.speed = Stat.walkspeed;
+        }
+    }
+
+}
+
+/*    public void Wandering(BTRunner runner)
+    {
+
         if (DestPos != Vector3.zero)
             StartCoroutine("WANDERING");
     }
     IEnumerator WANDERING()
     {
         if (IsAnimationRunning("ATTACK")) yield return null;
-
-        isActing = true;
 
         Anim.CrossFade("MOVE", 0.1f);
         Vector3 pos = DestPos;
@@ -69,7 +171,6 @@ public class MonsterController : UnitController
         Nav.velocity = Vector3.zero;
         yield return new WaitForSeconds(1);
 
-        isActing = false;
     }
     
     public void Chase(BTRunner runner)
@@ -112,8 +213,7 @@ public class MonsterController : UnitController
         {
             yield return null;
         }
-        isActing = true;
-
+  
 
         Anim.CrossFade("ATTACK", 0.1f);
 
@@ -125,7 +225,6 @@ public class MonsterController : UnitController
 
         yield return new WaitForSeconds(Anim.GetCurrentAnimatorStateInfo(0).length); //curAnimStateInfo.length - (equippedWeapon.AtkDelayTimes[atkCount]+0.3f)
 
-        isActing = false;
     }
 
     public void CombatWait(BTRunner runner)
@@ -135,8 +234,6 @@ public class MonsterController : UnitController
     IEnumerator COMBATWAIT() 
     {
         if (IsAnimationRunning("ATTACK")) yield return null;
-
-        isActing = true;
 
         if (Vector3.Distance(transform.position, Target.transform.position) < Stat.atkrange * 2)
         {
@@ -152,38 +249,7 @@ public class MonsterController : UnitController
             Nav.SetDestination(Target.transform.position);
         }
 
-        isActing = false;
-    }
-
-    void Dead()
-    {
-        Managers.ContentsManager.WaveMonsterCounts -= 1;
-        //이후 BT에 영향이 갈 부분을 어떻게 처리할 것인가?
-        isActing = true;
-        Anim.Play("DEAD");
-        StopAllCoroutines();
-        StartCoroutine("DEAD");
-    }
-    IEnumerator DEAD()
-    {
-        yield return new WaitForSeconds(2);
-        gameObject.SetActive(false);
-    }
-
-    public void ReSetAct()
-    {
-        if (gameObject.activeSelf)
-        {
-            isActing = false;
-            Anim.Play("WAIT");
-            Nav.isStopped = true;
-            Nav.speed = Stat.walkspeed;
-        }
-    }
-
-}
-
-
+    }*/
 
 /*
     IEnumerator CHASE() 

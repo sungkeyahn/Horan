@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameModes { StoryMode, DefanseMode, TutorialMode }
+public enum EGameModes { StoryMode, DefanseMode, TutorialMode }
 public class ContentsManager 
 {
     /*  매니저의 기능
@@ -44,16 +44,16 @@ public class ContentsManager
     public Action OnWaveClear; 
 
 
-    public void StageStart(GameModes gameMode,int stage=1) //이거는 로비에서 선택용
+    public void StageStart(EGameModes gameMode,int stage=1) //이거는 로비에서 선택용
     {
         switch (gameMode)
         {
-            case GameModes.StoryMode:
+            case EGameModes.StoryMode:
                 curStageindex = stage;
                 break;
-            case GameModes.DefanseMode:
+            case EGameModes.DefanseMode:
                 break;
-            case GameModes.TutorialMode:
+            case EGameModes.TutorialMode:
                 break;
         }
     }

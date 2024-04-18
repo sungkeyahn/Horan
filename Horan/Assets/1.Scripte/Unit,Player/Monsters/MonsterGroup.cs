@@ -2,22 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*  BT구성
- *  그룹의 정의를 일정 거리내에서 같이 행동하는 군집 느낌
- *  서로의 행동이 서로에게 영향을 주는 형태의 몬스터 군집 느낌 
- *  따라서 행동이 완전히 다른 그런 친구들을 하나의 BT로 묶을 생각 안해도 됨
- *
- *  동작을 실행하기로 결정된 MonsterController에 대하여 명령을 내리는 테스크 
- *  
- *  행동을 할 친구를 결정 하는 테스크(만약 구성원중 1명이 동작을 수행중인 경우 해당 수행자를 제외하고 다른 구성원에게 동작을 지정하도록 하기)  
- *  
- *  몬스터 컨트롤러에서 공격 void Attack()만들어 놓고 몬스터마다 상속시켜서 따로 구현
- *  공격시 적을 향해회전 같은 연속된 테스크 같은 경우는 
- *  
- *  몬스터 그룹도 여러개 만들어야 할듯 ?
- *  지금 구현 하는것은 근접 일반 몬스터 기준으로 BT 작성 
- *  
- */
 public class MonsterGroup : MonoBehaviour,IDataBind
 {
     [SerializeField]
@@ -25,7 +9,7 @@ public class MonsterGroup : MonoBehaviour,IDataBind
 
     public BTRunner Runner { get; protected set; }
 
-    List<MonsterController> MyGroup=new List<MonsterController>();
+    List<MonsterController> MyGroup = new List<MonsterController>();
 
     [SerializeField]
     MonsterController ActableCtrl; // 현재 행동을 실행할 구성원
@@ -58,7 +42,6 @@ public class MonsterGroup : MonoBehaviour,IDataBind
     {
         BindData();
 
-        //삼각형태 위치 구성
         Vector3 center = transform.position;
         float angleIncrement = 360f / 3; // 각도 
         for (int i = 0; i < MyGroup.Count; i++)
@@ -84,14 +67,7 @@ public class MonsterGroup : MonoBehaviour,IDataBind
                                 (
                                     new List<BT_Node>()
                                     {
-                                        new BT_Decorator(new BT_Selector //전투 중인 유닛이며 공격거리에 존재하면 공격
-                                        (
-                                           new List<BT_Node>()
-                                           {
-                                               new BT_Decorator(new BT_Task(Attack),RandomSelectAtkorGuard),
-                                               new BT_Task(Guard)
-                                           }
-                                        ),IsInAtkRange),
+                                        new BT_Decorator(new BT_Task(Attack),IsInAtkRange),
                                         new BT_Task(Chase) //전투 유닛 이지만 공격 거리에 없으면 추격
                                     }
                                 ),IsCombat),
@@ -136,17 +112,7 @@ public class MonsterGroup : MonoBehaviour,IDataBind
         ActableCtrl.CombatWait(player.gameObject);
         return BT_Node.NodeState.Success;
     }
-    BT_Node.NodeState Guard()
-    {
-        Debug.Log("Guard");
-        return BT_Node.NodeState.Success;
-    }
-    BT_Node.NodeState Exhaustion()
-    {
-        Debug.Log("Exhaustion");
-        return BT_Node.NodeState.Success;
-    }
-
+   
     #endregion
 
     #region Service And Deco
@@ -212,18 +178,14 @@ public class MonsterGroup : MonoBehaviour,IDataBind
        
         return false;
     }
-    bool RandomSelectAtkorGuard() // 공격or방어 랜덤 선택
+    bool RandomSelectAtkorGuard() //[미구현]
     {
         return true;
     }
-
     void SetWanderingDestination()
     {
         Destpos = transform.position + new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
     }
 
     #endregion
-
-
-
 }

@@ -1045,7 +1045,7 @@ GameObject:
   - component: {fileID: 6637542561958189752}
   - component: {fileID: 6637542561958189729}
   - component: {fileID: 6637542561958189407}
-  - component: {fileID: 6637542561958189728}
+  - component: {fileID: 6495046837676266624}
   m_Layer: 7
   m_Name: Soldier_Sword
   m_TagString: Enemy
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   sensingrange: 0
   hp: 0
   sp: 0
---- !u!114 &6637542561958189728
+--- !u!114 &6495046837676266624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1178,12 +1178,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6637542561958189755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b128476ee491b34b8d392f8c765ea66, type: 3}
+  m_Script: {fileID: 11500000, guid: e44ef5b5bee7de8429c429c6e6be14bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyName: Soldier_Sword
-  DestPos: {x: 0, y: 0, z: 0}
-  Target: {fileID: 0}
+  MyName: 
 --- !u!1 &6906587270550927840
 GameObject:
   m_ObjectHideFlags: 0

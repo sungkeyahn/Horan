@@ -7,13 +7,12 @@ using UnityEngine.AI;
 public enum AttackType { Melee, Range }
 public class MonsterController : UnitController
 {
-    public string MyName;
     public AttackType AttackType { get; protected set; }
     public Animator Anim { get; protected set; }
     public MonsterStat Stat { get; protected set; }
     public NavMeshAgent Nav { get; protected set; }
 
-    bool isDead;
+    protected bool isDead;
 
     private void Awake()
     {
@@ -26,6 +25,7 @@ public class MonsterController : UnitController
         Managers.ContentsManager.WaveMonsterCounts += 1;
         Stat.OnUnitDead += Dead;
     }
+
     public bool IsAnimationRunning(string stateName)
     {
         if (Anim != null)
@@ -39,53 +39,7 @@ public class MonsterController : UnitController
         }
         return false;
     }
-
-    public void Wandering(Vector3 DestPos)
-    {
-        if (isDead) return;
-        if (IsAnimationRunning("ATTACK")) return;
-        if (DestPos != Vector3.zero)
-        {
-            Vector3 pos = DestPos;
-            if (Vector3.Distance(transform.position, pos) < Nav.stoppingDistance)
-            {
-                Anim.Play("WAIT");
-                Nav.isStopped = true;
-                Nav.velocity = Vector3.zero;
-                return;
-            }
-            Anim.Play("MOVE");
-            Nav.SetDestination(pos);
-            Nav.isStopped = false;
-            Nav.speed = Stat.walkspeed;
-        }
-    }
-    public void Chase(GameObject Target)
-    {
-        if (isDead) return;
-        if (IsAnimationRunning("ATTACK")) return;
-        if (IsAnimationRunning("RUN")) return;
-        if (Vector3.Distance(transform.position, Target.transform.position) < Stat.atkrange) return;
-
-        Anim.Play("RUN");
-        Nav.SetDestination(Target.transform.position);
-        Nav.isStopped = false;
-        Nav.speed = Stat.runspeed;
-    }
-        
-
-    public void Attack(GameObject Target)
-    {
-        if (isDead) return;
-        if (IsAnimationRunning("ATTACK")) return;
-        if (!RotateToAtkTarget(Target)) return;
-
-        Anim.Play("ATTACK");
-
-        Weapon equippedWeapon = GetComponentInChildren<Weapon>();
-        equippedWeapon.Area.enabled = true;
-    }
-    bool RotateToAtkTarget(GameObject Target)
+    protected bool RotateToAtkTarget(GameObject Target)
     {
         if (Target)
         {
@@ -101,50 +55,29 @@ public class MonsterController : UnitController
         return false;
     }
 
-    public void CombatWait(GameObject Target)
-    {
-        if (isDead) return;
-        if (IsAnimationRunning("ATTACK")) return;
-
-        if (Vector3.Distance(transform.position, Target.transform.position) < Stat.atkrange * 2)
-        {
-            Anim.Play("WAIT");
-            Nav.isStopped = true;
-        }
-        else
-        {
-            Anim.Play("MOVE");
-            Nav.isStopped = false;
-            Nav.speed = Stat.walkspeed;
-            Nav.SetDestination(Target.transform.position);
-        }
-    }
-
-    void Dead()
+    protected virtual void Dead()
     {
         Managers.ContentsManager.WaveMonsterCounts -= 1;
-        //이후 BT에 영향이 갈 부분을 어떻게 처리할 것인가?
         isDead = true;
         Anim.Play("DEAD");
+        DropItems();
         StopAllCoroutines();
         StartCoroutine("DEAD");
     }
-    IEnumerator DEAD()
+    protected IEnumerator DEAD()
     {
         yield return new WaitForSeconds(2);
-        //gameObject.SetActive(false);
         Destroy(gameObject);
     }
 
-    public void ReSetAct()
-    {
-        if (gameObject.activeSelf)
-        {
-            Anim.Play("WAIT");
-            Nav.isStopped = true;
-            Nav.speed = Stat.walkspeed;
-        }
-    }
+    public virtual void Wandering(Vector3 DestPos)
+    { }
+    public virtual void Chase(GameObject Target)
+    { }
+    public virtual void Attack(GameObject Target)
+    { }
+    public virtual void CombatWait(GameObject Target)
+    { }
 
 }
 

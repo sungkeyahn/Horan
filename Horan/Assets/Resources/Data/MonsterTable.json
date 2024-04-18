@@ -11,6 +11,11 @@
       "sensingrange": "8",
       "dropitems": [
         {
+          "name": "Experience",
+          "amount": 10,
+          "probability": 100
+        },
+        {
           "name": "Gold",
           "amount": 15,
           "probability": 50

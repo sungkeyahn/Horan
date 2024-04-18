@@ -10,8 +10,7 @@ public enum EPlayerAnimState
     DASH
 }
 
-
-public class PlayerController : UnitController
+public class PlayerController : MonoBehaviour
 {
     Animator anim;
     PlayerStat stat;
@@ -343,18 +342,16 @@ public class PlayerController : UnitController
     #endregion
 
     #region Loot&Equip
-    void Loot()
+    public bool Loot(string itemname,int itemamount)
     {
-        //루팅 애니메이션 실행  + 범위감지->아이템 습득->인벤토리 저장 + 아이템 감지 박스 필요 
+        //루팅  + 아이템 습득->인벤토리 저장 + 아이템 감지 박스 필요 
+       print(String.Format("{0} {1}개 습득" ,itemname,itemamount));
+        return true;
     }
-    void Equip()
+    void Equip() //장착 기능이거를 어떻게 해야할지 모르겟다 
     {
         //인벤토리UI에서 아이템 선택후 이 함수 호출시  해당 아이템을 장착   
         //인벤토리 기능 구현 필요 
-    }
-    void WeaponEquip(Weapon weapon)
-    {
-        //만약 기존에 장비하고 있던 장비가 존재한다면 장착된 장비를 비활성화 이후 장착하는 코드필요
     }
     #endregion
 

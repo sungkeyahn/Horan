@@ -61,6 +61,7 @@ public class MonsterController : UnitController
         isDead = true;
         Anim.Play("DEAD");
         DropItems();
+        
         StopAllCoroutines();
         StartCoroutine("DEAD");
     }

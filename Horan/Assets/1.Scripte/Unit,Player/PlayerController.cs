@@ -13,8 +13,10 @@ public enum EPlayerAnimState
 public class PlayerController : MonoBehaviour
 {
     Animator anim;
+    
     PlayerStat stat;
     ActComponent Act;
+    HUDUI Hud;
 
     public GameObject TargetEnemy = null;
 
@@ -37,6 +39,12 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+        if (Hud == null)
+        {
+            Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
+            Hud.Init();
+        }
+
         #region Acts 
         Act attack = new Act((int)KindOfAct.Attack, Attack);
         attack.AddAllowActID((int)KindOfAct.Attack);
@@ -72,8 +80,7 @@ public class PlayerController : MonoBehaviour
         //Act.Finish((int)KindOfAct.Attack);
 
         #endregion
-        
-        //삭제 예정 코드
+
         equippedWeapon = GetComponentInChildren<Weapon>();
     }
     private void FixedUpdate()
@@ -178,10 +185,10 @@ public class PlayerController : MonoBehaviour
         if (TargetEnemy)
         {
             Vector3 targetDir = (TargetEnemy.transform.position - transform.position).normalized;
-            move.SetMove(moveDir, targetDir, stat.speed);
+            move.SetMove(moveDir, targetDir, stat.Speed);
         }
         else
-            move.SetMove(moveDir, moveDir, stat.speed);
+            move.SetMove(moveDir, moveDir, stat.Speed);
 
         anim.SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
         anim.SetFloat("WalkX", moveDir.x);
@@ -348,7 +355,7 @@ public class PlayerController : MonoBehaviour
        print(String.Format("{0} {1}개 습득" ,itemname,itemamount));
         return true;
     }
-    void Equip() //장착 기능이거를 어떻게 해야할지 모르겟다 
+    void Equip() 
     {
         //인벤토리UI에서 아이템 선택후 이 함수 호출시  해당 아이템을 장착   
         //인벤토리 기능 구현 필요 

@@ -8,7 +8,13 @@ public class LobbyScene : BaseScene
     {
         Debug.Log("LobbySceneInit");
         SceneName = "Lobby";
-        Managers.UIManager.ShowSceneUI<LobbyUI>("LobbyUI");
+        LobbyUI lobby= Managers.UIManager.ShowSceneUI<LobbyUI>("LobbyUI");
+        lobby.Init();
+
+        lobby.SetUserName("¿Ã∏ß 1");
+        lobby.SetUserLevel(99);
+        lobby.SetGoldText(123123123);
+        lobby.SetExBar(0.5f);
     }
 
     public override void Clear()

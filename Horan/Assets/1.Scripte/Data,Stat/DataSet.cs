@@ -17,6 +17,7 @@ namespace Data
     {
         public int level;
         public int maxHp;
+        public int maxSp;
         public int attack;
         public int totalExp;
     }

@@ -33,16 +33,17 @@ namespace Data
         public float runspeed;
         public float atkrange;
         public float sensingrange;
+        public float dropgold;
+        public float dropexp;
         public List<DropItems> dropitems;
     }
     [Serializable]
     public struct DropItems
     {
-        public string name;
+        public int id;
         public int amount;
         public float probability;
     }
-
 
     [Serializable]
     public class DataSet_Group
@@ -56,7 +57,29 @@ namespace Data
         public string name;
     }
 
-
+    [Serializable]
+    public class DataSet_Item
+    {
+        public int id;
+        public string name;
+        public EItemType type;
+        public string info;
+        public int iconid;
+    }
+    [Serializable]
+    public class DataSet_Equipment
+    {
+        public int id;
+        public string name;
+        public EEquipmentType type;
+        public EEquipmentAbilityType abilitys;
+    }
+    [Serializable]
+    public enum EItemType { Equipment=1, Material}
+    [Serializable]
+    public enum EEquipmentType { Weapon = 1, Head, Clothes, Accessory }
+    [Serializable]
+    public enum EEquipmentAbilityType { MaxHp = 1, MaxSp, AttackDamage, CriticalProbability}
     #endregion
 
     #region DataSeparator 
@@ -88,7 +111,6 @@ namespace Data
             return dict;
         }
     }
-
     [Serializable]
     public class Separator_GroupTable : IDataSeparator<int, DataSet_Group> //데이터파일을 게임에 로드될 형태로 잘라 하는 클래스
     {
@@ -98,6 +120,33 @@ namespace Data
         {
             Dictionary<int, DataSet_Group> dict = new Dictionary<int, DataSet_Group>();
             foreach (DataSet_Group data in groups)
+                dict.Add(data.id, data);
+            return dict;
+        }
+    }
+
+    [Serializable]
+    public class Separator_ItemTable : IDataSeparator<int, DataSet_Item> 
+    {
+        public List<DataSet_Item> items = new List<DataSet_Item>(); 
+
+        public Dictionary<int, DataSet_Item> MakeDict()
+        {
+            Dictionary<int, DataSet_Item> dict = new Dictionary<int, DataSet_Item>();
+            foreach (DataSet_Item data in items)
+                dict.Add(data.id, data);
+            return dict;
+        }
+    }
+    [Serializable]
+    public class Separator_EquipmentTable : IDataSeparator<int, DataSet_Equipment>
+    {
+        public List<DataSet_Equipment> equipments = new List<DataSet_Equipment>();
+
+        public Dictionary<int, DataSet_Equipment> MakeDict()
+        {
+            Dictionary<int, DataSet_Equipment> dict = new Dictionary<int, DataSet_Equipment>();
+            foreach (DataSet_Equipment data in equipments)
                 dict.Add(data.id, data);
             return dict;
         }

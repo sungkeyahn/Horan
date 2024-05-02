@@ -19,10 +19,17 @@ public class ContentsManager
      * 
      * 
      * 주요 기능 
-     * 1. 스테이지 시작 및 종료 시점 담당 
+     * 1. 스테이지 시작 및 종료 시점에 호출할 함수 정의 
      * 2. 게임 중 얻은 데이터 관리 및 전달
-     * 3. 
-     */
+     * 
+     * 지금 할일 
+     * 아이템 구현 -> 아이템 드랍 -> 아이템 습득 -> 콘텐츠 매니저에 저장 -> 
+     * 획득 아이템 아이콘 및 데이터 넣기 
+     * 획득 아이템 저장해서 로비로 넘기기
+     * 
+     * 로비에서 볼 아이템 인벤토리 구현
+     * 
+     */ 
 
     #region Stage
     public Action OnStageClear;
@@ -63,7 +70,7 @@ public class ContentsManager
 
     public Action OnWaveClear; //ScneScript ref 
     int waveMonsterCounts;
-    public int WaveMonsterCounts
+    int WaveMonsterCounts
     {
         get { return waveMonsterCounts; }
         set { waveMonsterCounts = value; if (waveMonsterCounts == 0) if (OnWaveClear != null) OnWaveClear.Invoke(); }
@@ -83,6 +90,59 @@ public class ContentsManager
      
     }
     #endregion
+    
+    //게임 시작 시 해당 자료구조를 비워야하고 게임종료시 해당 데이터를 넘겨야함 
+    public Dictionary<int,int> AcquiredItems = new Dictionary<int, int>(); // 획득한 아이템  id , 수량 
+
+    bool TryItemDrop(string id) //몬스터 키값이 string 형임 추후 수정 필요
+    {
+        Data.DataSet_Monster data;
+        Managers.DataLoder.DataCache_Monsters.TryGetValue(id,out data);
+        if (data == null) return false;
+
+        bool DropNothing = true;
+        for (int i = 0; i < data.dropitems.Count; i++)
+        {
+            int rand = UnityEngine.Random.Range(0, 99);
+            if (rand < data.dropitems[i].probability)
+            {
+                Data.DataSet_Item itemdata;
+                Managers.DataLoder.DataCache_Items.TryGetValue(data.dropitems[i].id, out itemdata);
+                if (itemdata != null) 
+                {
+                    if (AcquiredItems.ContainsKey(data.dropitems[i].id))
+                        AcquiredItems[data.dropitems[i].id] += data.dropitems[i].amount;
+                    else
+                        AcquiredItems.Add(data.dropitems[i].id, data.dropitems[i].amount);
+
+                    DropNothing = false;
+                    Debug.Log(String.Format($"{0} {1}개 습득", data.dropitems[i].id, data.dropitems[i].amount));
+                }
+            }
+        }
+        return !DropNothing;
+    }
+
+
+    #region Unit
+    Dictionary<string, UnitController> SpawnedUnits=new Dictionary<string, UnitController>();
+    public void SpawnUnit(string id)
+    {
+        WaveMonsterCounts += 1;
+    }
+    public void DeadUnit(string id)
+    {
+        if (TryItemDrop(id))
+        {
+            //Spawn Drop Effects  + PickupItem Objects
+        }
+        //드랍 골드 
+        //드랍 경험치 
+        
+
+        WaveMonsterCounts -= 1;
+    }
+    #endregion
 
     #region InGameControl
     bool isPause;
@@ -94,3 +154,12 @@ public class ContentsManager
 
 }
 
+/*  GameObject prefab = Resources.Load<GameObject>($"DropItem/{name}");
+                if (prefab)
+                {
+                    GameObject ob = Instantiate(prefab);
+                    ob.transform.position = transform.position + Vector3.up * 3;
+
+
+                    //ob.GetComponent<PickupItem>().SetItem(name, amount);
+                }*/

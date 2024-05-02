@@ -22,7 +22,7 @@ public class MonsterController : UnitController
     }
     protected void Start()
     {
-        Managers.ContentsManager.WaveMonsterCounts += 1;
+        Managers.ContentsManager.SpawnUnit(MyName);
         Stat.OnUnitDead += Dead;
     }
 
@@ -57,11 +57,9 @@ public class MonsterController : UnitController
 
     protected virtual void Dead()
     {
-        Managers.ContentsManager.WaveMonsterCounts -= 1;
+        Managers.ContentsManager.DeadUnit(MyName);
         isDead = true;
         Anim.Play("DEAD");
-        DropItems();
-        
         StopAllCoroutines();
         StartCoroutine("DEAD");
     }
@@ -79,6 +77,8 @@ public class MonsterController : UnitController
     { }
     public virtual void CombatWait(GameObject Target)
     { }
+
+
 
 }
 

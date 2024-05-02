@@ -348,18 +348,5 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    #region Loot&Equip
-    public bool Loot(string itemname,int itemamount)
-    {
-        //루팅  + 아이템 습득->인벤토리 저장 + 아이템 감지 박스 필요 
-       print(String.Format("{0} {1}개 습득" ,itemname,itemamount));
-        return true;
-    }
-    void Equip() 
-    {
-        //인벤토리UI에서 아이템 선택후 이 함수 호출시  해당 아이템을 장착   
-        //인벤토리 기능 구현 필요 
-    }
-    #endregion
 
 }

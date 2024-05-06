@@ -32,7 +32,8 @@ public class UIManager
     }
 
     int order = 0;
-    Stack<PopupUI> popupStack = new Stack<PopupUI>();
+    //Stack<PopupUI> popupStack = new Stack<PopupUI>(); 버전이 올라서 그런가? UI 부분에 버그가 많다
+    Stack<GameObject> popupStack = new Stack<GameObject>();
     public T ShowPopupUI<T>(string prefabName = null) where T : PopupUI
     {
         if (string.IsNullOrEmpty(prefabName)) prefabName = typeof(T).Name;
@@ -41,7 +42,7 @@ public class UIManager
         GameObject go = Object.Instantiate(prefab,Root.transform);
        
         T popup = go.GetComponent<T>();
-        popupStack.Push(popup);
+        popupStack.Push(go);
 
         go.transform.SetParent(Root.transform);
 
@@ -50,17 +51,23 @@ public class UIManager
     public void ClosePopupUI()
     {
         if (popupStack.Count == 0) return;
-
-        PopupUI popup = popupStack.Pop();
-        Object.Destroy(popup.gameObject);
+        GameObject popup;
+        if (popupStack.TryPop(out popup))
+        {
+            Object.Destroy(popup.gameObject);
+            order--;
+        }
         popup = null;
-        order--;
+  
     }
     public void ClosePopupUI(PopupUI popup)
     {
         if (popupStack.Count == 0) return;
 
-        if (popupStack.Peek() != popup) return;
+        GameObject peek;
+        popupStack.TryPeek(out peek);
+        if (popup.gameObject != peek)
+            return;
 
         ClosePopupUI();
     }

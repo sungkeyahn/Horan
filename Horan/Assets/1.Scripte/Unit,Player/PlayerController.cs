@@ -13,10 +13,11 @@ public enum EPlayerAnimState
 public class PlayerController : MonoBehaviour
 {
     Animator anim;
-    
-    PlayerStat stat;
-    ActComponent Act;
+
     HUDUI Hud;
+    PlayerStat Stat;
+    ActComponent Act;
+
 
     public GameObject TargetEnemy = null;
 
@@ -34,8 +35,8 @@ public class PlayerController : MonoBehaviour
         input.KeyAction += OnPlayerKeyBoardEvent;
 
         move = GetComponent<MoveComponent>();
-        stat = GetComponent<PlayerStat>();
-        stat.OnHit += () => isCounter = true;
+        Stat = GetComponent<PlayerStat>();
+        Stat.OnHit += () => isCounter = true;
     }
     private void Start()
     {
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         equippedWeapon = GetComponentInChildren<Weapon>();
+        equippedWeapon.Equipment(1);
     }
     private void FixedUpdate()
     {
@@ -90,8 +92,6 @@ public class PlayerController : MonoBehaviour
             Collider[] cols = Physics.OverlapSphere(transform.position, 10, LayerMask.GetMask("Enemy"));
             for (int i = 0; i < cols.Length; i++)
             {
-                Debug.Log(cols[i]);
-                //가장 가까운 적을 타겟팅 하게 하기 + 대쉬시 잠시 타겟 끄기 
                 if (TargetEnemy == null)
                     TargetEnemy = cols[i].gameObject;
             }
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case InputComponent.MouseEvent.Click:
                 {
-                    if (atkAble && atkCount < equippedWeapon.AttackAnimNames.Length)
+                    if (atkAble && atkCount < equippedWeapon.AnimInfo.Count)
                     {
                         Act.Execution((int)KindOfAct.Attack);
                         DashAtkInput = true;
@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case InputComponent.KeyBoardEvent.ButtonDown:
-                if (Input.GetKey(KeyCode.Space) && 0 < DashCount && stat.UseSP(20))
+                if (Input.GetKey(KeyCode.Space) && 0 < DashCount && Stat.UseSP(20))
                     Act.Execution((int)KindOfAct.Dash);
                 break;
             case InputComponent.KeyBoardEvent.ButtonUp:
@@ -182,13 +182,13 @@ public class PlayerController : MonoBehaviour
         moveDir.x = Input.GetAxis("Horizontal");
         moveDir.z = Input.GetAxis("Vertical");
 
-        if (TargetEnemy)
+        /*        if (TargetEnemy)
         {
             Vector3 targetDir = (TargetEnemy.transform.position - transform.position).normalized;
             move.SetMove(moveDir, targetDir, stat.Speed);
         }
-        else
-            move.SetMove(moveDir, moveDir, stat.Speed);
+        else*/
+        move.SetMove(moveDir, moveDir, Stat.Speed);
 
         anim.SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
         anim.SetFloat("WalkX", moveDir.x);
@@ -208,28 +208,20 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator ATTACK()
     {
-        if (atkCount < equippedWeapon.AttackAnimNames.Length)
-        {
-            anim.Play(equippedWeapon.AttackAnimNames[atkCount], -1, 0);
-            atkCount += 1;
-            atkAble = false;
-        }
-        else
-        {
-            atkCount = 0;
-            Act.Finish((int)KindOfAct.Attack);
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(0.3f); // 공격 활성화 equippedWeapon.AtkDelayTimes[atkCount]
+        Data.AnimInfomation animinfo = equippedWeapon.AnimInfo[atkCount];
+        atkCount += 1;
+        anim.Play(animinfo.name, -1, 0);
+        atkAble = false;
+        yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
         equippedWeapon.Area.enabled = true;
-        yield return new WaitForSeconds(0.3f); // 공격 비활성화 
+        yield return new WaitForSeconds(animinfo.judgmenttime); // 공격 비활성화 
         equippedWeapon.Area.enabled = false;
-
         atkAble = true;
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 0.8f); //curAnimStateInfo.length - (equippedWeapon.AtkDelayTimes[atkCount]+0.3f)
-        atkCount = 0;
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length -(animinfo.delay+ animinfo.judgmenttime)); 
+        atkCount = 0;    
         Act.Finish((int)KindOfAct.Attack);
+        yield return null;
+        
     }
 
     #endregion
@@ -250,7 +242,7 @@ public class PlayerController : MonoBehaviour
         anim.Play("GUARD");
         anim.SetBool("GuardEnd", false);
 
-        stat.isDamageable = false;
+        Stat.isDamageable = false;
 
         isCounter = false;
         yield return new WaitForSeconds(GuardSuccessTime); //해당 시간안에 공격이 들어올시 카운터 어택 (이 시간은 아마 가드애니메이션 선딜시간이될듯?)
@@ -264,7 +256,7 @@ public class PlayerController : MonoBehaviour
         isGuard = false;
         anim.SetBool("GuardEnd", true);
 
-        stat.isDamageable = true;
+        Stat.isDamageable = true;
     }
 
     void Counter()
@@ -283,7 +275,7 @@ public class PlayerController : MonoBehaviour
 
         isGuard = false;
 
-        stat.isDamageable = true;
+        Stat.isDamageable = true;
        
         Act.Finish((int)KindOfAct.Counter);
     }
@@ -305,16 +297,14 @@ public class PlayerController : MonoBehaviour
     {
         DashCount -= 1;
         
-        stat.isDamageable = false;
+        Stat.isDamageable = false;
 
-        move.MoveActive = false;
-        //move.MoveByPower(transform.forward, 10);
-        move.MoveByPower(moveDir, 10);
-
+        move.SetTransMove(Vector3.forward, 6, 0.4f);
+ 
         anim.Play("DASH");
-
+        
         DashAtkInput = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         if (DashAtkInput)
         {
             Act.Execution((int)KindOfAct.DashAttack);
@@ -322,9 +312,8 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        yield return new WaitForSeconds(0.2f); //애니메이션 모션 
-        stat.isDamageable = false;
-        move.MoveActive = true;
+        yield return new WaitForSeconds(0.2f); //대쉬 시간
+        Stat.isDamageable = false;
         Act.Finish((int)KindOfAct.Dash);
 
         yield return new WaitForSeconds(DashCoolTime);

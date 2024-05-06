@@ -21,7 +21,7 @@ public class LobbyUI : SceneUI
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_StartGame), OnBtnClicked_StartGame, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Tutorial), OnBtnClicked_Tutorial, UIEvent.Click);
-        BindEvent(GetObject((int)Components.Button_CharacterUpgrade), OnBtnClicked_CharacterUpgrade, UIEvent.Click);
+        BindEvent(GetObject((int)Components.Button_CharacterUpgrade), OnBtnClicked_Inventory, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_GameSetting), OnBtnClicked_GameSetting, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_EquipmentUpgrade), OnBtnClicked_EquipmentUpgrade, UIEvent.Click);
 
@@ -40,9 +40,9 @@ public class LobbyUI : SceneUI
     {
         Debug.Log("Tutorial");
     }
-    public void OnBtnClicked_CharacterUpgrade(PointerEventData data)
+    public void OnBtnClicked_Inventory(PointerEventData data)
     {
-       Managers.UIManager.ShowPopupUI<CharacterUpgradeUI>("CharacterUpgradeUI");
+       Managers.UIManager.ShowPopupUI<CharacterUpgradeUI>("EquipUI");
        Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
     }
     public void OnBtnClicked_GameSetting(PointerEventData data)

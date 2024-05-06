@@ -16,7 +16,7 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
 
     public Dictionary<int, Data.DataSet_Item> DataCache_Items { get; private set; } = new Dictionary<int, Data.DataSet_Item>();
     public Dictionary<int, Data.DataSet_Equipment> DataCache_Equipments { get; private set; } = new Dictionary<int, Data.DataSet_Equipment>();
-
+    public Dictionary<int, Data.DataSet_Weapon> DataCache_Weapon { get; private set; } = new Dictionary<int, Data.DataSet_Weapon>();
 
 
     //예외처리 코드 추가 예정...
@@ -29,6 +29,7 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
 
         DataCache_Items = LoadData<Data.Separator_ItemTable, int, Data.DataSet_Item>("ItemTable").MakeDict();
         DataCache_Equipments = LoadData<Data.Separator_EquipmentTable, int, Data.DataSet_Equipment>("EquipmentTable").MakeDict();
+        DataCache_Weapon = LoadData<Data.Separator_WeaponTable, int, Data.DataSet_Weapon>("WeaponTable").MakeDict();
     }
 
     //예외처리 코드 추가 예정...

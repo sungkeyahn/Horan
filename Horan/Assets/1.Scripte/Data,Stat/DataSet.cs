@@ -12,7 +12,7 @@ namespace Data
     }
 
     #region DataSet
-    [Serializable] 
+    [Serializable]
     public class Stat_Player
     {
         public int level;
@@ -66,20 +66,47 @@ namespace Data
         public string info;
         public int iconid;
     }
+
     [Serializable]
     public class DataSet_Equipment
     {
         public int id;
         public string name;
         public EEquipmentType type;
-        public EEquipmentAbilityType abilitys;
+        public List<EquipmentAbility> abilitys;
     }
     [Serializable]
-    public enum EItemType { Equipment=1, Material}
+    public enum EItemType { Equipment = 1, Material }
     [Serializable]
     public enum EEquipmentType { Weapon = 1, Head, Clothes, Accessory }
     [Serializable]
-    public enum EEquipmentAbilityType { MaxHp = 1, MaxSp, AttackDamage, CriticalProbability}
+    public enum EEquipmentAbilityType { MaxHp = 1, MaxSp, AttackDamage, CriticalProbability }
+    [Serializable]
+    public struct EquipmentAbility
+    {
+        public EEquipmentAbilityType type;
+        public float value;
+    }
+
+
+    [Serializable]
+    public class DataSet_Weapon
+    {
+        public int id;
+        public string meshpath;
+        public string materialpath;
+        public float[] socketpos;
+        public float[] socketrot;
+        public List<AnimInfomation> animinfo;
+    }
+    [Serializable]
+    public struct AnimInfomation
+    {
+        public string name;
+        public float delay;
+        public float judgmenttime;
+    }
+
     #endregion
 
     #region DataSeparator 
@@ -151,6 +178,21 @@ namespace Data
             return dict;
         }
     }
+
+    [Serializable]
+    public class Separator_WeaponTable : IDataSeparator<int, DataSet_Weapon>
+    {
+        public List<DataSet_Weapon> weapons = new List<DataSet_Weapon>();
+
+        public Dictionary<int, DataSet_Weapon> MakeDict()
+        {
+            Dictionary<int, DataSet_Weapon> dict = new Dictionary<int, DataSet_Weapon>();
+            foreach (DataSet_Weapon data in weapons)
+                dict.Add(data.id, data);
+            return dict;
+        }
+    }
+
     #endregion
 
 }

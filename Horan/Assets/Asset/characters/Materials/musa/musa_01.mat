@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: musa_01
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHATEST_ON
   - _METALLICGLOSSMAP
@@ -21,6 +23,7 @@ Material:
   stringTagMap:
     RenderType: TransparentCutout
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -53,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 739c1c9aab82f0d45b5c6d184c4a4b15, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3e3201632081bdb43a957bdd1f3c6341, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -86,7 +89,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 0.1
+    - _GlossMapScale: 0.8
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0

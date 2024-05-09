@@ -21,11 +21,16 @@ public class EquipUI : PopupUI
         HeadEquipImage = GetObject((int)Components.Image_Head).GetComponent<Image>();
         ClothesEquipImage = GetObject((int)Components.Image_Clothes).GetComponent<Image>(); 
         WeaponEquipImage = GetObject((int)Components.Image_Weapon).GetComponent<Image>(); 
-        AccessoryEquipImage = GetObject((int)Components.Image_Accessory).GetComponent<Image>(); 
+        AccessoryEquipImage = GetObject((int)Components.Image_Accessory).GetComponent<Image>();
 
         UpdateEquipment();
-        //슬롯 초기화 하기  +스프라이트 캐시 만들기
+
+        //인벤 슬롯 추가 [동적] 
+
+        ItemSlotUI slotUI = GetComponentInChildren<ItemSlotUI>();
+        slotUI.Init(1);
     }
+
     public void OnBtnClicked_ClosePopup(PointerEventData data)
     {
         Managers.UIManager.GetSceneUI().gameObject.SetActive(true);
@@ -33,13 +38,27 @@ public class EquipUI : PopupUI
     }
     public void UpdateEquipment()
     {
-        //아이템 슬롯에서 장착 버튼 클릭  --> 여기서 스프라이트 변경이 이루어 져야 함
-         int id = Managers.DataLoder.DataCache_Save.Equip.weapon;
-        // Managers.DataLoder.DataCache_Items[1].iconid; 아이콘 받아서 넣기
-        HeadEquipImage.sprite = null;
-        ClothesEquipImage.sprite = null;
-        WeaponEquipImage.sprite = null;
-        AccessoryEquipImage.sprite = null;
+        string weaponicon="";
+        string headicon = "";
+        string clothesicon = "";
+        string accessoryicon = "";
+        if (Managers.DataLoder.DataCache_Items.ContainsKey(Managers.DataLoder.DataCache_Save.Equip.weapon))
+            weaponicon = Managers.DataLoder.DataCache_Items[Managers.DataLoder.DataCache_Save.Equip.weapon].iconfilename;
+        if (Managers.DataLoder.DataCache_Items.ContainsKey(Managers.DataLoder.DataCache_Save.Equip.head))
+             headicon = Managers.DataLoder.DataCache_Items[Managers.DataLoder.DataCache_Save.Equip.head].iconfilename;
+        if (Managers.DataLoder.DataCache_Items.ContainsKey(Managers.DataLoder.DataCache_Save.Equip.clothes))
+             clothesicon = Managers.DataLoder.DataCache_Items[Managers.DataLoder.DataCache_Save.Equip.clothes].iconfilename;
+        if (Managers.DataLoder.DataCache_Items.ContainsKey(Managers.DataLoder.DataCache_Save.Equip.accessory))
+             accessoryicon = Managers.DataLoder.DataCache_Items[Managers.DataLoder.DataCache_Save.Equip.accessory].iconfilename;
+
+        if (Managers.DataLoder.DataCache_Sprite.ContainsKey(weaponicon))
+            WeaponEquipImage.sprite  = Managers.DataLoder.DataCache_Sprite[weaponicon];
+        if (Managers.DataLoder.DataCache_Sprite.ContainsKey(headicon))
+            HeadEquipImage.sprite = Managers.DataLoder.DataCache_Sprite[headicon];
+        if (Managers.DataLoder.DataCache_Sprite.ContainsKey(clothesicon))
+            ClothesEquipImage.sprite = Managers.DataLoder.DataCache_Sprite[clothesicon];
+        if (Managers.DataLoder.DataCache_Sprite.ContainsKey(accessoryicon))
+            AccessoryEquipImage.sprite = Managers.DataLoder.DataCache_Sprite[accessoryicon];
     }
 
 }

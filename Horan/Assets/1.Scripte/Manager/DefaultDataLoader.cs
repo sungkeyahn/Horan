@@ -21,7 +21,7 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
     public Dictionary<int, Data.DataSet_Weapon> DataCache_Weapon { get; private set; } = new Dictionary<int, Data.DataSet_Weapon>();
 
     //리소스 캐시(추가 예정)
-    //...
+    public Dictionary<string, Sprite> DataCache_Sprite { get; private set; } = new Dictionary<string, Sprite>();
 
 
     //예외처리 코드 추가 예정...
@@ -35,6 +35,8 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
         DataCache_Items = LoadData<Data.Separator_ItemTable, int, Data.DataSet_Item>("ItemTable").MakeDict();
         DataCache_Equipments = LoadData<Data.Separator_EquipmentTable, int, Data.DataSet_Equipment>("EquipmentTable").MakeDict();
         DataCache_Weapon = LoadData<Data.Separator_WeaponTable, int, Data.DataSet_Weapon>("WeaponTable").MakeDict();
+
+        DataCache_Sprite = LoadSprite();
     }
     public DataDict LoadData<DataDict, Key, Value>(string DataFileName) where DataDict : Data.IDataSeparator<Key, Value>
     {
@@ -44,7 +46,14 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
        
         return JsonUtility.FromJson<DataDict>(textasset.text);
     }
-    
+    Dictionary<string, Sprite> LoadSprite()
+    {
+        Sprite[] Sprites = Resources.LoadAll<Sprite>("Sprite");
+        Dictionary<string, Sprite> dict = new Dictionary<string, Sprite>();
+        foreach (Sprite data in Sprites)
+            dict.Add(data.name, data);
+        return dict;
 
+    }
 
 }

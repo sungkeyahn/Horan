@@ -2,14 +2,63 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 namespace Data
 {
-    //데이터 파일을 키값을 기준으로 분리하여 저장하기 위한 인터페이스
+    //데이터 테이블 파일을 키값을 기준으로 분리하여 저장하기 위한 인터페이스
     public interface IDataSeparator<Key, Value>
     {
         Dictionary<Key, Value> MakeDict();
     }
+
+
+    #region Save 
+    //.json
+    [Serializable]
+    public class SaveData
+    {
+        public SaveData()
+        {
+            User.level = 1;
+            User.exp = 0.5f;
+            User.gold = 11111;
+            User.name = "NONE";
+            Inventory = new List<Save_ItemSlot>();
+            Equip.weapon = 1;
+            Equip.head = 0;
+            Equip.clothes = 0;
+            Equip.accessory = 0;
+        }
+        public Save_User User;
+        public List<Save_ItemSlot> Inventory;
+        public Save_Equip Equip;
+    }
+    [Serializable]
+    public struct Save_User
+    {
+        public int level;
+        public string name;
+        public float exp;
+        public int gold;
+        //숙련도 ? 
+    }
+    [Serializable]
+    public struct Save_ItemSlot
+    {
+        public int id;
+        public int amount;
+    }
+    [Serializable]
+    public struct Save_Equip
+    {
+        public int weapon;
+        public int head;
+        public int clothes;
+        public int accessory;
+    }
+    #endregion 
+
 
     #region DataSet
     [Serializable]

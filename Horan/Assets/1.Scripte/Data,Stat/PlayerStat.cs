@@ -120,10 +120,10 @@ public class PlayerStat : Stat, IDataBind, IDamageInteraction
     }
     public void BindData()
     {
-        MaxHp = Managers.DataLoder.playerStatDict[Level].maxHp;
-        MaxSp = Managers.DataLoder.playerStatDict[Level].maxSp;
-        Attack = Managers.DataLoder.playerStatDict[Level].attack;
-        TotalExp = Managers.DataLoder.playerStatDict[Level].totalExp;
+        MaxHp = Managers.DataLoder.DataCache_LevelByStat[Level].maxHp;
+        MaxSp = Managers.DataLoder.DataCache_LevelByStat[Level].maxSp;
+        Attack = Managers.DataLoder.DataCache_LevelByStat[Level].attack;
+        TotalExp = Managers.DataLoder.DataCache_LevelByStat[Level].totalExp;
     }
 
     public void TakeDamage(float damage)

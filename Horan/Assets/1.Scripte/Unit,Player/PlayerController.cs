@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         if (Hud == null)
         {
             Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
-            Hud.Init();
+            //Hud.Init();
         }
 
         #region Acts 
@@ -76,14 +76,14 @@ public class PlayerController : MonoBehaviour
         Act.AddAct(dash);
         Act.AddAct(dashAtttack);
         Act.AddAct(counter);
-        //행동 실행 및 종료 호출
-        //Act.Execution((int)KindOfAct.Attack);
-        //Act.Finish((int)KindOfAct.Attack);
-
         #endregion
 
         equippedWeapon = GetComponentInChildren<Weapon>();
-        equippedWeapon.Equipment(1);
+        Equipment(Data.EEquipmentType.Weapon, Managers.DataLoder.DataCache_Save.Equip.weapon);
+        Equipment(Data.EEquipmentType.Head, Managers.DataLoder.DataCache_Save.Equip.head);
+        Equipment(Data.EEquipmentType.Clothes, Managers.DataLoder.DataCache_Save.Equip.clothes);
+        Equipment(Data.EEquipmentType.Accessory, Managers.DataLoder.DataCache_Save.Equip.accessory);
+
     }
     private void FixedUpdate()
     {
@@ -337,5 +337,21 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    void Equipment(Data.EEquipmentType equipmentType, int id)
+    {
+        switch (equipmentType)
+        {
+            case Data.EEquipmentType.Weapon:
+                equippedWeapon.Equipment(id);
+                break;
+            case Data.EEquipmentType.Head:
+                //스텟 증가
+                break;
+            case Data.EEquipmentType.Clothes:
+                break;
+            case Data.EEquipmentType.Accessory:
+                break;
+        }
+    }
 
 }

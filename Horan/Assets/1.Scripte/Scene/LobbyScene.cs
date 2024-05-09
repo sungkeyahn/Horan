@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class LobbyScene : BaseScene
 {
+    LobbyUI lobby;
     protected override void Init()
     {
         Debug.Log("LobbySceneInit");
         SceneName = "Lobby";
-        LobbyUI lobby= Managers.UIManager.ShowSceneUI<LobbyUI>("LobbyUI");
+        lobby= Managers.UIManager.ShowSceneUI<LobbyUI>("LobbyUI");
         lobby.Init();
-
-        lobby.SetUserName("¿Ã∏ß 1");
-        lobby.SetUserLevel(99);
-        lobby.SetGoldText(123123123);
-        lobby.SetExBar(0.5f);
+    }
+    private void Start()
+    {
+        Data.Save_User userinfo = Managers.DataLoder.DataCache_Save.User;
+        lobby.SetUserName(userinfo.name);
+        lobby.SetUserLevel(userinfo.level);
+        lobby.SetGoldText(userinfo.gold);
+        lobby.SetExBar(userinfo.exp);
     }
 
     public override void Clear()

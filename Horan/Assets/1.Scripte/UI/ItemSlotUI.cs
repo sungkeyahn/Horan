@@ -11,16 +11,25 @@ public class ItemSlotUI : BaseUI
     Image ItemImage; 
     GameObject EquipBtnObject;
     GameObject CloseBtnObject;
+    Data.Save_ItemSlot saveditemdata;
 
     public void Init(int slotindex)
     {
-        Init();
         index = slotindex;
+        Init();
 
-        //매니저에서 저장된 아이템 데이터를 받아서 생성할때 인덱스 넣어소 
-        //Managers.DataLoder.DataCache_SaveData.inven[index].id;
-        //ItemImage.sprite = Managers.DataLoder.DataCache_Weapon[index].animinfo;
-       
+        //아이템 데이터 로드
+
+        if (index < Managers.DataLoder.DataCache_Save.Inventory.Count)
+        {
+            saveditemdata = Managers.DataLoder.DataCache_Save.Inventory[index];
+            Debug.Log(saveditemdata.id);
+        }
+        Debug.Log(index);
+        //스프라이트 로드
+        //int icon = Managers.DataLoder.DataCache_Items[saveditemdata.id].iconid;
+        //스프라이트 리소스 캐시 만들기
+        //ItemImage.sprite = Managers.DataLoder.DataCache_Icon[icon];
     }
     public override void Init()
     {
@@ -45,11 +54,30 @@ public class ItemSlotUI : BaseUI
     }
     public void OnClicked_Equip(PointerEventData data)
     {
-        //해당 장비의 정보를 가져와서 장착
-        //인벤에 대한 데이터를 게임 시작할 때 가져와야 함
-        //SaveData 관해서 생각 ........ 아이템을 저장하는건 둘째 치고
-        //저장된 아이템 데이터를 불러오는것 부터 만들자
-
+        //여기서 접근할수 잇는 정보 -> 나의 인벤토리 슬롯 인덱스 -> 아이템 id
+        //해야하는 기능 -> 어떤 부위 인지 + 장비 id 알아내서 넣기 
+        if (Managers.DataLoder.DataCache_Equipments.ContainsKey(saveditemdata.id))
+        {
+            Data.EEquipmentType type = Managers.DataLoder.DataCache_Equipments[saveditemdata.id].type;
+            switch (type)
+            {
+                case Data.EEquipmentType.Weapon:
+                    Managers.DataLoder.DataCache_Save.Equip.weapon = saveditemdata.id;
+                    break;
+                case Data.EEquipmentType.Head:
+                    Managers.DataLoder.DataCache_Save.Equip.head = saveditemdata.id;
+                    break;
+                case Data.EEquipmentType.Clothes:
+                    Managers.DataLoder.DataCache_Save.Equip.clothes = saveditemdata.id;
+                    break;
+                case Data.EEquipmentType.Accessory:
+                    Managers.DataLoder.DataCache_Save.Equip.accessory = saveditemdata.id;
+                    break;
+            }
+            EquipUI equip = GetComponentInParent<EquipUI>(); //개선 해야 할듯 ?  구조 자체를 
+            if (equip)
+                equip.UpdateEquipment();
+        }
     }
     public void OnClicked_Close(PointerEventData data)
     {

@@ -7,7 +7,6 @@ interface IEquipment
 {
     public void Equipment(int id);
 }
-
 public class Weapon : MonoBehaviour, IEquipment
 {
     public BoxCollider Area { get; private set; } //공격 범위 콜라이더
@@ -15,8 +14,6 @@ public class Weapon : MonoBehaviour, IEquipment
     MeshRenderer meshRenderer;
 
     PlayerStat onwerStat;
-
-
 
     public float damage { get; private set; }
     public List<Data.AnimInfomation> AnimInfo { get; private set; } = new List<Data.AnimInfomation>();
@@ -53,16 +50,17 @@ public class Weapon : MonoBehaviour, IEquipment
         }
     }
 
+
     public void Equipment(int id)
     {
         if (Managers.DataLoder.DataCache_Equipments.ContainsKey(id))
         {
             for (int i = 0; i < Managers.DataLoder.DataCache_Equipments[id].abilitys.Count; i++)
             {
-                if(Managers.DataLoder.DataCache_Equipments[id].abilitys[i].type==Data.EEquipmentAbilityType.AttackDamage)
+                if (Managers.DataLoder.DataCache_Equipments[id].abilitys[i].type == Data.EEquipmentAbilityType.AttackDamage)
                     damage = Managers.DataLoder.DataCache_Equipments[id].abilitys[i].value;
             }
-           
+
 
             if (Managers.DataLoder.DataCache_Weapon.ContainsKey(id))
             {

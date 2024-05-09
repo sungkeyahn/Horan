@@ -24,6 +24,7 @@ public class EquipUI : PopupUI
         AccessoryEquipImage = GetObject((int)Components.Image_Accessory).GetComponent<Image>(); 
 
         UpdateEquipment();
+        //슬롯 초기화 하기  +스프라이트 캐시 만들기
     }
     public void OnBtnClicked_ClosePopup(PointerEventData data)
     {
@@ -32,7 +33,8 @@ public class EquipUI : PopupUI
     }
     public void UpdateEquipment()
     {
-        //Managers.DataLoder.DataCache_Save.Equipment[(int)Data.EEquipmentType.Accessory];
+        //아이템 슬롯에서 장착 버튼 클릭  --> 여기서 스프라이트 변경이 이루어 져야 함
+         int id = Managers.DataLoder.DataCache_Save.Equip.weapon;
         // Managers.DataLoder.DataCache_Items[1].iconid; 아이콘 받아서 넣기
         HeadEquipImage.sprite = null;
         ClothesEquipImage.sprite = null;

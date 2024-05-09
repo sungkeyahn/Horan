@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ItemSlotUI : BaseUI
 {
+    bool isinit;
     enum Components { Image_ItemSlot, Button_Equip, Button_Close }
     public int index { get; private set; }
     Image ItemImage; 
@@ -17,34 +18,39 @@ public class ItemSlotUI : BaseUI
     {
         index = slotindex;
         Init();
-
-        //아이템 데이터 로드
-
-        if (index < Managers.DataLoder.DataCache_Save.Inventory.Count)
-        {
-            saveditemdata = Managers.DataLoder.DataCache_Save.Inventory[index];
-            Debug.Log(saveditemdata.id);
-        }
         Debug.Log(index);
-        //스프라이트 로드
-        //int icon = Managers.DataLoder.DataCache_Items[saveditemdata.id].iconid;
-        //스프라이트 리소스 캐시 만들기
-        //ItemImage.sprite = Managers.DataLoder.DataCache_Icon[icon];
+        Debug.Log(Managers.DataLoder.DataCache_Save.Inventory.Count);
+
+        if (index <= Managers.DataLoder.DataCache_Save.Inventory.Count)
+        {
+            saveditemdata = Managers.DataLoder.DataCache_Save.Inventory[index-1];
+            if (Managers.DataLoder.DataCache_Items.ContainsKey(saveditemdata.id))
+            {
+                string icon = Managers.DataLoder.DataCache_Items[saveditemdata.id].iconfilename;
+                if (Managers.DataLoder.DataCache_Sprite.ContainsKey(icon))
+                    ItemImage.sprite = Managers.DataLoder.DataCache_Sprite[icon];
+            }
+        }
+
+
     }
     public override void Init()
     {
+        if (isinit) return; 
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Image_ItemSlot), OnClicked_ItemSlot, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Equip), OnClicked_Equip, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Close), OnClicked_Close, UIEvent.Click);
        
-        ItemImage = GetImage((int)Components.Image_ItemSlot);
+        ItemImage = GetObject((int)Components.Image_ItemSlot).GetComponent<Image>();
 
         EquipBtnObject = GetObject((int)Components.Button_Equip);
         CloseBtnObject = GetObject((int)Components.Button_Close);
 
         EquipBtnObject.SetActive(false);
         CloseBtnObject.SetActive(false);
+
+        isinit = true;
     }
 
     public void OnClicked_ItemSlot(PointerEventData data)

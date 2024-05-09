@@ -24,8 +24,14 @@ namespace Data
             User.exp = 0.5f;
             User.gold = 11111;
             User.name = "NONE";
+            
             Inventory = new List<Save_ItemSlot>();
-            Equip.weapon = 1;
+            Data.Save_ItemSlot item;
+            item.id = 1;
+            item.amount = 1;
+            Inventory.Add(item);
+
+            Equip.weapon = 0;
             Equip.head = 0;
             Equip.clothes = 0;
             Equip.accessory = 0;
@@ -113,7 +119,7 @@ namespace Data
         public string name;
         public EItemType type;
         public string info;
-        public int iconid;
+        public string iconfilename;
     }
 
     [Serializable]

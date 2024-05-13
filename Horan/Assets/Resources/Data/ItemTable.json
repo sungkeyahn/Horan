@@ -93,7 +93,7 @@
     },
     {
       "id": 1014,
-      "name": "Legendary_Weapon_A"",
+      "name": "Legendary_Weapon_A",
       "type": 1,
       "info": "하사품 환도",
       "iconfilename": "icon_weapon_sword_05"
@@ -176,26 +176,11 @@
       "iconfilename": "icon_main_cloth_3b_01"
     },
     {
-      "id": 1101,
-      "name": "Default_Clothes_D",
-      "type": 1,
-      "info": "평범한 철두정갑",
-      "iconfilename": "icon_main_cloth_3b_02"
-    },
-    {
-      "id": 1102,
-      "name": "Rare_Clothes_D",
-      "type": 1,
-      "info": "튼튼한 철두정갑",
-      "iconfilename": "icon_main_cloth_3b_03"
-    },
-    {
       "id": 1201,
       "name": "Default_Head_A",
       "type": 1,
       "info": "오래된 전립",
       "iconfilename": "icon_main_hat_1_01"
-    }
     },
     {
       "id": 1202,
@@ -296,6 +281,20 @@
       "iconfilename": "icon_acc_03"
     },
     {
+      "id": 1401,
+      "name": "Default_Clothes_D",
+      "type": 1,
+      "info": "평범한 철두정갑",
+      "iconfilename": "icon_main_cloth_3b_02"
+    },
+    {
+      "id": 1402,
+      "name": "Rare_Clothes_D",
+      "type": 1,
+      "info": "튼튼한 철두정갑",
+      "iconfilename": "icon_main_cloth_3b_03"
+    },
+    {
       "id": 1501,
       "name": "Material_A",
       "type": 2,
@@ -322,6 +321,6 @@
       "type": 2,
       "info": "강철 주괴",
       "iconfilename": "icon_craft_04"
-    },
+    }
   ]
 }

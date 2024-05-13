@@ -21,8 +21,4 @@ public class LobbyScene : BaseScene
         lobby.SetExBar(userinfo.exp);
     }
 
-    public override void Clear()
-    {
-        
-    }
 }

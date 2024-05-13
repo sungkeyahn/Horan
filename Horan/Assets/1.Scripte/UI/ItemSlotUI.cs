@@ -12,21 +12,21 @@ public class ItemSlotUI : BaseUI
     Image ItemImage; 
     GameObject EquipBtnObject;
     GameObject CloseBtnObject;
-    Data.Save_ItemSlot saveditemdata;
+    Data.Save_Inventory invendata;
 
     public void Init(int slotindex)
     {
         index = slotindex;
         Init();
         Debug.Log(index);
-        Debug.Log(Managers.DataLoder.DataCache_Save.Inventory.Count);
+        Debug.Log(Managers.DataLoder.DataCache_Save.Inventory.Length);
 
-        if (index <= Managers.DataLoder.DataCache_Save.Inventory.Count)
+        if (index <= Managers.DataLoder.DataCache_Save.Inventory.Length)
         {
-            saveditemdata = Managers.DataLoder.DataCache_Save.Inventory[index-1];
-            if (Managers.DataLoder.DataCache_Items.ContainsKey(saveditemdata.id))
+            invendata = Managers.DataLoder.DataCache_Save.Inventory[index-1];
+            if (Managers.DataLoder.DataCache_Items.ContainsKey(invendata.id))
             {
-                string icon = Managers.DataLoder.DataCache_Items[saveditemdata.id].iconfilename;
+                string icon = Managers.DataLoder.DataCache_Items[invendata.id].iconfilename;
                 if (Managers.DataLoder.DataCache_Sprite.ContainsKey(icon))
                     ItemImage.sprite = Managers.DataLoder.DataCache_Sprite[icon];
             }
@@ -62,22 +62,22 @@ public class ItemSlotUI : BaseUI
     {
         //여기서 접근할수 잇는 정보 -> 나의 인벤토리 슬롯 인덱스 -> 아이템 id
         //해야하는 기능 -> 어떤 부위 인지 + 장비 id 알아내서 넣기 
-        if (Managers.DataLoder.DataCache_Equipments.ContainsKey(saveditemdata.id))
+        if (Managers.DataLoder.DataCache_Equipments.ContainsKey(invendata.id))
         {
-            Data.EEquipmentType type = Managers.DataLoder.DataCache_Equipments[saveditemdata.id].type;
+            Data.EEquipmentType type = Managers.DataLoder.DataCache_Equipments[invendata.id].type;
             switch (type)
             {
                 case Data.EEquipmentType.Weapon:
-                    Managers.DataLoder.DataCache_Save.Equip.weapon = saveditemdata.id;
+                    Managers.DataLoder.DataCache_Save.Equip.weapon = invendata.id;
                     break;
                 case Data.EEquipmentType.Head:
-                    Managers.DataLoder.DataCache_Save.Equip.head = saveditemdata.id;
+                    Managers.DataLoder.DataCache_Save.Equip.head = invendata.id;
                     break;
                 case Data.EEquipmentType.Clothes:
-                    Managers.DataLoder.DataCache_Save.Equip.clothes = saveditemdata.id;
+                    Managers.DataLoder.DataCache_Save.Equip.clothes = invendata.id;
                     break;
                 case Data.EEquipmentType.Accessory:
-                    Managers.DataLoder.DataCache_Save.Equip.accessory = saveditemdata.id;
+                    Managers.DataLoder.DataCache_Save.Equip.accessory = invendata.id;
                     break;
             }
             EquipUI equip = GetComponentInParent<EquipUI>(); //개선 해야 할듯 ?  구조 자체를 

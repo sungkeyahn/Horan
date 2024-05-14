@@ -4,7 +4,10 @@ using UnityEngine;
 
 public abstract class BaseScene : MonoBehaviour
 {
-    public string SceneName { get; protected set; }
+    [SerializeField]
+    public string SceneName;
+    [SerializeField]
+    public string NextSceneName;
 
     void Awake()
     {
@@ -14,8 +17,7 @@ public abstract class BaseScene : MonoBehaviour
     protected virtual void Init()
     {
         Debug.Log("SceneInit");
-       // Managers.UIManager.ShowSceneUI<LobbyUI>("LobbyUI");
     }
 
-    public abstract void Clear();
+
 }

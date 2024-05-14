@@ -16,112 +16,7 @@
       ]
     },
     {
-      "id": 2,
-      "name": "Common_Weapon_B",
-      "type": 1,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Common_Head_A",
-      "type": 2,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Common_Head_B",
-      "type": 2,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Common_Clothes_A",
-      "type": 3,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "name": "Common_Clothes_B",
-      "type": 3,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "name": "Common_Accessory_A",
-      "type": 4,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "name": "Common_Accessory_B",
-      "type": 4,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 101,
+      "id": 1002,
       "name": "Default_Weapon_A",
       "type": 1,
       "abilitys": [
@@ -136,143 +31,8 @@
       ]
     },
     {
-      "id": 102,
-      "name": "Default_Weapon_B",
-      "type": 1,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 103,
-      "name": "Default_Head_A",
-      "type": 2,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 104,
-      "name": "Default_Head_B",
-      "type": 2,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 105,
-      "name": "Default_Clothes_A",
-      "type": 3,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 106,
-      "name": "Default_Clothes_B",
-      "type": 3,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 107,
-      "name": "Default_Accessory_A",
-      "type": 4,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 108,
-      "name": "Default_Accessory_B",
-      "type": 4,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 100111,
-      "name": "Rare_Weapon_A",
-      "type": 1,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": 1002,
-      "name": "Rare_Weapon_B",
-      "type": 1,
-      "abilitys": [
-        {
-          "type": 3,
-          "value": 10
-        },
-        {
-          "type": 4,
-          "value": 10
-        }
-      ]
-    },
-    {
       "id": 1003,
-      "name": "Rare_Head_A",
+      "name": "Rare_Weapon_A",
       "type": 2,
       "abilitys": [
         {
@@ -287,7 +47,7 @@
     },
     {
       "id": 1004,
-      "name": "Rare_Head_B",
+      "name": "Common_Weapon_B",
       "type": 2,
       "abilitys": [
         {
@@ -302,7 +62,7 @@
     },
     {
       "id": 1005,
-      "name": "Rare_Clothes_A",
+      "name": "Default_Weapon_B",
       "type": 3,
       "abilitys": [
         {
@@ -317,7 +77,7 @@
     },
     {
       "id": 1006,
-      "name": "Rare_Clothes_B",
+      "name": "Rare_Weapon_B",
       "type": 3,
       "abilitys": [
         {
@@ -331,8 +91,8 @@
       ]
     },
     {
-      "id": 1007,
-      "name": "Rare_Accessory_A",
+      "id": 1007,,
+      "name": "Common_Weapon_C",
       "type": 4,
       "abilitys": [
         {
@@ -347,7 +107,7 @@
     },
     {
       "id": 1008,
-      "name": "Rare_Accessory_B",
+      "name": "Default_Weapon_C",
       "type": 4,
       "abilitys": [
         {
@@ -359,6 +119,576 @@
           "value": 10
         }
       ]
-    }
+    },
+    {
+      "id": 1009,
+      "name": "Rare_Weapon_C",
+      "type": 1,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1010,
+      "name": "Common_Weapon_D",
+      "type": 1,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1011,
+      "name": "Default_Weapon_D"",
+      "type": 2,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1012,
+      "name": "Rare_Weapon_D",
+      "type": 2,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1013,
+      "name": "Unique_Weapon_A",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1014,
+      "name": "Legendary_Weapon_A",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1015,
+      "name": "Unique_Weapon_B",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1101,
+      "name": "Common_Clothes_A",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1102,
+      "name": "Default_Clothes_A",
+      "type": 1,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1103,
+      "name": "Rare_Clothes_A",
+      "type": 1,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1104,
+      "name": "Common_Clothes_B",
+      "type": 2,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1105,
+      "name": "Default_Clothes_B",
+      "type": 2,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1106,
+      "name": "Rare_Clothes_B",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1107,
+      "name": "Common_Clothes_C",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1108,
+      "name": "Default_Clothes_C",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1109,
+      "name": "Rare_Clothes_C",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1110,
+      "name": "Common_Clothes_D",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1201,
+      "name": "Default_Head_A",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1202,
+      "name": "Common_Head_A",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1203,
+      "name": "Rare_Head_A",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1204,
+      "name": "Default_Head_B",
+      "type": 2,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1205,
+      "name": "Common_Head_B",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1206,
+      "name": "Rare_Head_B",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1207,
+      "name": "Default_Head_C",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1208,
+      "name": "Common_Clothes_C",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1209,
+      "name": "Rare_Head_C",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1210,
+      "name": "Default_Head_D",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1211,
+      "name": "Common_Head_D"",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1212,
+      "name": "Rare_Head_D",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1301,
+      "name": "Common_Accessory_A",
+      "type": 2,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1302,
+      "name": "Common_Accessory_B",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1303,
+      "name": "Default_Accessory_C",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1401,
+      "name": "Default_Clothes_D",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1402,
+      "name": "Rare_Clothes_D",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1501,
+      "name": "Material_A",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1502,
+      "name": "Material_B"",
+      "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1503,
+      "name": "Material_C"",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1504,
+      "name": "Material_D",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
   ]
 }

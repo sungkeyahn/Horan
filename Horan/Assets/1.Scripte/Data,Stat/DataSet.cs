@@ -2,21 +2,77 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 namespace Data
 {
-    //데이터 파일을 키값을 기준으로 분리하여 저장하기 위한 인터페이스
+    //데이터 테이블 파일을 키값을 기준으로 분리하여 저장하기 위한 인터페이스
     public interface IDataSeparator<Key, Value>
     {
         Dictionary<Key, Value> MakeDict();
     }
 
+
+    #region Save 
+    //.json
+    [Serializable]
+    public class SaveData
+    {
+        public SaveData()
+        {
+            User.level = 1;
+            User.exp = 0.5f;
+            User.gold = 11111;
+            User.name = "NONE";
+            
+            Inventory = new List<Save_ItemSlot>();
+            Data.Save_ItemSlot item;
+            item.id = 1;
+            item.amount = 1;
+            Inventory.Add(item);
+
+            Equip.weapon = 0;
+            Equip.head = 0;
+            Equip.clothes = 0;
+            Equip.accessory = 0;
+        }
+        public Save_User User;
+        public List<Save_ItemSlot> Inventory;
+        public Save_Equip Equip;
+    }
+    [Serializable]
+    public struct Save_User
+    {
+        public int level;
+        public string name;
+        public float exp;
+        public int gold;
+        //숙련도 ? 
+    }
+    [Serializable]
+    public struct Save_ItemSlot
+    {
+        public int id;
+        public int amount;
+    }
+    [Serializable]
+    public struct Save_Equip
+    {
+        public int weapon;
+        public int head;
+        public int clothes;
+        public int accessory;
+    }
+    #endregion 
+
+
     #region DataSet
-    [Serializable] 
+    [Serializable]
     public class Stat_Player
     {
         public int level;
         public int maxHp;
+        public int maxSp;
         public int attack;
         public int totalExp;
     }
@@ -32,16 +88,17 @@ namespace Data
         public float runspeed;
         public float atkrange;
         public float sensingrange;
+        public float dropgold;
+        public float dropexp;
         public List<DropItems> dropitems;
     }
     [Serializable]
     public struct DropItems
     {
-        public string name;
+        public int id;
         public int amount;
         public float probability;
     }
-
 
     [Serializable]
     public class DataSet_Group
@@ -55,6 +112,55 @@ namespace Data
         public string name;
     }
 
+    [Serializable]
+    public class DataSet_Item
+    {
+        public int id;
+        public string name;
+        public EItemType type;
+        public string info;
+        public string iconfilename;
+    }
+
+    [Serializable]
+    public class DataSet_Equipment
+    {
+        public int id;
+        public string name;
+        public EEquipmentType type;
+        public List<EquipmentAbility> abilitys;
+    }
+    [Serializable]
+    public enum EItemType { Equipment = 1, Material }
+    [Serializable]
+    public enum EEquipmentType { Weapon = 1, Head, Clothes, Accessory }
+    [Serializable]
+    public enum EEquipmentAbilityType { MaxHp = 1, MaxSp, AttackDamage, CriticalProbability }
+    [Serializable]
+    public struct EquipmentAbility
+    {
+        public EEquipmentAbilityType type;
+        public float value;
+    }
+
+
+    [Serializable]
+    public class DataSet_Weapon
+    {
+        public int id;
+        public string meshpath;
+        public string materialpath;
+        public float[] socketpos;
+        public float[] socketrot;
+        public List<AnimInfomation> animinfo;
+    }
+    [Serializable]
+    public struct AnimInfomation
+    {
+        public string name;
+        public float delay;
+        public float judgmenttime;
+    }
 
     #endregion
 
@@ -87,7 +193,6 @@ namespace Data
             return dict;
         }
     }
-
     [Serializable]
     public class Separator_GroupTable : IDataSeparator<int, DataSet_Group> //데이터파일을 게임에 로드될 형태로 잘라 하는 클래스
     {
@@ -101,6 +206,48 @@ namespace Data
             return dict;
         }
     }
+
+    [Serializable]
+    public class Separator_ItemTable : IDataSeparator<int, DataSet_Item> 
+    {
+        public List<DataSet_Item> items = new List<DataSet_Item>(); 
+
+        public Dictionary<int, DataSet_Item> MakeDict()
+        {
+            Dictionary<int, DataSet_Item> dict = new Dictionary<int, DataSet_Item>();
+            foreach (DataSet_Item data in items)
+                dict.Add(data.id, data);
+            return dict;
+        }
+    }
+    [Serializable]
+    public class Separator_EquipmentTable : IDataSeparator<int, DataSet_Equipment>
+    {
+        public List<DataSet_Equipment> equipments = new List<DataSet_Equipment>();
+
+        public Dictionary<int, DataSet_Equipment> MakeDict()
+        {
+            Dictionary<int, DataSet_Equipment> dict = new Dictionary<int, DataSet_Equipment>();
+            foreach (DataSet_Equipment data in equipments)
+                dict.Add(data.id, data);
+            return dict;
+        }
+    }
+
+    [Serializable]
+    public class Separator_WeaponTable : IDataSeparator<int, DataSet_Weapon>
+    {
+        public List<DataSet_Weapon> weapons = new List<DataSet_Weapon>();
+
+        public Dictionary<int, DataSet_Weapon> MakeDict()
+        {
+            Dictionary<int, DataSet_Weapon> dict = new Dictionary<int, DataSet_Weapon>();
+            foreach (DataSet_Weapon data in weapons)
+                dict.Add(data.id, data);
+            return dict;
+        }
+    }
+
     #endregion
 
 }

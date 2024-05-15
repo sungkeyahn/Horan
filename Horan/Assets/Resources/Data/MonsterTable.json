@@ -9,15 +9,17 @@
       "runspeed": "5",
       "atkrange": "3",
       "sensingrange": "8",
+      "dropgold": "15",
+      "dropexp": "10",
       "dropitems": [
         {
-          "name": "Experience",
-          "amount": 10,
+          "id": 1,
+          "amount": 1,
           "probability": 100
         },
         {
-          "name": "Gold",
-          "amount": 15,
+          "id": 2,
+          "amount": 1,
           "probability": 50
         }
       ]
@@ -31,7 +33,14 @@
       "runspeed": "4",
       "atkrange": "3",
       "sensingrange": "8",
+      "dropgold": "5",
+      "dropexp": "10",
       "dropitems": [
+        {
+          "name": "Experience",
+          "amount": 10,
+          "probability": 100
+        },
         {
           "name": "Gold",
           "amount": 15,

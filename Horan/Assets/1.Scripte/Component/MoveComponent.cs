@@ -9,7 +9,7 @@ public class MoveComponent : MonoBehaviour
     public Vector3 RotDir = Vector3.zero;
     public float MoveSpeed = 0;
     public bool MoveActive = true;
-
+   
 
     Rigidbody rigid;
     private void Awake()
@@ -19,6 +19,8 @@ public class MoveComponent : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        if (TransTrigger)
+            MoveByTrans();
     }
 
     public void SetMove(Vector3 dir, Vector3 rot , float speed=0)
@@ -31,13 +33,7 @@ public class MoveComponent : MonoBehaviour
     {
         MoveSpeed = speed;
     }
-    public void MoveByPower(Vector3 dir, float power)
-    {
-        rigid.velocity = dir * power;
-    }
-
-
-    protected void Move()
+    protected void Move()   
     {
         if (!MoveActive) return;
         if (MoveDir != Vector3.zero)
@@ -48,6 +44,30 @@ public class MoveComponent : MonoBehaviour
         rigid.velocity = MoveDir * MoveSpeed + Vector3.up * rigid.velocity.y;
     }
 
+    bool TransTrigger;
+    Vector3 TransDir;
+    float TransSpeed;
+    float TransTime;
+    float timer;
+    public void SetTransMove(Vector3 dir, float Speed,float time=1f)
+    {
+        TransTrigger = true;
+        TransDir = dir;
+        TransSpeed = Speed;
+        TransTime = time;
+    }
+    void MoveByTrans()
+    {
+        if (!MoveActive) return;
+        timer += Time.deltaTime;
+        if (TransTime <= timer)
+        {
+            TransTrigger = false;
+            timer = 0f;
+        }
+        transform.Translate(TransDir * TransSpeed * Time.deltaTime);
+        Debug.Log(TransDir * TransSpeed * Time.deltaTime);
+    }
 
 
 }

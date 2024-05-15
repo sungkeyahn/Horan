@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum StatIdentifier_Monster
-{ maxhp=1, hp, sp }
+
 public class MonsterStat : Stat, IDataBind, IDamageInteraction
 {
     const float spregenTime = 5;
@@ -58,7 +57,7 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
                     OnUnitDead.Invoke();
                 
                 if (OnStatChanged != null)
-                    OnStatChanged.Invoke((int)StatIdentifier_Monster.hp, (int)(hp / maxhp * 100));
+                    OnStatChanged.Invoke(StatIdentifier.Hp, hp , maxhp);
             }
         }
     }
@@ -69,8 +68,8 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
         {
             sp = Mathf.Clamp(sp - usedSP, 0, maxsp);
             if (OnStatChanged != null)
-                OnStatChanged.Invoke((int)StatIdentifier_Monster.sp, (int)(sp / maxsp * 100));
-            return true;
+                OnStatChanged.Invoke(StatIdentifier.Sp, sp, maxsp);
+             return true;
         }
         return false;
     }

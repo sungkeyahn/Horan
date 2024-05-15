@@ -3,83 +3,150 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StatIdentifier_Player
-{ level = 1, maxhp, hp, sp }
+
 public class PlayerStat : Stat, IDataBind, IDamageInteraction
 {
-    [SerializeField]
-    public float maxhp;
-    [SerializeField]
-    public float hp;
-
-    [SerializeField]
-    public float maxsp;
-    [SerializeField]
-    public float sp;
-
-    [SerializeField]
-    public float attack;
-    [SerializeField]
-    public float speed;
-
-    [SerializeField]
-    public float critical;
-
-    public bool isRegenable;
-    float CurregenTime;
-    const float spregenTime = 5;
-
+    const float SpRegenTime = 5;
+    float CurSpRegenTime;
 
     public Action OnHit;
+
     public bool isDamageable;
+    public bool isRegenable;
+
+    int _level;
+    public int Level { get { return _level; }
+        set
+        {
+            int pre = _level;
+            _level = value;
+            if (OnStatChanged != null)
+                OnStatChanged.Invoke(StatIdentifier.Level, pre, _level);
+        }
+    }
+
+    float _maxhp;
+    public float MaxHp { get { return _maxhp; }
+        set
+        {
+            float pre = _maxhp;
+            _maxhp = value;
+            if (OnStatChanged != null)
+                OnStatChanged.Invoke(StatIdentifier.MaxHp, pre, _maxhp);
+        }
+    }
+    float _hp;
+    public float Hp { get { return _hp; }
+        set
+        {
+            float pre = _hp;
+            _hp = value;
+            if (OnStatChanged != null)
+                OnStatChanged.Invoke(StatIdentifier.Hp, pre, _hp);
+        }
+    }
+
+    float _maxsp;
+    public float MaxSp { get { return _maxsp; }
+        set
+        {
+            float pre = _maxsp;
+            _maxsp = value;
+            if (OnStatChanged != null)
+                OnStatChanged.Invoke(StatIdentifier.MaxSp, pre, _maxsp);
+        }
+    }
+    float _sp;
+    public float Sp { get { return _sp; }
+        set
+        {
+            float pre = _sp;
+            _sp = value;
+            if (OnStatChanged != null)
+                OnStatChanged.Invoke(StatIdentifier.Sp, pre, _sp);
+        }
+    }
+
+    float _attack;
+    public float Attack { get { return _attack; } set { _attack = value; } }
+    float _speed;
+    public float Speed { get { return _speed; } set { _speed = value; } }
+
+    float _critical;
+    public float Critical { get { return _critical; } set { _critical = value; } }
+
+    float _totalexp;
+    public float TotalExp { get { return _totalexp; }
+        set
+        {
+            float pre = _totalexp;
+            _totalexp = value;
+            if (OnStatChanged != null)
+                OnStatChanged.Invoke(StatIdentifier.TotalExp, pre, _totalexp);
+        }
+    }
+    float _exp;
+    public float Exp { get { return _exp; }
+        set
+        {
+            float pre = _exp;
+            _exp = value;
+            if (OnStatChanged != null)
+                OnStatChanged.Invoke(StatIdentifier.Exp, pre, _exp);
+        }
+    }
 
 
 
+    
+    private void Awake()
+    {
+        //아래 2줄 코드는 세이브 데이터 가 정의되면 데이터 로드 받아서 넣을 예정
+        Level = 1;
+        Exp = 0; 
+
+        BindData();
+    }
     void Start()
     {
-        BindData();
-        hp = maxhp;
+        Hp = MaxHp;
+        Sp = MaxSp;
 
-        maxsp = 100;
-        sp = maxsp;
-
-        critical = 0.5f;
-
-        speed = 5.5f;
-
+        Critical = 0.5f;
+        Speed = 5.5f;
 
         isRegenable = true;
         isDamageable = true;
     }
-
     public void BindData()
     {
-        maxhp = Managers.DataLoder.playerStatDict[(int)StatIdentifier_Player.level].maxHp;
-        attack = Managers.DataLoder.playerStatDict[(int)StatIdentifier_Player.level].attack;
+        MaxHp = Managers.DataLoder.DataCache_LevelByStat[Level].maxHp;
+        MaxSp = Managers.DataLoder.DataCache_LevelByStat[Level].maxSp;
+        Attack = Managers.DataLoder.DataCache_LevelByStat[Level].attack;
+        TotalExp = Managers.DataLoder.DataCache_LevelByStat[Level].totalExp;
     }
 
     public void TakeDamage(float damage)
     {
-        if (0 < hp)
+        if (0 < Hp)
         {
             if (OnHit != null)
                 OnHit.Invoke();
             if (isDamageable)
             {
-                hp = Mathf.Clamp(hp - damage, -1, maxhp);
-                if (OnStatChanged != null)
-                    OnStatChanged.Invoke((int)StatIdentifier_Player.hp, (int)(hp / maxhp * 100));
+                Hp = Mathf.Clamp(Hp - damage, -1, MaxHp);
+              
             }
         }
     }
 
     public bool UseSP(float usedSP)
     {
-        if (usedSP < sp)
+        if (usedSP < Sp)
         {
-            sp = Mathf.Clamp(sp - usedSP, 0, maxsp);
+            Sp = Mathf.Clamp(Sp - usedSP, 0, MaxSp);
             if (OnStatChanged != null)
-                OnStatChanged.Invoke((int)StatIdentifier_Player.sp, (int)(sp / maxsp * 100));
+                OnStatChanged.Invoke(StatIdentifier.Sp, Sp ,MaxSp);
             return true;
         }
         return false;
@@ -89,12 +156,12 @@ public class PlayerStat : Stat, IDataBind, IDamageInteraction
     {
         if (isRegenable)
         {
-            CurregenTime += Time.deltaTime;
+            CurSpRegenTime += Time.deltaTime;
 
-            if (spregenTime <= CurregenTime) //Regen_SP
+            if (SpRegenTime <= CurSpRegenTime) //Regen_SP
             {
-                CurregenTime = 0;
-                sp = Mathf.Clamp(sp + 5, sp, maxsp);
+                CurSpRegenTime = 0;
+                Sp = Mathf.Clamp(Sp + 5, Sp, MaxSp);
             }
         }
     }

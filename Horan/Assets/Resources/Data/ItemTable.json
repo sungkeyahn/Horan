@@ -1,0 +1,327 @@
+{
+  "items": [
+    {
+      "id": 1001,
+      "name": "Common_Weapon_A",
+      "type": 1,
+      "info": "흔한 환도",
+      "iconfilename": "icon_weapon_sword_01"
+    },
+    {
+      "id": 1002,
+      "name": "Default_Weapon_A",
+      "type": 1,
+      "info": "일반 환도",
+      "iconfilename": "icon_weapon_sword_02"
+    },
+    {
+      "id": 1003,
+      "name": "Rare_Weapon_A",
+      "type": 1,
+      "info": "희귀한 환도",
+      "iconfilename": "icon_weapon_sword_03"
+    },
+    {
+      "id": 1004,
+      "name": "Common_Weapon_B",
+      "type": 1,
+      "info": "흔한 월도",
+      "iconfilename": "icon_weapon_glaive_01"
+    },
+    {
+      "id": 1005,
+      "name": "Default_Weapon_B",
+      "type": 1,
+      "info": "일반 월도",
+      "iconfilename": "icon_weapon_glaive_02"
+    },
+    {
+      "id": 1006,
+      "name": "Rare_Weapon_B",
+      "type": 1,
+      "info": "희귀한 월도",
+      "iconfilename": "icon_weapon_glaive_03"
+    },
+    {
+      "id": 1007,
+      "name": "Common_Weapon_C",
+      "type": 1,
+      "info": "흔한 대도",
+      "iconfilename": "icon_weapon_dadao_01"
+    },
+    {
+      "id": 1008,
+      "name": "Default_Weapon_C",
+      "type": 1,
+      "info": "일반 대도",
+      "iconfilename": "icon_weapon_dadao_02"
+    },
+    {
+      "id": 1009,
+      "name": "Rare_Weapon_C",
+      "type": 1,
+      "info": "희귀한 대도",
+      "iconfilename": "icon_weapon_dadao_03"
+    },
+    {
+      "id": 1010,
+      "name": "Common_Weapon_D",
+      "type": 1,
+      "info": "흔한 곡도",
+      "iconfilename": "icon_weapon_saber_01"
+    },
+    {
+      "id": 1011,
+      "name": "Default_Weapon_D",
+      "type": 1,
+      "info": "일반 곡도",
+      "iconfilename": "icon_weapon_saber_02"
+    },
+    {
+      "id": 1012,
+      "name": "Rare_Weapon_D",
+      "type": 1,
+      "info": "희귀한 곡도",
+      "iconfilename": "icon_weapon_saber_03"
+    },
+    {
+      "id": 1013,
+      "name": "Unique_Weapon_A",
+      "type": 1,
+      "info": "특별한 환도",
+      "iconfilename": "icon_weapon_sword_04"
+    },
+    {
+      "id": 1014,
+      "name": "Legendary_Weapon_A"",
+      "type": 1,
+      "info": "하사품 환도",
+      "iconfilename": "icon_weapon_sword_05"
+    },
+    {
+      "id": 1015,
+      "name": "Unique_Weapon_B",
+      "type": 1,
+      "info": "전리품 월도",
+      "iconfilename": "icon_weapon_glaive_04"
+    },
+    {
+      "id": 1101,
+      "name": "Common_Clothes_A",
+      "type": 1,
+      "info": "낡은 도포",
+      "iconfilename": "icon_main_cloth_1_01"
+    },
+    {
+      "id": 1102,
+      "name": "Default_Clothes_A",
+      "type": 1,
+      "info": "평범한 도포",
+      "iconfilename": "icon_main_cloth_1_02"
+    },
+    {
+      "id": 1103,
+      "name": "Rare_Clothes_A",
+      "type": 1,
+      "info": "튼튼한 도포",
+      "iconfilename": "icon_main_cloth_1_03"
+    },
+    {
+      "id": 1104,
+      "name": "Common_Clothes_B",
+      "type": 1,
+      "info": "낡은 군복",
+      "iconfilename": "icon_main_cloth_2_01"
+    },
+    {
+      "id": 1105,
+      "name": "Default_Clothes_B",
+      "type": 1,
+      "info": "평범한 군복",
+      "iconfilename": "icon_main_cloth_2_02"
+    },
+    {
+      "id": 1106,
+      "name": "Rare_Clothes_B",
+      "type": 1,
+      "info": "튼튼한 군복",
+      "iconfilename": "icon_main_cloth_2_03"
+    },
+    {
+      "id": 1107,
+      "name": "Common_Clothes_C",
+      "type": 1,
+      "info": "낡은 두정갑",
+      "iconfilename": "icon_main_cloth_3a_01"
+    },
+    {
+      "id": 1108,
+      "name": "Default_Clothes_C",
+      "type": 1,
+      "info": "평범한 두정갑",
+      "iconfilename": "icon_main_cloth_3a_02"
+    },
+    {
+      "id": 1109,
+      "name": "Rare_Clothes_C",
+      "type": 1,
+      "info": "튼튼한 두정갑",
+      "iconfilename": "icon_main_cloth_3a_03"
+    },
+    {
+      "id": 1110,
+      "name": "Common_Clothes_D",
+      "type": 1,
+      "info": "낡은 철두정갑",
+      "iconfilename": "icon_main_cloth_3b_01"
+    },
+    {
+      "id": 1101,
+      "name": "Default_Clothes_D",
+      "type": 1,
+      "info": "평범한 철두정갑",
+      "iconfilename": "icon_main_cloth_3b_02"
+    },
+    {
+      "id": 1102,
+      "name": "Rare_Clothes_D",
+      "type": 1,
+      "info": "튼튼한 철두정갑",
+      "iconfilename": "icon_main_cloth_3b_03"
+    },
+    {
+      "id": 1201,
+      "name": "Default_Head_A",
+      "type": 1,
+      "info": "오래된 전립",
+      "iconfilename": "icon_main_hat_1_01"
+    }
+    },
+    {
+      "id": 1202,
+      "name": "Common_Head_A",
+      "type": 1,
+      "info": "수선한 전립",
+      "iconfilename": "icon_main_hat_1_02"
+    },
+    {
+      "id": 1203,
+      "name": "Rare_Head_A",
+      "type": 1,
+      "info": "갓 만든 전립",
+      "iconfilename": "icon_main_hat_1_03"
+    },
+    {
+      "id": 1204,
+      "name": "Default_Head_B",
+      "type": 1,
+      "info": "오래된 군모",
+      "iconfilename": "icon_main_hat_2_01"
+    },
+    {
+      "id": 1205,
+      "name": "Common_Head_B",
+      "type": 1,
+      "info": "수선한 군모",
+      "iconfilename": "icon_main_hat_2_02"
+    },
+    {
+      "id": 1206,
+      "name": "Rare_Head_B",
+      "type": 1,
+      "info": "갓 만든 군모",
+      "iconfilename": "icon_main_hat_2_03"
+    },
+    {
+      "id": 1207,
+      "name": "Default_Head_C",
+      "type": 1,
+      "info": "낡은 투구",
+      "iconfilename": "icon_main_hat_3a_01"
+    },
+    {
+      "id": 1208,
+      "name": "Common_Clothes_C",
+      "type": 1,
+      "info": "수선한 투구",
+      "iconfilename": "icon_main_hat_3a_02"
+    },
+    {
+      "id": 1209,
+      "name": "Rare_Head_C",
+      "type": 1,
+      "info": "갓 만든 투구",
+      "iconfilename": "icon_main_hat_3a_03"
+    },
+    {
+      "id": 1210,
+      "name": "Default_Head_D",
+      "type": 1,
+      "info": "낡은 철투구",
+      "iconfilename": "icon_main_hat_3b_011"
+    },
+    {
+      "id": 1211,
+      "name": "Common_Head_D",
+      "type": 1,
+      "info": "수선한 철투구",
+      "iconfilename": "icon_main_hat_3b_02"
+    },
+    {
+      "id": 1212,
+      "name": "Rare_Head_D",
+      "type": 1,
+      "info": "갓 만든 철투구",
+      "iconfilename": "icon_main_hat_3b_03"
+    },
+    {
+      "id": 1301,
+      "name": "Common_Accessory_A",
+      "type": 1,
+      "info": "하회탈",
+      "iconfilename": "icon_acc_01"
+    },
+    {
+      "id": 1302,
+      "name": "Common_Accessory_B",
+      "type": 1,
+      "info": "애체",
+      "iconfilename": "icon_acc_02"
+    },
+    {
+      "id": 1303,
+      "name": "Default_Accessory_C",
+      "type": 1,
+      "info": "곰방대",
+      "iconfilename": "icon_acc_03"
+    },
+    {
+      "id": 1501,
+      "name": "Material_A",
+      "type": 2,
+      "info": "청동 원석",
+      "iconfilename": "icon_craft_01"
+    },
+    {
+      "id": 1502,
+      "name": "Material_B",
+      "type": 2,
+      "info": "면포",
+      "iconfilename": "icon_craft_02"
+    },
+    {
+      "id": 1503,
+      "name": "Material_C",
+      "type": 2,
+      "info": "가죽",
+      "iconfilename": "icon_craft_03"
+    },
+    {
+      "id": 1504,
+      "name": "Material_D",
+      "type": 2,
+      "info": "강철 주괴",
+      "iconfilename": "icon_craft_04"
+    },
+  ]
+}

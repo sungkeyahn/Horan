@@ -1,7 +1,7 @@
 {
   "weapons": [
     {
-      "id": 1,
+      "id": 1001,
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
       "socketpos": [ -0.06, 0.17, 0.06 ],
@@ -21,102 +21,6 @@
           "name": "FATTACK3",
           "delay": 0.1,
           "judgmenttime": 0.25
-        }
-      ]
-    },
-    {
-      "id": 101,
-      "meshpath": "......",
-      "materialpath": "......",
-      "socketpos": [ 1, 2, 3 ],
-      "socketrot": [ 4, 5, 6 ],
-      "animinfo": [
-        {
-          "name": "FATTACK1",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK2",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK3",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        }
-      ]
-    },
-    {
-      "id": 1001,
-      "meshpath": "......",
-      "materialpath": "......",
-      "socketpos": [ 1, 2, 3 ],
-      "socketrot": [ 4, 5, 6 ],
-      "animinfo": [
-        {
-          "name": "FATTACK1",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK2",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK3",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "meshpath": "......",
-      "materialpath": "......",
-      "socketpos": [ 1, 2, 3 ],
-      "socketrot": [ 4, 5, 6 ],
-      "animinfo": [
-        {
-          "name": "FATTACK1",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK2",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK3",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        }
-      ]
-    },
-    {
-      "id": 102,
-      "meshpath": "......",
-      "materialpath": "......",
-      "socketpos": [ 1, 2, 3 ],
-      "socketrot": [ 4, 5, 6 ],
-      "animinfo": [
-        {
-          "name": "FATTACK1",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK2",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK3",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
         }
       ]
     },
@@ -143,6 +47,327 @@
           "judgmenttime": "0.25"
         }
       ]
-    }
+    },
+    {
+      "id": 1003,
+      "meshpath": "......",
+      "materialpath": "......",
+      "socketpos": [ 1, 2, 3 ],
+      "socketrot": [ 4, 5, 6 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        },
+        {
+          "name": "FATTACK2",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        },
+        {
+          "name": "FATTACK3",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        }
+      ]
+    },
+    {
+      "id": 1004,
+      "meshpath": "......",
+      "materialpath": "......",
+      "socketpos": [ 1, 2, 3 ],
+      "socketrot": [ 4, 5, 6 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        },
+        {
+          "name": "FATTACK2",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        },
+        {
+          "name": "FATTACK3",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        }
+      ]
+    },
+    {
+      "id": 1005,
+      "meshpath": "......",
+      "materialpath": "......",
+      "socketpos": [ 1, 2, 3 ],
+      "socketrot": [ 4, 5, 6 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        },
+        {
+          "name": "FATTACK2",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        },
+        {
+          "name": "FATTACK3",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        }
+      ]
+    },
+    {
+      "id": 1006,
+      "meshpath": "......",
+      "materialpath": "......",
+      "socketpos": [ 1, 2, 3 ],
+      "socketrot": [ 4, 5, 6 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        },
+        {
+          "name": "FATTACK2",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        },
+        {
+          "name": "FATTACK3",
+          "delay": "0.3",
+          "judgmenttime": "0.25"
+        }
+      ]
+    },
+      "weapons": [
+    {
+      "id": 1007,
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "socketpos": [ -0.06, 0.17, 0.06 ],
+      "socketrot": [ 4, 180, 90 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+      "weapons": [
+    {
+      "id": 1008,
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "socketpos": [ -0.06, 0.17, 0.06 ],
+      "socketrot": [ 4, 180, 90 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+      "weapons": [
+    {
+      "id": 1009,
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "socketpos": [ -0.06, 0.17, 0.06 ],
+      "socketrot": [ 4, 180, 90 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+      "weapons": [
+    {
+      "id": 1010,
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "socketpos": [ -0.06, 0.17, 0.06 ],
+      "socketrot": [ 4, 180, 90 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+      "weapons": [
+    {
+      "id": 1011,
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "socketpos": [ -0.06, 0.17, 0.06 ],
+      "socketrot": [ 4, 180, 90 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+      "weapons": [
+    {
+      "id": 1012,
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "socketpos": [ -0.06, 0.17, 0.06 ],
+      "socketrot": [ 4, 180, 90 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+      "weapons": [
+    {
+      "id": 1013,
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "socketpos": [ -0.06, 0.17, 0.06 ],
+      "socketrot": [ 4, 180, 90 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+      "weapons": [
+    {
+      "id": 1014,
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "socketpos": [ -0.06, 0.17, 0.06 ],
+      "socketrot": [ 4, 180, 90 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+      "weapons": [
+    {
+      "id": 1015,
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "socketpos": [ -0.06, 0.17, 0.06 ],
+      "socketrot": [ 4, 180, 90 ],
+      "animinfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.1,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
   ]
 }

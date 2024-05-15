@@ -21,15 +21,18 @@ namespace Data
         public SaveData()
         {
             User.level = 1;
-            User.exp = 0.5f;
-            User.gold = 11111;
+            User.exp = 0f;
+            User.gold = 0;
             User.name = "NONE";
-            
-            Inventory = new List<Save_ItemSlot>();
-            Data.Save_ItemSlot item;
-            item.id = 1;
-            item.amount = 1;
-            Inventory.Add(item);
+
+            Inventory = new Save_Inventory[25];
+            for (int i = 0; i < 25; i++)
+            {
+                Inventory[i] = new Data.Save_Inventory(0, 0);
+            }
+            Inventory[0].id = 1001;
+            Inventory[0].amount = 1;
+
 
             Equip.weapon = 0;
             Equip.head = 0;
@@ -37,7 +40,7 @@ namespace Data
             Equip.accessory = 0;
         }
         public Save_User User;
-        public List<Save_ItemSlot> Inventory;
+        public Save_Inventory[] Inventory ;
         public Save_Equip Equip;
     }
     [Serializable]
@@ -50,11 +53,18 @@ namespace Data
         //¼÷·Ãµµ ? 
     }
     [Serializable]
-    public struct Save_ItemSlot
+    public struct Save_Inventory
     {
+        public Save_Inventory(int id, int amount)
+        {
+            this.id = id;
+            this.amount = amount;
+        }
         public int id;
         public int amount;
     }
+    
+
     [Serializable]
     public struct Save_Equip
     {

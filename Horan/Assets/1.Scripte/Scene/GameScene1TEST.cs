@@ -8,39 +8,46 @@ public class GameScene1TEST : BaseScene
 {
     [SerializeField]
     GameObject player; //이 변수는 임시, 추후 플레이어 생성 구현 이후 삭제 
-    [SerializeField]
-    string NextSceneName = null;
+
+    BoxCollider NextBox;
+    bool isClear;
 
     protected override void Init()
     {
-        Debug.Log("GameScene1TEST");
-        SceneName = "GameTest1"; //삭제 예정 코드
+        //SceneName = "GameTest"; //삭제 예정 코드
+        NextBox = GetComponent<BoxCollider>();   
     }
-
     void Start()
     {
         //1. 해당 맵에 클리어시 호출될 함수들 바인딩
         //2. 플레이어 캐릭터 + 몬스터 캐릭터 생성[스폰]
         //3. 카메라 세팅
-        Managers.ContentsManager.WaveStart();// 현재웨이브 데이터 초기화 및 세팅
-      
-        Managers.ContentsManager.OnWaveClear -= EnterNextMap;
-        Managers.ContentsManager.OnWaveClear += EnterNextMap;
-        
-        //플레이어 캐릭터 생성 코드 필요
+
+        //Managers.ContentsManager.WaveStart();// 현재웨이브 데이터 초기화 및 세팅
+        Managers.ContentsManager.OnWaveClear -= WaveClear;
+        Managers.ContentsManager.OnWaveClear += WaveClear;
+
+        //플레이어+몬스터 생성 코드 필요
         Camera.main.GetComponent<CameraComponent>().SetPlayer(player);
     }
 
-    public override void Clear()
+    protected virtual void WaveClear() 
     {
-
+        isClear = true;
+        Managers.ContentsManager.OnWaveClear -= WaveClear;
+        if (string.IsNullOrEmpty(NextSceneName))
+        {
+            Managers.ContentsManager.StageClear();
+        }
     }
 
-    void EnterNextMap()
+    private void OnTriggerEnter(Collider other)
     {
-        //Managers.UIManager.ShowPopupUI<WaveClearUI>();
-        //아래 코드는 UI 버튼 클릭시 호출 
-        if (NextSceneName != null)
-            Managers.MySceneManager.LoadScene(NextSceneName);
+        Debug.Log(other);
+        if (other.gameObject.layer==LayerMask.NameToLayer("Player") && isClear)
+        {
+            if (NextSceneName != "")
+                Managers.MySceneManager.LoadScene(NextSceneName);
+        }
     }
 }

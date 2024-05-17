@@ -18,12 +18,10 @@ public class ItemSlotUI : BaseUI
     {
         index = slotindex;
         Init();
-        Debug.Log(index);
-        Debug.Log(Managers.DataLoder.DataCache_Save.Inventory.Length);
 
         if (index <= Managers.DataLoder.DataCache_Save.Inventory.Length)
         {
-            invendata = Managers.DataLoder.DataCache_Save.Inventory[index-1];
+            invendata = Managers.DataLoder.DataCache_Save.Inventory[index];
             if (Managers.DataLoder.DataCache_Items.ContainsKey(invendata.id))
             {
                 string icon = Managers.DataLoder.DataCache_Items[invendata.id].iconfilename;
@@ -31,8 +29,6 @@ public class ItemSlotUI : BaseUI
                     ItemImage.sprite = Managers.DataLoder.DataCache_Sprite[icon];
             }
         }
-
-
     }
     public override void Init()
     {
@@ -60,8 +56,7 @@ public class ItemSlotUI : BaseUI
     }
     public void OnClicked_Equip(PointerEventData data)
     {
-        //여기서 접근할수 잇는 정보 -> 나의 인벤토리 슬롯 인덱스 -> 아이템 id
-        //해야하는 기능 -> 어떤 부위 인지 + 장비 id 알아내서 넣기 
+        Debug.Log(index);
         if (Managers.DataLoder.DataCache_Equipments.ContainsKey(invendata.id))
         {
             Data.EEquipmentType type = Managers.DataLoder.DataCache_Equipments[invendata.id].type;

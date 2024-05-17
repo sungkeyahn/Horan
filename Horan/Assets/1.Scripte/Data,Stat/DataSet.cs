@@ -35,8 +35,8 @@ namespace Data
 
 
             Equip.weapon = 0;
-            Equip.head = 0;
-            Equip.clothes = 0;
+            Equip.head = 1203;
+            Equip.clothes = 1108;
             Equip.accessory = 0;
         }
         public Save_User User;
@@ -137,6 +137,8 @@ namespace Data
     {
         public int id;
         public string name;
+        public string meshpath;
+        public string materialpath;
         public EEquipmentType type;
         public List<EquipmentAbility> abilitys;
     }
@@ -158,8 +160,6 @@ namespace Data
     public class DataSet_Weapon
     {
         public int id;
-        public string meshpath;
-        public string materialpath;
         public float[] socketpos;
         public float[] socketrot;
         public List<AnimInfomation> animinfo;

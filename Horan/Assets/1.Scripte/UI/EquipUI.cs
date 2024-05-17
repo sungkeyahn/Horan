@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EquipUI : PopupUI
 {
-    enum Components { Button_ClosePopup, Image_Head, Image_Clothes, Image_Weapon, Image_Accessory }
+    enum Components { Button_ClosePopup, Panel_Slots, Image_Head, Image_Clothes, Image_Weapon, Image_Accessory }
 
     Image HeadEquipImage;
     Image ClothesEquipImage;
@@ -25,10 +25,15 @@ public class EquipUI : PopupUI
 
         UpdateEquipment();
 
-        //인벤 슬롯 추가 [동적] 
-
-        ItemSlotUI slotUI = GetComponentInChildren<ItemSlotUI>();
-        slotUI.Init(1);
+        //인벤 슬롯 추가 [동적] 생성 필요할듯?
+        GameObject prefab = Resources.Load<GameObject>($"UI/Image_ItemSlot");
+        for (int i = 0; i < 25; i++)
+        {
+            GameObject ob = Instantiate(prefab, GetObject((int)Components.Panel_Slots).transform);
+            ob.name = "Image_ItemSlot";
+            ob.GetComponent<ItemSlotUI>().Init(i);
+        }
+            
     }
 
     public void OnBtnClicked_ClosePopup(PointerEventData data)

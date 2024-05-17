@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
     public GameObject TargetEnemy = null;
 
     Vector3 moveDir = Vector3.zero;
-    Weapon equippedWeapon;
+    Weapon weapon;
+    Equipment[] equipments=new Equipment[4];
 
     private void Awake()
     {
@@ -41,11 +42,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         if (Hud == null)
-        {
             Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
-            //Hud.Init();
-        }
-
+    
         #region Acts 
         Act attack = new Act((int)KindOfAct.Attack, Attack);
         attack.AddAllowActID((int)KindOfAct.Attack);
@@ -78,12 +76,27 @@ public class PlayerController : MonoBehaviour
         Act.AddAct(counter);
         #endregion
 
-        equippedWeapon = GetComponentInChildren<Weapon>();
-        Equipment(Data.EEquipmentType.Weapon, Managers.DataLoder.DataCache_Save.Equip.weapon);
-        Equipment(Data.EEquipmentType.Head, Managers.DataLoder.DataCache_Save.Equip.head);
-        Equipment(Data.EEquipmentType.Clothes, Managers.DataLoder.DataCache_Save.Equip.clothes);
-        Equipment(Data.EEquipmentType.Accessory, Managers.DataLoder.DataCache_Save.Equip.accessory);
+        weapon = GetComponentInChildren<Weapon>();
+        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon); 
 
+        equipments = GetComponentsInChildren<Equipment>();
+        for (int i = 0; i < equipments.Length; i++)
+        {
+            switch (equipments[i].type)
+            {
+                case Data.EEquipmentType.Head:
+                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.head);
+                    break;
+                case Data.EEquipmentType.Clothes:
+                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.clothes);
+                    break;
+                case Data.EEquipmentType.Accessory:
+                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.accessory);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -126,7 +139,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case InputComponent.MouseEvent.Click:
                 {
-                    if (atkAble && atkCount < equippedWeapon.AnimInfo.Count)
+                    if (atkAble && atkCount < weapon.AnimInfo.Count)
                     {
                         Act.Execution((int)KindOfAct.Attack);
                         DashAtkInput = true;
@@ -208,14 +221,14 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator ATTACK()
     {
-        Data.AnimInfomation animinfo = equippedWeapon.AnimInfo[atkCount];
+        Data.AnimInfomation animinfo = weapon.AnimInfo[atkCount];
         atkCount += 1;
         anim.Play(animinfo.name, -1, 0);
         atkAble = false;
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
-        equippedWeapon.Area.enabled = true;
+        weapon.Area.enabled = true;
         yield return new WaitForSeconds(animinfo.judgmenttime); // 공격 비활성화 
-        equippedWeapon.Area.enabled = false;
+        weapon.Area.enabled = false;
         atkAble = true;
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length -(animinfo.delay+ animinfo.judgmenttime)); 
         atkCount = 0;    
@@ -269,9 +282,9 @@ public class PlayerController : MonoBehaviour
 
         anim.Play("COUNTER");
 
-        equippedWeapon.Area.enabled = true;
+        weapon.Area.enabled = true;
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length); // 공격 활성화 
-        equippedWeapon.Area.enabled = false;
+        weapon.Area.enabled = false;
 
         isGuard = false;
 
@@ -328,30 +341,14 @@ public class PlayerController : MonoBehaviour
     IEnumerator DASHATTACK()
     {
         anim.Play("DASHATTACK");
-        equippedWeapon.Area.enabled = true;
+        weapon.Area.enabled = true;
         yield return new WaitForSeconds(0.3f); // 공격 활성화 
-        equippedWeapon.Area.enabled = false;
+        weapon.Area.enabled = false;
 
         yield return new WaitForSeconds(0.7f);//애니메이션 종료
         Act.Finish((int)KindOfAct.DashAttack);
     }
     #endregion
 
-    void Equipment(Data.EEquipmentType equipmentType, int id)
-    {
-        switch (equipmentType)
-        {
-            case Data.EEquipmentType.Weapon:
-                equippedWeapon.Equipment(id);
-                break;
-            case Data.EEquipmentType.Head:
-                //스텟 증가
-                break;
-            case Data.EEquipmentType.Clothes:
-                break;
-            case Data.EEquipmentType.Accessory:
-                break;
-        }
-    }
 
 }

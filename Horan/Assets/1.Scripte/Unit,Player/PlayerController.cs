@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
 
 
     public GameObject TargetEnemy = null;
-
     Vector3 moveDir = Vector3.zero;
     Weapon weapon;
     Equipment[] equipments=new Equipment[4];
@@ -224,9 +223,11 @@ public class PlayerController : MonoBehaviour
         Data.AnimInfomation animinfo = weapon.AnimInfo[atkCount];
         atkCount += 1;
         anim.Play(animinfo.name, -1, 0);
+
         atkAble = false;
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
         weapon.Area.enabled = true;
+        CreateEffect("attack_strong");
         yield return new WaitForSeconds(animinfo.judgmenttime); // 공격 비활성화 
         weapon.Area.enabled = false;
         atkAble = true;
@@ -350,5 +351,13 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-
+    void CreateEffect(string key)
+    {
+        //"attack_strong"
+        GameObject a;
+        Managers.DataLoder.DataCache_Effect.TryGetValue(key, out a);
+        if (a)
+            Instantiate(a, weapon.transform);
+       
+    }
 }

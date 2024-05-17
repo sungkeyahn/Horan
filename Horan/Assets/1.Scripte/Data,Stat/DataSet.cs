@@ -32,11 +32,9 @@ namespace Data
             }
             Inventory[0].id = 1001;
             Inventory[0].amount = 1;
-
-
             Equip.weapon = 0;
-            Equip.head = 1203;
-            Equip.clothes = 1108;
+            Equip.head = 0;
+            Equip.clothes = 0;
             Equip.accessory = 0;
         }
         public Save_User User;

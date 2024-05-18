@@ -299,7 +299,7 @@ public class PlayerController : MonoBehaviour, ISound
         anim.Play("COUNTER");
 
         weapon.Area.enabled = true;
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length); // 공격 활성화 
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length+1); // 공격 활성화 
         weapon.Area.enabled = false;
 
         isGuard = false;

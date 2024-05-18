@@ -23,8 +23,9 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
     //리소스 캐시(추가 예정)
     public Dictionary<string, Sprite> DataCache_Sprite { get; private set; } = new Dictionary<string, Sprite>();
     public Dictionary<string, GameObject> DataCache_Effect { get; private set; } = new Dictionary<string, GameObject>();
+    public Dictionary<string, GameObject> DataCache_Sound { get; private set; } = new Dictionary<string, GameObject>();
 
-
+    
     //예외처리 코드 추가 예정...
     public void DefaultDataLoad()
     {
@@ -39,6 +40,7 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
 
         DataCache_Sprite = LoadSprite();
         DataCache_Effect = LoadPrefab("Effect");
+        DataCache_Sound = LoadPrefab("Sound");
     }
     public DataDict LoadData<DataDict, Key, Value>(string DataFileName) where DataDict : Data.IDataSeparator<Key, Value>
     {

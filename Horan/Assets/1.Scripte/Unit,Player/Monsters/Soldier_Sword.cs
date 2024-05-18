@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class Soldier_Sword : MonsterController
+public class Soldier_Sword : MonoBehaviour
 {
-    public override void Wandering(Vector3 DestPos)
+    /*
+    public  void Wandering(Vector3 DestPos)
     {
         if (isDead) return;
         if (IsAnimationRunning("ATTACK")) return;
@@ -27,7 +28,7 @@ public class Soldier_Sword : MonsterController
         }
     }
     
-    public override void Chase(GameObject Target)
+    public  void Chase(GameObject Target)
     {
         if (isDead) return;
         if (IsAnimationRunning("ATTACK")) return;
@@ -40,7 +41,7 @@ public class Soldier_Sword : MonsterController
         Nav.speed = Stat.runspeed;
     }
     
-    public override void Attack(GameObject Target)
+    public  void Attack(GameObject Target)
     {
         if (isDead) return;
         if (IsAnimationRunning("ATTACK")) return;
@@ -54,7 +55,7 @@ public class Soldier_Sword : MonsterController
         equippedWeapon.Area.enabled = false;
     }
 
-    public override void CombatWait(GameObject Target)
+    public  void CombatWait(GameObject Target)
     {
         if (isDead) return;
         if (IsAnimationRunning("ATTACK")) return;
@@ -79,6 +80,6 @@ public class Soldier_Sword : MonsterController
         Anim.Play("GUARD");
         Stat.isDamageable = false;
     }
-
+    */
 
 }

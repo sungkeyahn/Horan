@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface ISound 
+{
+    public GameObject PlaySound(string key);
+}
+
 public enum EPlayerAnimState
 {
     IDLE,
@@ -10,7 +15,7 @@ public enum EPlayerAnimState
     DASH
 }
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ISound
 {
     Animator anim;
 
@@ -22,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public GameObject TargetEnemy = null;
     Vector3 moveDir = Vector3.zero;
     Weapon weapon;
-    Equipment[] equipments=new Equipment[4];
+    Equipment[] equipments = new Equipment[4];
 
     private void Awake()
     {
@@ -42,7 +47,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Hud == null)
             Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
-    
+        if (StepSound1 == null)
+            StepSound1 = PlaySound("Step1");
+
         #region Acts 
         Act attack = new Act((int)KindOfAct.Attack, Attack);
         attack.AddAllowActID((int)KindOfAct.Attack);
@@ -76,7 +83,7 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         weapon = GetComponentInChildren<Weapon>();
-        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon); 
+        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
 
         equipments = GetComponentsInChildren<Equipment>();
         for (int i = 0; i < equipments.Length; i++)
@@ -157,6 +164,7 @@ public class PlayerController : MonoBehaviour
                 {
                     move.SetMove(0);
                     anim.SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
+                    StepSound1.GetComponent<AudioSource>().Stop();
                     Act.Finish((int)KindOfAct.Move);
                 }
                 break;
@@ -165,7 +173,7 @@ public class PlayerController : MonoBehaviour
                 {
                     Act.Execution((int)KindOfAct.Move);
                 }
-                if (Input.GetKey(KeyCode.E)&& !isGuard)
+                if (Input.GetKey(KeyCode.E) && !isGuard)
                 {
                     Act.Execution((int)KindOfAct.Guard);
                 }
@@ -188,23 +196,25 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Move
-    MoveComponent move; 
+    MoveComponent move;
+    GameObject StepSound1;
+    GameObject StepSound2;
+
     void Move()
     {
         moveDir.x = Input.GetAxis("Horizontal");
         moveDir.z = Input.GetAxis("Vertical");
 
-        /*        if (TargetEnemy)
-        {
-            Vector3 targetDir = (TargetEnemy.transform.position - transform.position).normalized;
-            move.SetMove(moveDir, targetDir, stat.Speed);
-        }
-        else*/
         move.SetMove(moveDir, moveDir, Stat.Speed);
 
         anim.SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
         anim.SetFloat("WalkX", moveDir.x);
         anim.SetFloat("WalkY", moveDir.z);
+
+        if (StepSound1&& !StepSound1.GetComponent<AudioSource>().isPlaying)
+        {
+            StepSound1.GetComponent<AudioSource>().Play();
+        }
     }
     #endregion
 
@@ -224,18 +234,23 @@ public class PlayerController : MonoBehaviour
         atkCount += 1;
         anim.Play(animinfo.name, -1, 0);
 
+        if (UnityEngine.Random.Range(0, 2) < 2) //개선 필요
+            PlaySound("Swing1");
+        else
+            PlaySound("Swing2");
+
         atkAble = false;
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
         weapon.Area.enabled = true;
-        CreateEffect("attack_strong");
+
         yield return new WaitForSeconds(animinfo.judgmenttime); // 공격 비활성화 
         weapon.Area.enabled = false;
         atkAble = true;
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length -(animinfo.delay+ animinfo.judgmenttime)); 
-        atkCount = 0;    
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - (animinfo.delay + animinfo.judgmenttime));
+        atkCount = 0;
         Act.Finish((int)KindOfAct.Attack);
         yield return null;
-        
+
     }
 
     #endregion
@@ -290,7 +305,7 @@ public class PlayerController : MonoBehaviour
         isGuard = false;
 
         Stat.isDamageable = true;
-       
+
         Act.Finish((int)KindOfAct.Counter);
     }
 
@@ -310,13 +325,13 @@ public class PlayerController : MonoBehaviour
     IEnumerator DASH()
     {
         DashCount -= 1;
-        
+
         Stat.isDamageable = false;
 
         move.SetTransMove(Vector3.forward, 6, 0.4f);
- 
+
         anim.Play("DASH");
-        
+
         DashAtkInput = false;
         yield return new WaitForSeconds(0.1f);
         if (DashAtkInput)
@@ -327,14 +342,14 @@ public class PlayerController : MonoBehaviour
 
 
         yield return new WaitForSeconds(0.2f); //대쉬 시간
-        Stat.isDamageable = false;
+        Stat.isDamageable = true;
         Act.Finish((int)KindOfAct.Dash);
 
         yield return new WaitForSeconds(DashCoolTime);
         DashCount += 1;
     }
 
-    bool DashAtkInput; 
+    bool DashAtkInput;
     void DashAttack()
     {
         StartCoroutine("DASHATTACK");
@@ -358,6 +373,15 @@ public class PlayerController : MonoBehaviour
         Managers.DataLoder.DataCache_Effect.TryGetValue(key, out a);
         if (a)
             Instantiate(a, weapon.transform);
-       
     }
+
+    public GameObject PlaySound(string key)
+    {
+        GameObject a;
+        Managers.DataLoder.DataCache_Sound.TryGetValue(key, out a);
+        if (a)
+            return Instantiate(a, transform);
+        return null;
+    }
+
 }

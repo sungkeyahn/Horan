@@ -34,7 +34,7 @@ public class LobbyUI : SceneUI
     public void OnBtnClicked_StartGame(PointerEventData data)
     {
         Debug.Log("StartGame");
-        Managers.MySceneManager.LoadScene("GameTest");
+        Managers.ContentsManager.StageSelect(EGameModes.StoryMode, 1);
     }
     public void OnBtnClicked_Tutorial(PointerEventData data)
     {

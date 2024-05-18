@@ -9,17 +9,17 @@ public class BT_Service : BT_Node
 
     public Action ServiceFun=null;
 
-    MonsterGroup BTOwner;
+    MonsterController BTOwner;
     
     float Interval;
     float time;
 
-    public BT_Service(BT_Node child, MonsterGroup owner, Action serviceFun, float interval=1)
+    public BT_Service(BT_Node child, GameObject owner, Action serviceFun, float interval=1)
     {
         if (child != null)
         {
             Child = child;
-            BTOwner = owner;
+            BTOwner = owner.GetComponent<MonsterController>();
             ServiceFun = serviceFun;
             Interval = interval;
             time = interval;
@@ -29,7 +29,7 @@ public class BT_Service : BT_Node
     {
         State = Child.Evaluate();
 
-        if (BTOwner && State != NodeState.Failure)
+        if (BTOwner!=null && State != NodeState.Failure)
         {
             BTOwner.Runner.OnService -= OnService;
             BTOwner.Runner.OnService += OnService;

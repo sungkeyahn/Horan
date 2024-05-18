@@ -46,19 +46,25 @@ public class ContentsManager
             case EGameModes.TutorialMode:
                 break;
         }
+
+        AcquiredItems.Clear();
+        WaveStart();
+        Managers.MySceneManager.LoadScene($"Level{stage}");
     }
     public void StageClear()
     {
         //스테이지 클리어시 저장되어야할 데이터 종류 -> 인벤아이템 + 유저 경험치(숙련도) + 재화
         //GamePuase();
-        //Managers.UIManager.ShowPopupUI<StageClearUI>();
-        Debug.Log(Managers.DataLoder.DataCache_Save.User.gold); 
+        Managers.MySceneManager.LoadScene("Lobby");
     }
     #endregion
 
     #region Wave
     public Action OnWaveClear;
     public int MonsterCounts;
+    public void WaveStart()
+    {
+    }
     void WaveClear() //모든 몬스터 사망시 자동 호출
     {
         if (OnWaveClear != null)
@@ -68,6 +74,7 @@ public class ContentsManager
     #endregion
 
     #region ItemDrop ItemAcquired
+    public List<int> AcquiredItems = new List<int>();
     bool TryItemDrop(string id) 
     {
         Data.DataSet_Monster data;
@@ -100,6 +107,8 @@ public class ContentsManager
                     {
                         Managers.DataLoder.DataCache_Save.Inventory[emptyinedx].id = itemdata.id;
                         Managers.DataLoder.DataCache_Save.Inventory[emptyinedx].amount = data.dropitems[i].amount;
+
+                        AcquiredItems.Add(itemdata.id); //수정 필요
                         DropNothing = false;
                     }
                 }
@@ -114,6 +123,7 @@ public class ContentsManager
     public void SpawnUnit(string id)
     {
         MonsterCounts += 1;
+        Debug.Log(MonsterCounts);
     }
     public void DeadUnit(string id)
     {
@@ -125,6 +135,7 @@ public class ContentsManager
         //드랍 경험치 
 
         MonsterCounts -= 1;
+        Debug.Log($"DeadCount{ MonsterCounts }");
         if (MonsterCounts <= 0)
             WaveClear();
     }

@@ -19,10 +19,6 @@ public class GameScene1TEST : BaseScene
     }
     void Start()
     {
-        //1. 해당 맵에 클리어시 호출될 함수들 바인딩
-        //2. 플레이어 캐릭터 + 몬스터 캐릭터 생성[스폰]
-        //3. 카메라 세팅
-
         //Managers.ContentsManager.WaveStart();// 현재웨이브 데이터 초기화 및 세팅
         Managers.ContentsManager.OnWaveClear -= WaveClear;
         Managers.ContentsManager.OnWaveClear += WaveClear;
@@ -37,17 +33,22 @@ public class GameScene1TEST : BaseScene
         Managers.ContentsManager.OnWaveClear -= WaveClear;
         if (string.IsNullOrEmpty(NextSceneName))
         {
-            Managers.ContentsManager.StageClear();
+
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other);
-        if (other.gameObject.layer==LayerMask.NameToLayer("Player") && isClear)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") && isClear)
         {
             if (NextSceneName != "")
                 Managers.MySceneManager.LoadScene(NextSceneName);
+            else
+            {
+                GameResultUI ui = Managers.UIManager.ShowPopupUI<GameResultUI>("GaemResultUI");
+                ui.result = true;
+            }
         }
     }
 }

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterGroup : MonoBehaviour,IDataBind
+public class MonsterGroup : MonoBehaviour, IDataBind
 {
-    [SerializeField]
+    /*    [SerializeField]
     int GroupId=1;
 
     public BTRunner Runner { get; protected set; }
@@ -187,5 +187,8 @@ public class MonsterGroup : MonoBehaviour,IDataBind
         Destpos = transform.position + new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
     }
 
-    #endregion
+    #endregion*/
+    public void BindData()
+    {
+    }
 }

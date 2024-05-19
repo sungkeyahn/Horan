@@ -7,7 +7,6 @@ public class CameraComponent : MonoBehaviour
     // 각 게임의 Scene스크립트에서 초기화 해줄것  
     public Vector3 delta = new Vector3(0.0f, 6.0f, -5.0f);
 
-    [SerializeField]
     GameObject player = null;
 
     private void LateUpdate()

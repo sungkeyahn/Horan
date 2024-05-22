@@ -42,31 +42,27 @@ public  class MonsterController : UnitController
         }
         return false;
     }
-    
-    float stopsecond;
-    float preNavSpeed;
+
+    protected float waitsecond;
+
     protected void StopUnit(bool isStop)
     {
         Runner.isActive = !isStop;
         Nav.isStopped = isStop;
-        Nav.speed = 0;
         Nav.velocity = Vector3.zero;
     }
     protected void StopUnit(float second=-1)
     {
         if (second <= 0) return;
-        stopsecond = second;
-        preNavSpeed = Nav.speed;
+        waitsecond = second;
         StartCoroutine("STOP");
     }
     protected IEnumerator STOP()
     {
         StopUnit(true);
-        yield return new WaitForSeconds(stopsecond);
+        yield return new WaitForSeconds(waitsecond);
         StopUnit(false);
-        Nav.speed = preNavSpeed;
-        preNavSpeed = 0;
-        stopsecond = 0;
+        waitsecond = 0;
     }
 
     protected virtual void HitEffect()
@@ -108,15 +104,28 @@ public  class MonsterController : UnitController
         if (Target == null) return -1;
         return Vector3.Distance(transform.position, Target.transform.position);
     }
-    protected bool RotateToTarget()
+    protected bool RotateToTarget(GameObject target)
     {
-        if (Target)
+        if (target)
         {
-            Vector3 dir = Target.transform.position - transform.position;
+            Vector3 dir = target.transform.position - transform.position;
             if (Vector3.Angle(transform.forward, dir) <= 45f / 2f) //몬스터 시야각 
                 return true;
             Quaternion quat = Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.Lerp(transform.rotation, quat, 5 * Time.deltaTime);
+            return false;
+        }
+        return false;
+    }
+    protected bool RotateToVector(Vector3 pos,float RotSpeed=5f)
+    {
+        if (pos!=Vector3.zero)
+        {
+            Vector3 dir = pos - transform.position;
+            if (Vector3.Angle(transform.forward, dir) <= 45f / 2f) //몬스터 시야각 
+                return true;
+            Quaternion quat = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, quat, RotSpeed * Time.deltaTime);
             return false;
         }
         return false;

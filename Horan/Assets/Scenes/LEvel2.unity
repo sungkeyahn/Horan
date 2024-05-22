@@ -1551,6 +1551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4555873674164441325, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7552067024150332958, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -6599,6 +6603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4555873674164441325, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7552067024150332958, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20
@@ -6655,6 +6663,10 @@ PrefabInstance:
     - target: {fileID: 4555873674164441325, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_Name
       value: SwordEnemy (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555873674164441325, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7552067024150332958, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8303,6 +8315,10 @@ PrefabInstance:
     - target: {fileID: 4555873674164441325, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_Name
       value: SwordEnemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555873674164441325, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7552067024150332958, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11398,6 +11414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4555873674164441325, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7552067024150332958, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20
@@ -12255,71 +12275,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7600297568294902382, guid: 82666ec4d5ed6c140a045b9fbf740a5d, type: 3}
   m_PrefabInstance: {fileID: 1403971057}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1414422717
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 19.3
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0000019073486
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_Name
-      value: qing_bowman_02_a (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a7605ed7c68ab0d419f5dd1df289a23b, type: 3}
 --- !u!1001 &1430404105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13090,6 +13045,10 @@ PrefabInstance:
     - target: {fileID: 4555873674164441325, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_Name
       value: SwordEnemy (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555873674164441325, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7552067024150332958, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17448,7 +17407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 773327968912544517, guid: 2226226c82464c14c87c48b72c53c45f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.93
+      value: -39.45
       objectReference: {fileID: 0}
     - target: {fileID: 773327968912544517, guid: 2226226c82464c14c87c48b72c53c45f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18178,7 +18137,6 @@ SceneRoots:
   - {fileID: 1846308584}
   - {fileID: 347511624}
   - {fileID: 515359185}
-  - {fileID: 1414422717}
   - {fileID: 1150421286}
   - {fileID: 1620427123}
   - {fileID: 130972161}

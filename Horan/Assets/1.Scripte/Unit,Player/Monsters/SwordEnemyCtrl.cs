@@ -69,11 +69,12 @@ public class SwordEnemyCtrl : MonsterController
         Anim.Play("DEAD");
     }
 
-    float waitsecond;
-    #region Task
+
+    #region Task   
+    Vector3 WanderPos;
     BT_Node.NodeState TryAttak()
     {
-        if (RotateToTarget() && GetTargetDistance()<Stat.atkrange/2)
+        if (RotateToTarget(Target) && GetTargetDistance()<Stat.atkrange/2)
         {
             if (!IsAnimationRunning("ATTACK"))
                 Anim.Play("ATTACK");
@@ -95,7 +96,6 @@ public class SwordEnemyCtrl : MonsterController
         
         return BT_Node.NodeState.Success;
     }
-    Vector3 WanderPos;
     BT_Node.NodeState TryWandering()
     {
         if (WanderPos == Vector3.zero)
@@ -136,14 +136,12 @@ public class SwordEnemyCtrl : MonsterController
         }
         return BT_Node.NodeState.Success; 
     }
-
-
     #endregion
 
     #region Service
     void FindEnemy()
     {
-        TargetSearch(SenseRange, LayerMask.GetMask("Player"));
+        TargetSearch(Stat.sensingrange, LayerMask.GetMask("Player"));
     }
     #endregion
 

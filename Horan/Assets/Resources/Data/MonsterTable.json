@@ -31,19 +31,43 @@
       "damage": "20",
       "walkspeed": "2",
       "runspeed": "4",
-      "atkrange": "3",
-      "sensingrange": "8",
+      "atkrange": "10",
+      "sensingrange": "15",
       "dropgold": "5",
       "dropexp": "10",
       "dropitems": [
         {
-          "name": "Experience",
-          "amount": 10,
+          "id": 1012,
+          "amount": 1,
           "probability": 100
         },
         {
-          "name": "Gold",
-          "amount": 15,
+          "id": 1013,
+          "amount": 1,
+          "probability": 50
+        }
+      ]
+    },
+    {
+      "name": "Boss_A",
+      "maxHp": "100",
+      "maxSp": "100",
+      "damage": "20",
+      "walkspeed": "2",
+      "runspeed": "4",
+      "atkrange": "10",
+      "sensingrange": "15",
+      "dropgold": "5",
+      "dropexp": "10",
+      "dropitems": [
+        {
+          "id": 1012,
+          "amount": 1,
+          "probability": 100
+        },
+        {
+          "id": 1013,
+          "amount": 1,
           "probability": 50
         }
       ]

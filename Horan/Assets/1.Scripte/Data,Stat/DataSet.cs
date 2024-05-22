@@ -73,7 +73,6 @@ namespace Data
     }
     #endregion 
 
-
     #region DataSet
     [Serializable]
     public class Stat_Player

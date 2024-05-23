@@ -3,7 +3,17 @@ guid: 7aec05038fcf3ac4182cf9160432eff7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 10 - Default
+    second: {fileID: 2100000, guid: f458fee0ff1664a48a95a3f8b564ad74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #143
+    second: {fileID: 2100000, guid: b397c2223f42d484ca7487bb9b955a3a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -16,9 +26,17 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'LeftUpperLeg' not found\n"
-    rigImportWarnings: 
+    rigImportErrors: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'mixamorig:LeftUpLeg' : position
+      error = 20.585678 mm\n\t'mixamorig:LeftLeg' : position error = 29.369791 mm\n\t'mixamorig:LeftFoot'
+      : position error = 32.063805 mm\n\t'mixamorig:LeftToeBase' : position error
+      = 4.469506 mm\n\t'mixamorig:LeftToe_End' : position error = 1.214411 mm\n\t'mixamorig:RightUpLeg'
+      : position error = 35.381443 mm\n\t'mixamorig:RightLeg' : position error =
+      30.567419 mm\n\t'mixamorig:RightFoot' : position error = 31.386036 mm\n\t'mixamorig:RightToeBase'
+      : position error = 2.598934 mm\nAvatar Rig Configuration mis-match. Inbetween
+      bone rotation in configuration does not match rotation in animation file:\n\t'mixamorig:LeftToeBase'
+      : rotation error = 2.572469 deg\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 

@@ -49,6 +49,9 @@ public class PlayerController : UnitController
     {
         Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
 
+        //잠재 능력 UI 에서 선택시 적용될 코드 
+        //Managers.ContentsManager.AbilityContainer.AddAbility(new LatentAbility(2, Stat));
+        
         #region Effect and Sound
         StepSound1 = LoadSound("Step1",transform);
         PlaySound(StepSound1);
@@ -92,9 +95,9 @@ public class PlayerController : UnitController
         Act.AddAct(counter);
         #endregion
 
+        #region Equipments
         weapon = GetComponentInChildren<Weapon>();
         weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
-
         equipments = GetComponentsInChildren<Equipment>();
         for (int i = 0; i < equipments.Length; i++)
         {
@@ -113,6 +116,7 @@ public class PlayerController : UnitController
                     break;
             }
         }
+        #endregion
     }
     private void FixedUpdate()
     {

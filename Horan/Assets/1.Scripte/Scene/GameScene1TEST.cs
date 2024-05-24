@@ -20,17 +20,20 @@ public class GameScene1TEST : BaseScene
     void Start()
     {
         //Managers.ContentsManager.WaveStart();// 현재웨이브 데이터 초기화 및 세팅
-        Managers.ContentsManager.OnWaveClear -= WaveClear;
-        Managers.ContentsManager.OnWaveClear += WaveClear;
+        Managers.ContentsManager.OnWaveClear -= ClearScene;
+        Managers.ContentsManager.OnWaveClear += ClearScene;
 
         //플레이어+몬스터 생성 코드 필요
         Camera.main.GetComponent<CameraComponent>().SetPlayer(player);
+
+
+        Managers.ContentsManager.WaveStart();
     }
 
-    protected virtual void WaveClear() 
+    protected virtual void ClearScene() 
     {
         isClear = true;
-        Managers.ContentsManager.OnWaveClear -= WaveClear;
+        Managers.ContentsManager.OnWaveClear -= ClearScene;
         if (string.IsNullOrEmpty(NextSceneName))
         {
 

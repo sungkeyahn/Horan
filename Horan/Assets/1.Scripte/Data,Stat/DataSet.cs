@@ -12,7 +12,6 @@ namespace Data
         Dictionary<Key, Value> MakeDict();
     }
 
-
     #region Save 
     //.json
     [Serializable]
@@ -61,8 +60,6 @@ namespace Data
         public int id;
         public int amount;
     }
-    
-
     [Serializable]
     public struct Save_Equip
     {
@@ -151,8 +148,6 @@ namespace Data
         public EEquipmentAbilityType type;
         public float value;
     }
-
-
     [Serializable]
     public class DataSet_Weapon
     {
@@ -168,7 +163,15 @@ namespace Data
         public float delay;
         public float judgmenttime;
     }
-
+    [Serializable]
+    public enum LatentAbilityValueType {MaxHpUp = 1, MaxSpUp, DamageUp,HpRegen}
+    [Serializable]
+    public class DataSet_LatentAbility
+    {
+        public int id;
+        public LatentAbilityValueType type;
+        public float value;
+    }
     #endregion
 
     #region DataSeparator 
@@ -250,6 +253,20 @@ namespace Data
         {
             Dictionary<int, DataSet_Weapon> dict = new Dictionary<int, DataSet_Weapon>();
             foreach (DataSet_Weapon data in weapons)
+                dict.Add(data.id, data);
+            return dict;
+        }
+    }
+
+    [Serializable]
+    public class Separator_LatentAbilityTable : IDataSeparator<int, DataSet_LatentAbility>
+    {
+        public List<DataSet_LatentAbility> abilitys = new List<DataSet_LatentAbility>();
+
+        public Dictionary<int, DataSet_LatentAbility> MakeDict()
+        {
+            Dictionary<int, DataSet_LatentAbility> dict = new Dictionary<int, DataSet_LatentAbility>();
+            foreach (DataSet_LatentAbility data in abilitys)
                 dict.Add(data.id, data);
             return dict;
         }

@@ -46,9 +46,7 @@ public class ContentsManager
             case EGameModes.TutorialMode:
                 break;
         }
-
         AcquiredItems.Clear();
-        WaveStart();
         Managers.MySceneManager.LoadScene($"Level{stage}");
     }
     public void StageClear()
@@ -64,6 +62,10 @@ public class ContentsManager
     public int MonsterCounts;
     public void WaveStart()
     {
+        AbilityContainer.Init();
+        //Managers.ContentsManager.AbilityContainer.AddAbility(new LatentAbility(2, playerStat)); 어빌리티 획득시 그쪽에서 호출할 코드 
+        //어빌리티 획득 잘되는지 확인하기 
+        //AbilityContainer.ClearAbilities();
     }
     void WaveClear() //모든 몬스터 사망시 자동 호출
     {
@@ -118,12 +120,16 @@ public class ContentsManager
     }
     #endregion
 
+    #region LatentAbility
+    public LatentAbilityContainer AbilityContainer = new LatentAbilityContainer();
+    #endregion
+
     #region Unit
     Dictionary<string, UnitController> SpawnedUnits=new Dictionary<string, UnitController>();
     public void SpawnUnit(string id)
     {
         MonsterCounts += 1;
-        Debug.Log(MonsterCounts);
+        //Debug.Log(MonsterCounts);
     }
     public void DeadUnit(string id)
     {

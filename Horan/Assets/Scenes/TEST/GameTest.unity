@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -520,6 +521,10 @@ PrefabInstance:
     - target: {fileID: 3554372041197421522, guid: 798a4c8a951fd0949ac984beed9531b9, type: 3}
       propertyPath: m_Name
       value: BowEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554372041197421522, guid: 798a4c8a951fd0949ac984beed9531b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3106,8 +3111,8 @@ SceneRoots:
   - {fileID: 838101629}
   - {fileID: 102926507}
   - {fileID: 1758255654}
-  - {fileID: 6471828818482232209}
   - {fileID: 2510111264788984508}
+  - {fileID: 6471828818482232209}
   - {fileID: 1988741224}
   - {fileID: 8941265470037748504}
   - {fileID: 789968329}

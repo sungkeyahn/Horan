@@ -17,4 +17,5 @@ public abstract class Stat : MonoBehaviour
     public Action<StatIdentifier, float, float> OnStatChanged; //스텟 식별자, 변화량 백분률
     public Action OnUnitDead;
     public Action OnUnitTakeDamaged;
+    public Action OnHit;
 }

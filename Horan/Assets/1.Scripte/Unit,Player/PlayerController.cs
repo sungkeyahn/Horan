@@ -3,10 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ISound 
-{
-    public GameObject PlaySound(string key);
-}
 
 public enum EPlayerAnimState
 {
@@ -15,7 +11,7 @@ public enum EPlayerAnimState
     DASH
 }
 
-public class PlayerController : MonoBehaviour, ISound
+public class PlayerController : UnitController
 {
     Animator anim;
 
@@ -23,6 +19,12 @@ public class PlayerController : MonoBehaviour, ISound
     PlayerStat Stat;
     ActComponent Act;
 
+    GameObject StepSound1;
+    GameObject StepSound2;
+    GameObject SwingSound1;
+    GameObject SwingSound2;
+    GameObject AttackEffectPrefab;
+    
 
     public GameObject TargetEnemy = null;
     Vector3 moveDir = Vector3.zero;
@@ -45,10 +47,18 @@ public class PlayerController : MonoBehaviour, ISound
     }
     private void Start()
     {
-        if (Hud == null)
-            Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
-        if (StepSound1 == null)
-            StepSound1 = PlaySound("Step1");
+        Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
+
+        #region Effect and Sound
+        StepSound1 = LoadSound("Step1",transform);
+        PlaySound(StepSound1);
+        StepSound2 = LoadSound("Step2", transform);
+        SwingSound1 = LoadSound("Swing1", transform);
+        SwingSound2 = LoadSound("Swing2", transform);
+
+        AttackEffectPrefab = LoadEffect("Swing1");
+        //SpawnEffect(AttackEffectPrefab, transform.position, transform);
+        #endregion
 
         #region Acts 
         Act attack = new Act((int)KindOfAct.Attack, Attack);
@@ -197,8 +207,7 @@ public class PlayerController : MonoBehaviour, ISound
 
     #region Move
     MoveComponent move;
-    GameObject StepSound1;
-    GameObject StepSound2;
+
 
     void Move()
     {
@@ -211,10 +220,7 @@ public class PlayerController : MonoBehaviour, ISound
         anim.SetFloat("WalkX", moveDir.x);
         anim.SetFloat("WalkY", moveDir.z);
 
-        if (StepSound1&& !StepSound1.GetComponent<AudioSource>().isPlaying)
-        {
-            StepSound1.GetComponent<AudioSource>().Play();
-        }
+        PlaySound(StepSound1);
     }
     #endregion
 
@@ -234,10 +240,8 @@ public class PlayerController : MonoBehaviour, ISound
         atkCount += 1;
         anim.Play(animinfo.name, -1, 0);
 
-        if (UnityEngine.Random.Range(0, 2) < 2) //개선 필요
-            PlaySound("Swing1");
-        else
-            PlaySound("Swing2");
+        if (UnityEngine.Random.Range(0, 2) == 0) PlaySound(SwingSound1);
+        else PlaySound(SwingSound2);
 
         atkAble = false;
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
@@ -365,23 +369,5 @@ public class PlayerController : MonoBehaviour, ISound
         Act.Finish((int)KindOfAct.DashAttack);
     }
     #endregion
-
-    void CreateEffect(string key)
-    {
-        //"attack_strong"
-        GameObject a;
-        Managers.DataLoder.DataCache_Effect.TryGetValue(key, out a);
-        if (a)
-            Instantiate(a, weapon.transform);
-    }
-
-    public GameObject PlaySound(string key)
-    {
-        GameObject a;
-        Managers.DataLoder.DataCache_Sound.TryGetValue(key, out a);
-        if (a)
-            return Instantiate(a, transform);
-        return null;
-    }
 
 }

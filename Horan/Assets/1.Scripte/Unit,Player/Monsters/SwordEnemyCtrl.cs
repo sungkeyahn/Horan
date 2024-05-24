@@ -24,7 +24,7 @@ public class SwordEnemyCtrl : MonsterController
     protected override void Start()
     {
         base.Start();
-        Stat.OnUnitTakeDamaged += HitEffect;
+        Stat.OnHit += HitEffect;
         Stat.OnUnitDead += Dead;
 
         #region BT

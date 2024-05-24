@@ -3,24 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public struct AIAttackInfo
-{
-    public AIAttackInfo(string name, float delay, float wait, float speed, float distance, bool nav = false)
-    {
-        palyAnimName = name;
-        animdelay = delay;
-        waitsecond = wait;
-        movespeed = speed;
-        movedistance = distance;
-        navoff = nav;
-    }
-    public string palyAnimName;
-    public float animdelay;
-    public float waitsecond;
-    public float movespeed;
-    public float movedistance;
-    public bool navoff;
-}
+
 
 public class BossACtrl : MonsterController
 {
@@ -39,26 +22,16 @@ public class BossACtrl : MonsterController
         Anim = GetComponent<Animator>();
         Nav = GetComponent<NavMeshAgent>();
         Stat = GetComponent<MonsterStat>();
-        /*
-        보스는 공격을 어떤 식으로 할지 정하긴 해야햐는데
-        순찰은 없고 제자리에서 대기하다가 플레이어 인식범위를 많이 넓게하고
-        추격 기능 존재
-        공격 범위는 중거리 정도로 
-        어떤 공격을 할지는 일단 패턴사용 해야할거 같은데?
-        (대시 대시  대시) or (대시 점프) 이렇게 패턴 만들고
-
-        패턴을 실행 하고 있는 경우 다른 행동으로 진행하지 않도록하는 무언가가 필요함
-        */
     }
     protected override void Start()
     {
-        base.Start();
-        Stat.OnUnitTakeDamaged += HitEffect;
+        base.Start(); 
+        Stat.OnHit += HitEffect;
         Stat.OnUnitDead += Dead;
 
-        #region atkinfo
-        AtkInfo_Dash = new AIAttackInfo("ATTACK_DASH", 0.4f, 2, 20, 20, false);
-        AtkInfo_Jump = new AIAttackInfo("ATTACK_JUMP", 0.01f, 2, 15, 10, true);
+        #region ATTACKInfo
+        AtkInfo_Dash = new AIAttackInfo("ATTACK_DASH", 0.5f, 2, 5, 90,0.25f, 20, 20, false);
+        AtkInfo_Jump = new AIAttackInfo("ATTACK_JUMP", 0.1f, 2, 10, 360, 0.75f, 5, 10, true);
         #endregion
 
         #region Pattern
@@ -210,11 +183,12 @@ public class BossACtrl : MonsterController
         yield return new WaitForSeconds(info.animdelay);
         Nav.speed = info.movespeed;
         DestPos = transform.position + transform.forward* info.movedistance;
-        if (info.navoff)
-            StartCoroutine(AttackMove(DestPos));
+        if (info.navoff) StartCoroutine(AttackMove(DestPos));
         
-        //Dash();
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSeconds(info.atktime);
+        CheckAttackRange(info.range, info.angle);
+        yield return new WaitForSeconds(.5f);
+
 
         if (2 <= AtkCount)
             SelectedPatternNum = -1;
@@ -222,7 +196,7 @@ public class BossACtrl : MonsterController
         StopUnit(.5f);
         Attacking = false;
     }
-    private IEnumerator AttackMove(Vector3 targetPosition)
+    IEnumerator AttackMove(Vector3 targetPosition)
     {
         // 점프 시작
         float jumpDuration = 0.5f;

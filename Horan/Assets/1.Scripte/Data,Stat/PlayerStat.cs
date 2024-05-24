@@ -9,8 +9,6 @@ public class PlayerStat : Stat, IDataBind, IDamageInteraction
     const float SpRegenTime = 5;
     float CurSpRegenTime;
 
-    public Action OnHit;
-
     public bool isDamageable;
     public bool isRegenable;
 

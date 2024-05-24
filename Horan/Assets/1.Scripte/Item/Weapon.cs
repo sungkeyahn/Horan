@@ -24,9 +24,6 @@ public class Weapon : Equipment
         GameObject hitob = other.gameObject;
         if (hitob)
         {
-            ISound sound = GetComponentInParent<ISound>();
-            if (sound != null) sound.PlaySound("Hit1");
-
             IDamageInteraction damageable = hitob.GetComponent<IDamageInteraction>();
             if (damageable != null)
             {

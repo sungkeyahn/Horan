@@ -50,9 +50,14 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
     {
         if (0 < hp)
         {
+            if (OnHit != null)
+                OnHit.Invoke();
+
             if (isDamageable)
             {
                 hp = Mathf.Clamp(hp - damage, -1, maxhp);
+                if (OnUnitTakeDamaged!=null)
+                    OnUnitTakeDamaged.Invoke();
                 if (hp <= 0)
                     OnUnitDead.Invoke();
                 

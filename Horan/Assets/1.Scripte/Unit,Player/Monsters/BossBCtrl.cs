@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
-
-public class BossACtrl : MonsterController
+public class BossBCtrl : MonsterController
 {
     AIAttackInfo AtkInfo_Default1;
     AIAttackInfo AtkInfo_Default2;
@@ -16,7 +14,7 @@ public class BossACtrl : MonsterController
 
     int AtkCount;
     int SelectedPatternNum = -1;
-    bool Attacking=false;
+    bool Attacking = false;
 
     void Awake()
     {
@@ -27,24 +25,25 @@ public class BossACtrl : MonsterController
     }
     protected override void Start()
     {
-        base.Start(); 
+        base.Start();
         Stat.OnHit += HitEffect;
         Stat.OnUnitDead += Dead;
 
         #region ATTACKInfo
-        AtkInfo_Default1 = new AIAttackInfo("ATTACK_DEFAULT1", 0, 0.25f, 4, 60,  0, 0, 0, false);
+        AtkInfo_Default1 = new AIAttackInfo("ATTACK_DEFAULT1", 0, 0.25f, 4, 60, 0, 0, 0, false);
         AtkInfo_Default2 = new AIAttackInfo("ATTACK_DEFAULT2", 0, 0.25f, 4, 60,  0, 0, 0.5f, false);
-        AtkInfo_Dash = new AIAttackInfo("ATTACK_DASH", 0.55f, 0.1f, 10, 45, 0.5f, 5, 0.75f, false);
-        AtkInfo_Jump = new AIAttackInfo("ATTACK_JUMP", 0.15f, 0.75f, 7, 360, 0.5f, 10, 1, true);
+        AtkInfo_Dash = new AIAttackInfo("ATTACK_DASH", 0.55f, 0.25f, 10, 45,  2, 5, 0.75f, false);
+        AtkInfo_Jump = new AIAttackInfo("ATTACK_JUMP", 0.15f, 0.75f, 7, 360,  2.5f, 2, 1, true);
         #endregion
 
         #region Pattern
-        AttackPattern[0,0] = AtkInfo_Default1;
-        AttackPattern[0,1] = AtkInfo_Default2;
-        AttackPattern[1,0] = AtkInfo_Dash;
-        AttackPattern[1,1] = AtkInfo_Dash;
+        AttackPattern[0, 0] = AtkInfo_Default1;
+        AttackPattern[0, 1] = AtkInfo_Default2;
+        AttackPattern[1, 0] = AtkInfo_Dash;
+        AttackPattern[1, 1] = AtkInfo_Dash;
         AttackPattern[2, 0] = AtkInfo_Dash;
         AttackPattern[2, 1] = AtkInfo_Jump;
+
         #endregion
 
         #region BT
@@ -90,7 +89,7 @@ public class BossACtrl : MonsterController
             AtkCount = 0;
         }
 
-        if (!Attacking&& RotateToTarget(Target) && GetTargetDistance() <= AttackPattern[SelectedPatternNum,AtkCount].atkRange)
+        if (!Attacking && RotateToTarget(Target) && GetTargetDistance() <= AttackPattern[SelectedPatternNum, AtkCount].atkRange)
         {
             StartCoroutine("Attack");
             waitsecond = -1;
@@ -100,7 +99,7 @@ public class BossACtrl : MonsterController
     }
     BT_Node.NodeState TryChase()
     {
-       
+
         if (AnimPlay("MOVE"))
         {
             Nav.speed = Stat.walkspeed;
@@ -136,11 +135,11 @@ public class BossACtrl : MonsterController
     }
     BT_Node.NodeState FindEnemy()
     {
-        if (Target!=null && Vector3.Distance(Target.transform.position,transform.position)< Stat.sensingrange)
+        if (Target != null && Vector3.Distance(Target.transform.position, transform.position) < Stat.sensingrange)
             return BT_Node.NodeState.Running;
         if (TargetSearch(Stat.sensingrange, LayerMask.GetMask("Player")))
             return BT_Node.NodeState.Success;
-            return BT_Node.NodeState.Failure;
+        return BT_Node.NodeState.Failure;
     }
 
 
@@ -162,7 +161,7 @@ public class BossACtrl : MonsterController
     bool PatternActiving()
     {
         if (Attacking)
-            return false; 
+            return false;
         return true;
     }
     #endregion
@@ -189,23 +188,22 @@ public class BossACtrl : MonsterController
         Nav.speed = info.moveSpeed;
         float jump = 0;
         if (info.isJump) jump = 1.5f;
-        Vector3 movePos = transform.position + transform.forward*info.moveSpeed;
+        Vector3 movePos = transform.position + transform.forward * info.moveSpeed;
         if (info.moveSpeed != 0)
             StartCoroutine(AttackMove(movePos, info.moveDuration, jump));
-   
+
         yield return new WaitForSeconds(info.damageTime);
         CheckAttackRange(info.atkRange, info.atkAngle);
-
         yield return new WaitForSeconds(info.waitSecond);
-        StopUnit(info.waitSecond);
+
 
         if (2 <= AtkCount)
             SelectedPatternNum = -1;
 
-
+        StopUnit(.5f);
         Attacking = false;
     }
-    IEnumerator AttackMove(Vector3 targetPosition, float moveDuration, float jumpHeight=0)
+    IEnumerator AttackMove(Vector3 targetPosition, float moveDuration, float jumpHeight = 0)
     {
         // 점프 시작
         Nav.enabled = false; // NavMeshAgent 비활성화
@@ -226,10 +224,4 @@ public class BossACtrl : MonsterController
         transform.position = targetPosition;
         Nav.enabled = true; // NavMeshAgent 활성화
     }
-    /*    void Dash()
-    {
-        Nav.isStopped = false;
-        Nav.SetDestination(DestPos);
-    }*/
-
 }

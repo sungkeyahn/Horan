@@ -6,27 +6,32 @@ using UnityEngine.AI;
 
 public struct AIAttackInfo
 {
-    public AIAttackInfo(string name, float delay, float wait, float atkrange, float atkangle, float atktime, float speed, float distance, bool nav = false)
+    public AIAttackInfo(string AnimName, float AnimDelay , float DamageTime,float AtkRange,float AtkAngle,float MoveDuration,float MoveSpeed,float WaitSecond,bool IsJump)
     {
-        palyAnimName = name;
-        animdelay = delay;
-        waitsecond = wait;
-        range = atkrange;
-        angle = atkangle;
-        this.atktime = atktime;
-        movespeed = speed;
-        movedistance = distance;
-        navoff = nav;
+        animName = AnimName;
+        animDelay= AnimDelay;
+        damageTime = DamageTime;
+
+        atkRange = AtkRange;
+        atkAngle = AtkAngle;
+        moveDuration = MoveDuration;
+        moveSpeed = MoveSpeed;
+
+        waitSecond = WaitSecond;
+        isJump = IsJump;
     }
-    public string palyAnimName;
-    public float animdelay;
-    public float waitsecond;
-    public float range;
-    public float angle;
-    public float atktime;
-    public float movespeed;
-    public float movedistance;
-    public bool navoff;
+    public string animName;
+    public float animDelay;
+    public float damageTime;
+
+    public float atkRange;
+    public float atkAngle;
+
+    public float moveDuration;
+    public float moveSpeed;
+
+    public bool isJump;
+    public float waitSecond;
 }
 
 public  class MonsterController : UnitController

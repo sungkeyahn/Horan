@@ -19,8 +19,9 @@ public class BowEnemyCtrl : MonsterController
         Stat.OnHit += HitEffect;
         Stat.OnUnitDead += Dead;
 
-        AtkInfo_Default = new AIAttackInfo("ATTACK", 1.5f, 2f, 50, 30, 0.15f, 0, 0, false);
+        AtkInfo_Default = new AIAttackInfo("ATTACK", 1.5f, 0.2f, 50, 15, 0, 0, 1,false);
 
+        /**/
         #region BT
         Runner = new BTRunner
         (
@@ -33,14 +34,14 @@ public class BowEnemyCtrl : MonsterController
                         new BT_Selector(new List<BT_Node>()
                         {
                            new BT_Decorator(new BT_Sequence(new List<BT_Node>()
-                           {                 
+                           {
                                new BT_Task(TryRun),
                                new BT_Task(Move)
                            }),IsClose),
                            new BT_Sequence(new List<BT_Node>()
-                           {                           
+                           {
                                new BT_Task(TryAttak),
-                               new BT_Task(Wait) 
+                               new BT_Task(Wait)
                            })
                         })
                     }),IsAttackable)
@@ -71,15 +72,15 @@ public class BowEnemyCtrl : MonsterController
 
     Vector3 WanderPos;
     Vector3 RunPos;
+    bool isAttacking;
 
     BT_Node.NodeState TryAttak()
     {
-        if (RotateToTarget(Target,5,30) && GetTargetDistance() < Stat.sensingrange)
+        if (RotateToTarget(Target,5,10) && GetTargetDistance() < Stat.sensingrange)
         {
             if (!IsAnimationRunning("ATTACK"))
             {
                 StartCoroutine("Attack");
-                //Anim.Play("ATTACK");
             }
             waitsecond = 1.5f;
             return BT_Node.NodeState.Success;
@@ -88,7 +89,6 @@ public class BowEnemyCtrl : MonsterController
     }
     BT_Node.NodeState TryRun()
     {
-        //이 조건 에서 뒤편 방향에 공간이 존재하는 지 확인 후 이동 가능을 결정
         if (RunPos == Vector3.zero)
             RunPos = transform.position + new Vector3((transform.position - Target.transform.position).x, 0, (transform.position - Target.transform.position).z)*5;
         bool isNavigable = CheckNavigableArea(5f, RunPos);
@@ -96,7 +96,6 @@ public class BowEnemyCtrl : MonsterController
         {
             Nav.velocity = Vector3.zero;
             RunPos = Vector3.zero;
-
             waitsecond = 2f;
             return BT_Node.NodeState.Failure;
         }
@@ -125,6 +124,7 @@ public class BowEnemyCtrl : MonsterController
     {
         if (!IsAnimationRunning("WAIT"))
             Anim.Play("WAIT");
+
         StopUnit(waitsecond);
         return BT_Node.NodeState.Success;
     }
@@ -190,9 +190,9 @@ public class BowEnemyCtrl : MonsterController
     {
         yield return null;
         Anim.Play("ATTACK");
-        yield return new WaitForSeconds(AtkInfo_Default.animdelay);
-        yield return new WaitForSeconds(AtkInfo_Default.atktime);
-        CheckAttackRange(AtkInfo_Default.range, AtkInfo_Default.angle);
+        yield return new WaitForSeconds(AtkInfo_Default.animDelay);
+        yield return new WaitForSeconds(AtkInfo_Default.damageTime);
+        CheckAttackRange(AtkInfo_Default.atkRange, AtkInfo_Default.atkAngle);
     }
 
 }

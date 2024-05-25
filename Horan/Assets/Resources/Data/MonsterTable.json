@@ -71,6 +71,30 @@
           "probability": 50
         }
       ]
+    },
+    {
+      "name": "Boss_B",
+      "maxHp": "100",
+      "maxSp": "100",
+      "damage": "20",
+      "walkspeed": "2",
+      "runspeed": "4",
+      "atkrange": "10",
+      "sensingrange": "15",
+      "dropgold": "5",
+      "dropexp": "10",
+      "dropitems": [
+        {
+          "id": 1012,
+          "amount": 1,
+          "probability": 100
+        },
+        {
+          "id": 1013,
+          "amount": 1,
+          "probability": 50
+        }
+      ]
     }
   ]
 }

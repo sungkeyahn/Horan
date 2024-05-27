@@ -27,7 +27,7 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
     public Dictionary<string, GameObject> DataCache_Effect { get; private set; } = new Dictionary<string, GameObject>();
     public Dictionary<string, GameObject> DataCache_Sound { get; private set; } = new Dictionary<string, GameObject>();
 
-    
+
     //예외처리 코드 추가 예정...
     public void DefaultDataLoad()
     {

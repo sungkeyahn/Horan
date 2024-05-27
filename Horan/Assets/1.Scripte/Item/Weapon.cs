@@ -13,11 +13,11 @@ public class Weapon : Equipment
 
     private void Awake()
     {
-        Area = GetComponent<BoxCollider>();
+        Area = GetComponentInChildren<BoxCollider>();
         Area.enabled = false;
+        onwerStat = GetComponentInParent<PlayerStat>();
         meshFilter = GetComponent<MeshFilter>();
         meshRenderer = GetComponent<MeshRenderer>();
-        onwerStat = GetComponentInParent<PlayerStat>();
     }
     private void OnTriggerEnter(Collider other)
     {

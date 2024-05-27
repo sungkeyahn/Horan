@@ -176,6 +176,20 @@
       "iconfilename": "icon_main_cloth_3b_01"
     },
     {
+      "id": 1111,
+      "name": "Default_Clothes_D",
+      "type": 1,
+      "info": "평범한 철두정갑",
+      "iconfilename": "icon_main_cloth_3b_02"
+    },
+    {
+      "id": 1112,
+      "name": "Rare_Clothes_D",
+      "type": 1,
+      "info": "튼튼한 철두정갑",
+      "iconfilename": "icon_main_cloth_3b_03"
+    },
+    {
       "id": 1201,
       "name": "Default_Head_A",
       "type": 1,
@@ -226,7 +240,7 @@
     },
     {
       "id": 1208,
-      "name": "Common_Clothes_C",
+      "name": "Common_Head_C",
       "type": 1,
       "info": "수선한 투구",
       "iconfilename": "icon_main_hat_3a_02"
@@ -261,38 +275,38 @@
     },
     {
       "id": 1301,
-      "name": "Common_Accessory_A",
+      "name": "Accessory_A",
       "type": 1,
       "info": "하회탈",
       "iconfilename": "icon_acc_01"
     },
     {
       "id": 1302,
-      "name": "Common_Accessory_B",
+      "name": "Accessory_B",
       "type": 1,
-      "info": "애체",
+      "info": "반 하회탈",
       "iconfilename": "icon_acc_02"
     },
     {
       "id": 1303,
-      "name": "Default_Accessory_C",
+      "name": "Accessory_C",
       "type": 1,
       "info": "곰방대",
       "iconfilename": "icon_acc_03"
     },
     {
-      "id": 1401,
-      "name": "Default_Clothes_D",
+      "id": 1304,
+      "name": "Accessory_D",
       "type": 1,
-      "info": "평범한 철두정갑",
-      "iconfilename": "icon_main_cloth_3b_02"
+      "info": "안경",
+      "iconfilename": "icon_acc_03"
     },
     {
-      "id": 1402,
-      "name": "Rare_Clothes_D",
+      "id": 1305,
+      "name": "Accessory_E",
       "type": 1,
-      "info": "튼튼한 철두정갑",
-      "iconfilename": "icon_main_cloth_3b_03"
+      "info": "곰방대_안경",
+      "iconfilename": "icon_acc_03"
     },
     {
       "id": 1501,

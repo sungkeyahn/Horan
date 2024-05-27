@@ -133,6 +133,7 @@ namespace Data
         public string name;
         public string meshpath;
         public string materialpath;
+        public string equipmentprefabpath;
         public EEquipmentType type;
         public List<EquipmentAbility> abilitys;
     }

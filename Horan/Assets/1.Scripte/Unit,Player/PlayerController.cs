@@ -14,7 +14,7 @@ public enum EPlayerAnimState
 public class PlayerController : UnitController
 {
     Animator anim;
-
+    Animator []anims;
     HUDUI Hud;
     PlayerStat Stat;
     ActComponent Act;
@@ -33,8 +33,7 @@ public class PlayerController : UnitController
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-
+        //anim = GetComponent<Animator>();
         input = GetComponent<InputComponent>();
         input.MouseAction -= OnPlayerMouseEvent;
         input.MouseAction += OnPlayerMouseEvent;
@@ -54,7 +53,6 @@ public class PlayerController : UnitController
         
         #region Effect and Sound
         StepSound1 = LoadSound("Step1",transform);
-        PlaySound(StepSound1);
         StepSound2 = LoadSound("Step2", transform);
         SwingSound1 = LoadSound("Swing1", transform);
         SwingSound2 = LoadSound("Swing2", transform);
@@ -96,8 +94,7 @@ public class PlayerController : UnitController
         #endregion
 
         #region Equipments
-        weapon = GetComponentInChildren<Weapon>();
-        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
+       
         equipments = GetComponentsInChildren<Equipment>();
         for (int i = 0; i < equipments.Length; i++)
         {
@@ -116,7 +113,11 @@ public class PlayerController : UnitController
                     break;
             }
         }
+        weapon = GetComponentInChildren<Weapon>();
+        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
         #endregion
+
+        anims = GetComponentsInChildren<Animator>();
     }
     private void FixedUpdate()
     {
@@ -177,7 +178,11 @@ public class PlayerController : UnitController
             case InputComponent.KeyBoardEvent.None:
                 {
                     move.SetMove(0);
-                    anim.SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
+                    //anim.SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
+                    for (int i = 0; i < anims.Length; i++)
+                    {
+                        anims[i].SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
+                    }
                     StepSound1.GetComponent<AudioSource>().Stop();
                     Act.Finish((int)KindOfAct.Move);
                 }
@@ -219,10 +224,16 @@ public class PlayerController : UnitController
         moveDir.z = Input.GetAxis("Vertical");
 
         move.SetMove(moveDir, moveDir, Stat.Speed);
-
-        anim.SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
-        anim.SetFloat("WalkX", moveDir.x);
-        anim.SetFloat("WalkY", moveDir.z);
+        
+        for (int i = 0; i < anims.Length; i++)
+        {
+            anims[i].SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
+            anims[i].SetFloat("WalkX", moveDir.x);
+            anims[i].SetFloat("WalkY", moveDir.z);
+        }
+        //anim.SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
+        //anim.SetFloat("WalkX", moveDir.x);
+        //anim.SetFloat("WalkY", moveDir.z);
 
         PlaySound(StepSound1);
     }
@@ -242,7 +253,12 @@ public class PlayerController : UnitController
     {
         Data.AnimInfomation animinfo = weapon.AnimInfo[atkCount];
         atkCount += 1;
-        anim.Play(animinfo.name, -1, 0);
+
+        //anim.Play(animinfo.name, -1, 0);
+        for (int i = 0; i < anims.Length; i++)
+        {
+            anims[i].Play(animinfo.name, -1, 0);
+        }
 
         if (UnityEngine.Random.Range(0, 2) == 0) PlaySound(SwingSound1);
         else PlaySound(SwingSound2);
@@ -254,7 +270,9 @@ public class PlayerController : UnitController
         yield return new WaitForSeconds(animinfo.judgmenttime); // 공격 비활성화 
         weapon.Area.enabled = false;
         atkAble = true;
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - (animinfo.delay + animinfo.judgmenttime));
+        //yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - (animinfo.delay + animinfo.judgmenttime));
+        yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length - (animinfo.delay + animinfo.judgmenttime));
+
         atkCount = 0;
         Act.Finish((int)KindOfAct.Attack);
         yield return null;
@@ -276,8 +294,13 @@ public class PlayerController : UnitController
     IEnumerator GUARD()
     {
         isGuard = true;
-        anim.Play("GUARD");
-        anim.SetBool("GuardEnd", false);
+        for (int i = 0; i < anims.Length; i++)
+        {
+            anims[i].Play("GUARD");
+            anims[i].SetBool("GuardEnd", false);
+        }
+        //anim.Play("GUARD");
+        //anim.SetBool("GuardEnd", false);
 
         Stat.isDamageable = false;
 
@@ -291,8 +314,11 @@ public class PlayerController : UnitController
 
         yield return new WaitUntil(() => !isGuard);
         isGuard = false;
-        anim.SetBool("GuardEnd", true);
-
+        //anim.SetBool("GuardEnd", true);
+        for (int i = 0; i < anims.Length; i++)
+        {
+            anims[i].SetBool("GuardEnd", true);
+        }
         Stat.isDamageable = true;
     }
 
@@ -302,12 +328,17 @@ public class PlayerController : UnitController
     }
     IEnumerator COUNTER()
     {
-        anim.SetBool("GuardEnd", true);
-
-        anim.Play("COUNTER");
+        for (int i = 0; i < anims.Length; i++)
+        {
+            anims[i].SetBool("GuardEnd", true);
+            anims[i].Play("COUNTER");
+        }
+        //anim.SetBool("GuardEnd", true);
+        //anim.Play("COUNTER");
 
         weapon.Area.enabled = true;
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length+1); // 공격 활성화 
+        //yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length+1); // 공격 활성화 
+        yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length + 1); // 공격 활성화 
         weapon.Area.enabled = false;
 
         isGuard = false;
@@ -338,7 +369,11 @@ public class PlayerController : UnitController
 
         move.SetTransMove(Vector3.forward, 6, 0.4f);
 
-        anim.Play("DASH");
+        //anim.Play("DASH");
+        for (int i = 0; i < anims.Length;i++)
+        {
+            anims[i].Play("DASH");
+        }
 
         DashAtkInput = false;
         yield return new WaitForSeconds(0.1f);
@@ -364,7 +399,11 @@ public class PlayerController : UnitController
     }
     IEnumerator DASHATTACK()
     {
-        anim.Play("DASHATTACK");
+        //anim.Play("DASHATTACK");
+        for (int i = 0; i < anims.Length; i++)
+        {
+            anims[i].Play("DASHATTACK");
+        }
         weapon.Area.enabled = true;
         yield return new WaitForSeconds(0.3f); // 공격 활성화 
         weapon.Area.enabled = false;

@@ -80,8 +80,11 @@ public  class MonsterController : UnitController
     protected void StopUnit(bool isStop)
     {
         Runner.isActive = !isStop;
-        Nav.isStopped = isStop;
-        Nav.velocity = Vector3.zero;
+        if (Nav.enabled)
+        {
+            Nav.isStopped = isStop;
+            Nav.velocity = Vector3.zero;
+        }
     }
     protected void StopUnit(float second=-1)
     {

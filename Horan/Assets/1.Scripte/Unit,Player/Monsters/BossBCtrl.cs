@@ -7,11 +7,14 @@ public class BossBCtrl : MonsterController
 {
     AIAttackInfo AtkInfo_Default1;
     AIAttackInfo AtkInfo_Default2;
-    AIAttackInfo AtkInfo_Dash;
-    AIAttackInfo AtkInfo_Jump;
+    AIAttackInfo AtkInfo_Default3; //패턴1 3타 공격
 
-    AIAttackInfo[,] AttackPattern = new AIAttackInfo[3, 2];
+    AIAttackInfo AtkInfo_Dash1; //패턴 2 대쉬 1타 
+    AIAttackInfo AtkInfo_Dash2; //추격용 대시 패턴 1
+    AIAttackInfo AtkInfo_Jump;//패턴 2 차지 점프
 
+    //AIAttackInfo[,] AttackPattern = new AIAttackInfo[3, 4];
+    List<List<AIAttackInfo>> AttackPattern = new List<List<AIAttackInfo>>();
     int AtkCount;
     int SelectedPatternNum = -1;
     bool Attacking = false;
@@ -31,19 +34,18 @@ public class BossBCtrl : MonsterController
 
         #region ATTACKInfo
         AtkInfo_Default1 = new AIAttackInfo("ATTACK_DEFAULT1", 0, 0.25f, 4, 60, 0, 0, 0, false);
-        AtkInfo_Default2 = new AIAttackInfo("ATTACK_DEFAULT2", 0, 0.25f, 4, 60,  0, 0, 0.5f, false);
-        AtkInfo_Dash = new AIAttackInfo("ATTACK_DASH", 0.55f, 0.25f, 10, 45,  2, 5, 0.75f, false);
-        AtkInfo_Jump = new AIAttackInfo("ATTACK_JUMP", 0.15f, 0.75f, 7, 360,  2.5f, 2, 1, true);
+        AtkInfo_Default2 = new AIAttackInfo("ATTACK_DEFAULT2", 0, 0.25f, 4, 60,  0, 0, 0, false);
+        AtkInfo_Default3 = new AIAttackInfo("ATTACK_DEFAULT3", 0, 0.25f, 4, 60, 0, 0, 0.5f, false);
+
+        AtkInfo_Dash1 = new AIAttackInfo("ATTACK_DASH1", 0.55f, 0.25f, 10, 45,  2, 5, 0.75f, false);
+        AtkInfo_Dash2 = new AIAttackInfo("ATTACK_DASH2", 0.55f, 0.25f, 10, 45, 2, 5, 0.75f, false);
+        AtkInfo_Jump = new AIAttackInfo("ATTACK_JUMP", 0.15f, 0.75f, 7, 180,  2.5f, 2, 1, true);
         #endregion
 
         #region Pattern
-        AttackPattern[0, 0] = AtkInfo_Default1;
-        AttackPattern[0, 1] = AtkInfo_Default2;
-        AttackPattern[1, 0] = AtkInfo_Dash;
-        AttackPattern[1, 1] = AtkInfo_Dash;
-        AttackPattern[2, 0] = AtkInfo_Dash;
-        AttackPattern[2, 1] = AtkInfo_Jump;
-
+        AttackPattern.Add(new List<AIAttackInfo> { AtkInfo_Default1, AtkInfo_Default2, AtkInfo_Default3, AtkInfo_Jump });
+        AttackPattern.Add(new List<AIAttackInfo> { AtkInfo_Dash1 });
+        AttackPattern.Add(new List<AIAttackInfo> { AtkInfo_Dash2 });
         #endregion
 
         #region BT
@@ -82,14 +84,20 @@ public class BossBCtrl : MonsterController
 
     BT_Node.NodeState TryAttak()
     {
-        //다음 패턴 선택 + 공격 초기화
-        if (SelectedPatternNum == -1)
+        Debug.Log($"SelectedPatternNum : {SelectedPatternNum}");
+        Debug.Log($"AtkCount : {AtkCount}");
+
+        if (SelectedPatternNum==-1)
         {
             SelectedPatternNum = Random.Range(0, 3);
             AtkCount = 0;
         }
-
-        if (!Attacking && RotateToTarget(Target) && GetTargetDistance() <= AttackPattern[SelectedPatternNum, AtkCount].atkRange)
+        if (AttackPattern[SelectedPatternNum].Count <= AtkCount)
+        {
+            SelectedPatternNum = -1;
+            return BT_Node.NodeState.Failure;
+        }
+        if (!Attacking && RotateToTarget(Target) && GetTargetDistance() <= AttackPattern[SelectedPatternNum][AtkCount].atkRange)
         {
             StartCoroutine("Attack");
             waitsecond = -1;
@@ -123,6 +131,9 @@ public class BossBCtrl : MonsterController
     }
     BT_Node.NodeState Move()
     {
+        if (!Nav.enabled)
+            return BT_Node.NodeState.Failure;
+
         if (Vector3.Distance(transform.position, DestPos) <= Nav.stoppingDistance)
         {
             Nav.speed = 0;
@@ -178,9 +189,7 @@ public class BossBCtrl : MonsterController
     IEnumerator Attack()
     {
         Attacking = true;
-
-        AIAttackInfo info = AttackPattern[SelectedPatternNum, AtkCount];
-
+        AIAttackInfo info = AttackPattern[SelectedPatternNum][AtkCount];
         AtkCount++;
 
         Anim.Play(info.animName);
@@ -195,10 +204,6 @@ public class BossBCtrl : MonsterController
         yield return new WaitForSeconds(info.damageTime);
         CheckAttackRange(info.atkRange, info.atkAngle);
         yield return new WaitForSeconds(info.waitSecond);
-
-
-        if (2 <= AtkCount)
-            SelectedPatternNum = -1;
 
         StopUnit(.5f);
         Attacking = false;

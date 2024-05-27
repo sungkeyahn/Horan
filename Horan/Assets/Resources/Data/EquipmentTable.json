@@ -5,6 +5,7 @@
       "name": "Common_Weapon_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword1",
       "type": 1,
       "abilitys": [
         {
@@ -22,6 +23,7 @@
       "name": "Default_Weapon_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword1",
       "type": 1,
       "abilitys": [
         {
@@ -39,6 +41,7 @@
       "name": "Rare_Weapon_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword1",
       "type": 2,
       "abilitys": [
         {
@@ -54,8 +57,9 @@
     {
       "id": 1004,
       "name": "Common_Weapon_B",
-      "meshpath": "Mesh/weapon_sword",
+      "meshpath": "Mesh/weapon_dadao",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword2",
       "type": 2,
       "abilitys": [
         {
@@ -71,8 +75,9 @@
     {
       "id": 1005,
       "name": "Default_Weapon_B",
-      "meshpath": "Mesh/weapon_sword",
+      "meshpath": "Mesh/weapon_dadao",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword2",
       "type": 3,
       "abilitys": [
         {
@@ -88,8 +93,9 @@
     {
       "id": 1006,
       "name": "Rare_Weapon_B",
-      "meshpath": "Mesh/weapon_sword",
+      "meshpath": "Mesh/weapon_dadao",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword2",
       "type": 3,
       "abilitys": [
         {
@@ -105,8 +111,9 @@
     {
       "id": 1007,
       "name": "Common_Weapon_C",
-      "meshpath": "Mesh/weapon_sword",
+      "meshpath": "Mesh/weapon_saber",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword3",
       "type": 4,
       "abilitys": [
         {
@@ -122,8 +129,9 @@
     {
       "id": 1008,
       "name": "Default_Weapon_C",
-      "meshpath": "Mesh/weapon_sword",
+      "meshpath": "Mesh/weapon_saber",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword3",
       "type": 4,
       "abilitys": [
         {
@@ -139,8 +147,9 @@
     {
       "id": 1009,
       "name": "Rare_Weapon_C",
-      "meshpath": "Mesh/weapon_sword",
+      "meshpath": "Mesh/weapon_saber",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword3",
       "type": 1,
       "abilitys": [
         {
@@ -158,6 +167,7 @@
       "name": "Common_Weapon_D",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword4",
       "type": 1,
       "abilitys": [
         {
@@ -175,6 +185,7 @@
       "name": "Default_Weapon_D",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword4",
       "type": 2,
       "abilitys": [
         {
@@ -192,6 +203,7 @@
       "name": "Rare_Weapon_D",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword4",
       "type": 2,
       "abilitys": [
         {
@@ -209,6 +221,7 @@
       "name": "Unique_Weapon_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword4",
       "type": 3,
       "abilitys": [
         {
@@ -226,6 +239,7 @@
       "name": "Legendary_Weapon_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword4",
       "type": 3,
       "abilitys": [
         {
@@ -243,6 +257,7 @@
       "name": "Unique_Weapon_B",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Sword2",
       "type": 4,
       "abilitys": [
         {
@@ -260,6 +275,7 @@
       "name": "Common_Clothes_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume1",
       "type": 4,
       "abilitys": [
         {
@@ -277,6 +293,7 @@
       "name": "Default_Clothes_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume1",
       "type": 1,
       "abilitys": [
         {
@@ -294,6 +311,7 @@
       "name": "Rare_Clothes_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume1",
       "type": 1,
       "abilitys": [
         {
@@ -311,6 +329,7 @@
       "name": "Common_Clothes_B",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume2",
       "type": 2,
       "abilitys": [
         {
@@ -328,6 +347,7 @@
       "name": "Default_Clothes_B",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume2",
       "type": 2,
       "abilitys": [
         {
@@ -345,6 +365,7 @@
       "name": "Rare_Clothes_B",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume2",
       "type": 3,
       "abilitys": [
         {
@@ -362,6 +383,7 @@
       "name": "Common_Clothes_C",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume3",
       "type": 3,
       "abilitys": [
         {
@@ -379,6 +401,7 @@
       "name": "Default_Clothes_C",
       "meshpath": "Mesh/musa_02",
       "materialpath": "Material/musa_02",
+      "equipmentprefabpath": "Equipment/Costume3",
       "type": 4,
       "abilitys": [
         {
@@ -396,6 +419,7 @@
       "name": "Rare_Clothes_C",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume3",
       "type": 4,
       "abilitys": [
         {
@@ -413,7 +437,44 @@
       "name": "Common_Clothes_D",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume4",
       "type": 3,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1111,
+      "name": "Default_Clothes_D",
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume4",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": 1112,
+      "name": "Rare_Clothes_D",
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Costume4",
+      "type": 4,
       "abilitys": [
         {
           "type": 3,
@@ -430,6 +491,7 @@
       "name": "Default_Head_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat1",
       "type": 3,
       "abilitys": [
         {
@@ -447,6 +509,7 @@
       "name": "Common_Head_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat1",
       "type": 4,
       "abilitys": [
         {
@@ -464,6 +527,7 @@
       "name": "Rare_Head_A",
       "meshpath": "Mesh/musa_hat_01",
       "materialpath": "Material/musa_hat_01",
+      "equipmentprefabpath": "Equipment/Hat1",
       "type": 4,
       "abilitys": [
         {
@@ -481,6 +545,7 @@
       "name": "Default_Head_B",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat2",
       "type": 2,
       "abilitys": [
         {
@@ -498,6 +563,7 @@
       "name": "Common_Head_B",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat2",
       "type": 3,
       "abilitys": [
         {
@@ -515,6 +581,7 @@
       "name": "Rare_Head_B",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat2",
       "type": 3,
       "abilitys": [
         {
@@ -532,6 +599,7 @@
       "name": "Default_Head_C",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat3",
       "type": 4,
       "abilitys": [
         {
@@ -546,9 +614,10 @@
     },
     {
       "id": 1208,
-      "name": "Common_Clothes_C",
+      "name": "Common_Head_C",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat3",
       "type": 4,
       "abilitys": [
         {
@@ -566,6 +635,7 @@
       "name": "Rare_Head_C",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat3",
       "type": 3,
       "abilitys": [
         {
@@ -583,6 +653,7 @@
       "name": "Default_Head_D",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat4",
       "type": 3,
       "abilitys": [
         {
@@ -600,6 +671,7 @@
       "name": "Common_Head_D",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat4",
       "type": 4,
       "abilitys": [
         {
@@ -617,6 +689,7 @@
       "name": "Rare_Head_D",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Hat4",
       "type": 4,
       "abilitys": [
         {
@@ -631,9 +704,10 @@
     },
     {
       "id": 1301,
-      "name": "Common_Accessory_A",
+      "name": "Accessory_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Accessory1",
       "type": 2,
       "abilitys": [
         {
@@ -648,9 +722,10 @@
     },
     {
       "id": 1302,
-      "name": "Common_Accessory_B",
+      "name": "Accessory_B",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Accessory2",
       "type": 3,
       "abilitys": [
         {
@@ -665,9 +740,10 @@
     },
     {
       "id": 1303,
-      "name": "Default_Accessory_C",
+      "name": "Accessory_C",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Accessory3",
       "type": 3,
       "abilitys": [
         {
@@ -681,11 +757,12 @@
       ]
     },
     {
-      "id": 1401,
-      "name": "Default_Clothes_D",
+      "id": 1304,
+      "name": "Accessory_D",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
-      "type": 4,
+      "equipmentprefabpath": "Equipment/Accessory4",
+      "type": 3,
       "abilitys": [
         {
           "type": 3,
@@ -698,11 +775,12 @@
       ]
     },
     {
-      "id": 1402,
-      "name": "Rare_Clothes_D",
+      "id": 1305,
+      "name": "Accessory_E",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
-      "type": 4,
+      "equipmentprefabpath": "Equipment/Accessory5",
+      "type": 3,
       "abilitys": [
         {
           "type": 3,

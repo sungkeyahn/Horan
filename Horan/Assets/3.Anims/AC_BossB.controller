@@ -33,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ATTACK_DASH3
+  m_Name: ATTACK_DASH2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -59,7 +59,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ATTACK_DASH2
+  m_Name: ATTACK_JUMP
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -298,13 +298,13 @@ AnimatorStateMachine:
     m_Position: {x: -60, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5585856059648037634}
-    m_Position: {x: 150, y: 380, z: 0}
+    m_Position: {x: 360, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2151415612515131621}
-    m_Position: {x: 150, y: 440, z: 0}
+    m_Position: {x: 360, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6981298470765607811}
-    m_Position: {x: 360, y: 380, z: 0}
+    m_Position: {x: 150, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5683772134180964453}
     m_Position: {x: 210, y: 300, z: 0}
@@ -350,7 +350,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ATTACK_DASH
+  m_Name: ATTACK_DASH1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

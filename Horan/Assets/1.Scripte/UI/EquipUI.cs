@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,9 @@ using UnityEngine.UI;
 public class EquipUI : PopupUI
 {
     enum Components { Button_ClosePopup, Panel_Slots, Image_Head, Image_Clothes, Image_Weapon, Image_Accessory }
+
+
+    LobbyCharacterCtrl ctrl;
 
     Image HeadEquipImage;
     Image ClothesEquipImage;
@@ -33,7 +37,9 @@ public class EquipUI : PopupUI
             ob.name = "Image_ItemSlot";
             ob.GetComponent<ItemSlotUI>().Init(i);
         }
-            
+
+        //
+        ctrl = FindObjectOfType<LobbyCharacterCtrl>();
     }
 
     public void OnBtnClicked_ClosePopup(PointerEventData data)
@@ -64,6 +70,9 @@ public class EquipUI : PopupUI
             ClothesEquipImage.sprite = Managers.DataLoder.DataCache_Sprite[clothesicon];
         if (Managers.DataLoder.DataCache_Sprite.ContainsKey(accessoryicon))
             AccessoryEquipImage.sprite = Managers.DataLoder.DataCache_Sprite[accessoryicon];
+
+        if (ctrl)
+            ctrl.UpdateEquipments();
     }
 
 }

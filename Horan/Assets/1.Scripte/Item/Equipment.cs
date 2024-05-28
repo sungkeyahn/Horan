@@ -17,13 +17,14 @@ public class Equipment : MonoBehaviour, IEquip
 
     public virtual void Equip(int id)
     {
-        GameObject prefab = Resources.Load<GameObject>(Managers.DataLoder.DataCache_Equipments[id].equipmentprefabpath);
-        if (prefab)
+        if (Managers.DataLoder.DataCache_Equipments.ContainsKey(id))
         {
-            Instantiate(prefab, gameObject.transform);
-
-            if (Managers.DataLoder.DataCache_Equipments.ContainsKey(id))
+           if(0<transform.childCount)
+                Destroy(transform.GetChild(0).gameObject);
+            GameObject prefab = Resources.Load<GameObject>(Managers.DataLoder.DataCache_Equipments[id].equipmentprefabpath);
+            if (prefab)
             {
+                Instantiate(prefab, gameObject.transform);
                 for (int i = 0; i < Managers.DataLoder.DataCache_Equipments[id].abilitys.Count; i++)
                 {
                     switch (Managers.DataLoder.DataCache_Equipments[id].abilitys[i].type)

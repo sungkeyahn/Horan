@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LobbyCharacrer : MonoBehaviour
+public class LobbyCharacterCtrl : MonoBehaviour
 {
     Animator[] anims;
     PlayerStat Stat;
@@ -11,9 +11,15 @@ public class LobbyCharacrer : MonoBehaviour
 
     private void Start()
     {
-        #region Equipments
-
         equipments = GetComponentsInChildren<Equipment>();
+        weapon = GetComponentInChildren<Weapon>();
+        Stat = GetComponent<PlayerStat>();
+        anims = GetComponentsInChildren<Animator>();
+        UpdateEquipments();
+    }
+
+    public void UpdateEquipments()
+    {
         for (int i = 0; i < equipments.Length; i++)
         {
             switch (equipments[i].type)
@@ -31,11 +37,7 @@ public class LobbyCharacrer : MonoBehaviour
                     break;
             }
         }
-        weapon = GetComponentInChildren<Weapon>();
-        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
-        #endregion
 
-        Stat = GetComponent<PlayerStat>();
-        anims = GetComponentsInChildren<Animator>();
+        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
     }
 }

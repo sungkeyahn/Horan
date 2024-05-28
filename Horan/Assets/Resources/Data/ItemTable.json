@@ -106,6 +106,13 @@
       "iconfilename": "icon_weapon_glaive_04"
     },
     {
+      "id": 1100,
+      "name": "DefaultClothes",
+      "type": 1,
+      "info": "기본 지급 복장",
+      "iconfilename": "icon_main_cloth_00"
+    },
+    {
       "id": 1101,
       "name": "Common_Clothes_A",
       "type": 1,
@@ -195,6 +202,13 @@
       "type": 1,
       "info": "오래된 전립",
       "iconfilename": "icon_main_hat_1_01"
+    },
+    {
+      "id": 1200,
+      "name": "DefaultHead",
+      "type": 1,
+      "info": "기본 지급 모자",
+      "iconfilename": "icon_main_hat_00"
     },
     {
       "id": 1202,

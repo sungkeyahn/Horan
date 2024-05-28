@@ -1219,6 +1219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 51213537579559215}
+  - component: {fileID: 66205256578037363}
   m_Layer: 0
   m_Name: mixamorig:RightHand
   m_TagString: Untagged
@@ -1243,6 +1244,18 @@ Transform:
   - {fileID: 1432669810605814244}
   m_Father: {fileID: 2646198453551024914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &66205256578037363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6226297512544361037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f56570f5b43c87439c4d967e065189a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6376069388222471161
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class Equipment : MonoBehaviour, IEquip
     {
         if (Managers.DataLoder.DataCache_Equipments.ContainsKey(id))
         {
-           if(0<transform.childCount)
+           if(0<transform.childCount )
                 Destroy(transform.GetChild(0).gameObject);
             GameObject prefab = Resources.Load<GameObject>(Managers.DataLoder.DataCache_Equipments[id].equipmentprefabpath);
             if (prefab)

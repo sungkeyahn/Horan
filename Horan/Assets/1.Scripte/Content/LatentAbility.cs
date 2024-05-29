@@ -12,21 +12,21 @@ using UnityEngine;
  */
 public class LatentAbilityContainer
 {
+    //Managers.ContentsManager.AbilityContainer.AddAbility(new LatentAbility(2, playerStat)); 잠능UI 선택 시 그쪽에서 호출할 코드 
     List<LatentAbility> abilities = new List<LatentAbility>();
-
-    public void Init()
+    public void ApplyAllAbility(PlayerStat stat)
     {
         Debug.Log(abilities.Count);
         for (int i = 0; i < abilities.Count; i++)
         {
-            abilities[i].Apply();
+            abilities[i].Apply(stat);
         }
     }
-    public bool AddAbility(LatentAbility ability)
+    public bool AddAbility(LatentAbility ability, PlayerStat stat)
     {
         if (ability == null) return false;
         abilities.Add(ability);
-        ability.Apply();
+        ability.Apply(stat);
         return true;
     }
     public void ClearAbilities()
@@ -37,41 +37,30 @@ public class LatentAbilityContainer
 }
 public class LatentAbility
 {
-    PlayerStat Stat;
     public Data.DataSet_LatentAbility Data;
-    public LatentAbility(int id, Stat stat)
+    public LatentAbility(int id)
     {
         Data.DataSet_LatentAbility data = null;
         Managers.DataLoder.DataCache_LatentAbility.TryGetValue(id, out data);
-        if (data != null&&stat!=null)
-        {
+        if (data != null)
             Data = data;
-            Stat = stat as PlayerStat;
-        }
     }
-    public void Apply()
+    public void Apply(PlayerStat stat)
     {
         switch (Data.type)
         {
             case global::Data.LatentAbilityValueType.MaxHpUp:
-                Stat.MaxHp += Data.value;
+                stat.MaxHp += Data.value;
                 break;
             case global::Data.LatentAbilityValueType.MaxSpUp:
-                Stat.MaxSp += Data.value;
+                stat.MaxSp += Data.value;
                 break;
             case global::Data.LatentAbilityValueType.DamageUp:
-                Stat.Attack += Data.value;
+                stat.Attack += Data.value;
                 break;
             case global::Data.LatentAbilityValueType.HpRegen:
-                Stat.Hp += Data.value;
+                stat.Hp += Data.value;
                 break;
         }
     }
 }
-/*
- * 싱글톤으로만들어서 몬스터 드랍시 데이터 참조?
- * 
- * 몬스터의 드랍 확률을 참조해야 하는경우?
- * 
- * 
- */

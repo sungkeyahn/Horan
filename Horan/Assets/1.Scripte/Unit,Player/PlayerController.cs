@@ -13,27 +13,27 @@ public enum EPlayerAnimState
 
 public class PlayerController : UnitController
 {
-    Animator anim;
     Animator []anims;
     HUDUI Hud;
     PlayerStat Stat;
     ActComponent Act;
+
+    Vector3 moveDir = Vector3.zero;
+    public GameObject TargetEnemy = null;
+    public Weapon weapon;
+    public Equipment[] equipments = new Equipment[4];
 
     GameObject StepSound1;
     GameObject StepSound2;
     GameObject SwingSound1;
     GameObject SwingSound2;
     GameObject AttackEffectPrefab;
-    
-
-    public GameObject TargetEnemy = null;
-    Vector3 moveDir = Vector3.zero;
-    Weapon weapon;
-    Equipment[] equipments = new Equipment[4];
 
     private void Awake()
     {
-        //anim = GetComponent<Animator>();
+        equipments = GetComponentsInChildren<Equipment>();
+        weapon = GetComponentInChildren<Weapon>();
+
         input = GetComponent<InputComponent>();
         input.MouseAction -= OnPlayerMouseEvent;
         input.MouseAction += OnPlayerMouseEvent;
@@ -42,15 +42,15 @@ public class PlayerController : UnitController
 
         move = GetComponent<MoveComponent>();
         Stat = GetComponent<PlayerStat>();
-        Stat.OnHit += () => isCounter = true;
     }
     private void Start()
     {
-        Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
-
-        //잠재 능력 UI 에서 선택시 적용될 코드 
-        //Managers.ContentsManager.AbilityContainer.AddAbility(new LatentAbility(2, Stat));
+        Stat.StatInit(Managers.ContentsManager.level, Managers.ContentsManager.exp, Managers.ContentsManager.hp);
+        Stat.OnHit += () => isCounter = true;
         
+        Equip();
+
+        Managers.ContentsManager.AbilityContainer.ApplyAllAbility(Stat);
         #region Effect and Sound
         StepSound1 = LoadSound("Step1",transform);
         StepSound2 = LoadSound("Step2", transform);
@@ -93,31 +93,7 @@ public class PlayerController : UnitController
         Act.AddAct(counter);
         #endregion
 
-        #region Equipments
-       
-        equipments = GetComponentsInChildren<Equipment>();
-        for (int i = 0; i < equipments.Length; i++)
-        {
-            switch (equipments[i].type)
-            {
-                case Data.EEquipmentType.Head:
-                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.head);
-                    break;
-                case Data.EEquipmentType.Clothes:
-                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.clothes);
-                    break;
-                case Data.EEquipmentType.Accessory:
-                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.accessory);
-                    break;
-                default:
-                    break;
-            }
-        }
-        weapon = GetComponentInChildren<Weapon>();
-        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
-        #endregion
-
-        anims = GetComponentsInChildren<Animator>();
+        Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
     }
     private void FixedUpdate()
     {
@@ -131,6 +107,8 @@ public class PlayerController : UnitController
             }
         }
     }
+
+
 
     #region Input
     InputComponent input;
@@ -216,8 +194,6 @@ public class PlayerController : UnitController
 
     #region Move
     MoveComponent move;
-
-
     void Move()
     {
         moveDir.x = Input.GetAxis("Horizontal");
@@ -231,19 +207,13 @@ public class PlayerController : UnitController
             anims[i].SetFloat("WalkX", moveDir.x);
             anims[i].SetFloat("WalkY", moveDir.z);
         }
-        //anim.SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
-        //anim.SetFloat("WalkX", moveDir.x);
-        //anim.SetFloat("WalkY", moveDir.z);
-
         PlaySound(StepSound1);
     }
     #endregion
 
     #region Attack
-
     bool atkAble = true;
     int atkCount = 0;
-
     void Attack()
     {
         StopCoroutine("ATTACK");
@@ -412,5 +382,28 @@ public class PlayerController : UnitController
         Act.Finish((int)KindOfAct.DashAttack);
     }
     #endregion
+
+    void Equip()
+    {
+        for (int i = 0; i < equipments.Length; i++)
+        {
+            switch (equipments[i].type)
+            {
+                case Data.EEquipmentType.Head:
+                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.head);
+                    break;
+                case Data.EEquipmentType.Clothes:
+                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.clothes);
+                    break;
+                case Data.EEquipmentType.Accessory:
+                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.accessory);
+                    break;
+            }
+        }
+        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
+
+        anims = GetComponentsInChildren<Animator>(); 
+    }
+
 
 }

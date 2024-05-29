@@ -22,6 +22,7 @@ public class Weapon : Equipment
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject);
         GameObject hitob = other.gameObject;
         if (hitob)
         {

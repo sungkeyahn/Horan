@@ -5,20 +5,18 @@ using UnityEngine.EventSystems;
 using TMPro;
 public class GameResultUI : PopupUI
 {
+    bool isInit=false;
     enum Components { Image_Back,Text_Result, Button_Exit }
     
     TMP_Text text;
-    public bool result;
+  
     public override void Init()
     {
-        base.Init();
+        if (isInit) return;
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_Exit), OnBtnClicked_CloseBtn, UIEvent.Click);
         text = GetObject((int)Components.Text_Result).GetComponent<TMP_Text>();
         
-        SetResultText();
-
-        //悼利 积己
         GameObject prefab = Resources.Load<GameObject>($"UI/ResultSlotUI");
         for (int i = 0; i < Managers.ContentsManager.AcquiredItems.Count; i++)
         {
@@ -29,13 +27,16 @@ public class GameResultUI : PopupUI
             ob.name = "ResultSlotUI";
             ob.GetComponent<AcquiredItemSlot>().Init(icon);
         }
+
+        isInit = true;
     }
     public void OnBtnClicked_CloseBtn(PointerEventData data)
     {
-       Managers.UIManager.ClosePopupUI(this);
-       Managers.ContentsManager.StageClear();
+        Managers.UIManager.ClosePopupUI(this);
+        Managers.ContentsManager.Resume();
+        Managers.MySceneManager.LoadScene("Lobby");
     }
-    void SetResultText()
+    public void SetResultText(bool result)
     {
         if (result)
             text.text = "眠拜 己傍";

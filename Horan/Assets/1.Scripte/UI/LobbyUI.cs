@@ -33,8 +33,8 @@ public class LobbyUI : SceneUI
     }
     public void OnBtnClicked_StartGame(PointerEventData data)
     {
-        Debug.Log("StartGame");
-        Managers.ContentsManager.StageSelect(EGameModes.StoryMode, 1);
+        Debug.Log("SelectLevel1");
+        Managers.ContentsManager.StageSelect(1);
     }
     public void OnBtnClicked_Tutorial(PointerEventData data)
     {

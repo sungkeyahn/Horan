@@ -58,7 +58,7 @@
       "id": 1004,
       "name": "Common_Weapon_B",
       "meshpath": "Mesh/weapon_glaive",
-      "materialpath": "Material/weapon_01",
+      "materialpath": "Material/weapon_02",
       "equipmentprefabpath": "Equipment/Sword2",
       "type": 1,
       "abilitys": [
@@ -75,8 +75,8 @@
     {
       "id": 1005,
       "name": "Default_Weapon_B",
-      "meshpath": "Mesh/weapon_dadao",
-      "materialpath": "Material/weapon_01",
+      "meshpath": "Mesh/weapon_glaive",
+      "materialpath": "Material/weapon_02",
       "equipmentprefabpath": "Equipment/Sword2",
       "type": 1,
       "abilitys": [
@@ -93,8 +93,8 @@
     {
       "id": 1006,
       "name": "Rare_Weapon_B",
-      "meshpath": "Mesh/weapon_dadao",
-      "materialpath": "Material/weapon_01",
+      "meshpath": "Mesh/weapon_glaive",
+      "materialpath": "Material/weapon_02",
       "equipmentprefabpath": "Equipment/Sword2",
       "type": 1,
       "abilitys": [

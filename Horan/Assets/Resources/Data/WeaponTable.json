@@ -2,8 +2,8 @@
   "weapons": [
     {
       "id": 1001,
-      "socketpos": [ 0, 0.15, 0.1 ],
-      "socketrot": [ 150, 45, -60 ],
+      "socketpos": [ 0.01, 0.16, 0.03 ],
+      "socketrot": [ 100, 117, 16 ],
       "animinfo": [
         {
           "name": "FATTACK1",
@@ -90,8 +90,8 @@
     },
     {
       "id": 1005,
-      "socketpos": [ 0.07, 0.6, 0.01 ],
-      "socketrot": [ 160, 60, -10 ],
+      "socketpos": [ 0.08, 0.16, 0.07 ],
+      "socketrot": [ 107, -14, -95 ],
       "animinfo": [
         {
           "name": "FATTACK1",

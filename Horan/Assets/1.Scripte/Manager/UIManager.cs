@@ -14,6 +14,7 @@ public class UIManager
         {
             canvas.sortingOrder = order;
             order++;
+            Debug.Log($"sort : {order}");
         }
         else
         {

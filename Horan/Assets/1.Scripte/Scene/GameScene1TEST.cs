@@ -8,49 +8,48 @@ public class GameScene1TEST : BaseScene
 {
     [SerializeField]
     GameObject player; //이 변수는 임시, 추후 플레이어 생성 구현 이후 삭제 
-
-    BoxCollider NextBox;
     bool isClear;
 
-    protected override void Init()
-    {
-        //SceneName = "GameTest"; //삭제 예정 코드
-        NextBox = GetComponent<BoxCollider>();   
-    }
     void Start()
     {
-        //Managers.ContentsManager.WaveStart();// 현재웨이브 데이터 초기화 및 세팅
-        Managers.ContentsManager.OnWaveClear -= ClearScene;
-        Managers.ContentsManager.OnWaveClear += ClearScene;
-
         //플레이어+몬스터 생성 코드 필요
         Camera.main.GetComponent<CameraComponent>().SetPlayer(player);
 
+        Managers.ContentsManager.player = player.GetComponent<PlayerController>();
+        Managers.ContentsManager.stat = player.GetComponent<PlayerStat>();
 
         Managers.ContentsManager.WaveStart();
+
+        Managers.ContentsManager.OnWaveClear -= ClearScene;
+        Managers.ContentsManager.OnWaveClear += ClearScene;
     }
 
     protected virtual void ClearScene() 
     {
         isClear = true;
-        Managers.ContentsManager.OnWaveClear -= ClearScene;
-        if (string.IsNullOrEmpty(NextSceneName))
-        {
+        PlayerStat stat = player.GetComponent<PlayerStat>();
+        Managers.ContentsManager.level = stat.Level;
+        Managers.ContentsManager.exp = stat.Exp;
+        Managers.ContentsManager.hp = stat.Hp;
 
-        }
+        Managers.ContentsManager.OnWaveClear -= ClearScene;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && isClear)
         {
-            if (NextSceneName != "")
-                Managers.MySceneManager.LoadScene(NextSceneName);
+            if (string.IsNullOrEmpty(NextSceneName))
+            {
+                GameResultUI ui = Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI");
+                ui.Init();
+                ui.SetResultText(true);
+                Managers.ContentsManager.Pause();
+                Managers.ContentsManager.StageClear();  
+            }
             else
             {
-                GameResultUI ui = Managers.UIManager.ShowPopupUI<GameResultUI>("GaemResultUI");
-                ui.result = true;
+                Managers.MySceneManager.LoadScene(NextSceneName);
             }
         }
     }

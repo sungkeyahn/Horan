@@ -4,25 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerStat : Stat, IDataBind, IDamageInteraction
+public class PlayerStat : Stat, IDamageInteraction
 {
-    const float SpRegenTime = 5;
+    public bool isDamageable=false;
+    public bool isRegenable=false;
+
+    float CurHpRegenTime;
+    float HpRegenTime = 5;
+    float HpRegenAmount = 0.5f;
+
     float CurSpRegenTime;
+    float SpRegenTime = 5;
+    float SpRegenAmount=5;
 
-    public bool isDamageable;
-    public bool isRegenable;
-
-    int _level;
-    public int Level { get { return _level; }
-        set
-        {
-            int pre = _level;
-            _level = value;
-            if (OnStatChanged != null)
-                OnStatChanged.Invoke(StatIdentifier.Level, pre, _level);
-        }
-    }
-
+    [SerializeField]
     float _maxhp;
     public float MaxHp { get { return _maxhp; }
         set
@@ -33,6 +28,7 @@ public class PlayerStat : Stat, IDataBind, IDamageInteraction
                 OnStatChanged.Invoke(StatIdentifier.MaxHp, pre, _maxhp);
         }
     }
+    [SerializeField]
     float _hp;
     public float Hp { get { return _hp; }
         set
@@ -43,7 +39,7 @@ public class PlayerStat : Stat, IDataBind, IDamageInteraction
                 OnStatChanged.Invoke(StatIdentifier.Hp, pre, _hp);
         }
     }
-
+    [SerializeField]
     float _maxsp;
     public float MaxSp { get { return _maxsp; }
         set
@@ -54,6 +50,7 @@ public class PlayerStat : Stat, IDataBind, IDamageInteraction
                 OnStatChanged.Invoke(StatIdentifier.MaxSp, pre, _maxsp);
         }
     }
+    [SerializeField]
     float _sp;
     public float Sp { get { return _sp; }
         set
@@ -64,15 +61,28 @@ public class PlayerStat : Stat, IDataBind, IDamageInteraction
                 OnStatChanged.Invoke(StatIdentifier.Sp, pre, _sp);
         }
     }
-
+    [SerializeField]
     float _attack;
     public float Attack { get { return _attack; } set { _attack = value; } }
+    [SerializeField]
     float _speed;
     public float Speed { get { return _speed; } set { _speed = value; } }
-
+    [SerializeField]
     float _critical;
     public float Critical { get { return _critical; } set { _critical = value; } }
-
+    [SerializeField]
+    int _level;
+    public int Level
+    {
+        get { return _level; }
+        set
+        {
+            int pre = _level;
+            _level = value;
+            if (OnStatChanged != null)
+                OnStatChanged.Invoke(StatIdentifier.Level, pre, _level);
+        }
+    }
     float _totalexp;
     public float TotalExp { get { return _totalexp; }
         set
@@ -89,39 +99,44 @@ public class PlayerStat : Stat, IDataBind, IDamageInteraction
         {
             float pre = _exp;
             _exp = value;
+
+            while (TotalExp<=_exp)
+            {
+                Level += 1;
+                _exp -= TotalExp;
+            }
             if (OnStatChanged != null)
                 OnStatChanged.Invoke(StatIdentifier.Exp, pre, _exp);
         }
     }
 
-
-
-    
-    private void Awake()
+    void Start() 
     {
-        //아래 2줄 코드는 세이브 데이터 가 정의되면 데이터 로드 받아서 넣을 예정
-        Level = 1;
-        Exp = 0; 
-
-        BindData();
-    }
-    void Start()
-    {
-        Hp = MaxHp;
-        Sp = MaxSp;
-
-        Critical = 0.5f;
-        Speed = 5.5f;
-
         isRegenable = true;
         isDamageable = true;
     }
-    public void BindData()
+    public void StatInit(int level,float exp , float hp)
     {
-        MaxHp = Managers.DataLoder.DataCache_LevelByStat[Level].maxHp;
-        MaxSp = Managers.DataLoder.DataCache_LevelByStat[Level].maxSp;
-        Attack = Managers.DataLoder.DataCache_LevelByStat[Level].attack;
-        TotalExp = Managers.DataLoder.DataCache_LevelByStat[Level].totalExp;
+        _level = level;
+        //맵 이동시 전달이 필요 없는 캐릭터 기본 값
+        TotalExp = 100;
+        MaxHp = 100;
+        MaxSp = 100;
+        Attack = 20;
+        Critical = 0.5f;
+        Speed = 5.5f;
+        HpRegenTime = 5;
+        HpRegenAmount = 0.5f;
+        SpRegenTime = 5;
+        SpRegenAmount = 5;
+
+        Sp = MaxSp;
+
+        //맵 이동시 전달 되어야 하는 
+        if (exp != -1) Exp = exp;
+        else Exp = 0;
+        if (hp != -1) Hp = hp;
+        else Hp = MaxHp;
     }
 
     public void TakeDamage(float damage)
@@ -154,12 +169,17 @@ public class PlayerStat : Stat, IDataBind, IDamageInteraction
     {
         if (isRegenable)
         {
-            CurSpRegenTime += Time.deltaTime;
-
-            if (SpRegenTime <= CurSpRegenTime) //Regen_SP
+            CurHpRegenTime += Time.deltaTime; //Regen_HP
+            if (HpRegenTime <= CurHpRegenTime)
+            {
+                CurHpRegenTime = 0;
+                Hp = Mathf.Clamp(Hp + HpRegenAmount, Hp, MaxHp);
+            }
+            CurSpRegenTime += Time.deltaTime; //Regen_SP
+            if (SpRegenTime <= CurSpRegenTime) 
             {
                 CurSpRegenTime = 0;
-                Sp = Mathf.Clamp(Sp + 5, Sp, MaxSp);
+                Sp = Mathf.Clamp(Sp + SpRegenAmount, Sp, MaxSp);
             }
         }
     }

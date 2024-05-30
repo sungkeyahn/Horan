@@ -992,6 +992,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyName: 
   TargetEnemy: {fileID: 0}
+  weapon: {fileID: 0}
+  equipments:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   isCounter: 0
   DashCount: 1
 --- !u!1 &3996507444771914549
@@ -1539,7 +1545,7 @@ GameObject:
   - component: {fileID: 7450333159937548230}
   - component: {fileID: 6626157654846458086}
   - component: {fileID: 8848202841603541802}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

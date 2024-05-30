@@ -108,8 +108,10 @@ public  class MonsterController : UnitController
     }
     protected virtual void Dead()
     {
-        Managers.ContentsManager.DeadUnit(MyName);
         isDead = true;
+
+        Managers.ContentsManager.DeadUnit(MyName);
+ 
         StopUnit(true);
         StopAllCoroutines();
         StartCoroutine("DEAD");

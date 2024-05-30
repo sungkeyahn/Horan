@@ -3,86 +3,74 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EGameModes { StoryMode, DefanseMode, TutorialMode }
 public class ContentsManager 
 {
     /*  매니저 기능
-     * 각 모드마다 인게임 내용에 따라 변동되어 저장될 데이터들을 수집하여 게임이 종료될때 세이브파일의 내용과 덪씌워주는 역할
-     * + 각 게임모드의 시작 종료시 처리되어야하는 동작들을 메서드로 구현
-     * 
      * 스토리모드 : 게임 시작, 게임 종료 , 웨이브 시작 , 웨이브 종료 ,에 해당하는 함수를 ContentsManager에 구현(호출은 각 Scene에서)
      * 
-     * 예시 동작 흐름)
-     * 유저가 스토리 모드를 선택 -> 스테이지를 클릭 -> 씬 이동 -> 각 씬스크립트에서 게임시작 함수 호출 -> 스테이지 진행
-     * (각 씬의 시작과 다음씬으로 넘어가는 부분은 씬에 존재하는  씬스크립트에서 담당)
-     * 하지만 씬이 변경되더라도 인게임 정보를 가지고 넘어갈수 있도록 컨텐츠 매니저에서 데이터 관리
+     * 연관 된 부분들)
+     * 로비(게임시작버튼) -> 레벨선택UI -> 레벨 선택 -> 씬 이동
+     * 씬 스크립트에서 스테이지 시작 함수 호출
+     * 몬스터 사망시 스테이지 클리어 여부 체크
+     * 잠재능력 선택시 잠재능력 정보 저장
+     * 
+     * 현재 스테이지 에 스폰된 몬스터들
+     * 스테이지 클리어 조건 
+     * 획득아이템들 
+     * 획득 잠재능력
      * 
      * 
-     * 주요 기능 
-     * 1. 스테이지 시작 및 종료 시점에 호출할 함수 정의 
-     * 2. 게임 중 얻은 데이터 관리 및 전달
+     * 이벤트로 다 뿌려주는 역할을 해야할거같은데?
      * 
-     * 지금 할일 
-     * 아이템 구현 -> 아이템 드랍 -> 아이템 습득 -> 콘텐츠 매니저에 저장 -> 
-     * 획득 아이템 아이콘 및 데이터 넣기 
-     * 획득 아이템 저장해서 로비로 넘기기
      * 
-     * 로비에서 볼 아이템 인벤토리 구현
+     * 지금 할일)
+     * 1. 몬스터 사망시 채력 + 아이템 + 재화 + 경험치 드랍 시스템 
+     * 2. 캐릭터 레벨 업 시 잠재능력 선택 UI 띄우기 + 게임 퍼즈
+     * 3. 각 잠재능력 UI에서 선택한 능력을 적용 
+     * 4. 적용된 잠재능력은 컨텐츠매니저에서 정보 저장
+     * 5. 맵 이동(웨이브 시작)시 장비+잠재+스텟 능력치 계승 
      * 
-     */ 
-
-    #region Stage
+     */
     public Action OnStageClear;
-    int curStageindex = 0;
-    public void StageSelect(EGameModes gameMode,int stage=1) //로비에서 선택용
+    public Action OnWaveClear;
+    public Action OnWaveStart;
+    public List<int> AcquiredItems = new List<int>(); //획득한 아이템들 
+    public LatentAbilityContainer AbilityContainer = new LatentAbilityContainer(); //획득한 잠재능력들\
+    public int MonsterCounts; //현재 남아있는 몬스터 수
+
+    public PlayerController player;
+    public PlayerStat stat;
+
+    public int level=1;
+    public float exp=-1;
+    public float hp=-1;
+
+
+    public void StageSelect(int stage=1) // LobbyUI에서 호출
     {
-        switch (gameMode)
-        {
-            case EGameModes.StoryMode:
-                curStageindex = stage;
-                break;
-            case EGameModes.DefanseMode:
-                break;
-            case EGameModes.TutorialMode:
-                break;
-        }
         AcquiredItems.Clear();
+        AbilityContainer.ClearAbilities();
         Managers.MySceneManager.LoadScene($"Level{stage}");
     }
-    public void StageClear()
+    public void StageClear() // Scene Scripte애서 호출
     {
-        //스테이지 클리어시 저장되어야할 데이터 종류 -> 인벤아이템 + 유저 경험치(숙련도) + 재화
-        //GamePuase();
-        Managers.MySceneManager.LoadScene("Lobby");
+        AcquiredItems.Clear();
+        AbilityContainer.ClearAbilities();
     }
-    #endregion
+    public void WaveStart() // Scene Scripte애서 호출 
+    {   
+        if (OnWaveStart!=null)
+            OnWaveStart.Invoke();
 
-    #region Wave
-    public Action OnWaveClear;
-    public int MonsterCounts;
-    public void WaveStart()
-    {
-        AbilityContainer.Init();
-        //Managers.ContentsManager.AbilityContainer.AddAbility(new LatentAbility(2, playerStat)); 어빌리티 획득시 그쪽에서 호출할 코드 
-        //어빌리티 획득 잘되는지 확인하기 
-        //AbilityContainer.ClearAbilities();
+        stat.OnStatChanged -= LevelUP;
+        stat.OnStatChanged += LevelUP;
     }
-    void WaveClear() //모든 몬스터 사망시 자동 호출
-    {
-        if (OnWaveClear != null)
-            OnWaveClear.Invoke();
-        MonsterCounts = 0;
-    }
-    #endregion
-
-    #region ItemDrop ItemAcquired
-    public List<int> AcquiredItems = new List<int>();
+        
     bool TryItemDrop(string id) 
     {
         Data.DataSet_Monster data;
         Managers.DataLoder.DataCache_Monsters.TryGetValue(id,out data);
         if (data == null) return false;
-
         bool DropNothing = true;
         for (int i = 0; i < data.dropitems.Count; i++)
         {
@@ -116,53 +104,61 @@ public class ContentsManager
                 }
             }
         }
+
+        if (UnityEngine.Random.Range(0, 9)<3)
+            Managers.DataLoder.DataCache_Save.User.gold += data.dropgold;
+
+        stat.Exp += data.dropexp;
+
         return !DropNothing;
     }
-    #endregion
 
-    #region LatentAbility
-    public LatentAbilityContainer AbilityContainer = new LatentAbilityContainer();
-    #endregion
-
-    #region Unit
-    Dictionary<string, UnitController> SpawnedUnits=new Dictionary<string, UnitController>();
     public void SpawnUnit(string id)
     {
         MonsterCounts += 1;
-        //Debug.Log(MonsterCounts);
     }
     public void DeadUnit(string id)
     {
         if (TryItemDrop(id))
         {
+            Debug.Log("ItemDrop");
             //Spawn Drop Effects  + PickupItem Objects
         }
-        //드랍 골드 
-        //드랍 경험치 
+
 
         MonsterCounts -= 1;
-        Debug.Log($"DeadCount{ MonsterCounts }");
         if (MonsterCounts <= 0)
-            WaveClear();
-    }
-    #endregion
+        {
+            if (OnWaveClear != null)
+                OnWaveClear.Invoke();
+            OnWaveStart = null;
+            MonsterCounts = 0;
+        }
 
-    #region InGameControl
-    bool isPause;
-    public void GamePause()
-    { }
-    public void GameResume()
-    { }
-    #endregion
+        Debug.Log($"Monster Count : { MonsterCounts }");
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        Debug.Log("Pause");
+    }
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        Debug.Log("Resume");
+    }
+    void LevelUP(StatIdentifier identifier, float pre, float cur)
+    {
+        if (identifier == StatIdentifier.Level)
+        {
+            Managers.ContentsManager.Pause();
+            Managers.UIManager.ShowPopupUI<SelectAbilityUI>("SelectAbilityUI").Init(
+                UnityEngine.Random.Range(1, Managers.DataLoder.DataCache_LatentAbility.Count),
+                UnityEngine.Random.Range(1, Managers.DataLoder.DataCache_LatentAbility.Count),
+                UnityEngine.Random.Range(1, Managers.DataLoder.DataCache_LatentAbility.Count), stat);
+        }
+    }
+
 
 }
-
-/*  GameObject prefab = Resources.Load<GameObject>($"DropItem/{name}");
-                if (prefab)
-                {
-                    GameObject ob = Instantiate(prefab);
-                    ob.transform.position = transform.position + Vector3.up * 3;
-
-
-                    //ob.GetComponent<PickupItem>().SetItem(name, amount);
-                }*/

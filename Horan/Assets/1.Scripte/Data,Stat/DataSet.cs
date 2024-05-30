@@ -110,7 +110,7 @@ namespace Data
         public float runspeed;
         public float atkrange;
         public float sensingrange;
-        public float dropgold;
+        public int dropgold;
         public float dropexp;
         public List<DropItems> dropitems;
     }
@@ -188,6 +188,7 @@ namespace Data
     public class DataSet_LatentAbility
     {
         public int id;
+        public string abilityname;
         public LatentAbilityValueType type;
         public float value;
     }

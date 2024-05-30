@@ -66,7 +66,6 @@ public class MoveComponent : MonoBehaviour
             timer = 0f;
         }
         transform.Translate(TransDir * TransSpeed * Time.deltaTime);
-        Debug.Log(TransDir * TransSpeed * Time.deltaTime);
     }
 
 

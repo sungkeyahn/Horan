@@ -42,7 +42,7 @@ public class LobbyUI : SceneUI
     }
     public void OnBtnClicked_Inventory(PointerEventData data)
     {
-       Managers.UIManager.ShowPopupUI<CharacterUpgradeUI>("EquipUI");
+       //   Managers.UIManager.ShowPopupUI<CharacterUpgradeUI>("EquipUI");
        Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
     }
     public void OnBtnClicked_GameSetting(PointerEventData data)

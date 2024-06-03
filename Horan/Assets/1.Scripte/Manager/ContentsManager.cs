@@ -2,7 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public struct AcquiredItemInfo
+{
+    public AcquiredItemInfo(int i, int a)
+    {
+        id = i;
+        amount = a;
+    }
+    public int id;
+    public int amount;
+}
 public class ContentsManager 
 {
     /*  매니저 기능
@@ -34,8 +43,13 @@ public class ContentsManager
     public Action OnStageClear;
     public Action OnWaveClear;
     public Action OnWaveStart;
-    public List<int> AcquiredItems = new List<int>(); //획득한 아이템들 
-    public LatentAbilityContainer AbilityContainer = new LatentAbilityContainer(); //획득한 잠재능력들\
+
+
+    public List<AcquiredItemInfo> AcquiredItems = new List<AcquiredItemInfo>(); //획득한 아이템들 
+    public int dropgold; //획득한 골드 
+    public int killcount; //스테이지 전체 처치한 적 수 
+
+    public LatentAbilityContainer AbilityContainer = new LatentAbilityContainer(); //획득한 잠재능력들
     public int MonsterCounts; //현재 남아있는 몬스터 수
 
     public PlayerController player;
@@ -44,8 +58,7 @@ public class ContentsManager
     public int level=1;
     public float exp=-1;
     public float hp=-1;
-
-
+    
     public void StageSelect(int stage=1) // LobbyUI에서 호출
     {
         AcquiredItems.Clear();
@@ -54,6 +67,20 @@ public class ContentsManager
     }
     public void StageClear() // Scene Scripte애서 호출
     {
+        //세이브 데이터 넣기
+        Managers.DataLoder.DataCache_Save.User.gold += dropgold;
+        for (int i = 0; i < AcquiredItems.Count; i++)
+        { 
+            for (int j = 0; j < Managers.DataLoder.DataCache_Save.Inventory.Length; j++) 
+            {
+                if (Managers.DataLoder.DataCache_Save.Inventory[j].id == AcquiredItems[i].id)
+                {
+                    Managers.DataLoder.DataCache_Save.Inventory[j].amount += AcquiredItems[i].amount;
+                    break;
+                }
+            }            
+        }
+
         AcquiredItems.Clear();
         AbilityContainer.ClearAbilities();
     }
@@ -66,51 +93,29 @@ public class ContentsManager
         stat.OnStatChanged += LevelUP;
     }
         
-    bool TryItemDrop(string id) 
+    void TryDrop(string monsterid) 
     {
-        Data.DataSet_Monster data;
-        Managers.DataLoder.DataCache_Monsters.TryGetValue(id,out data);
-        if (data == null) return false;
-        bool DropNothing = true;
+        Data.DataSet_Monster data = null;
+        if (Managers.DataLoder.DataCache_Monsters.TryGetValue(monsterid, out data) == false) return;
+
+        //아이템 드랍
         for (int i = 0; i < data.dropitems.Count; i++)
         {
-            int rand = UnityEngine.Random.Range(0, 99);
-            if (rand < data.dropitems[i].probability)
+            if (UnityEngine.Random.Range(0, 99) < data.dropitems[i].probability)
             {
-                Data.DataSet_Item itemdata;
-                Managers.DataLoder.DataCache_Items.TryGetValue(data.dropitems[i].id, out itemdata);
-                if (itemdata != null) 
-                {
-                    int emptyinedx = int.MaxValue;
-                    for (int j = 0; j < 25; j++) //인벤 정보 
-                    {
-                        if (Managers.DataLoder.DataCache_Save.Inventory[j].id == 0 && j < emptyinedx)
-                            emptyinedx = j;
-
-                        if (Managers.DataLoder.DataCache_Save.Inventory[j].id == itemdata.id)
-                        {
-                            Managers.DataLoder.DataCache_Save.Inventory[j].amount += data.dropitems[i].amount;
-                            DropNothing = false;
-                        }
-                    }
-                    if (emptyinedx<25 && DropNothing)
-                    {
-                        Managers.DataLoder.DataCache_Save.Inventory[emptyinedx].id = itemdata.id;
-                        Managers.DataLoder.DataCache_Save.Inventory[emptyinedx].amount = data.dropitems[i].amount;
-
-                        AcquiredItems.Add(itemdata.id); //수정 필요
-                        DropNothing = false;
-                    }
-                }
+                Data.DataSet_Item itemdata = null;
+                if (Managers.DataLoder.DataCache_Items.TryGetValue(data.dropitems[i].id, out itemdata))
+                    AcquiredItems.Add(new AcquiredItemInfo(data.dropitems[i].id, data.dropitems[i].amount));
             }
         }
-
-        if (UnityEngine.Random.Range(0, 9)<3)
-            Managers.DataLoder.DataCache_Save.User.gold += data.dropgold;
-
+        //골드 드랍
+        if (UnityEngine.Random.Range(0, 9) < 3)
+            dropgold += data.dropgold;
+        //경험치 드랍
         stat.Exp += data.dropexp;
+        //처치한 적 수 
+        killcount += 1;
 
-        return !DropNothing;
     }
 
     public void SpawnUnit(string id)
@@ -119,12 +124,9 @@ public class ContentsManager
     }
     public void DeadUnit(string id)
     {
-        if (TryItemDrop(id))
-        {
-            Debug.Log("ItemDrop");
-            //Spawn Drop Effects  + PickupItem Objects
-        }
-
+        Debug.Log("ItemDrop");
+        TryDrop(id);
+        //Spawn Drop Effects  + PickupItem Object;
 
         MonsterCounts -= 1;
         if (MonsterCounts <= 0)
@@ -153,12 +155,7 @@ public class ContentsManager
         if (identifier == StatIdentifier.Level)
         {
             Managers.ContentsManager.Pause();
-            Managers.UIManager.ShowPopupUI<SelectAbilityUI>("SelectAbilityUI").Init(
-                UnityEngine.Random.Range(1, Managers.DataLoder.DataCache_LatentAbility.Count),
-                UnityEngine.Random.Range(1, Managers.DataLoder.DataCache_LatentAbility.Count),
-                UnityEngine.Random.Range(1, Managers.DataLoder.DataCache_LatentAbility.Count), stat);
+            Managers.UIManager.ShowPopupUI<SelectAbilityUI>("SelectAbilityUI").Init(stat);
         }
     }
-
-
 }

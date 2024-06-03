@@ -41,9 +41,7 @@ public class GameScene1TEST : BaseScene
         {
             if (string.IsNullOrEmpty(NextSceneName))
             {
-                GameResultUI ui = Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI");
-                ui.Init();
-                ui.SetResultText(true);
+                Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI").Init(true);
                 Managers.ContentsManager.Pause();
                 Managers.ContentsManager.StageClear();  
             }

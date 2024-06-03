@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class HUDUI : SceneUI
 {
     bool isinit=false;
-    enum Components { Text_Level, Slider_ExpBar, Slider_HpBar, Slider_SpBar, Button_Dash, Button_Atk1, Button_Atk2, Button_Atk3, Button_Defens, Button_Pause, Button_MoveBack, Toggle_Ability }
+    enum Components { Text_Level, Slider_ExpBar, Slider_HpBar, Slider_SpBar, Button_Dash, Button_Atk1, Button_Atk2, Button_Atk3, Button_Defens, Button_Pause, Button_MoveBack, Panel_AbilityICons }
 
     PlayerStat Stat;
     public override void Init()
@@ -28,6 +28,8 @@ public class HUDUI : SceneUI
             SetHpBar(Stat.Hp/Stat.MaxHp);
             SetSpBar(Stat.Sp / Stat.MaxSp);
         }
+
+        //어빌리티 업데이트 델리게이트 제작하기
 
         isinit = true;
     }
@@ -71,6 +73,11 @@ public class HUDUI : SceneUI
     void SetSpBar(float ratio)
     {
         GetObject((int)Components.Slider_SpBar).GetComponent<Slider>().value = ratio;
+    }
+
+    public void UpdateAbility()
+    {
+        
     }
 
     public void OnBtnClicked_Dash(PointerEventData data)

@@ -189,6 +189,7 @@ namespace Data
     {
         public int id;
         public string abilityname;
+        public string abilityinfo;
         public LatentAbilityValueType type;
         public float value;
     }

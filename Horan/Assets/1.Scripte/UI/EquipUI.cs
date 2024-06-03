@@ -30,7 +30,7 @@ public class EquipUI : PopupUI
         UpdateEquipment();
 
         //인벤 슬롯 추가 [동적] 생성 
-        GameObject prefab = Resources.Load<GameObject>($"UI/Image_ItemSlot");
+        GameObject prefab = Resources.Load<GameObject>($"UI/Slot/Image_ItemSlot");
         for (int i = 0; i < 25; i++)
         {
             GameObject ob = Instantiate(prefab, GetObject((int)Components.Panel_Slots).transform);

@@ -33,6 +33,8 @@ public class SelectAbilitySlotUI : BaseUI
     {
         LatentAbility ability = new LatentAbility(ID);
         Managers.ContentsManager.AbilityContainer.AddAbility(ability, Stat);
+        Managers.UIManager.ClosePopupUI();
+        Managers.ContentsManager.Resume();
     }
 }
 /* 팝업  스크립트 따로 만들어서 거기다 구현 해야 함

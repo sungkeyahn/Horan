@@ -14,7 +14,7 @@ public class LobbyScene : BaseScene
     }
     private void Start()
     {
-        Data.Save_User userinfo = Managers.DataLoder.DataCache_Save.User;
+        //Data.Save_User userinfo = Managers.DataLoder.DataCache_Save.User;
         /*lobby.SetUserName(userinfo.name);
         lobby.SetUserLevel(userinfo.level);
         lobby.SetGoldText(userinfo.gold);

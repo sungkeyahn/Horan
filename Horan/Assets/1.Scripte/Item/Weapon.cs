@@ -41,8 +41,7 @@ public class Weapon : Equipment
 
     public override void Equip(int id)
     {
-        base.Equip(id);
-        weaponid = id;
+        if (id == weaponid) return;
         if (Managers.DataLoder.DataCache_Weapon.ContainsKey(id))
         {
             meshFilter.mesh = Resources.Load<Mesh>(Managers.DataLoder.DataCache_Equipments[id].meshpath);
@@ -50,6 +49,9 @@ public class Weapon : Equipment
 
             for (int i = 0; i < Managers.DataLoder.DataCache_Weapon[id].animinfo.Count; i++)
                 AnimInfo.Add(Managers.DataLoder.DataCache_Weapon[id].animinfo[i]);
+
+            ApplyEquipmentStat(weaponid, id);
+            weaponid = id;
         }
     }
 

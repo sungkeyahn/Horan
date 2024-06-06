@@ -2,16 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public struct AcquiredItemInfo
-{
-    public AcquiredItemInfo(int i, int a)
-    {
-        id = i;
-        amount = a;
-    }
-    public int id;
-    public int amount;
-}
+
 public class ContentsManager 
 {
     /*  매니저 기능
@@ -43,9 +34,10 @@ public class ContentsManager
     public Action OnStageClear;
     public Action OnWaveClear;
     public Action OnWaveStart;
+    public Action OnMonsterSpawn;
+    public Action OnMonsterDead;
 
-
-    public List<AcquiredItemInfo> AcquiredItems = new List<AcquiredItemInfo>(); //획득한 아이템들 
+    public Dictionary<int ,int> AcquiredItems = new Dictionary<int, int>(); //획득한 아이템들 
     public int dropgold; //획득한 골드 
     public int killcount; //스테이지 전체 처치한 적 수 
 
@@ -63,22 +55,16 @@ public class ContentsManager
     {
         AcquiredItems.Clear();
         AbilityContainer.ClearAbilities();
-        Managers.MySceneManager.LoadScene($"Level{stage}");
+        Managers.MySceneManager.LoadScene($"Level {stage}");
     }
     public void StageClear() // Scene Scripte애서 호출
     {
-        //세이브 데이터 넣기
+        //세이브 파일에 데이터 추가 
         Managers.DataLoder.DataCache_Save.User.gold += dropgold;
-        for (int i = 0; i < AcquiredItems.Count; i++)
-        { 
-            for (int j = 0; j < Managers.DataLoder.DataCache_Save.Inventory.Length; j++) 
-            {
-                if (Managers.DataLoder.DataCache_Save.Inventory[j].id == AcquiredItems[i].id)
-                {
-                    Managers.DataLoder.DataCache_Save.Inventory[j].amount += AcquiredItems[i].amount;
-                    break;
-                }
-            }            
+
+        foreach (int i in AcquiredItems.Keys) //얻은 아이템 키 받아서 세이브 데이터에 벨류 증가
+        {
+            Managers.DataLoder.DataCache_Save.Inventory.values[Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(i))] += AcquiredItems[i];
         }
 
         AcquiredItems.Clear();
@@ -96,39 +82,46 @@ public class ContentsManager
     void TryDrop(string monsterid) 
     {
         Data.DataSet_Monster data = null;
-        if (Managers.DataLoder.DataCache_Monsters.TryGetValue(monsterid, out data) == false) return;
-
-        //아이템 드랍
-        for (int i = 0; i < data.dropitems.Count; i++)
+        if (Managers.DataLoder.DataCache_Monsters.TryGetValue(monsterid, out data))
         {
-            if (UnityEngine.Random.Range(0, 99) < data.dropitems[i].probability)
+            //아이템 드랍
+            for (int i = 0; i < data.dropitems.Count; i++)
             {
-                Data.DataSet_Item itemdata = null;
-                if (Managers.DataLoder.DataCache_Items.TryGetValue(data.dropitems[i].id, out itemdata))
-                    AcquiredItems.Add(new AcquiredItemInfo(data.dropitems[i].id, data.dropitems[i].amount));
+                if (UnityEngine.Random.Range(0, 99) < data.dropitems[i].probability)
+                {
+                    Data.DataSet_Item itemdata = null;
+                    if (Managers.DataLoder.DataCache_Items.TryGetValue(data.dropitems[i].id, out itemdata))
+                        if (AcquiredItems.ContainsKey(data.dropitems[i].id))
+                            AcquiredItems[data.dropitems[i].id] += data.dropitems[i].amount;
+                        else
+                            AcquiredItems.Add(data.dropitems[i].id, data.dropitems[i].amount);
+                }
             }
+            //골드 드랍
+            if (UnityEngine.Random.Range(0, 9) < 3)
+                dropgold += data.dropgold;
+            //경험치 드랍
+            stat.Exp += data.dropexp;
+            //처치한 적 수 
+            killcount += 1;
         }
-        //골드 드랍
-        if (UnityEngine.Random.Range(0, 9) < 3)
-            dropgold += data.dropgold;
-        //경험치 드랍
-        stat.Exp += data.dropexp;
-        //처치한 적 수 
-        killcount += 1;
-
     }
 
     public void SpawnUnit(string id)
     {
         MonsterCounts += 1;
+        if (OnMonsterSpawn != null)
+            OnMonsterSpawn.Invoke();
     }
     public void DeadUnit(string id)
-    {
-        Debug.Log("ItemDrop");
+    {        
         TryDrop(id);
         //Spawn Drop Effects  + PickupItem Object;
 
         MonsterCounts -= 1;
+        if (OnMonsterDead != null)
+            OnMonsterDead.Invoke();
+
         if (MonsterCounts <= 0)
         {
             if (OnWaveClear != null)

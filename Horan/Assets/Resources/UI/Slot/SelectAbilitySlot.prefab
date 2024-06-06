@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1762294834589914922}
   - component: {fileID: 4413244833169712577}
-  - component: {fileID: 3083425884305371691}
   - component: {fileID: 4745609400349739767}
+  - component: {fileID: -1516838630291328597}
   m_Layer: 5
   m_Name: SelectAbilitySlot
   m_TagString: Untagged
@@ -47,18 +47,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3564109005604708074}
   m_CullTransparentMesh: 1
---- !u!114 &3083425884305371691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3564109005604708074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b535f1b6b3d2fa3478c005ae874602ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4745609400349739767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +57,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fe600016efbb774791e139c42fb85ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1516838630291328597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3564109005604708074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf8f74a25cc4134bafc6e056d7f2fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4818410070741714337

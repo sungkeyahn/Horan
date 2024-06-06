@@ -28,7 +28,7 @@ public class LobbyUI : SceneUI
     {
        Debug.Log("Inventory");
         //InventoryUI 에서 플레이어 캐릭터로 카메라로 전환 필요 
-       //Managers.UIManager.ShowPopupUI<InventoryUI>("InventoryUI");
+       Managers.UIManager.ShowPopupUI<InventoryUI>("InventoryUI");
 
        Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
     }

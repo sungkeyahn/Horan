@@ -47,10 +47,6 @@ public class PlayerController : UnitController
     {
         Stat.StatInit(Managers.ContentsManager.level, Managers.ContentsManager.exp, Managers.ContentsManager.hp);
         Stat.OnHit += () => isCounter = true;
-        
-        Equip();
-
-        Managers.ContentsManager.AbilityContainer.ApplyAllAbility(Stat);
         #region Effect and Sound
         StepSound1 = LoadSound("Step1",transform);
         StepSound2 = LoadSound("Step2", transform);
@@ -94,6 +90,11 @@ public class PlayerController : UnitController
         #endregion
 
         Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
+        Hud.Init();
+        //Managers.ContentsManager.AbilityContainer.OnAbilityUpdate += Hud.UpdateAbilityIcon;
+
+        Equip();
+        Managers.ContentsManager.AbilityContainer.ApplyAllAbility(Stat);
     }
     private void FixedUpdate()
     {

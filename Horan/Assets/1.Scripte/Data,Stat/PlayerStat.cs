@@ -11,11 +11,11 @@ public class PlayerStat : Stat, IDamageInteraction
 
     float CurHpRegenTime;
     float HpRegenTime = 5;
-    float HpRegenAmount = 0.5f;
+    public float HpRegenAmount = 0.5f;
 
     float CurSpRegenTime;
     float SpRegenTime = 5;
-    float SpRegenAmount=5;
+    public float SpRegenAmount = 5;
 
     [SerializeField]
     float _maxhp;

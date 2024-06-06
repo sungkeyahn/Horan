@@ -18,9 +18,9 @@ public class SelectAbilityUI : PopupUI
     {
         if (isInit) return;
         Bind<GameObject>(typeof(Components));
-        BindEvent(GetObject((int)Components.Button_ClosePopup), OnBtnClicked_ClosePopup, UIEvent.Click);
+        //BindEvent(GetObject((int)Components.Button_ClosePopup), OnBtnClicked_ClosePopup, UIEvent.Click);
 
-
+        Stat = Managers.ContentsManager.stat;
         //SelectAbilityPopup 프리팹 동적 생성 필요
         GameObject prefab = Resources.Load<GameObject>($"UI/Slot/SelectAbilitySlot");
         for (int i = 0; i < 3; i++)
@@ -28,7 +28,7 @@ public class SelectAbilityUI : PopupUI
             GameObject ob = Instantiate(prefab, GetObject((int)Components.Panel_AbilityPopup).transform);
             ob.name = "SelectAbilitySlot";
             ob.GetComponent<SelectAbilitySlotUI>().Init(UnityEngine.Random.Range(1, Managers.DataLoder.DataCache_LatentAbility.Count),Stat);
-            BindEvent(ob, OnBtnClicked_ClosePopup, UIEvent.Click);
+           
         }
         //동적 생성 이후 해당 버튼 클릭시 Close 호출 필요
 

@@ -15,7 +15,11 @@ public class LobbyCharacterCtrl : MonoBehaviour
         weapon = GetComponentInChildren<Weapon>();
         Stat = GetComponent<PlayerStat>();
         anims = GetComponentsInChildren<Animator>();
+
+        Stat.StatInit(Managers.ContentsManager.level, Managers.ContentsManager.exp, Managers.ContentsManager.hp);
+
         UpdateEquipments();
+
     }
 
     public void UpdateEquipments()
@@ -33,11 +37,15 @@ public class LobbyCharacterCtrl : MonoBehaviour
                 case Data.EEquipmentType.Accessory:
                     equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.accessory);
                     break;
-                default:
-                    break;
             }
         }
-
         weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
+
+        InventoryUI invenuI = FindObjectOfType<InventoryUI>();
+        if (invenuI)
+        {
+            for (int i = 0; i < invenuI.statslots.Count; i++)
+                invenuI.statslots[i].UpdateStatSlot();
+        }
     }
 }

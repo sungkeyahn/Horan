@@ -42,6 +42,8 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
         DataCache_Sprite = LoadSprite();
         DataCache_Effect = LoadPrefab("Effect");
         DataCache_Sound = LoadPrefab("Sound");
+
+        InitSaveData();
     }
     public DataDict LoadData<DataDict, Key, Value>(string DataFileName) where DataDict : Data.IDataSeparator<Key, Value>
     {
@@ -67,5 +69,30 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
         foreach (GameObject data in objects)
             dict.Add(data.name, data);
         return dict;
+    }
+    public void InitSaveData()
+    {
+        DataCache_Save.User.level = 1;
+        DataCache_Save.User.exp = 0f;
+        DataCache_Save.User.gold = 0;
+        DataCache_Save.User.name = "NONE";
+
+        DataCache_Save.Equip.weapon = 1001;
+        DataCache_Save.Equip.head = 1200;
+        DataCache_Save.Equip.clothes = 1100;
+        DataCache_Save.Equip.accessory = 0;
+        
+        DataCache_Save.Inventory.keys = new List<int>();
+        DataCache_Save.Inventory.values = new List<int>();
+        foreach (int i in DataCache_Items.Keys)
+        {
+            DataCache_Save.Inventory.keys.Add(i);
+            DataCache_Save.Inventory.values.Add(0);
+        }
+        
+        DataCache_Save.Inventory.values[DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(1001))] += 1;
+        DataCache_Save.Inventory.values[DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(1100))] += 1;
+        DataCache_Save.Inventory.values[DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(1200))] += 1;
+        
     }
 }

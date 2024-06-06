@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class GameScene1TEST : BaseScene
 {
-    [SerializeField]
     GameObject player; //이 변수는 임시, 추후 플레이어 생성 구현 이후 삭제 
     bool isClear;
 
     void Start()
     {
         //플레이어+몬스터 생성 코드 필요
+        player = FindObjectOfType<PlayerController>().gameObject;
         Camera.main.GetComponent<CameraComponent>().SetPlayer(player);
 
         Managers.ContentsManager.player = player.GetComponent<PlayerController>();

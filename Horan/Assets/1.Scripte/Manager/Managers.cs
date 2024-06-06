@@ -42,11 +42,11 @@ public class Managers : MonoBehaviour
     }
     void Awake()
     {
-        Init();
-
         filepath = Application.persistentDataPath + "/" + filename; //일단 넘기고 
+        Debug.Log(filepath); 
+        Init();
         dataLoader.DataCache_Save = SaveFileLoad(filepath);
-        Debug.Log(filepath);
+
     }
 
     void OnApplicationQuit() //실행 종료시 자동 저장
@@ -58,8 +58,10 @@ public class Managers : MonoBehaviour
     {
         //저장된 파일 불러오기
         if (!File.Exists(path))
+        {
+            dataLoader.InitSaveData();
             SaveFileWrite(path);
-
+        }
         string ReadJson = File.ReadAllText(path);
         return JsonUtility.FromJson<Data.SaveData>(ReadJson);
     }

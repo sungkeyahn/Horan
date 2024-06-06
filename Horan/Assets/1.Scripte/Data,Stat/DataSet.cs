@@ -17,46 +17,9 @@ namespace Data
     [Serializable]
     public class SaveData
     {
-        public SaveData()
-        {
-            User.level = 1;
-            User.exp = 0f;
-            User.gold = 0;
-            User.name = "NONE";
-
-            Inventory = new Save_Inventory[25];
-            for (int i = 0; i < 25; i++)
-            {
-                Inventory[i] = new Data.Save_Inventory(0, 0);
-            }
-            
-            Inventory[0].id = 1001;
-            Inventory[0].amount = 1;
-            Inventory[1].id = 1100;
-            Inventory[1].amount = 1;
-            Inventory[2].id = 1200;
-            Inventory[2].amount = 1;
-
-            Inventory[3].id = 1102;
-            Inventory[3].amount = 1;
-            Inventory[4].id = 1105;
-            Inventory[4].amount = 1;
-            Inventory[5].id = 1111;
-            Inventory[5].amount = 1;
-            Inventory[6].id = 1304;
-            Inventory[6].amount = 1;
-            Inventory[7].id = 1204;
-            Inventory[7].amount = 1;
-
-
-            Equip.weapon = 1001;
-            Equip.head = 1200;
-            Equip.clothes = 1100;
-            Equip.accessory = 0;
-        }
         public Save_User User;
-        public Save_Inventory[] Inventory ;
         public Save_Equip Equip;
+        public Save_Inventory Inventory;
     }
     [Serializable]
     public struct Save_User
@@ -68,17 +31,6 @@ namespace Data
         //¼÷·Ãµµ ? 
     }
     [Serializable]
-    public struct Save_Inventory
-    {
-        public Save_Inventory(int id, int amount)
-        {
-            this.id = id;
-            this.amount = amount;
-        }
-        public int id;
-        public int amount;
-    }
-    [Serializable]
     public struct Save_Equip
     {
         public int weapon;
@@ -86,7 +38,13 @@ namespace Data
         public int clothes;
         public int accessory;
     }
-    #endregion 
+    [Serializable]
+    public struct Save_Inventory
+    {
+        public List<int> keys;
+        public List<int> values;
+    }
+    #endregion
 
     #region DataSet
     [Serializable]
@@ -139,6 +97,7 @@ namespace Data
     {
         public int id;
         public string name;
+        public int slotindex;
         public EItemType type;
         public string info;
         public string iconfilename;
@@ -190,6 +149,7 @@ namespace Data
         public int id;
         public string abilityname;
         public string abilityinfo;
+        public string iconpath;
         public LatentAbilityValueType type;
         public float value;
     }

@@ -35,7 +35,7 @@ public class EquipUI : PopupUI
         {
             GameObject ob = Instantiate(prefab, GetObject((int)Components.Panel_Slots).transform);
             ob.name = "Image_ItemSlot";
-            ob.GetComponent<ItemSlotUI>().Init(i);
+            //ob.GetComponent<ItemSlotUI>().Init(i,Einventype.Weapon);
         }
 
         //
@@ -71,8 +71,7 @@ public class EquipUI : PopupUI
         if (Managers.DataLoder.DataCache_Sprite.ContainsKey(accessoryicon))
             AccessoryEquipImage.sprite = Managers.DataLoder.DataCache_Sprite[accessoryicon];
 
-        if (ctrl)
-            ctrl.UpdateEquipments();
+
     }
 
 }

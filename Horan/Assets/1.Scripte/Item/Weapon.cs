@@ -44,6 +44,7 @@ public class Weapon : Equipment
         if (id == weaponid) return;
         if (Managers.DataLoder.DataCache_Weapon.ContainsKey(id))
         {
+            weaponid = id;
             meshFilter.mesh = Resources.Load<Mesh>(Managers.DataLoder.DataCache_Equipments[id].meshpath);
             meshRenderer.material = Resources.Load<Material>(Managers.DataLoder.DataCache_Equipments[id].materialpath);
 
@@ -51,12 +52,14 @@ public class Weapon : Equipment
                 AnimInfo.Add(Managers.DataLoder.DataCache_Weapon[id].animinfo[i]);
 
             ApplyEquipmentStat(weaponid, id);
-            weaponid = id;
+            AttachSocket();
         }
     }
 
-    public void AttachSocket()
+    void AttachSocket()
     {
+        WeaponSocket Socket = FindObjectOfType<WeaponSocket>();
+        transform.parent = Socket.transform;
         transform.localPosition = new Vector3(Managers.DataLoder.DataCache_Weapon[weaponid].socketpos[0], Managers.DataLoder.DataCache_Weapon[weaponid].socketpos[1], Managers.DataLoder.DataCache_Weapon[weaponid].socketpos[2]);
         transform.localRotation = Quaternion.Euler(Managers.DataLoder.DataCache_Weapon[weaponid].socketrot[0], Managers.DataLoder.DataCache_Weapon[weaponid].socketrot[1], Managers.DataLoder.DataCache_Weapon[weaponid].socketrot[2]);
     }

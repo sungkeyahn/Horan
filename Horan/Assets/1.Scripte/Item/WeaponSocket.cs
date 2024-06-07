@@ -6,11 +6,13 @@ public class WeaponSocket : MonoBehaviour
 {
     void Start()
     {
-        Weapon weapon = FindObjectOfType<Weapon>();
+  
+    }
+}
+
+/*      Weapon weapon = FindObjectOfType<Weapon>();
         if (weapon)
         {
             weapon.transform.parent = transform;
             weapon.AttachSocket();
-        }
-    }
-}
+        }*/

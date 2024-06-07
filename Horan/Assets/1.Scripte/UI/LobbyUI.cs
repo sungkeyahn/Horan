@@ -41,7 +41,7 @@ public class LobbyUI : SceneUI
     public void OnBtnClicked_Upgrade(PointerEventData data)
     {
         Debug.Log("Upgrade");
-        //Managers.UIManager.ShowPopupUI<UpgradeUI>("UpgradeUI");
+        Managers.UIManager.ShowPopupUI<UpgradeUI>("UpgradeUI");
         Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
     }
     public void OnBtnClicked_Setting(PointerEventData data)

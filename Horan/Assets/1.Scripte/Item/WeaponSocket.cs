@@ -9,10 +9,3 @@ public class WeaponSocket : MonoBehaviour
   
     }
 }
-
-/*      Weapon weapon = FindObjectOfType<Weapon>();
-        if (weapon)
-        {
-            weapon.transform.parent = transform;
-            weapon.AttachSocket();
-        }*/

@@ -35,7 +35,7 @@ public class LobbyUI : SceneUI
     public void OnBtnClicked_Shop(PointerEventData data)
     {
         Debug.Log("Shop");
-        //Managers.UIManager.ShowPopupUI<ShopUI>("ShopUI");
+        Managers.UIManager.ShowPopupUI<ShopUI>("ShopUI");
         Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
     }
     public void OnBtnClicked_Upgrade(PointerEventData data)

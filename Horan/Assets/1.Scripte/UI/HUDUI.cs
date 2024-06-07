@@ -67,9 +67,8 @@ public class HUDUI : SceneUI
         }
     }
 
-    public void UpdateAbilityIcon(int abilityID) //모든 어빌리티 일괄 갱신 함수로 개편 필요 
+    public void UpdateAbilityIcon(int abilityID) 
     {
-
         GameObject prefab = Resources.Load<GameObject>($"UI/Slot/AbilityIconSlot");
         GameObject ob = Instantiate(prefab, GetObject((int)Components.Panel_AbilityICons).transform);
         ob.name = "AbilityIconSlot";
@@ -77,8 +76,8 @@ public class HUDUI : SceneUI
 
         Data.DataSet_LatentAbility data = null;
         Managers.DataLoder.DataCache_LatentAbility.TryGetValue(abilityID, out data);
-        //ob.GetComponent<AbilityIconSlotUI>().Init(Managers.DataLoder.DataCache_Sprite[data.iconpath]);
-
+        if (Managers.DataLoder.DataCache_Sprite.ContainsKey(data.iconpath))
+            ob.GetComponent<AbilityIconSlotUI>().Init(Managers.DataLoder.DataCache_Sprite[data.iconpath]);
     }
 
     public void UpdateQusetInfo()

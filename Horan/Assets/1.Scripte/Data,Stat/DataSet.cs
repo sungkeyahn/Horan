@@ -27,7 +27,7 @@ namespace Data
         public int level;
         public string name;
         public float exp;
-        public int gold;
+        public float gold;
         //¼÷·Ãµµ ? 
     }
     [Serializable]
@@ -153,6 +153,27 @@ namespace Data
         public LatentAbilityValueType type;
         public float value;
     }
+
+
+    [Serializable]
+    public class DataSet_Shop
+    {
+        public EShopTabType tabtype;
+        public List<Product> products;
+    }
+    [Serializable]
+    public struct Product
+    {
+        public int productid;
+        public string iconpath;
+        public float price;
+    }
+    [Serializable]
+    public enum EShopTabType
+    {
+        BuyMaterial, BuyAccessory,SellItem
+    }
+
     #endregion
 
     #region DataSeparator 
@@ -252,6 +273,22 @@ namespace Data
             return dict;
         }
     }
+
+
+    [Serializable]
+    public class Separator_ShopTable : IDataSeparator<EShopTabType, DataSet_Shop>
+    {
+        public List<DataSet_Shop> shops = new List<DataSet_Shop>();
+
+        public Dictionary<EShopTabType, DataSet_Shop> MakeDict()
+        {
+            Dictionary<EShopTabType, DataSet_Shop> dict = new Dictionary<EShopTabType, DataSet_Shop>();
+            foreach (DataSet_Shop data in shops)
+                dict.Add(data.tabtype, data);
+            return dict;
+        }
+    }
+
 
     #endregion
 

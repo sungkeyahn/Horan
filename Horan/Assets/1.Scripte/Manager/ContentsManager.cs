@@ -151,4 +151,36 @@ public class ContentsManager
             Managers.UIManager.ShowPopupUI<SelectAbilityUI>("SelectAbilityUI").Init(stat);
         }
     }
+
+
+    #region Shop
+    public void AcquireGold(float price)
+    {
+        Managers.DataLoder.DataCache_Save.User.gold += price;
+    }
+    public void AddItem(int id, int amount = 1)
+    {
+        int i = Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(id));
+        Managers.DataLoder.DataCache_Save.Inventory.values[i] += amount;
+    }
+    public bool ConsumeGold(float price)
+    {
+        if (Managers.DataLoder.DataCache_Save.User.gold < price) 
+            return false;
+
+        Managers.DataLoder.DataCache_Save.User.gold -= price;
+        return true; 
+    }
+  
+    public bool RemoveItem(int id, int amount=1)
+    {
+        int i = Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(id));
+        if (Managers.DataLoder.DataCache_Save.Inventory.values[i] < amount)
+            return false;
+
+        Managers.DataLoder.DataCache_Save.Inventory.values[i] -= amount;
+        return true;
+    }
+    #endregion
+
 }

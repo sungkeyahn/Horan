@@ -59,6 +59,7 @@ public class ShopUI : PopupUI
     public void OnBtnClicked_ClosePopup(PointerEventData data)
     {
         ClosePopupUI();
+        Managers.UIManager.GetSceneUI().gameObject.SetActive(true);
     }
     public void OnBtnClicked_WeaponTab(PointerEventData data)
     {
@@ -108,7 +109,7 @@ public class ShopUI : PopupUI
     {
         inventype = type;
         for (int i = 0; i < itemslots.Count; i++)
-            itemslots[i].Init(i, Einventype.Weapon);
+            itemslots[i].Init(i, type);
     }
     void TabClick(Data.EShopTabType type)
     {

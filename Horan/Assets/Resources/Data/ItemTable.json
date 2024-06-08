@@ -371,7 +371,7 @@
     {
       "id": 1501,
       "name": "Material_A",
-      "slotindex": 1,
+      "slotindex": 0,
       "type": 2,
       "info": "청동 원석",
       "iconfilename": "icon_craft_01"
@@ -379,7 +379,7 @@
     {
       "id": 1502,
       "name": "Material_B",
-      "slotindex": 2,
+      "slotindex": 1,
       "type": 2,
       "info": "면포",
       "iconfilename": "icon_craft_02"
@@ -387,7 +387,7 @@
     {
       "id": 1503,
       "name": "Material_C",
-      "slotindex": 3,
+      "slotindex": 2,
       "type": 2,
       "info": "가죽",
       "iconfilename": "icon_craft_03"
@@ -395,7 +395,7 @@
     {
       "id": 1504,
       "name": "Material_D",
-      "slotindex": 4,
+      "slotindex": 3,
       "type": 2,
       "info": "강철 주괴",
       "iconfilename": "icon_craft_04"

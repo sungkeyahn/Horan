@@ -1,0 +1,23 @@
+{
+  "upgreades": [
+    {
+      "id": 1001,
+      "resultitemid": 1002,
+      "needgold": 1234567,
+      "materials": [
+        {
+          "id": 1501,
+          "amount": 111
+        },
+        {
+          "id": 1502,
+          "amount": 222
+        },
+        {
+          "id": 1503,
+          "amount": 333
+        }
+      ]
+    }
+  ]
+} 

@@ -83,17 +83,22 @@ public class ItemSlotUI : BaseUI
     {
         if (itemdata == null) return;
         int i = Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(itemdata.id)); //¼ö·® 
-       
         if (0 < Managers.DataLoder.DataCache_Save.Inventory.values[i])
         {
-            EquipBtnObject.SetActive(true);
-            CloseBtnObject.SetActive(true);
+            UpgradeUI upgrade = GetComponentInParent<UpgradeUI>();
+            if (upgrade) 
+                upgrade.SelectItem(itemdata.id);
+            else
+            {
+                EquipBtnObject.SetActive(true);
+                CloseBtnObject.SetActive(true);
+            }
         }
     }
     public void OnClicked_Equip(PointerEventData data)
     {
         Debug.Log(index);
-        if (Managers.DataLoder.DataCache_Equipments.ContainsKey(itemdata.id) )
+        if (Managers.DataLoder.DataCache_Equipments.ContainsKey(itemdata.id))
         {
             Data.EEquipmentType type = Managers.DataLoder.DataCache_Equipments[itemdata.id].type;
             switch (type)

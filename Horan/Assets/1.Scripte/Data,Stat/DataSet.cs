@@ -173,7 +173,21 @@ namespace Data
     {
         BuyMaterial, BuyAccessory,SellItem
     }
-
+    
+    [Serializable]
+    public class DataSet_Upgrade
+    {
+        public int id;
+        public int resultitemid;
+        public float needgold;
+        public List<UpgradeMaterial> materials;
+    }
+    [Serializable]
+    public struct UpgradeMaterial
+    {
+        public int id;
+        public int amount;
+    }
     #endregion
 
     #region DataSeparator 
@@ -289,7 +303,19 @@ namespace Data
         }
     }
 
+    [Serializable]
+    public class Separator_UpgradeTable : IDataSeparator<int, DataSet_Upgrade>
+    {
+        public List<DataSet_Upgrade> upgreades = new List<DataSet_Upgrade>();
 
+        public Dictionary<int, DataSet_Upgrade> MakeDict()
+        {
+            Dictionary<int, DataSet_Upgrade> dict = new Dictionary<int, DataSet_Upgrade>();
+            foreach (DataSet_Upgrade data in upgreades)
+                dict.Add(data.id, data);
+            return dict;
+        }
+    }
     #endregion
 
 }

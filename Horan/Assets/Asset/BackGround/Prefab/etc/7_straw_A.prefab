@@ -5,7 +5,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e0179e604bc0ab04f875270bcca5a2b7, type: 3}
@@ -53,7 +52,23 @@ PrefabInstance:
       value: 7_straw_A
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0179e604bc0ab04f875270bcca5a2b7, type: 3}
+--- !u!1 &5656370897297817130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e0179e604bc0ab04f875270bcca5a2b7, type: 3}
+  m_PrefabInstance: {fileID: 4809315043676390267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &176963698206161164
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5656370897297817130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.3887534
+  m_Height: 2.777508
+  m_Direction: 1
+  m_Center: {x: 0.0000004172325, y: 0, z: 1.0252576}

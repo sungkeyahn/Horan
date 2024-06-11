@@ -2227,6 +2227,10 @@ PrefabInstance:
       value: tiled_shrine (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1015705560903807951, guid: 2455d191cc9390641a7d42678d9a7119, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015705560903807951, guid: 2455d191cc9390641a7d42678d9a7119, type: 3}
       propertyPath: m_LocalPosition.x
       value: -54.8
       objectReference: {fileID: 0}
@@ -2240,19 +2244,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1015705560903807951, guid: 2455d191cc9390641a7d42678d9a7119, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6532815
+      value: 0.27059805
       objectReference: {fileID: 0}
     - target: {fileID: 1015705560903807951, guid: 2455d191cc9390641a7d42678d9a7119, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.6532815
+      value: -0.27059805
       objectReference: {fileID: 0}
     - target: {fileID: 1015705560903807951, guid: 2455d191cc9390641a7d42678d9a7119, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.27059805
+      value: 0.6532815
       objectReference: {fileID: 0}
     - target: {fileID: 1015705560903807951, guid: 2455d191cc9390641a7d42678d9a7119, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.27059805
+      value: 0.6532815
       objectReference: {fileID: 0}
     - target: {fileID: 1015705560903807951, guid: 2455d191cc9390641a7d42678d9a7119, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2260,7 +2264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1015705560903807951, guid: 2455d191cc9390641a7d42678d9a7119, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -45
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 1015705560903807951, guid: 2455d191cc9390641a7d42678d9a7119, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

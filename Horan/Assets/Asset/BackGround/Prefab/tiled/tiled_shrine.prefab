@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1015705560903807951}
   - component: {fileID: 4158890941370891370}
   - component: {fileID: 2185281624425400480}
+  - component: {fileID: -453967956760534463}
   m_Layer: 0
   m_Name: tiled_shrine
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-453967956760534463
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383741099086129525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.4275084, y: 3.7291076, z: 4.6483774}
+  m_Center: {x: -0.028179288, y: 0.082891606, z: 2.422514}

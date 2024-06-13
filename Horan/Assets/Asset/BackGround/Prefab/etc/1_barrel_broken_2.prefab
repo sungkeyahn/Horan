@@ -5,7 +5,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 38980ad321b70b54faa617e713f20169, type: 3}
@@ -53,7 +52,23 @@ PrefabInstance:
       value: 1_barrel_broken_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38980ad321b70b54faa617e713f20169, type: 3}
+--- !u!1 &1300688412985925239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 38980ad321b70b54faa617e713f20169, type: 3}
+  m_PrefabInstance: {fileID: 2219589524037772070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &-4342846680268781504
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300688412985925239}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6190135
+  m_Height: 1.0408161
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.02296861, z: 0.5951204}

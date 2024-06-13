@@ -5,7 +5,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6b5687e2fef4a4547a97de7be45ba814, type: 3}
@@ -53,7 +52,22 @@ PrefabInstance:
       value: 1_chest_broken
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b5687e2fef4a4547a97de7be45ba814, type: 3}
+--- !u!1 &9185527689618765559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6b5687e2fef4a4547a97de7be45ba814, type: 3}
+  m_PrefabInstance: {fileID: 8338666591154637734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4460158073466865696
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9185527689618765559}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6928315, y: 2.4449978, z: 1.2676133}
+  m_Center: {x: 0.2755167, y: 0.5719985, z: 0.6338064}

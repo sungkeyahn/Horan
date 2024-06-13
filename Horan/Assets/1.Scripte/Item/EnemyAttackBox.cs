@@ -22,7 +22,10 @@ public class EnemyAttackBox : MonoBehaviour
             if (damageable != null)
             {
                 float finaldamage = onwerStat.damage;
-                damageable.TakeDamage(finaldamage);
+                if (damageable.TakeDamage(finaldamage))
+                {
+                    Managers.PrefabManager.SpawnEffect("Hit_01", other.bounds.ClosestPoint(transform.position));
+                }
             }
         }
     }

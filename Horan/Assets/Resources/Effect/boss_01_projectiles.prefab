@@ -4855,10 +4855,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8760964687139756412}
   - component: {fileID: 2962245812961528987}
-  - component: {fileID: 1920589221422958761}
   - component: {fileID: 6314023895790412859}
   - component: {fileID: 1369153058741124858}
   - component: {fileID: 4974918217238645476}
+  - component: {fileID: 4133291859812688185}
   m_Layer: 0
   m_Name: boss_01_projectiles
   m_TagString: Untagged
@@ -4875,7 +4875,7 @@ Transform:
   m_GameObject: {fileID: 3604907791762026790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1.496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9694,26 +9694,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &1920589221422958761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3604907791762026790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5e49040cdee09a4fbfb8cd6d0cc243d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  hitOffset: 0.1
-  UseFirePointRotation: 0
-  rotationOffset: {x: 0, y: 0, z: 0}
-  hit: {fileID: 1120835270511274, guid: 33cfc2755a55b7e4c86c9d7018efbaaa, type: 3}
-  flash: {fileID: 1795330392712688, guid: 7f11cfb7c95c8df45beb2209791430c4, type: 3}
-  Detached:
-  - {fileID: 269671670596223813}
 --- !u!199 &6314023895790412859
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -9851,6 +9831,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4133291859812688185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604907791762026790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bee911f37a25e84082bda065c32d36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 60
 --- !u!1 &3969950142192033833
 GameObject:
   m_ObjectHideFlags: 0

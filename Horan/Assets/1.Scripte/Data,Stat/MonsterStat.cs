@@ -46,7 +46,7 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
         sensingrange = Managers.DataLoder.DataCache_Monsters[ctrl.MyName].sensingrange;
     }
 
-    public void TakeDamage(float damage)
+    public bool TakeDamage(float damage)
     {
         if (0 < hp)
         {
@@ -56,6 +56,7 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
             if (isDamageable)
             {
                 hp = Mathf.Clamp(hp - damage, -1, maxhp);
+                
                 if (OnUnitTakeDamaged!=null)
                     OnUnitTakeDamaged.Invoke();
                 if (hp <= 0)
@@ -63,8 +64,11 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
                 
                 if (OnStatChanged != null)
                     OnStatChanged.Invoke(StatIdentifier.Hp, hp , maxhp);
+
+                return true;
             }
         }
+        return false;
     }
 
     public bool UseSP(float usedSP)
@@ -92,4 +96,6 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
             }
         }
     }
+
+
 }

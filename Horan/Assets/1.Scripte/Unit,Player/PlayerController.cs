@@ -27,7 +27,7 @@ public class PlayerController : UnitController
     GameObject StepSound2;
     GameObject SwingSound1;
     GameObject SwingSound2;
-    GameObject AttackEffectPrefab;
+
 
     private void Awake()
     {
@@ -46,15 +46,15 @@ public class PlayerController : UnitController
     private void Start()
     {
         Stat.StatInit(Managers.ContentsManager.level, Managers.ContentsManager.exp, Managers.ContentsManager.hp);
-        Stat.OnHit += () => isCounter = true;
-        #region Effect and Sound
-        StepSound1 = LoadSound("Step1",transform);
-        StepSound2 = LoadSound("Step2", transform);
-        SwingSound1 = LoadSound("Swing1", transform);
-        SwingSound2 = LoadSound("Swing2", transform);
+        Stat.OnHit += OnCharacterHit;
+        Stat.OnUnitTakeDamaged += OnCharacterTakeDamaged;
 
-        AttackEffectPrefab = LoadEffect("Swing1");
-        //SpawnEffect(AttackEffectPrefab, transform.position, transform);
+        #region Effect + Sound
+        StepSound1 = Managers.PrefabManager.PrefabInstance("Step1",transform);
+        StepSound2 = Managers.PrefabManager.PrefabInstance("Step2", transform);
+        SwingSound1 = Managers.PrefabManager.PrefabInstance("Swing1", transform);
+        SwingSound2 = Managers.PrefabManager.PrefabInstance("Swing2", transform);
+        //impact_spark_block
         #endregion
 
         #region Acts 
@@ -208,7 +208,7 @@ public class PlayerController : UnitController
             anims[i].SetFloat("WalkX", moveDir.x);
             anims[i].SetFloat("WalkY", moveDir.z);
         }
-        PlaySound(StepSound1);
+        Managers.PrefabManager.PlaySound(StepSound1);
     }
     #endregion
 
@@ -225,15 +225,14 @@ public class PlayerController : UnitController
         Data.AnimInfomation animinfo = weapon.AnimInfo[atkCount];
         atkCount += 1;
 
-        //anim.Play(animinfo.name, -1, 0);
         for (int i = 0; i < anims.Length; i++)
-        {
-            anims[i].Play(animinfo.name, -1, 0);
-        }
+            anims[i].Play(animinfo.name, -1, 0);//anim.Play(animinfo.name, -1, 0);
 
-        if (UnityEngine.Random.Range(0, 2) == 0) PlaySound(SwingSound1);
-        else PlaySound(SwingSound2);
-
+        if (UnityEngine.Random.Range(0, 2) == 0)
+            Managers.PrefabManager.PlaySound(SwingSound1);
+        else
+            Managers.PrefabManager.PlaySound(SwingSound2);
+        
         atkAble = false;
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
         weapon.Area.enabled = true;
@@ -304,17 +303,14 @@ public class PlayerController : UnitController
             anims[i].SetBool("GuardEnd", true);
             anims[i].Play("COUNTER");
         }
-        //anim.SetBool("GuardEnd", true);
-        //anim.Play("COUNTER");
+        Managers.PrefabManager.SpawnEffect("impact_spark_block", weapon.transform.position);
 
         weapon.Area.enabled = true;
-        //yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length+1); // 공격 활성화 
         yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length + 1); // 공격 활성화 
+        
         weapon.Area.enabled = false;
-
-        isGuard = false;
-
         Stat.isDamageable = true;
+        isGuard = false;
 
         Act.Finish((int)KindOfAct.Counter);
     }
@@ -406,5 +402,12 @@ public class PlayerController : UnitController
         anims = GetComponentsInChildren<Animator>(); 
     }
 
+    void OnCharacterHit()
+    {
+        isCounter = true;
+    }
+    void OnCharacterTakeDamaged()
+    {
 
+    }
 }

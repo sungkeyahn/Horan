@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public struct AIAttackInfo
 {
-    public AIAttackInfo(string AnimName, float AnimDelay , float DamageTime,float AtkRange,float AtkAngle,float MoveDuration,float MoveSpeed,float WaitSecond,bool IsJump)
+    public AIAttackInfo(string AnimName, float AnimDelay , float DamageTime,float AtkRange,float AtkAngle,float MoveDuration,float MoveSpeed,float WaitSecond,bool IsJump, EffectInfo EffectInfo)
     {
         animName = AnimName;
         animDelay= AnimDelay;
@@ -19,6 +19,8 @@ public struct AIAttackInfo
 
         waitSecond = WaitSecond;
         isJump = IsJump;
+
+        effectInfo = EffectInfo;
     }
     public string animName;
     public float animDelay;
@@ -32,8 +34,21 @@ public struct AIAttackInfo
 
     public bool isJump;
     public float waitSecond;
-}
 
+    public EffectInfo effectInfo;
+}
+public struct EffectInfo
+{
+    public EffectInfo(string EffectName , Vector3 StartlocPos,float StartDelay=0f)
+    {
+        effectName = EffectName;
+        startPos = StartlocPos;
+        startDelay = StartDelay;
+    }
+    public string effectName;
+    public Vector3 startPos;
+    public float startDelay;
+}
 public  class MonsterController : UnitController
 {
     public BTRunner Runner { get; protected set; }
@@ -46,6 +61,10 @@ public  class MonsterController : UnitController
     protected GameObject Target=null;
     protected Vector3 SpawnPoint;
     protected Vector3 DestPos;
+
+    protected EffectInfo Effect_NONE = new EffectInfo("", Vector3.zero, 0f);
+
+
 
     private void Awake()
     {
@@ -90,7 +109,7 @@ public  class MonsterController : UnitController
     {
         if (second <= 0) return;
         waitsecond = second;
-        StartCoroutine("STOP");
+        StartCoroutine(STOP());
     }
     protected IEnumerator STOP()
     {
@@ -102,8 +121,7 @@ public  class MonsterController : UnitController
 
     protected virtual void HitEffect()
     {
-        ISound sound = GetComponentInParent<ISound>();
-        if (sound != null) sound.PlaySound(sound.LoadSound("Hit1", transform));
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Hit1", transform));
         //StopUnit(true);
     }
     protected virtual void Dead()
@@ -171,6 +189,8 @@ public  class MonsterController : UnitController
     float AngleRange =0;
     protected bool CheckAttackRange(float attackRange = 3,float atkAngle = 90)
     {
+        if (Target == null) return false;
+       
         AttackDistance = attackRange;
         AngleRange = atkAngle;
         float dotValue = Mathf.Cos(Mathf.Deg2Rad * (atkAngle * .5f));
@@ -182,13 +202,27 @@ public  class MonsterController : UnitController
                 IDamageInteraction damage = Target.GetComponent<IDamageInteraction>();
                 if (damage != null)
                 {
-                    damage.TakeDamage(Stat.damage);
+                    if (damage.TakeDamage(Stat.damage))
+                    {
+                        if (Stat.damage < 5)
+                           Managers.PrefabManager.SpawnEffect("Hit_01", Target.transform.position);
+                        else
+                            Managers.PrefabManager.SpawnEffect("Hit_04", Target.transform.position);
+                    }
                     return true;
                 }
             }
         }
         return false;
     }
+
+    protected IEnumerator SpwanEffect(EffectInfo info)
+    {
+        yield return new WaitForSeconds(info.startDelay);
+        Managers.PrefabManager.SpawnEffect(info.effectName, transform, info.startPos);
+        Debug.Log(info.effectName);
+    }
+
     void OnDrawGizmos()
     {
         // 기즈모 색상 설정
@@ -228,16 +262,6 @@ public  class MonsterController : UnitController
         }
     }
 }
-
-/*
-    public virtual void Wandering(Vector3 DestPos)
-    { }
-    public virtual void Chase(GameObject Target)
-    { }
-    public virtual void Attack(GameObject Target)
-    { }
-    public virtual void CombatWait(GameObject Target)
-    { }*/
 
 
 

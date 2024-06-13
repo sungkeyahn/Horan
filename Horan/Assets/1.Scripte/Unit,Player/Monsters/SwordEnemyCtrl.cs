@@ -165,9 +165,11 @@ public class SwordEnemyCtrl : MonsterController
     void AttackStart()
     {
         atkbox1.Area.enabled = true;
+
     }
     void AttackEnd()
     {
-        atkbox1.Area.enabled = false;
+        atkbox1.Area.enabled = false; 
+
     }
 }

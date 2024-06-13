@@ -920,10 +920,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.45
   m_Height: 3.5
   m_Direction: 1
-  m_Center: {x: 0, y: 1.8, z: 0}
+  m_Center: {x: 0, y: 1.6, z: 0}
 --- !u!114 &6475100030257146307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,6 +978,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDamageable: 0
   isRegenable: 0
+  HpRegenAmount: 0.5
+  SpRegenAmount: 5
+  _maxhp: 0
+  _hp: 0
+  _maxsp: 0
+  _sp: 0
+  _attack: 0
+  _speed: 0
+  _critical: 0
+  _level: 0
 --- !u!114 &9189020218159365347
 MonoBehaviour:
   m_ObjectHideFlags: 0

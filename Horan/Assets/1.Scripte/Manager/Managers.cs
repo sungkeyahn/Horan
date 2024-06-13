@@ -20,6 +20,9 @@ public class Managers : MonoBehaviour
     ContentsManager contentsManager = new ContentsManager();
     public static ContentsManager ContentsManager { get { return Instance.contentsManager; } }
 
+    PrefabManager prefabManager = new PrefabManager();
+    public static PrefabManager PrefabManager { get { return Instance.prefabManager; } }
+
     const string filename = "SaveData.json";
     string filepath;
 

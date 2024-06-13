@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerStat : Stat, IDamageInteraction
 {
+
     public bool isDamageable=false;
     public bool isRegenable=false;
 
@@ -139,7 +140,7 @@ public class PlayerStat : Stat, IDamageInteraction
         else Hp = MaxHp;
     }
 
-    public void TakeDamage(float damage)
+    public bool TakeDamage(float damage)
     {
         if (0 < Hp)
         {
@@ -147,10 +148,13 @@ public class PlayerStat : Stat, IDamageInteraction
                 OnHit.Invoke();
             if (isDamageable)
             {
+                if (OnUnitTakeDamaged != null)
+                    OnUnitTakeDamaged.Invoke();
                 Hp = Mathf.Clamp(Hp - damage, -1, MaxHp);
-              
+                return true;
             }
         }
+        return false;
     }
 
     public bool UseSP(float usedSP)

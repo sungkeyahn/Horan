@@ -6,7 +6,7 @@ using UnityEngine;
 
 public interface IDamageInteraction
 {
-    public void TakeDamage(float Damage);
+    public bool TakeDamage(float Damage);
 }
 
 public enum StatIdentifier

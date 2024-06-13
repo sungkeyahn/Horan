@@ -14,6 +14,11 @@ public class BossACtrl : MonsterController
 
     AIAttackInfo[,] AttackPattern = new AIAttackInfo[3, 2];
 
+    
+    EffectInfo Effect_DashAtk;
+    EffectInfo Effect_JumpAtk;
+
+
     int AtkCount;
     int SelectedPatternNum = -1;
     bool Attacking=false;
@@ -31,11 +36,16 @@ public class BossACtrl : MonsterController
         Stat.OnHit += HitEffect;
         Stat.OnUnitDead += Dead;
 
+        #region EffectInfo
+        Effect_DashAtk = new EffectInfo("boss_01_dashattck", new Vector3(0.5f, 3, 3.5f), 0.25f);
+        Effect_JumpAtk = new EffectInfo("boss_01_jumpattack", Vector3.zero, 0.55f);
+         #endregion
+
         #region ATTACKInfo
-        AtkInfo_Default1 = new AIAttackInfo("ATTACK_DEFAULT1", 0, 0.25f, 4, 60,  0, 0, 0, false);
-        AtkInfo_Default2 = new AIAttackInfo("ATTACK_DEFAULT2", 0, 0.25f, 4, 60,  0, 0, 0.5f, false);
-        AtkInfo_Dash = new AIAttackInfo("ATTACK_DASH", 0.55f, 0.1f, 10, 45, 0.5f, 5, 0.75f, false);
-        AtkInfo_Jump = new AIAttackInfo("ATTACK_JUMP", 0.15f, 0.75f, 7, 360, 0.5f, 10, 1, true);
+        AtkInfo_Default1 = new AIAttackInfo("ATTACK_DEFAULT1", 0, 0.25f, 4, 60,  0, 0, 0, false, Effect_NONE);
+        AtkInfo_Default2 = new AIAttackInfo("ATTACK_DEFAULT2", 0, 0.25f, 4, 60,  0, 0, 0.5f, false, Effect_NONE);
+        AtkInfo_Dash = new AIAttackInfo("ATTACK_DASH", 0.55f, 0.1f, 10, 45, 0.5f, 5, 0.75f, false, Effect_DashAtk);
+        AtkInfo_Jump = new AIAttackInfo("ATTACK_JUMP", 0.15f, 0.75f, 7, 360, 0.5f, 10, 1, true, Effect_JumpAtk);
         #endregion
 
         #region Pattern
@@ -186,13 +196,17 @@ public class BossACtrl : MonsterController
 
         Anim.Play(info.animName);
         yield return new WaitForSeconds(info.animDelay);
+
+        if (!string.IsNullOrEmpty(info.effectInfo.effectName))
+            StartCoroutine(SpwanEffect(info.effectInfo));
+        
         Nav.speed = info.moveSpeed;
         float jump = 0;
         if (info.isJump) jump = 1.5f;
         Vector3 movePos = transform.position + transform.forward*info.moveSpeed;
         if (info.moveSpeed != 0)
             StartCoroutine(AttackMove(movePos, info.moveDuration, jump));
-   
+            
         yield return new WaitForSeconds(info.damageTime);
         CheckAttackRange(info.atkRange, info.atkAngle);
 
@@ -226,6 +240,7 @@ public class BossACtrl : MonsterController
         transform.position = targetPosition;
         Nav.enabled = true; // NavMeshAgent È°¼ºÈ­
     }
+
     /*    void Dash()
     {
         Nav.isStopped = false;

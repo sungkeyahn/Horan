@@ -28,7 +28,6 @@ public class PlayerController : UnitController
     GameObject SwingSound1;
     GameObject SwingSound2;
 
-
     private void Awake()
     {
         equipments = GetComponentsInChildren<Equipment>();
@@ -50,10 +49,10 @@ public class PlayerController : UnitController
         Stat.OnUnitTakeDamaged += OnCharacterTakeDamaged;
 
         #region Effect + Sound
-        StepSound1 = Managers.PrefabManager.PrefabInstance("Step1",transform);
-        StepSound2 = Managers.PrefabManager.PrefabInstance("Step2", transform);
-        SwingSound1 = Managers.PrefabManager.PrefabInstance("Swing1", transform);
-        SwingSound2 = Managers.PrefabManager.PrefabInstance("Swing2", transform);
+        StepSound1 = Managers.PrefabManager.PrefabInstance("Sound_Step1", transform);
+        StepSound2 = Managers.PrefabManager.PrefabInstance("Sound_Step2", transform);
+        SwingSound1 = Managers.PrefabManager.PrefabInstance("Sound_Swing1", transform);
+        SwingSound2 = Managers.PrefabManager.PrefabInstance("Sound_Swing2", transform);
         //impact_spark_block
         #endregion
 
@@ -108,8 +107,6 @@ public class PlayerController : UnitController
             }
         }
     }
-
-
 
     #region Input
     InputComponent input;
@@ -401,7 +398,6 @@ public class PlayerController : UnitController
 
         anims = GetComponentsInChildren<Animator>(); 
     }
-
     void OnCharacterHit()
     {
         isCounter = true;

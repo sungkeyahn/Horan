@@ -100,6 +100,7 @@ public class UpgradeUI : PopupUI
     }
     public void TabClick(Einventype type)
     {
+        inventype = type;
         for (int i = 0; i < itemslots.Count; i++)
             itemslots[i].Init(i, type);
     }
@@ -155,10 +156,11 @@ public class UpgradeUI : PopupUI
             ob.GetComponent<UpgradeSlotUI>().Init(Managers.DataLoder.DataCache_Upgrade[id].materials[i].id,Managers.DataLoder.DataCache_Upgrade[id].materials[i].amount);
         }
     }
-    public void SelectItem(int selectedInvenItemID=-1) //이놈을 어디서 호출 할 것인가가 가장 문제점 UpgradeUI->SelectItem(int id);
+    public void SelectItem(int selectedInvenItemID=-1) 
     {
+        if (!Managers.DataLoder.DataCache_Upgrade.ContainsKey(selectedInvenItemID)) return;
         ID = selectedInvenItemID;
-
+        
         UpdateStatSlot(selectedInvenItemID);  // StatSlot  생성
         UpdateUpgradeSlot(selectedInvenItemID); // UpgradeSlot 생성
 

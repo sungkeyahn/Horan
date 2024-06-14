@@ -22,10 +22,10 @@ public class UpgradeSlotUI : BaseUI
         GetObject((int)Components.Image_NeedMaterialICon).GetComponent<Image>().sprite = Managers.DataLoder.DataCache_Sprite[Managers.DataLoder.DataCache_Items[materialID].iconfilename];
         
         int i = Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => (x.Equals(materialID)));
-        if (needQuantity < Managers.DataLoder.DataCache_Save.Inventory.values[i])
-            GetObject((int)Components.Text_NeedQuantity).GetComponent<TMP_Text>().color = Color.red;
-        else
+        if (needQuantity  < Managers.DataLoder.DataCache_Save.Inventory.values[i])
             GetObject((int)Components.Text_NeedQuantity).GetComponent<TMP_Text>().color = Color.green;
+        else
+            GetObject((int)Components.Text_NeedQuantity).GetComponent<TMP_Text>().color = Color.red;
 
         GetObject((int)Components.Text_NeedQuantity).GetComponent<TMP_Text>().text = Managers.DataLoder.DataCache_Save.Inventory.values[i].ToString() + "/" + 1.ToString();
     }

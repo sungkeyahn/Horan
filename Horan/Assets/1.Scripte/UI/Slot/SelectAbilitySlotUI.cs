@@ -31,6 +31,8 @@ public class SelectAbilitySlotUI : BaseUI
     }
     public void OnBtnClicked_AbilitySlot(PointerEventData data)
     {
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+
         LatentAbility ability = new LatentAbility(ID);
         Managers.ContentsManager.AbilityContainer.AddAbility(ability, Stat);
         Managers.UIManager.ClosePopupUI();

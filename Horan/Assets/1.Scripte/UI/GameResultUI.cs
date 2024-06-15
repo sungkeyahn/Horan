@@ -30,9 +30,12 @@ public class GameResultUI : PopupUI
         Init();
         SetResultText(isWin);
         SetInfoText(Managers.ContentsManager.killcount, Managers.ContentsManager.dropgold, Managers.ContentsManager.AcquiredItems.Count);
+
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_GameWin"), 1f);
     }
     public void OnBtnClicked_CloseBtn(PointerEventData data)
     {
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         Managers.UIManager.ClosePopupUI(this);
         Managers.ContentsManager.Resume();
         Managers.MySceneManager.LoadScene("Lobby");
@@ -55,13 +58,4 @@ public class GameResultUI : PopupUI
         resultInfoText.text = $"Ã³Ä¡ÇÑ Àû:         {enemy}¸íÀ» ÇØÄ¡¿ü½À´Ï´Ù.\nÈ¹µæÇÑ µ·:           {gold}ÀÇ µ·À» È¹µæ Çß½À´Ï´Ù.\n ¾òÀº Àç·á:           {mat}°³ÀÇ Àç·á¸¦ È¹µæ Çß½À´Ï´Ù.";
     }
 }
-/*        GameObject prefab = Resources.Load<GameObject>($"UI/ResultSlotUI");
-for (int i = 0; i < Managers.ContentsManager.AcquiredItems.Count; i++)
-{
-    int id = Managers.ContentsManager.AcquiredItems[i];
-    string icon = Managers.DataLoder.DataCache_Items[id].iconfilename;
 
-    GameObject ob = Instantiate(prefab, GetObject((int)Components.Image_Back).transform);
-    ob.name = "ResultSlotUI";
-    ob.GetComponent<AcquiredItemSlot>().Init(icon);
-}*/

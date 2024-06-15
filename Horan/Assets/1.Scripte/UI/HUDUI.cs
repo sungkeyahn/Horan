@@ -17,7 +17,8 @@ public class HUDUI : SceneUI
         base.Init();
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_Dash), OnBtnClicked_Dash, UIEvent.Click);
-
+        BindEvent(GetObject((int)Components.Button_Pause), OnBtnClicked_Pause, UIEvent.Click);
+        
         Managers.ContentsManager.OnMonsterDead -= UpdateQusetInfo;
         Managers.ContentsManager.OnMonsterSpawn -= UpdateQusetInfo;
         Managers.ContentsManager.OnMonsterDead += UpdateQusetInfo;
@@ -85,8 +86,15 @@ public class HUDUI : SceneUI
         if (GetObject((int)Components.Text_QuestResult))
             GetObject((int)Components.Text_QuestResult).GetComponent<TMP_Text>().text = "남은 적 사살 하기 : " + Managers.ContentsManager.MonsterCounts.ToString();
     }
+    public void OnBtnClicked_Pause(PointerEventData data)
+    {
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+    }
 
+    //아래 함수들은 UI보여지는 것만 보여주고 실제 이동관련 로직은 플레이어 컨트롤러에서 입력받아서 할듯?
+    //터치시 바이패드 이미지 이동같은 부분을 아래서 처리하고 실제 캐릭터 이동로직은 컨트롤러에서 따로
     public void OnBtnClicked_Dash(PointerEventData data)
     { }
 
+    //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
 }

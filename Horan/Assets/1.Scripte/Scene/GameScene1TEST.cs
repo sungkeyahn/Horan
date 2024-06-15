@@ -11,6 +11,13 @@ public class GameScene1TEST : BaseScene
 
     void Start()
     {
+        if (string.IsNullOrEmpty(NextSceneName))
+            Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_BossMapBGM"), 1f);
+        else
+            Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_DefaultMapBGM"), 1f);
+
+
+
         //플레이어+몬스터 생성 코드 필요
         player = FindObjectOfType<PlayerController>().gameObject;
         Camera.main.GetComponent<CameraComponent>().SetPlayer(player);

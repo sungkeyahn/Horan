@@ -14,14 +14,14 @@ public class PrefabManager
         return null;
     }
 
-    public void PlaySound(GameObject Sound, float pitch = 1.0f)
+    public void PlaySound(GameObject Sound, float volume = 1.0f)
     {
         if (Sound)
         {
             AudioSource audio = Sound.GetComponent<AudioSource>();
             if (audio && !audio.isPlaying)
             {
-                audio.pitch = pitch;
+                audio.volume = volume;
                 audio.Play();
             }
         }

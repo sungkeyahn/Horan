@@ -121,7 +121,7 @@ public  class MonsterController : UnitController
 
     protected virtual void HitEffect()
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Hit1", transform));
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Hit1", transform),0.1f);
         //StopUnit(true);
     }
     protected virtual void Dead()
@@ -205,7 +205,7 @@ public  class MonsterController : UnitController
                     if (damage.TakeDamage(Stat.damage))
                     {
                         if (Stat.damage < 5)
-                           Managers.PrefabManager.SpawnEffect("Hit_01", Target.transform.position);
+                            Managers.PrefabManager.SpawnEffect("Hit_01", Target.transform.position);
                         else
                             Managers.PrefabManager.SpawnEffect("Hit_04", Target.transform.position);
                     }
@@ -220,7 +220,6 @@ public  class MonsterController : UnitController
     {
         yield return new WaitForSeconds(info.startDelay);
         Managers.PrefabManager.SpawnEffect(info.effectName, transform, info.startPos);
-        Debug.Log(info.effectName);
     }
 
     void OnDrawGizmos()

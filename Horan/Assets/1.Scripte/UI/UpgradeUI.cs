@@ -43,6 +43,7 @@ public class UpgradeUI : PopupUI
     }
     public void OnBtnClicked_ClosePopup(PointerEventData data)
     {
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         ClosePopupUI();
         Managers.UIManager.GetSceneUI().gameObject.SetActive(true);
     }
@@ -56,8 +57,8 @@ public class UpgradeUI : PopupUI
         
         for (int i = 0; i < Managers.DataLoder.DataCache_Upgrade[ID].materials.Count; i++)
         {
-            int x = Managers.DataLoder.DataCache_Save.Inventory.keys.Find(x => (x.Equals(Managers.DataLoder.DataCache_Upgrade[ID].materials[i].id)));
-            if (x < Managers.DataLoder.DataCache_Upgrade[ID].materials[i].amount)
+            int x = Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => (x.Equals(Managers.DataLoder.DataCache_Upgrade[ID].materials[i].id)));
+            if (Managers.DataLoder.DataCache_Save.Inventory.values[x] < Managers.DataLoder.DataCache_Upgrade[ID].materials[i].amount)
             {
                 isUpgradePossible = false;
                 break;
@@ -76,26 +77,36 @@ public class UpgradeUI : PopupUI
 
             SetGold();
             TabClick(inventype);
+
+            Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Upgrade"), 1f);
         }
     }
     public void OnBtnClicked_WeaponTab(PointerEventData data)
     {
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Einventype.Weapon);
     }
     public void OnBtnClicked_CostumeTab(PointerEventData data)
     {
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Einventype.Costume);
     }
     public void OnBtnClicked_HatTab(PointerEventData data)
     {
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+
         TabClick(Einventype.Hat);
     }
     public void OnBtnClicked_AccTab(PointerEventData data)
     {
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+
         TabClick(Einventype.Acc);
     }
     public void OnBtnClicked_MatTab(PointerEventData data)
     {
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+
         TabClick(Einventype.Mat);
     }
     public void TabClick(Einventype type)
@@ -156,8 +167,10 @@ public class UpgradeUI : PopupUI
             ob.GetComponent<UpgradeSlotUI>().Init(Managers.DataLoder.DataCache_Upgrade[id].materials[i].id,Managers.DataLoder.DataCache_Upgrade[id].materials[i].amount);
         }
     }
-    public void SelectItem(int selectedInvenItemID=-1) 
+    public void SelectItem(int selectedInvenItemID=-1)
     {
+        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+
         if (!Managers.DataLoder.DataCache_Upgrade.ContainsKey(selectedInvenItemID)) return;
         ID = selectedInvenItemID;
         

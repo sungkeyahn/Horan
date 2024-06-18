@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
 public enum EPlayerAnimState
 {
     IDLE,
@@ -96,7 +94,9 @@ public class PlayerController : UnitController
 
         Equip();
         Managers.ContentsManager.AbilityContainer.ApplyAllAbility(Stat);
-        Managers.UIManager.ShowSceneUI<HUDUI>().Init(this);
+        HUDUI Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
+        Hud.Init(this);
+        Hud.OnCharacterAction += OnCharacterBtnEvent;
     }
     void OnPlayerMouseEvent(InputComponent.MouseEvent evt)
     {
@@ -176,10 +176,26 @@ public class PlayerController : UnitController
                 break;
         }
     }
+
+    void OnCharacterBtnEvent(EPlayerCharacterCtrlEvent ctrlEvent)
+    {
+        switch (ctrlEvent)
+        {
+            case EPlayerCharacterCtrlEvent.Move:
+                break;
+            case EPlayerCharacterCtrlEvent.Dash:
+                break;
+            case EPlayerCharacterCtrlEvent.Guard:
+                break;
+            case EPlayerCharacterCtrlEvent.FAttack:
+                break;
+            case EPlayerCharacterCtrlEvent.SAttack:
+                break;
+        }
+    }
+
     void OnPlayerTouchEvent(Touch evt)
     {
-        //터치 스테이트 - 터치 상태를 기억 보존 해서 플레이어의 동작을 실행
-        // HUD에서 input 을 가지고 있던지 
         switch (evt.phase)
         {
             case TouchPhase.Began:
@@ -192,8 +208,6 @@ public class PlayerController : UnitController
                 break;
             case TouchPhase.Canceled:
                 break;
-
-
         }
     }
 

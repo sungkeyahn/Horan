@@ -30,7 +30,6 @@ public class InputComponent : MonoBehaviour
 
     public Action <Touch> TouchAction =null;
 
-
     void Update()
     {
         if (KeyAction != null)

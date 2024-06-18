@@ -4,11 +4,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
+public enum EPlayerCharacterCtrlEvent
+{
+    Move,Dash,Guard,FAttack,SAttack
+}
 public class HUDUI : SceneUI
 {
     bool isinit=false;
-    enum Components { Text_Level, Slider_ExpBar, Slider_HpBar, Slider_SpBar, Button_Dash, Button_Atk1, Button_Atk2, Button_Atk3, Button_Defens, Button_Pause, Button_Move, Panel_AbilityICons , Text_QuestResult }
+    enum Components 
+    { Text_Level, Slider_ExpBar, Slider_HpBar, Slider_SpBar, Button_Dash, Button_Atk1, Button_Atk2, Button_Atk3, Button_Defens, Button_Pause, Button_Move, Panel_AbilityICons , Text_QuestResult }
+
+    public Action<EPlayerCharacterCtrlEvent> OnCharacterAction;
 
     PlayerController ctrl;
     PlayerStat stat;
@@ -17,11 +25,20 @@ public class HUDUI : SceneUI
         if (isinit) return;
         base.Init();
         Bind<GameObject>(typeof(Components));
-        BindEvent(GetObject((int)Components.Button_Dash), OnBtnClicked_Dash, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Pause), OnBtnClicked_Pause, UIEvent.Click);
+
+        BindEvent(GetObject((int)Components.Button_Move), OnBtnClicked_Move, UIEvent.Click);
+        BindEvent(GetObject((int)Components.Button_Move), OnBtnDraged_Move, UIEvent.Drag); //이동 패드 드래그 
+
+        BindEvent(GetObject((int)Components.Button_Dash), OnBtnClicked_Dash, UIEvent.Click);
+        BindEvent(GetObject((int)Components.Button_Defens), OnBtnClicked_Dash, UIEvent.Click);
+
+        BindEvent(GetObject((int)Components.Button_Atk1), OnBtnClicked_Dash, UIEvent.Click);
+        BindEvent(GetObject((int)Components.Button_Atk2), OnBtnClicked_Dash, UIEvent.Click);
+
         isinit = true;
     }
-    public void Init(PlayerController ctrl)
+    public void Init(PlayerController Ctrl)
     {
         Init();
         Managers.ContentsManager.OnMonsterDead -= UpdateQusetInfo;
@@ -33,15 +50,20 @@ public class HUDUI : SceneUI
         Managers.ContentsManager.AbilityContainer.OnAbilityUpdate += AddAbilityIcon;
         UpdateAbilityIcon();
 
-        stat = ctrl.GetComponent<PlayerStat>();
-        if (stat != null)
+        ctrl = Ctrl;
+        if (ctrl)
         {
-            stat.OnStatChanged += UpdateStat;
-            UpdateStat(StatIdentifier.Hp);
-            UpdateStat(StatIdentifier.Sp);
-            UpdateStat(StatIdentifier.Level);
-            UpdateStat(StatIdentifier.Exp);
+            stat = ctrl.GetComponent<PlayerStat>();
+            if (stat != null)
+            {
+                stat.OnStatChanged += UpdateStat;
+                UpdateStat(StatIdentifier.Hp);
+                UpdateStat(StatIdentifier.Sp);
+                UpdateStat(StatIdentifier.Level);
+                UpdateStat(StatIdentifier.Exp);
+            }
         }
+
     }
 
     void UpdateStat(StatIdentifier identifier, float preValue=0, float curValue=0)
@@ -105,9 +127,40 @@ public class HUDUI : SceneUI
         Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
     }
 
+
+    //플레이어 조작  클릭 시리즈는 각 버튼에 알맞는 이벤트를 뿌려주고 해당 버튼이미지처리 만 해주기
+    public void OnBtnClicked_Move(PointerEventData data)
+    {
+    }
+    public void OnBtnDraged_Move(PointerEventData data)
+    {
+        OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Move);
+    }
     public void OnBtnClicked_Dash(PointerEventData data)
-    { }
+    {
+        OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Dash);
+    }
+    public void OnBtnClicked_Guard(PointerEventData data)
+    {
+        OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Guard);
+    }
+    public void OnBtnClicked_FAttack(PointerEventData data)
+    {
+        OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.FAttack);
+    }
+    public void OnBtnClicked_SAttack(PointerEventData data)
+    {
+        OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.SAttack);
+    }
+
+
 }
+
+/*
+ * HUD 에서는 각 버튼 클릭에 해당하는 이벤트를  pctrl에 뿌려줌
+ * -> pctrl에서는 받은 이벤트에 해당하는 함수를 호출하기 이전에 현재 입력 상태에 대하여 
+ * 고려하여 알맞는 함수를 호출
+ */
 /*  GetObject((int)Components.Text_Level).GetComponent<TMP_Text>().text = $"{stat.Level}";
             GetObject((int)Components.Slider_HpBar).GetComponent<Slider>().value = stat.Hp / stat.MaxHp;
             GetObject((int)Components.Slider_SpBar).GetComponent<Slider>().value = stat.Sp / stat.MaxSp;

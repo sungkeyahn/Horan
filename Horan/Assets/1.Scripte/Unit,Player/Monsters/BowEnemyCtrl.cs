@@ -107,8 +107,10 @@ public class BowEnemyCtrl : MonsterController
     {
         if (WanderPos == Vector3.zero)
             WanderPos = SpawnPoint + new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
+        NavMeshPath path = new();
+        Nav.CalculatePath(WanderPos, path);
 
-        if (Vector3.Distance(transform.position, WanderPos) <= Nav.stoppingDistance)
+        if (Vector3.Distance(transform.position, WanderPos) <= Nav.stoppingDistance || path.status != NavMeshPathStatus.PathComplete)
         {
             Nav.velocity = Vector3.zero;
             waitsecond = 1;

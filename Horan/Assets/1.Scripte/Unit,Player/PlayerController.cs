@@ -13,13 +13,16 @@ public enum EPlayerAnimState
 
 public class PlayerController : UnitController
 {
-    Animator []anims;
-    HUDUI Hud;
+    //HUDUI Hud;
+
+    Animator[]anims;
+    
     PlayerStat Stat;
     ActComponent Act;
 
-    Vector3 moveDir = Vector3.zero;
-    public GameObject TargetEnemy = null;
+    InputComponent input;
+    MoveComponent move;
+
     public Weapon weapon;
     public Equipment[] equipments = new Equipment[4];
 
@@ -32,22 +35,26 @@ public class PlayerController : UnitController
     {
         equipments = GetComponentsInChildren<Equipment>();
         weapon = GetComponentInChildren<Weapon>();
-
-        input = GetComponent<InputComponent>();
-        input.MouseAction -= OnPlayerMouseEvent;
-        input.MouseAction += OnPlayerMouseEvent;
-        input.KeyAction -= OnPlayerKeyBoardEvent;
-        input.KeyAction += OnPlayerKeyBoardEvent;
-
         move = GetComponent<MoveComponent>();
         Stat = GetComponent<PlayerStat>();
+        input = GetComponent<InputComponent>();
     }
     private void Start()
     {
+        #region Input
+        input.MouseAction -= OnPlayerMouseEvent;
+        input.KeyAction -= OnPlayerKeyBoardEvent;
+        input.TouchAction -= OnPlayerTouchEvent;
+        input.MouseAction += OnPlayerMouseEvent;
+        input.KeyAction += OnPlayerKeyBoardEvent;
+        input.TouchAction += OnPlayerTouchEvent;
+        #endregion
+        #region Stat
         Stat.StatInit(Managers.ContentsManager.level, Managers.ContentsManager.exp, Managers.ContentsManager.hp);
         Stat.OnHit += OnCharacterHit;
         Stat.OnUnitTakeDamaged += OnCharacterTakeDamaged;
-
+        Stat.OnUnitDead += Dead;
+        #endregion
         #region Effect + Sound
         StepSound1 = Managers.PrefabManager.PrefabInstance("Sound_Step1", transform);
         StepSound2 = Managers.PrefabManager.PrefabInstance("Sound_Step2", transform);
@@ -55,7 +62,6 @@ public class PlayerController : UnitController
         SwingSound2 = Managers.PrefabManager.PrefabInstance("Sound_Swing2", transform);
         //impact_spark_block
         #endregion
-
         #region Acts 
         Act attack = new Act((int)KindOfAct.Attack, Attack);
         attack.AddAllowActID((int)KindOfAct.Attack);
@@ -88,28 +94,10 @@ public class PlayerController : UnitController
         Act.AddAct(counter);
         #endregion
 
-        Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
-        Hud.Init();
-        //Managers.ContentsManager.AbilityContainer.OnAbilityUpdate += Hud.UpdateAbilityIcon;
-
         Equip();
         Managers.ContentsManager.AbilityContainer.ApplyAllAbility(Stat);
+        Managers.UIManager.ShowSceneUI<HUDUI>().Init(this);
     }
-    private void FixedUpdate()
-    {
-        if (TargetEnemy == null)
-        {
-            Collider[] cols = Physics.OverlapSphere(transform.position, 10, LayerMask.GetMask("Enemy"));
-            for (int i = 0; i < cols.Length; i++)
-            {
-                if (TargetEnemy == null)
-                    TargetEnemy = cols[i].gameObject;
-            }
-        }
-    }
-
-    #region Input
-    InputComponent input;
     void OnPlayerMouseEvent(InputComponent.MouseEvent evt)
     {
         switch (evt)
@@ -188,12 +176,30 @@ public class PlayerController : UnitController
                 break;
         }
     }
-    #endregion
+    void OnPlayerTouchEvent(Touch evt)
+    {
+        //터치 스테이트 - 터치 상태를 기억 보존 해서 플레이어의 동작을 실행
+        // HUD에서 input 을 가지고 있던지 
+        switch (evt.phase)
+        {
+            case TouchPhase.Began:
+                break;
+            case TouchPhase.Moved:
+                break;
+            case TouchPhase.Stationary:
+                break;
+            case TouchPhase.Ended:
+                break;
+            case TouchPhase.Canceled:
+                break;
 
-    #region Move
-    MoveComponent move;
+
+        }
+    }
+
     void Move()
     {
+        Vector3 moveDir = Vector3.zero;
         moveDir.x = Input.GetAxis("Horizontal");
         moveDir.z = Input.GetAxis("Vertical");
 
@@ -207,7 +213,6 @@ public class PlayerController : UnitController
         }
         Managers.PrefabManager.PlaySound(StepSound1);
     }
-    #endregion
 
     #region Attack
     bool atkAble = true;
@@ -245,15 +250,11 @@ public class PlayerController : UnitController
         yield return null;
 
     }
-
     #endregion
-
     #region Guard
-
     bool isGuard;
-    public bool isCounter; //해당 변수는 stat에서 접근해서 변경해야 함
+    public bool isCounter;
     const float GuardSuccessTime = 0.3f;
-
     void Guard()
     {
         StartCoroutine("GUARD");
@@ -288,7 +289,6 @@ public class PlayerController : UnitController
         }
         Stat.isDamageable = true;
     }
-
     void Counter()
     {
         StartCoroutine("COUNTER");
@@ -311,12 +311,8 @@ public class PlayerController : UnitController
 
         Act.Finish((int)KindOfAct.Counter);
     }
-
-
     #endregion
-
     #region Dash
-
     const float DashCoolTime = 3.0f;
     [SerializeField]
     float DashCount = 1;
@@ -355,7 +351,6 @@ public class PlayerController : UnitController
         yield return new WaitForSeconds(DashCoolTime);
         DashCount += 1;
     }
-
     bool DashAtkInput;
     void DashAttack()
     {
@@ -406,4 +401,40 @@ public class PlayerController : UnitController
     {
 
     }
+    void Dead()
+    {//캐릭터 조작 입력 + 재생중인 사운드 + 캐릭터 물리 + 실행중인 애니메이션 끄고 사망 결과창 출력
+
+        input.MouseAction = null;
+        input.KeyAction = null;
+        input = null;
+
+        move.SetMove();
+
+        StepSound1.GetComponent<AudioSource>().Stop();
+        
+        Stat.OnUnitDead -= Dead;
+
+        StartCoroutine(CharacterDestroy());     
+    }
+    IEnumerator CharacterDestroy()
+    {   
+        for (int i = 0; i < anims.Length; i++)
+            anims[i].Play("DEAD");
+        yield return new WaitForSeconds(2.0f);
+        Managers.ContentsManager.Pause();
+        Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI").Init(false);
+       
+    }
 }
+/*       
+public GameObject TargetEnemy = null; 
+    private void FixedUpdate(){ if (TargetEnemy == null)
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position, 10, LayerMask.GetMask("Enemy"));
+        for (int i = 0; i < cols.Length; i++)
+        {
+            if (TargetEnemy == null)
+                TargetEnemy = cols[i].gameObject;
+        }   }
+
+    }*/

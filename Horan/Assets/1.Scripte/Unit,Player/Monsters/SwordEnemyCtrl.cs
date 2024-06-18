@@ -7,7 +7,7 @@ public class SwordEnemyCtrl : MonsterController
 {
     const float SenseRange = 8;
     const float AttackRange = 2;
-    const float PlayerSerchInterval = 3;
+    const float PlayerSerchInterval = 1;
     const float HPRatioCheckInterval = 1;
     const float WanderingInterval = 5;
     const float DangersHPRatio = 50;
@@ -54,7 +54,7 @@ public class SwordEnemyCtrl : MonsterController
                     }),
                     new BT_Task(Wait)
                 })
-           }),gameObject,FindEnemy,1.5f)
+           }),gameObject,FindEnemy,0.3f)
         );
         #endregion
     }
@@ -100,8 +100,11 @@ public class SwordEnemyCtrl : MonsterController
     {
         if (WanderPos == Vector3.zero)
             WanderPos = SpawnPoint + new Vector3(UnityEngine.Random.Range(-10, 10), 0, UnityEngine.Random.Range(-10, 10));
-        
-        if (Vector3.Distance(transform.position, WanderPos) <= Nav.stoppingDistance)
+       
+        NavMeshPath path = new();
+        Nav.CalculatePath(WanderPos, path);
+       // NavMeshHit hit; !NavMesh.SamplePosition(WanderPos, out hit, 1.0f, NavMesh.AllAreas)
+        if (Vector3.Distance(transform.position, WanderPos) <= Nav.stoppingDistance || path.status != NavMeshPathStatus.PathComplete)
         {
             Nav.speed = 0;
             Nav.velocity = Vector3.zero;

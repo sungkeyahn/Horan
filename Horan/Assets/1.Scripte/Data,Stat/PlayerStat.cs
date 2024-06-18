@@ -38,6 +38,8 @@ public class PlayerStat : Stat, IDamageInteraction
             _hp = value;
             if (OnStatChanged != null)
                 OnStatChanged.Invoke(StatIdentifier.Hp, pre, _hp);
+            if (OnUnitDead!=null && _hp<=0)
+                OnUnitDead.Invoke();
         }
     }
     [SerializeField]

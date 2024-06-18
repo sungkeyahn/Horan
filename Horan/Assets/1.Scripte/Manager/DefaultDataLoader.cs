@@ -48,7 +48,7 @@ public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
         DataCache_Effect = LoadPrefab("Effect");
         DataCache_Sound = LoadPrefab("Sound");
 
-        InitSaveData();
+        //InitSaveData();
     }
     public DataDict LoadData<DataDict, Key, Value>(string DataFileName) where DataDict : Data.IDataSeparator<Key, Value>
     {

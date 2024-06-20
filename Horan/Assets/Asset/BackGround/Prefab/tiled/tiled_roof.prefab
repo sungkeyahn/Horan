@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 296720921580249901}
   - component: {fileID: 2592627883019556839}
   - component: {fileID: 8929193022873596835}
+  - component: {fileID: -1260011346353215146}
   m_Layer: 0
   m_Name: tiled_roof
   m_TagString: Untagged
@@ -100,3 +101,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.004, y: 0, z: 2.328}
   m_TimeToStationary: 0.5
+--- !u!65 &-1260011346353215146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105630444316849714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.3940718, y: 4.292282, z: 4.6517115}
+  m_Center: {x: 0.004236698, y: 0.00000011920932, z: 2.3277826}

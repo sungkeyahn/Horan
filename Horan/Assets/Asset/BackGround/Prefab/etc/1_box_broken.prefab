@@ -71,3 +71,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6076612, y: 2.261501, z: 1.7624176}
   m_Center: {x: -0.13441497, y: -0.10511329, z: 0.7858345}
+--- !u!208 &1341238084845640162
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486608986815863187}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.304, y: 1.131, z: 0.88100004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.134, y: -0.105000004, z: 0.786}
+  m_TimeToStationary: 0.5

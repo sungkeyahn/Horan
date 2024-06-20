@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4158890941370891370}
   - component: {fileID: 2185281624425400480}
   - component: {fileID: -453967956760534463}
+  - component: {fileID: -5546283332707762755}
   m_Layer: 0
   m_Name: tiled_shrine
   m_TagString: Untagged
@@ -97,3 +98,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.4275084, y: 3.7291076, z: 4.6483774}
   m_Center: {x: -0.028179288, y: 0.082891606, z: 2.422514}
+--- !u!208 &-5546283332707762755
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383741099086129525}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.214, y: 1.8650001, z: 2.3240001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.028, y: 0.083000004, z: 2.423}
+  m_TimeToStationary: 0.5

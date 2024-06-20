@@ -72,3 +72,19 @@ CapsuleCollider:
   m_Height: 1.4651893
   m_Direction: 1
   m_Center: {x: -0.0054056644, y: 0.0054054274, z: 0.9150172}
+--- !u!208 &-3125378605603057130
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763891342043513891}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.73300004, y: 0.73300004, z: 0.915}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.0050000004, y: 0.0050000004, z: 0.915}
+  m_TimeToStationary: 0.5

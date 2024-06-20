@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8277598916281371854}
   - component: {fileID: 1808521162915582229}
   - component: {fileID: 1981059724406710725}
+  - component: {fileID: 5698139342581721212}
   m_Layer: 0
   m_Name: tiledwall_straight 90
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3991501505240698139}
-  serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 4.104823, y: 0, z: 13.905752}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!33 &8277598916281371854
 MeshFilter:
@@ -92,16 +93,24 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3991501505240698139}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0.007058561, y: -0.0015488565, z: 1.8468904}
+--- !u!208 &5698139342581721212
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3991501505240698139}
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.5176454, y: 1.1335754, z: 6}
-  m_Center: {x: 0.007058561, y: -0.0015488565, z: 1.8468904}
+  m_Shape: 1
+  m_Extents: {x: 1.7590001, y: 0.56700003, z: 1.8470001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.007, y: -0.002, z: 1.8470001}
+  m_TimeToStationary: 0.5

@@ -14,14 +14,14 @@ public class PrefabManager
         return null;
     }
 
-    public void PlaySound(GameObject Sound, float pitch = 1.0f)
+    public void PlaySound(GameObject Sound, float volume = 1.0f)
     {
         if (Sound)
         {
             AudioSource audio = Sound.GetComponent<AudioSource>();
             if (audio && !audio.isPlaying)
             {
-                audio.pitch = pitch;
+                audio.volume = volume;
                 audio.Play();
             }
         }
@@ -32,7 +32,8 @@ public class PrefabManager
         GameObject prefab = null;
         if (Managers.DataLoder.DataCache_Effect.TryGetValue(key, out prefab))
         {
-            GameObject gameObject = GameObject.Instantiate(prefab,pos, Quaternion.identity);
+            GameObject gameObject = GameObject.Instantiate(prefab);
+            gameObject.transform.position = pos;
             return gameObject;
         }
         return null;
@@ -42,7 +43,8 @@ public class PrefabManager
         GameObject prefab = null;
         if (Managers.DataLoder.DataCache_Effect.TryGetValue(key, out prefab))
         {
-            GameObject gameObject = GameObject.Instantiate(prefab,pos,quaternion);
+            GameObject gameObject = GameObject.Instantiate(prefab,pos,quaternion); 
+            gameObject.transform.position = pos;
             return gameObject;
         }
         return null;

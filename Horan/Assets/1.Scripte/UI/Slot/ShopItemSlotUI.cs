@@ -44,17 +44,21 @@ public class ShopItemSlotUI : BaseUI
     }
     public void OnBtnClicked_BuyProduct(PointerEventData data)
     {
-        Debug.Log("BuyProduct");
         if (Managers.ContentsManager.ConsumeGold(price))
+        {
             Managers.ContentsManager.AddItem(itemID);
+            Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Buy"), 1f);
+        }
         GetComponentInParent<ShopUI>().SetGold();
         GetComponentInParent<ShopUI>().TabClick(GetComponentInParent<ShopUI>().inventype);
     }
     public void OnBtnClicked_SellItem(PointerEventData data)
     {
-        Debug.Log("SellItems");
         if (Managers.ContentsManager.RemoveItem(itemID))
-            Managers.ContentsManager.AcquireGold(price);
+        {
+            Managers.ContentsManager.AcquireGold(price); 
+            Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Sell"), 1f);
+        }
         GetComponentInParent<ShopUI>().SetGold();
         GetComponentInParent<ShopUI>().TabClick(GetComponentInParent<ShopUI>().inventype);
     }

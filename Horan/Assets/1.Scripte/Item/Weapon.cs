@@ -36,9 +36,6 @@ public class Weapon : Equipment
                 if (damageable.TakeDamage(finaldamage))
                 {
                     Managers.PrefabManager.SpawnEffect("Hit_strong",transform.position);
-                    Debug.Log(other.ClosestPointOnBounds(transform.forward));
-                    //Managers.PrefabManager.SpawnEffect("Hit_strong", other.bounds.ClosestPoint(transform.forward));
-                    //Managers.PrefabManager.SpawnEffect("Hit_fast", other.bounds.ClosestPoint(transform.forward));
                 }
             }
         }

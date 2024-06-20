@@ -21,12 +21,14 @@ public class InputComponent : MonoBehaviour
         ButtonUp,
     }
 
-    //public Action KeyAction = null;
     public Action <KeyBoardEvent> KeyAction = null;
     bool _keyPressed;
+
     public Action<MouseEvent> MouseAction = null;
     bool _pressed = false;
     float _pressedTime = 0;
+
+    public Action <Touch> TouchAction =null;
 
     void Update()
     {
@@ -51,7 +53,6 @@ public class InputComponent : MonoBehaviour
                 KeyAction.Invoke(KeyBoardEvent.None);
             }
         }
-
         if (MouseAction != null)
         {
             if (Input.GetMouseButton(0))
@@ -76,10 +77,22 @@ public class InputComponent : MonoBehaviour
             else
                 MouseAction.Invoke(MouseEvent.None);
         }
+        if (TouchAction!=null)
+        {
+            if (Input.touchCount > 0)
+            {
+                for (int i = 0; i < Input.touchCount; i++)
+                {
+                    Touch touch = Input.GetTouch(i);
+                    TouchAction.Invoke(touch);
+                }
+            }
+        }
     }
     void OnDestroy()
     {
         KeyAction = null;
         MouseAction = null;
+        TouchAction = null;
     }
 }

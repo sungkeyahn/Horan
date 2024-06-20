@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LatentAbilityContainer
 {
-    //public Action<int>  OnAbilityUpdate;
+    public Action<int>  OnAbilityUpdate;
     //Managers.ContentsManager.AbilityContainer.AddAbility(new LatentAbility(2, playerStat)); 잠능UI 선택 시 그쪽에서 호출할 코드 
     public List<LatentAbility> abilities = new List<LatentAbility>();
     public void ApplyAllAbility(PlayerStat stat)
@@ -13,7 +13,6 @@ public class LatentAbilityContainer
         for (int i = 0; i < abilities.Count; i++)
         {
             abilities[i].Apply(stat);
-            //OnAbilityUpdate.Invoke(abilities[i].Data.id);
         }
     }
     public bool AddAbility(LatentAbility ability, PlayerStat stat)
@@ -21,7 +20,7 @@ public class LatentAbilityContainer
         if (ability == null) return false;
         abilities.Add(ability);
         ability.Apply(stat);
-        //OnAbilityUpdate.Invoke(ability.Data.id);
+        OnAbilityUpdate.Invoke(ability.Data.id);
         return true;
     }
     public void ClearAbilities()

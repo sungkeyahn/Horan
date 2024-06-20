@@ -310,7 +310,9 @@ GameObject:
   - component: {fileID: 2163091697177812678}
   - component: {fileID: 3002497860348301667}
   - component: {fileID: 1031311861661738409}
-  m_Layer: 7
+  - component: {fileID: 6419826670197783457}
+  - component: {fileID: 4757800799292940060}
+  m_Layer: 9
   m_Name: weapon_dadao_test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,6 +384,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6419826670197783457
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535455742034773116}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.15439227, y: 1.1956197, z: 0.3592127}
+  m_Center: {x: 0.00000011085066, y: -1.15, z: 0.064716645}
+--- !u!114 &4757800799292940060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535455742034773116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9a544a91d3ece4ca01e0541b209fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1547230400104664027
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +746,6 @@ Transform:
   - {fileID: 2466779763613619552}
   - {fileID: 1515654371909139489}
   - {fileID: 3800985058973656285}
-  - {fileID: 2599497857089490731}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6093513415463098157
@@ -794,7 +828,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4555873674164441325}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.5
+  m_Radius: 0.75
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1547,72 +1581,6 @@ Transform:
   - {fileID: 72719979950607874}
   m_Father: {fileID: 2703911763937040803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8262006435318296401
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2599497857089490731}
-  - component: {fileID: 4549299377372938407}
-  - component: {fileID: 4422241630835022666}
-  m_Layer: 9
-  m_Name: Weapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2599497857089490731
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8262006435318296401}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 1.22}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7552067024150332958}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4549299377372938407
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8262006435318296401}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 2, y: 4, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4422241630835022666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8262006435318296401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c9a544a91d3ece4ca01e0541b209fd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8427830619247394429
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 6_brazier
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af8d227e1e252934b8a7c1247d5e44da, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af8d227e1e252934b8a7c1247d5e44da, type: 3}
 --- !u!1 &6046072093804368837 stripped

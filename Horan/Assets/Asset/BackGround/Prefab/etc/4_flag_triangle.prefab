@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4_flag_triangle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5483cb98cb60b8645b5b4e5a75603cf1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5483cb98cb60b8645b5b4e5a75603cf1, type: 3}
 --- !u!1 &6102171774873317149 stripped

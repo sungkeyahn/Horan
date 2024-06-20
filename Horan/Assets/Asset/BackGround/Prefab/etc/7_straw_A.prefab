@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 7_straw_A
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0179e604bc0ab04f875270bcca5a2b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0179e604bc0ab04f875270bcca5a2b7, type: 3}
 --- !u!1 &5656370897297817130 stripped

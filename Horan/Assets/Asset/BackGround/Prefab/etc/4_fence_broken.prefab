@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4_fence_broken
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27db21456b3e5db40af5962136eec041, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27db21456b3e5db40af5962136eec041, type: 3}
 --- !u!1 &3212458317137757299 stripped

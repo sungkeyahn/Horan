@@ -42,20 +42,11 @@ public class GameScene1TEST : BaseScene
         Managers.ContentsManager.OnWaveClear -= ClearScene;
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && isClear)
         {
-            if (string.IsNullOrEmpty(NextSceneName))
-            {
-                Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI").Init(true);
-                Managers.ContentsManager.Pause();
-                Managers.ContentsManager.StageClear();  
-            }
-            else
-            {
-                Managers.MySceneManager.LoadScene(NextSceneName);
-            }
+            Managers.ContentsManager.Clear(NextSceneName); 
         }
     }
 }

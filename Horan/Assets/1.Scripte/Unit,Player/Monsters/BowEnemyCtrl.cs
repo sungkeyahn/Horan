@@ -187,7 +187,7 @@ public class BowEnemyCtrl : MonsterController
             Anim.Play("ATTACK");
         
         yield return new WaitForSeconds(AtkInfo_Default.animDelay);
-        MoveArrowEffect();
+        //MoveArrowEffect();
         yield return new WaitForSeconds(AtkInfo_Default.damageTime);
         CheckAttackRange(AtkInfo_Default.atkRange, AtkInfo_Default.atkAngle);
 
@@ -199,7 +199,9 @@ public class BowEnemyCtrl : MonsterController
         
         isAtk = false;
     }
-    void MoveArrowEffect()
+
+}
+/*    void MoveArrowEffect()
     {
         if (Target!=null)
         {
@@ -208,5 +210,4 @@ public class BowEnemyCtrl : MonsterController
             gameObject.transform.rotation = Quaternion.LookRotation(direction); // 화살의 방향 설정
         }
     }
-
-}
+*/

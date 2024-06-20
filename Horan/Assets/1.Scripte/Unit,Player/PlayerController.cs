@@ -439,16 +439,5 @@ public class PlayerController : UnitController
         Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI").Init(false);
        
     }
-}
-/*       
-public GameObject TargetEnemy = null; 
-    private void FixedUpdate(){ if (TargetEnemy == null)
-    {
-        Collider[] cols = Physics.OverlapSphere(transform.position, 10, LayerMask.GetMask("Enemy"));
-        for (int i = 0; i < cols.Length; i++)
-        {
-            if (TargetEnemy == null)
-                TargetEnemy = cols[i].gameObject;
-        }   }
 
-    }*/
+}

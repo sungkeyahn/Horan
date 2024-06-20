@@ -153,7 +153,10 @@ public class HUDUI : SceneUI
         OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.SAttack);
     }
 
-
+    private void OnDestroy()
+    {
+        //Managers.ContentsManager.AbilityContainer.OnAbilityUpdate -= AddAbilityIcon;
+    }
 }
 
 /*

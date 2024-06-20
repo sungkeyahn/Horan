@@ -37,18 +37,7 @@ public struct AIAttackInfo
 
     public EffectInfo effectInfo;
 }
-public struct EffectInfo
-{
-    public EffectInfo(string EffectName , Vector3 StartlocPos,float StartDelay=0f)
-    {
-        effectName = EffectName;
-        startPos = StartlocPos;
-        startDelay = StartDelay;
-    }
-    public string effectName;
-    public Vector3 startPos;
-    public float startDelay;
-}
+
 public  class MonsterController : UnitController
 {
     public BTRunner Runner { get; protected set; }

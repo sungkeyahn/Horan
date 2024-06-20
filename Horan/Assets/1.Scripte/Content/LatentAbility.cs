@@ -26,6 +26,7 @@ public class LatentAbilityContainer
     public void ClearAbilities()
     {
         abilities.Clear();
+        Debug.Log("ClearAbilities");
     }
 
 }

@@ -57,8 +57,29 @@ public class ContentsManager
         AbilityContainer.ClearAbilities();
         Managers.MySceneManager.LoadScene($"Level {stage}");
     }
-    public void StageClear() // Scene Scripte애서 호출
+    public void WaveStart() // Scene Scripte애서 호출 
+    {   
+        if (OnWaveStart!=null)
+            OnWaveStart.Invoke();
+
+        stat.OnStatChanged -= LevelUP;
+        stat.OnStatChanged += LevelUP;
+    }
+    public void Clear(string NextSceneName)
     {
+        if (!string.IsNullOrEmpty(NextSceneName))  Clear();
+        else
+        {
+            Managers.ContentsManager.AbilityContainer.OnAbilityUpdate = null;
+            Managers.MySceneManager.LoadScene(NextSceneName);
+        }
+    }
+    void Clear() 
+    {
+        Pause();
+
+        Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI").Init(true);
+
         //세이브 파일에 데이터 추가 
         Managers.DataLoder.DataCache_Save.User.gold += dropgold;
 
@@ -70,15 +91,7 @@ public class ContentsManager
         AcquiredItems.Clear();
         AbilityContainer.ClearAbilities();
     }
-    public void WaveStart() // Scene Scripte애서 호출 
-    {   
-        if (OnWaveStart!=null)
-            OnWaveStart.Invoke();
 
-        stat.OnStatChanged -= LevelUP;
-        stat.OnStatChanged += LevelUP;
-    }
-        
     void TryDrop(string monsterid) 
     {
         Data.DataSet_Monster data = null;

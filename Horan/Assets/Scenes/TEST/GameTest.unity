@@ -468,6 +468,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1758255654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &694071643 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8762451633576446627, guid: e50016af050e7bd43a6c161bfc38ae19, type: 3}
+  m_PrefabInstance: {fileID: 1979400512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +800,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -889,6 +895,115 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delta: {x: 0, y: 26, z: -26}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 963194228}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!1 &1092777913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092777915}
+  - component: {fileID: 1092777914}
+  m_Layer: 12
+  m_Name: Post
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1092777914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092777913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 9d6daf82987e6a1438ab34ce0291fb1a, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!4 &1092777915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092777913}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1298943777
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +1096,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1758255654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1655852034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7832588980458577226, guid: e50016af050e7bd43a6c161bfc38ae19, type: 3}
+  m_PrefabInstance: {fileID: 1979400512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1655852036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655852034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_slash_x
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: ATTACK_DASH1
+  SpawnTime: 0.1
+  DeleteTime: 0.5
+  Anim: {fileID: 694071643}
+  isProjectiles: 0
 --- !u!1 &1758255653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5947721551378867504, guid: 7555fc887a913574195755a06255ce19, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1136,7 +1276,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7832588980458577226, guid: e50016af050e7bd43a6c161bfc38ae19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1655852036}
   m_SourcePrefab: {fileID: 100100000, guid: e50016af050e7bd43a6c161bfc38ae19, type: 3}
 --- !u!1001 &8894384332000345017
 PrefabInstance:
@@ -1217,6 +1360,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6444041301739232997, guid: c88a143d57b752c4187c28b361583032, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8894384332000345019}
+    - targetCorrespondingSourceObject: {fileID: 6444041301739232997, guid: c88a143d57b752c4187c28b361583032, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8894384332000345023}
+    - targetCorrespondingSourceObject: {fileID: 6444041301739232997, guid: c88a143d57b752c4187c28b361583032, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8894384332000345022}
   m_SourcePrefab: {fileID: 100100000, guid: c88a143d57b752c4187c28b361583032, type: 3}
 --- !u!1 &8894384332000345018 stripped
 GameObject:
@@ -1235,12 +1384,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EffectName: boss_01_swing
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0}
-  AnimName: FATTACK2
-  SpawnTime: 0.5
-  DeleteTime: 1
+  EffectName: musa_slash_01
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: FATTACK1
+  SpawnTime: 0.15
+  DeleteTime: 0.5
   Anim: {fileID: 8894384332000345020}
   isProjectiles: 0
 --- !u!95 &8894384332000345020 stripped
@@ -1248,6 +1397,46 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5214917995946972727, guid: c88a143d57b752c4187c28b361583032, type: 3}
   m_PrefabInstance: {fileID: 8894384332000345017}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8894384332000345022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894384332000345018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_01
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: FATTACK3
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 8894384332000345020}
+  isProjectiles: 0
+--- !u!114 &8894384332000345023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894384332000345018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_01
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: FATTACK2
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 8894384332000345020}
+  isProjectiles: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1262,3 +1451,4 @@ SceneRoots:
   - {fileID: 1979400512}
   - {fileID: 671166039}
   - {fileID: 743940045}
+  - {fileID: 1092777915}

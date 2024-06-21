@@ -202,7 +202,7 @@
       "id": 1012,
       "name": "Rare_Weapon_D",
       "meshpath": "Mesh/weapon_saber",
-      "materialpath": "Material/weapon_03",
+      "materialpath": "Material/weapon_04",
       "equipmentprefabpath": "Equipment/Sword4",
       "type": 1,
       "abilitys": [
@@ -219,8 +219,8 @@
     {
       "id": 1013,
       "name": "Unique_Weapon_A",
-      "meshpath": "Mesh/weapon_sword",
-      "materialpath": "Material/weapon_01",
+      "meshpath": "Mesh/weapon_sword_03",
+      "materialpath": "Material/weapon_04",
       "equipmentprefabpath": "Equipment/Sword4",
       "type": 1,
       "abilitys": [
@@ -237,8 +237,8 @@
     {
       "id": 1014,
       "name": "Legendary_Weapon_A",
-      "meshpath": "Mesh/weapon_sword",
-      "materialpath": "Material/weapon_01",
+      "meshpath": "Mesh/weapon_sword_02",
+      "materialpath": "Material/weapon_04",
       "equipmentprefabpath": "Equipment/Sword4",
       "type": 1,
       "abilitys": [
@@ -255,8 +255,8 @@
     {
       "id": 1015,
       "name": "Unique_Weapon_B",
-      "meshpath": "Mesh/weapon_sword",
-      "materialpath": "Material/weapon_01",
+      "meshpath": "Mesh/weapon_glaive_02",
+      "materialpath": "Material/weapon_04",
       "equipmentprefabpath": "Equipment/Sword2",
       "type": 1,
       "abilitys": [

@@ -11,7 +11,7 @@ public enum EPlayerAnimState
 
 public class PlayerController : UnitController
 {
-    //HUDUI Hud;
+    HUDUI Hud;
 
     Animator[]anims;
     
@@ -40,12 +40,14 @@ public class PlayerController : UnitController
     private void Start()
     {
         #region Input
-        input.MouseAction -= OnPlayerMouseEvent;
-        input.KeyAction -= OnPlayerKeyBoardEvent;
+        //input.MouseAction -= OnPlayerMouseEvent;
+        //input.KeyAction -= OnPlayerKeyBoardEvent;
+        //input.MouseAction += OnPlayerMouseEvent;
+        //input.KeyAction += OnPlayerKeyBoardEvent;
+        
         input.TouchAction -= OnPlayerTouchEvent;
-        input.MouseAction += OnPlayerMouseEvent;
-        input.KeyAction += OnPlayerKeyBoardEvent;
         input.TouchAction += OnPlayerTouchEvent;
+
         #endregion
         #region Stat
         Stat.StatInit(Managers.ContentsManager.level, Managers.ContentsManager.exp, Managers.ContentsManager.hp);
@@ -61,26 +63,26 @@ public class PlayerController : UnitController
         //impact_spark_block
         #endregion
         #region Acts 
-        Act attack = new Act((int)KindOfAct.Attack, Attack);
-        attack.AddAllowActID((int)KindOfAct.Attack);
-        attack.AddAllowActID((int)KindOfAct.Guard);
-        attack.AddAllowActID((int)KindOfAct.Dash);
+        Act attack = new Act((int)ECharacterAct.FAttack, Attack);
+        attack.AddAllowActID((int)ECharacterAct.FAttack);
+        attack.AddAllowActID((int)ECharacterAct.Guard);
+        attack.AddAllowActID((int)ECharacterAct.Dash);
 
-        Act move = new Act((int)KindOfAct.Move, Move);
-        move.AddAllowActID((int)KindOfAct.Dash);
-        move.AddAllowActID((int)KindOfAct.Move);
+        Act move = new Act((int)ECharacterAct.Move, Move);
+        move.AddAllowActID((int)ECharacterAct.Dash);
+        move.AddAllowActID((int)ECharacterAct.Move);
 
-        Act guard = new Act((int)KindOfAct.Guard, Guard);
-        guard.AddAllowActID((int)KindOfAct.Attack);
-        guard.AddAllowActID((int)KindOfAct.Counter);
+        Act guard = new Act((int)ECharacterAct.Guard, Guard);
+        guard.AddAllowActID((int)ECharacterAct.FAttack);
+        guard.AddAllowActID((int)ECharacterAct.Counter);
 
-        Act dash = new Act((int)KindOfAct.Dash, Dash);
-        dash.AddAllowActID((int)KindOfAct.Dash);
-        dash.AddAllowActID((int)KindOfAct.DashAttack);
+        Act dash = new Act((int)ECharacterAct.Dash, Dash);
+        dash.AddAllowActID((int)ECharacterAct.Dash);
+        dash.AddAllowActID((int)ECharacterAct.DashAttack);
 
-        Act dashAtttack = new Act((int)KindOfAct.DashAttack, DashAttack);
+        Act dashAtttack = new Act((int)ECharacterAct.DashAttack, DashAttack);
 
-        Act counter = new Act((int)KindOfAct.Counter, Counter);
+        Act counter = new Act((int)ECharacterAct.Counter, Counter);
 
         //행동 등록
         Act = GetComponent<ActComponent>();
@@ -94,9 +96,10 @@ public class PlayerController : UnitController
 
         Equip();
         Managers.ContentsManager.AbilityContainer.ApplyAllAbility(Stat);
-        HUDUI Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
+        Hud = Managers.UIManager.ShowSceneUI<HUDUI>();
         Hud.Init(this);
         Hud.OnCharacterAction += OnCharacterBtnEvent;
+        Hud.OnCharacterEnd += OnCharacterBtnEndEvent;
     }
     void OnPlayerMouseEvent(InputComponent.MouseEvent evt)
     {
@@ -126,7 +129,7 @@ public class PlayerController : UnitController
                 {
                     if (atkAble && atkCount < weapon.AnimInfo.Count)
                     {
-                        Act.Execution((int)KindOfAct.Attack);
+                        Act.Execution((int)ECharacterAct.FAttack);
                         DashAtkInput = true;
                     }//Debug.Log("Click");
                 }
@@ -148,52 +151,85 @@ public class PlayerController : UnitController
                         anims[i].SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
                     }
                     StepSound1.GetComponent<AudioSource>().Stop();
-                    Act.Finish((int)KindOfAct.Move);
+                    Act.Finish((int)ECharacterAct.Move);
                 }
                 break;
             case InputComponent.KeyBoardEvent.Press:
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
                 {
-                    Act.Execution((int)KindOfAct.Move);
+                    Act.Execution((int)ECharacterAct.Move);
                 }
                 if (Input.GetKey(KeyCode.E) && !isGuard)
                 {
-                    Act.Execution((int)KindOfAct.Guard);
+                    Act.Execution((int)ECharacterAct.Guard);
                 }
                 break;
             case InputComponent.KeyBoardEvent.ButtonDown:
                 if (Input.GetKey(KeyCode.Space) && 0 < DashCount && Stat.UseSP(20))
-                    Act.Execution((int)KindOfAct.Dash);
+                    Act.Execution((int)ECharacterAct.Dash);
                 break;
             case InputComponent.KeyBoardEvent.ButtonUp:
                 if (isGuard && !Input.GetKeyDown(KeyCode.E))
                 {
                     isGuard = false;
-                    Act.Finish((int)KindOfAct.Guard);
+                    Act.Finish((int)ECharacterAct.Guard);
                 }
                 break;
             default:
                 break;
         }
     }
-
     void OnCharacterBtnEvent(EPlayerCharacterCtrlEvent ctrlEvent)
     {
         switch (ctrlEvent)
         {
             case EPlayerCharacterCtrlEvent.Move:
+                Act.Execution((int)ECharacterAct.Move);
                 break;
             case EPlayerCharacterCtrlEvent.Dash:
+                if (0 < DashCount)
+                    if (Stat.UseSP(20))
+                        Act.Execution((int)ECharacterAct.Dash);
                 break;
             case EPlayerCharacterCtrlEvent.Guard:
+                if (!isGuard)
+                    Act.Execution((int)ECharacterAct.Guard);
                 break;
             case EPlayerCharacterCtrlEvent.FAttack:
+                if (atkAble && atkCount < weapon.AnimInfo.Count)
+                    Act.Execution((int)ECharacterAct.FAttack); 
                 break;
             case EPlayerCharacterCtrlEvent.SAttack:
+                if (atkAble && atkCount < weapon.AnimInfo.Count)
+                    Act.Execution((int)ECharacterAct.SAttack); 
                 break;
         }
     }
+    void OnCharacterBtnEndEvent(EPlayerCharacterCtrlEvent ctrlEvent)
+    {
+        switch (ctrlEvent)
+        {
+            case EPlayerCharacterCtrlEvent.Move:
+                for (int i = 0; i < anims.Length; i++)
+                    anims[i].SetInteger("AnimState", (int)EPlayerAnimState.IDLE); 
+                StepSound1.GetComponent<AudioSource>().Stop();
+                move.SetMove(0);
+                Act.Finish((int)ECharacterAct.Move);
+                break;
+            case EPlayerCharacterCtrlEvent.Dash:
 
+                break;
+            case EPlayerCharacterCtrlEvent.Guard:
+
+                break;
+            case EPlayerCharacterCtrlEvent.FAttack:
+
+                break;
+            case EPlayerCharacterCtrlEvent.SAttack:
+
+                break;
+        }
+    }
     void OnPlayerTouchEvent(Touch evt)
     {
         switch (evt.phase)
@@ -211,13 +247,16 @@ public class PlayerController : UnitController
         }
     }
 
+
     void Move()
     {
-        Vector3 moveDir = Vector3.zero;
-        moveDir.x = Input.GetAxis("Horizontal");
-        moveDir.z = Input.GetAxis("Vertical");
-
+        Vector3 moveDir = new Vector3(Hud.input.x,0,Hud.input.y);
         move.SetMove(moveDir, moveDir, Stat.Speed);
+
+        //Vector3 moveDir = Vector3.zero;
+        //moveDir.x = Input.GetAxis("Horizontal");
+        //moveDir.z = Input.GetAxis("Vertical");
+        //move.SetMove(moveDir, moveDir, Stat.Speed);
         
         for (int i = 0; i < anims.Length; i++)
         {
@@ -244,6 +283,7 @@ public class PlayerController : UnitController
         for (int i = 0; i < anims.Length; i++)
             anims[i].Play(animinfo.name, -1, 0);//anim.Play(animinfo.name, -1, 0);
 
+
         if (UnityEngine.Random.Range(0, 2) == 0)
             Managers.PrefabManager.PlaySound(SwingSound1);
         else
@@ -256,11 +296,10 @@ public class PlayerController : UnitController
         yield return new WaitForSeconds(animinfo.judgmenttime); // 공격 비활성화 
         weapon.Area.enabled = false;
         atkAble = true;
-        //yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - (animinfo.delay + animinfo.judgmenttime));
         yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length - (animinfo.delay + animinfo.judgmenttime));
 
         atkCount = 0;
-        Act.Finish((int)KindOfAct.Attack);
+        Act.Finish((int)ECharacterAct.FAttack);
         yield return null;
 
     }
@@ -281,26 +320,22 @@ public class PlayerController : UnitController
             anims[i].Play("GUARD");
             anims[i].SetBool("GuardEnd", false);
         }
-        //anim.Play("GUARD");
-        //anim.SetBool("GuardEnd", false);
-
         Stat.isDamageable = false;
 
         isCounter = false;
         yield return new WaitForSeconds(GuardSuccessTime); //해당 시간안에 공격이 들어올시 카운터 어택 (이 시간은 아마 가드애니메이션 선딜시간이될듯?)
         if (isCounter)
         {
-            Act.Execution((int)KindOfAct.Counter);
+            Act.Execution((int)ECharacterAct.Counter);
             yield return null;
         }
-
-        yield return new WaitUntil(() => !isGuard);
+        yield return new WaitForSeconds(1f);
+        //yield return new WaitUntil(() => !isGuard);
         isGuard = false;
-        //anim.SetBool("GuardEnd", true);
         for (int i = 0; i < anims.Length; i++)
-        {
             anims[i].SetBool("GuardEnd", true);
-        }
+        Act.Finish((int)ECharacterAct.Guard);
+
         Stat.isDamageable = true;
     }
     void Counter()
@@ -323,7 +358,7 @@ public class PlayerController : UnitController
         Stat.isDamageable = true;
         isGuard = false;
 
-        Act.Finish((int)KindOfAct.Counter);
+        Act.Finish((int)ECharacterAct.Counter);
     }
     #endregion
     #region Dash
@@ -353,14 +388,14 @@ public class PlayerController : UnitController
         yield return new WaitForSeconds(0.1f);
         if (DashAtkInput)
         {
-            Act.Execution((int)KindOfAct.DashAttack);
+            Act.Execution((int)ECharacterAct.DashAttack);
             yield return null;
         }
 
 
         yield return new WaitForSeconds(0.2f); //대쉬 시간
         Stat.isDamageable = true;
-        Act.Finish((int)KindOfAct.Dash);
+        Act.Finish((int)ECharacterAct.Dash);
 
         yield return new WaitForSeconds(DashCoolTime);
         DashCount += 1;
@@ -382,7 +417,7 @@ public class PlayerController : UnitController
         weapon.Area.enabled = false;
 
         yield return new WaitForSeconds(0.7f);//애니메이션 종료
-        Act.Finish((int)KindOfAct.DashAttack);
+        Act.Finish((int)ECharacterAct.DashAttack);
     }
     #endregion
 

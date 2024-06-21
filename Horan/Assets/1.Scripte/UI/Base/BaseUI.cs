@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public enum UIEvent
 {
     Click,
+    PointUp,
+    PointDown,
     Drag,
 };
 
@@ -44,6 +46,14 @@ public abstract class BaseUI : MonoBehaviour
             case UIEvent.Click:
                 evt.OnPointerClickHandler -= action;
                 evt.OnPointerClickHandler += action;
+                break;
+            case UIEvent.PointUp:
+                evt.OnPointerUpHandler -= action;
+                evt.OnPointerUpHandler += action;
+                break;
+            case UIEvent.PointDown:
+                evt.OnPointerDownHandler -= action;
+                evt.OnPointerDownHandler += action;
                 break;
             case UIEvent.Drag:
                 evt.OnDragHandler -= action;

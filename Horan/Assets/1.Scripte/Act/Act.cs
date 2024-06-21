@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum KindOfAct //데이터 테이블로 변경 하기 
+public enum ECharacterAct //데이터 테이블로 변경 하기 
 {
-    Move=1,Attack,Dash,Guard,DashAttack, Counter
+    Move=1,FAttack,SAttack,Dash,Guard,DashAttack, Counter
 }
 
 public class Act

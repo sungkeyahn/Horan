@@ -67,7 +67,7 @@ public class ContentsManager
     }
     public void Clear(string NextSceneName)
     {
-        if (!string.IsNullOrEmpty(NextSceneName))  Clear();
+        if (string.IsNullOrEmpty(NextSceneName))  Clear();
         else
         {
             Managers.ContentsManager.AbilityContainer.OnAbilityUpdate = null;

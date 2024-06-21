@@ -4,28 +4,7 @@ using UnityEngine;
 
 public class PrefabManager 
 {
-    public GameObject PrefabInstance(string key, Transform Parent = null)
-    {
-        GameObject prefab = null;
-        if (Managers.DataLoder.DataCache_Effect.TryGetValue(key, out prefab))
-            return GameObject.Instantiate(prefab, Parent);
-        if (Managers.DataLoder.DataCache_Sound.TryGetValue(key, out prefab))
-            return GameObject.Instantiate(prefab, Parent);
-        return null;
-    }
-
-    public void PlaySound(GameObject Sound, float volume = 1.0f)
-    {
-        if (Sound)
-        {
-            AudioSource audio = Sound.GetComponent<AudioSource>();
-            if (audio && !audio.isPlaying)
-            {
-                audio.volume = volume;
-                audio.Play();
-            }
-        }
-    }
+    /**/
 
     public GameObject SpawnEffect(string key, Vector3 pos)
     {
@@ -62,3 +41,12 @@ public class PrefabManager
         return null;
     }
 }
+/*    public GameObject PrefabInstance(string key, Transform Parent = null)
+    {
+        GameObject prefab = null;
+        if (Managers.DataLoder.DataCache_Effect.TryGetValue(key, out prefab))
+            return GameObject.Instantiate(prefab, Parent);
+        if (Managers.DataLoder.DataCache_Sound.TryGetValue(key, out prefab))
+            return GameObject.Instantiate(prefab, Parent);
+        return null;
+    }*/

@@ -22,13 +22,13 @@ public class LobbyUI : SceneUI
     }
     public void OnBtnClicked_Start(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+      //  Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         Managers.ContentsManager.StageSelect(1);
     }
     public void OnBtnClicked_Inventory(PointerEventData data)
     {
        Debug.Log("Inventory");
-       Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
 
        Managers.UIManager.ShowPopupUI<InventoryUI>("InventoryUI");
        Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
@@ -36,7 +36,7 @@ public class LobbyUI : SceneUI
     public void OnBtnClicked_Shop(PointerEventData data)
     {
         Debug.Log("Shop");
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
 
         Managers.UIManager.ShowPopupUI<ShopUI>("ShopUI");
         Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
@@ -44,7 +44,7 @@ public class LobbyUI : SceneUI
     public void OnBtnClicked_Upgrade(PointerEventData data)
     {
         Debug.Log("Upgrade");
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
 
         Managers.UIManager.ShowPopupUI<UpgradeUI>("UpgradeUI");
         Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
@@ -52,7 +52,7 @@ public class LobbyUI : SceneUI
     public void OnBtnClicked_Setting(PointerEventData data)
     {
         Debug.Log("Setting");
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
 
         //Managers.UIManager.ShowPopupUI<SettingUI>("SettingUI");
         //Managers.UIManager.GetSceneUI().gameObject.SetActive(false);

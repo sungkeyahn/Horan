@@ -4,7 +4,7 @@
       "id": 1001,
       "socketpos": [ 0.01, 0.16, 0.03 ],
       "socketrot": [ 100, 117, 16 ],
-      "animinfo": [
+      "fatkaniminfo": [
         {
           "name": "FATTACK1",
           "delay": 0.3,
@@ -17,6 +17,23 @@
         },
         {
           "name": "FATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
           "delay": 0.3,
           "judgmenttime": 0.25
         }
@@ -26,117 +43,7 @@
       "id": 1002,
       "socketpos": [ 0.01, 0.16, 0.03 ],
       "socketrot": [ 100, 117, 16 ],
-      "animinfo": [
-        {
-          "name": "FATTACK1",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK2",
-          "delay": "0.15",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK3",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        }
-      ]
-    },
-    {
-      "id": 1003,
-      "socketpos": [ 0.01, 0.16, 0.03 ],
-      "socketrot": [ 100, 117, 16 ],
-      "animinfo": [
-        {
-          "name": "FATTACK1",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK2",
-          "delay": "0.15",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK3",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        }
-      ]
-    },
-    {
-      "id": 1004,
-      "socketpos": [ 0.04, 0.13, 0.03 ],
-      "socketrot": [ 105, 67, -35 ],
-      "animinfo": [
-        {
-          "name": "FATTACK1",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK2",
-          "delay": "0.15",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK3",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        }
-      ]
-    },
-    {
-      "id": 1005,
-      "socketpos": [ 0.04, 0.13, 0.03 ],
-      "socketrot": [ 105, 67, -35 ],
-      "animinfo": [
-        {
-          "name": "FATTACK1",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK2",
-          "delay": "0.15",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK3",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        }
-      ]
-    },
-    {
-      "id": 1006,
-      "socketpos": [ 0.04, 0.13, 0.03 ],
-      "socketrot": [ 105, 67, -35 ],
-      "animinfo": [
-        {
-          "name": "FATTACK1",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK2",
-          "delay": "0.15",
-          "judgmenttime": "0.25"
-        },
-        {
-          "name": "FATTACK3",
-          "delay": "0.3",
-          "judgmenttime": "0.25"
-        }
-      ]
-    },
-    {
-      "id": 1007,
-      "socketpos": [ 0.1, 0.14, 0 ],
-      "socketrot": [ 102, 70, -37 ],
-      "animinfo": [
+      "fatkaniminfo": [
         {
           "name": "FATTACK1",
           "delay": 0.3,
@@ -149,6 +56,218 @@
         },
         {
           "name": "FATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+    {
+      "id": 1003,
+      "socketpos": [ 0.01, 0.16, 0.03 ],
+      "socketrot": [ 100, 117, 16 ],
+      "fatkaniminfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+    {
+      "id": 1004,
+      "socketpos": [ 0.04, 0.13, 0.03 ],
+      "socketrot": [ 105, 67, -35 ],
+      "fatkaniminfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+    {
+      "id": 1005,
+      "socketpos": [ 0.04, 0.13, 0.03 ],
+      "socketrot": [ 105, 67, -35 ],
+      "fatkaniminfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+    {
+      "id": 1006,
+      "socketpos": [ 0.04, 0.13, 0.03 ],
+      "socketrot": [ 105, 67, -35 ],
+      "fatkaniminfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ]
+    },
+    {
+      "id": 1007,
+      "socketpos": [ 0.1, 0.14, 0 ],
+      "socketrot": [ 102, 70, -37 ],
+      "fatkaniminfo": [
+        {
+          "name": "FATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "FATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
           "delay": 0.3,
           "judgmenttime": 0.25
         }
@@ -158,7 +277,7 @@
       "id": 1008,
       "socketpos": [ 0.1, 0.14, 0 ],
       "socketrot": [ 102, 70, -37 ],
-      "animinfo": [
+      "fatkaniminfo": [
         {
           "name": "FATTACK1",
           "delay": 0.3,
@@ -171,6 +290,23 @@
         },
         {
           "name": "FATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
           "delay": 0.3,
           "judgmenttime": 0.25
         }
@@ -180,19 +316,36 @@
       "id": 1009,
       "socketpos": [ 0.1, 0.14, 0 ],
       "socketrot": [ 102, 70, -37 ],
-      "animinfo": [
+      "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.15,
-          "judgmenttime": 0.25
-        },
-        {
-          "name": "FATTACK2",
           "delay": 0.3,
           "judgmenttime": 0.25
         },
         {
+          "name": "FATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
           "name": "FATTACK3",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
           "delay": 0.3,
           "judgmenttime": 0.25
         }
@@ -202,10 +355,10 @@
       "id": 1010,
       "socketpos": [ 0.07, 0.15, 0.03 ],
       "socketrot": [ 102, 68, -37 ],
-      "animinfo": [
+      "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.2,
+          "delay": 0.3,
           "judgmenttime": 0.25
         },
         {
@@ -215,7 +368,24 @@
         },
         {
           "name": "FATTACK3",
-          "delay": 0.2,
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
           "judgmenttime": 0.25
         }
       ]
@@ -224,10 +394,10 @@
       "id": 1011,
       "socketpos": [ 0.07, 0.15, 0.03 ],
       "socketrot": [ 102, 68, -37 ],
-      "animinfo": [
+      "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.2,
+          "delay": 0.3,
           "judgmenttime": 0.25
         },
         {
@@ -237,7 +407,24 @@
         },
         {
           "name": "FATTACK3",
-          "delay": 0.2,
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
           "judgmenttime": 0.25
         }
       ]
@@ -246,10 +433,10 @@
       "id": 1012,
       "socketpos": [ 0.07, 0.15, 0.03 ],
       "socketrot": [ 102, 68, -37 ],
-      "animinfo": [
+      "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.2,
+          "delay": 0.3,
           "judgmenttime": 0.25
         },
         {
@@ -259,7 +446,24 @@
         },
         {
           "name": "FATTACK3",
-          "delay": 0.2,
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
           "judgmenttime": 0.25
         }
       ]
@@ -268,10 +472,10 @@
       "id": 1013,
       "socketpos": [ 0.01, 0.16, 0.03 ],
       "socketrot": [ 100, 117, 16 ],
-      "animinfo": [
+      "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.1,
+          "delay": 0.3,
           "judgmenttime": 0.25
         },
         {
@@ -281,7 +485,24 @@
         },
         {
           "name": "FATTACK3",
-          "delay": 0.1,
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
           "judgmenttime": 0.25
         }
       ]
@@ -290,10 +511,10 @@
       "id": 1014,
       "socketpos": [ 0.01, 0.16, 0.03 ],
       "socketrot": [ 100, 117, 16 ],
-      "animinfo": [
+      "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.1,
+          "delay": 0.3,
           "judgmenttime": 0.25
         },
         {
@@ -303,7 +524,24 @@
         },
         {
           "name": "FATTACK3",
-          "delay": 0.1,
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
           "judgmenttime": 0.25
         }
       ]
@@ -312,10 +550,10 @@
       "id": 1015,
       "socketpos": [ 0.04, 0.13, 0.03 ],
       "socketrot": [ 105, 67, -35 ],
-      "animinfo": [
+      "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.1,
+          "delay": 0.3,
           "judgmenttime": 0.25
         },
         {
@@ -325,7 +563,24 @@
         },
         {
           "name": "FATTACK3",
-          "delay": 0.1,
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        }
+      ],
+      "satkaniminfo": [
+        {
+          "name": "SATTACK1",
+          "delay": 0.3,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK2",
+          "delay": 0.15,
+          "judgmenttime": 0.25
+        },
+        {
+          "name": "SATTACK3",
+          "delay": 0.3,
           "judgmenttime": 0.25
         }
       ]

@@ -110,7 +110,7 @@ public  class MonsterController : UnitController
 
     protected virtual void HitEffect()
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Hit1", transform),0.1f);
+      //  Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Hit1", transform),0.1f);
         //StopUnit(true);
     }
     protected virtual void Dead()
@@ -203,12 +203,6 @@ public  class MonsterController : UnitController
             }
         }
         return false;
-    }
-
-    protected IEnumerator SpwanEffect(EffectInfo info)
-    {
-        yield return new WaitForSeconds(info.startDelay);
-        Managers.PrefabManager.SpawnEffect(info.effectName, transform, info.startPos);
     }
 
     void OnDrawGizmos()

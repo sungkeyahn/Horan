@@ -39,12 +39,12 @@ public class SelectAbilityUI : PopupUI
     {
         Init();
         Stat = stat;
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_LevelUp"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_LevelUp"), 1f);
     }
 
     public void OnBtnClicked_ClosePopup(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+      //  Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         ClosePopupUI();
     }
     public override void ClosePopupUI()

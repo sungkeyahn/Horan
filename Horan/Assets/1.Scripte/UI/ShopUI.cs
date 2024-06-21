@@ -58,50 +58,50 @@ public class ShopUI : PopupUI
 
     public void OnBtnClicked_ClosePopup(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         ClosePopupUI();
         Managers.UIManager.GetSceneUI().gameObject.SetActive(true);
     }
     public void OnBtnClicked_WeaponTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Einventype.Weapon);
     }
     public void OnBtnClicked_CostumeTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Einventype.Costume);
     }
     public void OnBtnClicked_HatTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Einventype.Hat);
     }
     public void OnBtnClicked_AccTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Einventype.Acc);
     }
     public void OnBtnClicked_MatTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Einventype.Mat);
     }
 
 
     public void OnBtnClicked_BuyMatTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Data.EShopTabType.BuyMaterial);
     }
     public void OnBtnClicked_BuyAccTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Data.EShopTabType.BuyAccessory);
     }
     public void OnBtnClicked_SellTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Data.EShopTabType.SellItem);
     }
     void DeleteChild(GameObject gameObject)

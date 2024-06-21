@@ -6,30 +6,11 @@ using UnityEngine;
 public class ContentsManager 
 {
     /*  매니저 기능
-     * 스토리모드 : 게임 시작, 게임 종료 , 웨이브 시작 , 웨이브 종료 ,에 해당하는 함수를 ContentsManager에 구현(호출은 각 Scene에서)
-     * 
-     * 연관 된 부분들)
-     * 로비(게임시작버튼) -> 레벨선택UI -> 레벨 선택 -> 씬 이동
-     * 씬 스크립트에서 스테이지 시작 함수 호출
-     * 몬스터 사망시 스테이지 클리어 여부 체크
-     * 잠재능력 선택시 잠재능력 정보 저장
-     * 
-     * 현재 스테이지 에 스폰된 몬스터들
-     * 스테이지 클리어 조건 
-     * 획득아이템들 
-     * 획득 잠재능력
-     * 
-     * 
-     * 이벤트로 다 뿌려주는 역할을 해야할거같은데?
-     * 
-     * 
-     * 지금 할일)
      * 1. 몬스터 사망시 채력 + 아이템 + 재화 + 경험치 드랍 시스템 
      * 2. 캐릭터 레벨 업 시 잠재능력 선택 UI 띄우기 + 게임 퍼즈
      * 3. 각 잠재능력 UI에서 선택한 능력을 적용 
      * 4. 적용된 잠재능력은 컨텐츠매니저에서 정보 저장
-     * 5. 맵 이동(웨이브 시작)시 장비+잠재+스텟 능력치 계승 
-     * 
+     * 5. 맵 이동(웨이브 시작)시 장비+잠재+스텟 능력치 전달
      */
     public Action OnStageClear;
     public Action OnWaveClear;
@@ -90,6 +71,9 @@ public class ContentsManager
 
         AcquiredItems.Clear();
         AbilityContainer.ClearAbilities();
+        level = 1;
+        exp = -1;
+        hp = -1;
     }
 
     void TryDrop(string monsterid) 

@@ -11,7 +11,7 @@ public class LobbyScene : BaseScene
         SceneName = "Lobby";
         lobby= Managers.UIManager.ShowSceneUI<LobbyUI>("LobbyUI");
        
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_LobbyBGM"),0.1f);
+        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_LobbyBGM"),0.1f);
         //lobby.Init();
     }
     private void Start()

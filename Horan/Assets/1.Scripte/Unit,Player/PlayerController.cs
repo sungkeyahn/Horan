@@ -18,16 +18,11 @@ public class PlayerController : UnitController
     PlayerStat Stat;
     ActComponent Act;
 
-    InputComponent input;
+    InputComponent input; //삭제 보류 
     MoveComponent move;
 
     public Weapon weapon;
     public Equipment[] equipments = new Equipment[4];
-
-    GameObject StepSound1;
-    GameObject StepSound2;
-    GameObject SwingSound1;
-    GameObject SwingSound2;
 
     private void Awake()
     {
@@ -44,9 +39,8 @@ public class PlayerController : UnitController
         //input.KeyAction -= OnPlayerKeyBoardEvent;
         //input.MouseAction += OnPlayerMouseEvent;
         //input.KeyAction += OnPlayerKeyBoardEvent;
-        
-        input.TouchAction -= OnPlayerTouchEvent;
-        input.TouchAction += OnPlayerTouchEvent;
+        //input.TouchAction -= OnPlayerTouchEvent;
+        //input.TouchAction += OnPlayerTouchEvent;
 
         #endregion
         #region Stat
@@ -56,10 +50,10 @@ public class PlayerController : UnitController
         Stat.OnUnitDead += Dead;
         #endregion
         #region Effect + Sound
-        StepSound1 = Managers.PrefabManager.PrefabInstance("Sound_Step1", transform);
-        StepSound2 = Managers.PrefabManager.PrefabInstance("Sound_Step2", transform);
-        SwingSound1 = Managers.PrefabManager.PrefabInstance("Sound_Swing1", transform);
-        SwingSound2 = Managers.PrefabManager.PrefabInstance("Sound_Swing2", transform);
+        //StepSound1 = Managers.PrefabManager.PrefabInstance("Sound_Step1", transform);
+        //StepSound2 = Managers.PrefabManager.PrefabInstance("Sound_Step2", transform);
+        //SwingSound1 = Managers.PrefabManager.PrefabInstance("Sound_Swing1", transform);
+        //SwingSound2 = Managers.PrefabManager.PrefabInstance("Sound_Swing2", transform);
         //impact_spark_block
         #endregion
         #region Acts 
@@ -67,6 +61,11 @@ public class PlayerController : UnitController
         attack.AddAllowActID((int)ECharacterAct.FAttack);
         attack.AddAllowActID((int)ECharacterAct.Guard);
         attack.AddAllowActID((int)ECharacterAct.Dash);
+
+        Act sattack = new Act((int)ECharacterAct.SAttack, SAttack);
+        sattack.AddAllowActID((int)ECharacterAct.SAttack);
+        sattack.AddAllowActID((int)ECharacterAct.Guard);
+        sattack.AddAllowActID((int)ECharacterAct.Dash);
 
         Act move = new Act((int)ECharacterAct.Move, Move);
         move.AddAllowActID((int)ECharacterAct.Dash);
@@ -87,6 +86,7 @@ public class PlayerController : UnitController
         //행동 등록
         Act = GetComponent<ActComponent>();
         Act.AddAct(attack);
+        Act.AddAct(sattack);
         Act.AddAct(move);
         Act.AddAct(guard);
         Act.AddAct(dash);
@@ -127,7 +127,7 @@ public class PlayerController : UnitController
                 break;
             case InputComponent.MouseEvent.Click:
                 {
-                    if (atkAble && atkCount < weapon.AnimInfo.Count)
+                    if (atkAble && atkCount < weapon.AnimInfo_FATK.Count)
                     {
                         Act.Execution((int)ECharacterAct.FAttack);
                         DashAtkInput = true;
@@ -150,7 +150,6 @@ public class PlayerController : UnitController
                     {
                         anims[i].SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
                     }
-                    StepSound1.GetComponent<AudioSource>().Stop();
                     Act.Finish((int)ECharacterAct.Move);
                 }
                 break;
@@ -196,11 +195,12 @@ public class PlayerController : UnitController
                     Act.Execution((int)ECharacterAct.Guard);
                 break;
             case EPlayerCharacterCtrlEvent.FAttack:
-                if (atkAble && atkCount < weapon.AnimInfo.Count)
+                DashAtkInput = true;
+                if (atkAble && atkCount < weapon.AnimInfo_FATK.Count)
                     Act.Execution((int)ECharacterAct.FAttack); 
                 break;
             case EPlayerCharacterCtrlEvent.SAttack:
-                if (atkAble && atkCount < weapon.AnimInfo.Count)
+                if (atkAble && atkCount < weapon.AnimInfo_SATK.Count)
                     Act.Execution((int)ECharacterAct.SAttack); 
                 break;
         }
@@ -212,7 +212,6 @@ public class PlayerController : UnitController
             case EPlayerCharacterCtrlEvent.Move:
                 for (int i = 0; i < anims.Length; i++)
                     anims[i].SetInteger("AnimState", (int)EPlayerAnimState.IDLE); 
-                StepSound1.GetComponent<AudioSource>().Stop();
                 move.SetMove(0);
                 Act.Finish((int)ECharacterAct.Move);
                 break;
@@ -247,7 +246,6 @@ public class PlayerController : UnitController
         }
     }
 
-
     void Move()
     {
         Vector3 moveDir = new Vector3(Hud.input.x,0,Hud.input.y);
@@ -264,7 +262,6 @@ public class PlayerController : UnitController
             anims[i].SetFloat("WalkX", moveDir.x);
             anims[i].SetFloat("WalkY", moveDir.z);
         }
-        Managers.PrefabManager.PlaySound(StepSound1);
     }
 
     #region Attack
@@ -272,34 +269,51 @@ public class PlayerController : UnitController
     int atkCount = 0;
     void Attack()
     {
-        StopCoroutine("ATTACK");
-        StartCoroutine("ATTACK");
+        Data.AnimInfomation animinfo = weapon.AnimInfo_FATK[atkCount];
+
+        Stat.atkType = PlayerStat.ECharacterAtkType.FAtk;
+
+        StopCoroutine(ATTACK(animinfo));
+        StartCoroutine(ATTACK(animinfo));
     }
-    IEnumerator ATTACK()
+    void SAttack()
     {
-        Data.AnimInfomation animinfo = weapon.AnimInfo[atkCount];
+        Data.AnimInfomation animinfo = weapon.AnimInfo_SATK[atkCount];
+        
+        Stat.atkType = PlayerStat.ECharacterAtkType.SAtk;
+
+        StopCoroutine(ATTACK(animinfo));
+        StartCoroutine(ATTACK(animinfo));
+    }
+    IEnumerator ATTACK(Data.AnimInfomation animinfo)
+    {
         atkCount += 1;
 
+
         for (int i = 0; i < anims.Length; i++)
-            anims[i].Play(animinfo.name, -1, 0);//anim.Play(animinfo.name, -1, 0);
-
-
-        if (UnityEngine.Random.Range(0, 2) == 0)
-            Managers.PrefabManager.PlaySound(SwingSound1);
-        else
-            Managers.PrefabManager.PlaySound(SwingSound2);
+        {
+            anims[i].Play(animinfo.name, -1, 0);
+        }
+        //if (UnityEngine.Random.Range(0, 2) == 0)
+            //Managers.PrefabManager.PlaySound(SwingSound1);
+        //else 
+                    //Managers.PrefabManager.PlaySound(SwingSound2);
         
         atkAble = false;
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
         weapon.Area.enabled = true;
-
         yield return new WaitForSeconds(animinfo.judgmenttime); // 공격 비활성화 
         weapon.Area.enabled = false;
         atkAble = true;
+
         yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length - (animinfo.delay + animinfo.judgmenttime));
 
-        atkCount = 0;
-        Act.Finish((int)ECharacterAct.FAttack);
+        if (atkAble)
+        {
+            atkCount = 0;
+            Act.Finish((int)ECharacterAct.FAttack);
+            Act.Finish((int)ECharacterAct.SAttack);
+        }
         yield return null;
 
     }
@@ -349,7 +363,7 @@ public class PlayerController : UnitController
             anims[i].SetBool("GuardEnd", true);
             anims[i].Play("COUNTER");
         }
-        Managers.PrefabManager.SpawnEffect("impact_spark_block", weapon.transform.position);
+        //Managers.PrefabManager.SpawnEffect("impact_spark_block", weapon.transform.position);
 
         weapon.Area.enabled = true;
         yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length + 1); // 공격 활성화 
@@ -378,14 +392,15 @@ public class PlayerController : UnitController
 
         move.SetTransMove(Vector3.forward, 6, 0.4f);
 
-        //anim.Play("DASH");
+        //어기서 새로이 대시 공격 판정이 들어가야함 
+
         for (int i = 0; i < anims.Length;i++)
         {
             anims[i].Play("DASH");
         }
 
         DashAtkInput = false;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         if (DashAtkInput)
         {
             Act.Execution((int)ECharacterAct.DashAttack);
@@ -452,15 +467,11 @@ public class PlayerController : UnitController
     }
     void Dead()
     {//캐릭터 조작 입력 + 재생중인 사운드 + 캐릭터 물리 + 실행중인 애니메이션 끄고 사망 결과창 출력
-
-        input.MouseAction = null;
-        input.KeyAction = null;
-        input = null;
-
-        move.SetMove();
-
-        StepSound1.GetComponent<AudioSource>().Stop();
+        Hud.OnCharacterAction -= OnCharacterBtnEvent;
+        Hud.OnCharacterEnd -= OnCharacterBtnEndEvent;
         
+        move.SetMove();        
+
         Stat.OnUnitDead -= Dead;
 
         StartCoroutine(CharacterDestroy());     

@@ -24,10 +24,9 @@ public class EnemyAttackBox : MonoBehaviour
                 float finaldamage = onwerStat.damage;
                 if (damageable.TakeDamage(finaldamage))
                 {
-                    Managers.PrefabManager.SpawnEffect("Hit_01", transform, transform.localPosition - Vector3.up);
-                    Debug.Log(transform.localPosition+ Area.bounds.center);
+                    Debug.Log(transform.localPosition + Area.bounds.center);
+                    //Managers.PrefabManager.SpawnEffect("Hit_01", transform, transform.localPosition - Vector3.up);
                     //Managers.PrefabManager.SpawnEffect("Hit_01", other.bounds.ClosestPoint(Area.bounds.center));
-       
                     //Managers.PrefabManager.SpawnEffect("Hit_01", other.bounds.ClosestPoint(transform.position));
                 }
             }

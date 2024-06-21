@@ -11,10 +11,10 @@ public class GameScene1TEST : BaseScene
 
     void Start()
     {
-        if (string.IsNullOrEmpty(NextSceneName))
-            Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_BossMapBGM"), 1f);
-        else
-            Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_DefaultMapBGM"), 1f);
+       // if (string.IsNullOrEmpty(NextSceneName))
+            //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_BossMapBGM"), 1f);
+       // else
+            //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_DefaultMapBGM"), 1f);
 
 
 

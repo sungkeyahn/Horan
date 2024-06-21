@@ -31,11 +31,11 @@ public class GameResultUI : PopupUI
         SetResultText(isWin);
         SetInfoText(Managers.ContentsManager.killcount, Managers.ContentsManager.dropgold, Managers.ContentsManager.AcquiredItems.Count);
 
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_GameWin"), 1f);
+        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_GameWin"), 1f);
     }
     public void OnBtnClicked_CloseBtn(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         Managers.UIManager.ClosePopupUI(this);
         Managers.ContentsManager.Resume();
         Managers.MySceneManager.LoadScene("Lobby");

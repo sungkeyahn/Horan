@@ -14,10 +14,8 @@ public struct EffectInfo
     public Vector3 startPos;
     public float startDelay;
 }
-public enum EEffectType { Onece,Traill}
 public class EffectComponent : MonoBehaviour
 {
-    //EffectInfo EffectInfo;
     public string EffectName;
     public Vector3 Position;
     public Vector3 Rotation;
@@ -30,12 +28,7 @@ public class EffectComponent : MonoBehaviour
 
     public bool isProjectiles;
 
-
     bool isSpawned =false;
-    private void Start()
-    {
-        //EffectInfo = new EffectInfo(EffectName, Position);
-    }
     private void Update()
     {
         if (Anim != null)
@@ -47,7 +40,7 @@ public class EffectComponent : MonoBehaviour
                 if (isSpawned &&  normalizedTime  <= SpawnTime)
                     isSpawned = false;
 
-                if (normalizedTime != 0 && normalizedTime < 1f && SpawnTime < normalizedTime) //코루틴 시작
+                if (normalizedTime != 0 && normalizedTime < 1f && SpawnTime < normalizedTime) 
                 {
                     if (!isSpawned)
                         SpawnEffect(EffectName); //StartCoroutine(EffectSpawn());
@@ -61,7 +54,6 @@ public class EffectComponent : MonoBehaviour
         GameObject prefab = null;
         if (Managers.DataLoder.DataCache_Effect.TryGetValue(key, out prefab))
         {
-
             GameObject gameObject;
             if (isProjectiles)
             {
@@ -75,9 +67,6 @@ public class EffectComponent : MonoBehaviour
                 gameObject.transform.localPosition = Position;
                 gameObject.transform.localRotation = Quaternion.Euler(Rotation);
             }
-
-
-            
             Destroy(gameObject, DeleteTime);
             return gameObject;
         }

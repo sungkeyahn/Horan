@@ -47,7 +47,7 @@ public class ShopItemSlotUI : BaseUI
         if (Managers.ContentsManager.ConsumeGold(price))
         {
             Managers.ContentsManager.AddItem(itemID);
-            Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Buy"), 1f);
+            //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Buy"), 1f);
         }
         GetComponentInParent<ShopUI>().SetGold();
         GetComponentInParent<ShopUI>().TabClick(GetComponentInParent<ShopUI>().inventype);
@@ -57,7 +57,7 @@ public class ShopItemSlotUI : BaseUI
         if (Managers.ContentsManager.RemoveItem(itemID))
         {
             Managers.ContentsManager.AcquireGold(price); 
-            Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Sell"), 1f);
+            //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Sell"), 1f);
         }
         GetComponentInParent<ShopUI>().SetGold();
         GetComponentInParent<ShopUI>().TabClick(GetComponentInParent<ShopUI>().inventype);

@@ -123,16 +123,20 @@ public class HUDUI : SceneUI
         if (Managers.DataLoder.DataCache_Sprite.ContainsKey(data.iconpath))
             ob.GetComponent<AbilityIconSlotUI>().Init(Managers.DataLoder.DataCache_Sprite[data.iconpath]);
     }
-
     void UpdateQusetInfo()
     {
         if (GetObject((int)Components.Text_QuestResult))
-            GetObject((int)Components.Text_QuestResult).GetComponent<TMP_Text>().text = "남은 적 사살 하기 : " + Managers.ContentsManager.MonsterCounts.ToString();
+        {
+            if (Managers.ContentsManager.MonsterCounts <= 0)
+                GetObject((int)Components.Text_QuestResult).GetComponent<TMP_Text>().text = "다음 장소로 이동 ";
+            else
+                GetObject((int)Components.Text_QuestResult).GetComponent<TMP_Text>().text = "남은 적 사살 하기 : " + Managers.ContentsManager.MonsterCounts.ToString();
+        }
     }
 
     public void OnBtnClicked_Pause(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+      //  Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
     }
 
     //플레이어 조작  클릭 시리즈는 각 버튼에 알맞는 이벤트를 뿌려주고 해당 버튼이미지처리 만 해주기
@@ -154,23 +158,28 @@ public class HUDUI : SceneUI
             this.input = (localVector - MovePadCenterPos).normalized;
             Debug.Log(localVector - MovePadCenterPos);
         }
+        if (OnCharacterAction!=null)
         OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Move);
     }
     public void OnBtnClicked_Dash(PointerEventData data)
     {
-        OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Dash);
+        if (OnCharacterAction != null)
+            OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Dash);
     }
     public void OnBtnClicked_Guard(PointerEventData data)
     {
-        OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Guard);
+        if (OnCharacterAction != null)
+            OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Guard);
     }
     public void OnBtnClicked_FAttack(PointerEventData data)
     {
-        OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.FAttack);
+        if (OnCharacterAction != null)
+            OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.FAttack);
     }
     public void OnBtnClicked_SAttack(PointerEventData data)
     {
-        OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.SAttack);
+        if (OnCharacterAction != null)
+            OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.SAttack);
     }
 
 }

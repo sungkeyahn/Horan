@@ -132,7 +132,8 @@ namespace Data
         public int id;
         public float[] socketpos;
         public float[] socketrot;
-        public List<AnimInfomation> animinfo;
+        public List<AnimInfomation> fatkaniminfo;
+        public List<AnimInfomation> satkaniminfo;
     }
     [Serializable]
     public struct AnimInfomation

@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PlayerStat : Stat, IDamageInteraction
 {
-
     public bool isDamageable=false;
     public bool isRegenable=false;
 
@@ -113,6 +112,9 @@ public class PlayerStat : Stat, IDamageInteraction
         }
     }
 
+    public enum ECharacterAtkType {FAtk,SAtk,DashAtk,CounterAtk}
+    public ECharacterAtkType atkType;
+
     void Start() 
     {
         isRegenable = true;
@@ -141,7 +143,6 @@ public class PlayerStat : Stat, IDamageInteraction
         if (hp != -1) Hp = hp;
         else Hp = MaxHp;
     }
-
     public bool TakeDamage(float damage)
     {
         if (0 < Hp)
@@ -158,7 +159,6 @@ public class PlayerStat : Stat, IDamageInteraction
         }
         return false;
     }
-
     public bool UseSP(float usedSP)
     {
         if (usedSP < Sp)
@@ -170,7 +170,6 @@ public class PlayerStat : Stat, IDamageInteraction
         }
         return false;
     }
-
     void Update()
     {
         if (isRegenable)

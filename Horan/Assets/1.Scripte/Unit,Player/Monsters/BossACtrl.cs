@@ -197,8 +197,8 @@ public class BossACtrl : MonsterController
         Anim.Play(info.animName);
         yield return new WaitForSeconds(info.animDelay);
 
-        if (!string.IsNullOrEmpty(info.effectInfo.effectName))
-            StartCoroutine(SpwanEffect(info.effectInfo));
+        //if (!string.IsNullOrEmpty(info.effectInfo.effectName))
+           // StartCoroutine(SpwanEffect(info.effectInfo));
         
         Nav.speed = info.moveSpeed;
         float jump = 0;

@@ -58,37 +58,37 @@ public class InventoryUI : PopupUI
 
     public void OnBtnClicked_ClosePopup(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         ClosePopupUI();
         Managers.UIManager.GetSceneUI().gameObject.SetActive(true);
     }
     public void OnBtnClicked_WeaponTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         for (int i = 0; i < itemslots.Count; i++)
             itemslots[i].Init(i, Einventype.Weapon);
     }
     public void OnBtnClicked_CostumeTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         for (int i = 0; i < itemslots.Count; i++)
             itemslots[i].Init(i, Einventype.Costume);
     }
     public void OnBtnClicked_HatTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         for (int i = 0; i < itemslots.Count; i++)
             itemslots[i].Init(i, Einventype.Hat);
     }
     public void OnBtnClicked_AccTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         for (int i = 0; i < itemslots.Count; i++)
             itemslots[i].Init(i, Einventype.Acc);
     }
     public void OnBtnClicked_MatTab(PointerEventData data)
     {
-        Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         for (int i = 0; i < itemslots.Count; i++)
             itemslots[i].Init(i, Einventype.Mat);
     }

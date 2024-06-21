@@ -1366,6 +1366,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6444041301739232997, guid: c88a143d57b752c4187c28b361583032, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8894384332000345022}
+    - targetCorrespondingSourceObject: {fileID: 6444041301739232997, guid: c88a143d57b752c4187c28b361583032, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8894384332000345031}
+    - targetCorrespondingSourceObject: {fileID: 6444041301739232997, guid: c88a143d57b752c4187c28b361583032, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8894384332000345030}
+    - targetCorrespondingSourceObject: {fileID: 6444041301739232997, guid: c88a143d57b752c4187c28b361583032, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8894384332000345029}
   m_SourcePrefab: {fileID: 100100000, guid: c88a143d57b752c4187c28b361583032, type: 3}
 --- !u!1 &8894384332000345018 stripped
 GameObject:
@@ -1435,6 +1444,66 @@ MonoBehaviour:
   AnimName: FATTACK2
   SpawnTime: 0.15
   DeleteTime: 0.5
+  Anim: {fileID: 8894384332000345020}
+  isProjectiles: 0
+--- !u!114 &8894384332000345029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894384332000345018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_sword_trail
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: FATTACK3
+  SpawnTime: 0.05
+  DeleteTime: 0.2
+  Anim: {fileID: 8894384332000345020}
+  isProjectiles: 0
+--- !u!114 &8894384332000345030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894384332000345018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_sword_trail
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: FATTACK2
+  SpawnTime: 0.05
+  DeleteTime: 0.2
+  Anim: {fileID: 8894384332000345020}
+  isProjectiles: 0
+--- !u!114 &8894384332000345031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894384332000345018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_sword_trail
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: FATTACK1
+  SpawnTime: 0.05
+  DeleteTime: 0.2
   Anim: {fileID: 8894384332000345020}
   isProjectiles: 0
 --- !u!1660057539 &9223372036854775807

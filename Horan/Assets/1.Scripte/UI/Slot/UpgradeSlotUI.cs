@@ -27,7 +27,7 @@ public class UpgradeSlotUI : BaseUI
         else
             GetObject((int)Components.Text_NeedQuantity).GetComponent<TMP_Text>().color = Color.red;
 
-        GetObject((int)Components.Text_NeedQuantity).GetComponent<TMP_Text>().text = Managers.DataLoder.DataCache_Save.Inventory.values[i].ToString() + "/" + 1.ToString();
+        GetObject((int)Components.Text_NeedQuantity).GetComponent<TMP_Text>().text = Managers.DataLoder.DataCache_Save.Inventory.values[i].ToString() + "/" + needQuantity.ToString();
     }
 
 }

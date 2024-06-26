@@ -83,15 +83,18 @@ public class ItemSlotUI : BaseUI
     {
         if (itemdata == null) return;
         int i = Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(itemdata.id)); //수량 
-        if (0 < Managers.DataLoder.DataCache_Save.Inventory.values[i])
+        if (Managers.DataLoder.DataCache_Save.Inventory.values.Contains(i))
         {
-            UpgradeUI upgrade = GetComponentInParent<UpgradeUI>();
-            if (upgrade) 
-                upgrade.SelectItem(itemdata.id);
-            else
+            if (0 < Managers.DataLoder.DataCache_Save.Inventory.values[i])
             {
-                EquipBtnObject.SetActive(true);
-                CloseBtnObject.SetActive(true);
+                UpgradeUI upgrade = GetComponentInParent<UpgradeUI>();
+                if (upgrade) 
+                    upgrade.SelectItem(itemdata.id);
+                else
+                {
+                    EquipBtnObject.SetActive(true);
+                    CloseBtnObject.SetActive(true);
+                }
             }
         }
     }
@@ -138,11 +141,14 @@ public class ItemSlotUI : BaseUI
     {
         if (itemdata == null) return;
         int i = Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(itemdata.id)); //수량 
-        int count = Managers.DataLoder.DataCache_Save.Inventory.values[i];
-        GetObject((int)Components.Text_ItemCount).GetComponent<TMPro.TMP_Text>().text = count.ToString();
-        if (0 < count)
-            gameObject.GetComponent<Image>().color = a;
-        else
-            gameObject.GetComponent<Image>().color = b;
+        if (Managers.DataLoder.DataCache_Save.Inventory.values.Contains(i))
+        {
+            int count = Managers.DataLoder.DataCache_Save.Inventory.values[i];
+            GetObject((int)Components.Text_ItemCount).GetComponent<TMPro.TMP_Text>().text = count.ToString();
+            if (0 < count)
+                gameObject.GetComponent<Image>().color = a;
+            else
+                gameObject.GetComponent<Image>().color = b;
+        }
     }
 }

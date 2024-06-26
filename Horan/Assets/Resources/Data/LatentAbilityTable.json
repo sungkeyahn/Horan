@@ -4,7 +4,7 @@
       "id": 0,
       "abilityname": "혈로",
       "abilityinfo": "최대 체력이 10 증가합니다.",
-      "iconpath": null,
+      "iconpath": "icon_ability_absorb",
       "type": 1,
       "value": 10
     },
@@ -12,7 +12,7 @@
       "id": 1,
       "abilityname": "비급",
       "abilityinfo": "최대 기력이 25 증가합니다.",
-      "iconpath": null,
+      "iconpath": "icon_ability_absorb",
       "type": 2,
       "value": 25
     },
@@ -20,7 +20,7 @@
       "id": 2,
       "abilityname": "참격",
       "abilityinfo": "공격력이 10 증가합니다.",
-      "iconpath": null,
+      "iconpath": "icon_ability_absorb",
       "type": 3,
       "value": 10
     },
@@ -28,7 +28,7 @@
       "id": 3,
       "abilityname": "불굴",
       "abilityinfo": "체력이 천천히 회복됩니다.",
-      "iconpath": null,
+      "iconpath": "icon_ability_absorb",
       "type": 4,
       "value": 10
     }

@@ -32,22 +32,22 @@ public class StatSlotUI : BaseUI
         {
             case InventoryUI.EStatSlotInfo.Atk:
                 statname = "공격력";
-                //sprite = Managers.DataLoder.DataCache_Sprite["icon_statslot_attack"];
+                sprite = Managers.DataLoder.DataCache_Sprite["icon_stat_offensive_power"];
                 val = stat.Attack;
                 break;
             case InventoryUI.EStatSlotInfo.Hp:
                 statname = "체력";
-                //sprite = Managers.DataLoder.DataCache_Sprite["icon_statslot_hp"];
+                sprite = Managers.DataLoder.DataCache_Sprite["icon_stat_health"];
                 val = stat.MaxHp;
                 break;
             case InventoryUI.EStatSlotInfo.Sp:
                 statname = "기력";
-                //sprite = Managers.DataLoder.DataCache_Sprite["icon_statslot_sp"];
+                sprite = Managers.DataLoder.DataCache_Sprite["icon_stat_energy"];
                 val = stat.MaxSp;
                 break;
             case InventoryUI.EStatSlotInfo.RegenHp:
                 statname = "체력 재생";
-                //sprite = Managers.DataLoder.DataCache_Sprite["Icon_StatSlot_RegenHp"];
+                sprite = Managers.DataLoder.DataCache_Sprite["icon_stat_defense"];
                 val = stat.HpRegenAmount;
                 break;
         }

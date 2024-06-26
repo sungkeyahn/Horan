@@ -39,6 +39,7 @@ public class UpgradeUI : PopupUI
             itemslots.Add(ob.GetComponent<ItemSlotUI>());
             ob.GetComponent<ItemSlotUI>().Init(i, Einventype.Weapon);
         }
+        SetGold();
         isInit = true;
     }
     public void OnBtnClicked_ClosePopup(PointerEventData data)

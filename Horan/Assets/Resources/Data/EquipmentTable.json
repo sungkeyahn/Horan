@@ -809,6 +809,24 @@
           "value": 10
         }
       ]
+    },
+    {
+      "id": 1306,
+      "name": "Accessory_F",
+      "meshpath": "Mesh/weapon_sword",
+      "materialpath": "Material/weapon_01",
+      "equipmentprefabpath": "Equipment/Accessory5",
+      "type": 4,
+      "abilitys": [
+        {
+          "type": 3,
+          "value": 10
+        },
+        {
+          "type": 4,
+          "value": 10
+        }
+      ]
     }
   ]
 }

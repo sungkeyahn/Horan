@@ -187,15 +187,14 @@ public class BowEnemyCtrl : MonsterController
             Anim.Play("ATTACK");
         
         yield return new WaitForSeconds(AtkInfo_Default.animDelay);
-        //MoveArrowEffect();
         yield return new WaitForSeconds(AtkInfo_Default.damageTime);
         CheckAttackRange(AtkInfo_Default.atkRange, AtkInfo_Default.atkAngle);
 
-        yield return new WaitForSeconds(0.5f);
-        
-        Anim.Play("WAIT");
-        StopUnit(waitsecond);
         yield return new WaitForSeconds(waitsecond);
+       
+        Anim.Play("WAIT");
+        //StopUnit(waitsecond);
+        //yield return new WaitForSeconds(waitsecond);
         
         isAtk = false;
     }

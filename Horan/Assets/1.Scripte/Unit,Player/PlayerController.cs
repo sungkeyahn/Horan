@@ -372,8 +372,7 @@ public class PlayerController : UnitController
         //Managers.PrefabManager.SpawnEffect("impact_spark_block", weapon.transform.position);
 
         weapon.Area.enabled = true;
-        yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length + 1); // 공격 활성화 
-        
+        yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length + 0.5f); // 공격 활성화 
         weapon.Area.enabled = false;
         Stat.isDamageable = true;
         isGuard = false;
@@ -394,9 +393,7 @@ public class PlayerController : UnitController
     {
         DashCount -= 1;
         Stat.isDamageable = false;
-
-        DashAtkInput = false;
-        yield return new WaitForSeconds(0.2f);
+        // yield return new WaitForSeconds(0.2f);
         if (DashAtkInput)
         {
             Act.Execution((int)ECharacterAct.DashAttack);
@@ -438,6 +435,7 @@ public class PlayerController : UnitController
         weapon.Area.enabled = false;
 
         yield return new WaitForSeconds(0.7f);//애니메이션 종료
+        DashAtkInput = false;
         Act.Finish((int)ECharacterAct.DashAttack);
     }
     #endregion

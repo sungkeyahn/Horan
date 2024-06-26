@@ -5,13 +5,6 @@ using UnityEngine;
 
 public class ContentsManager 
 {
-    /*  매니저 기능
-     * 1. 몬스터 사망시 채력 + 아이템 + 재화 + 경험치 드랍 시스템 
-     * 2. 캐릭터 레벨 업 시 잠재능력 선택 UI 띄우기 + 게임 퍼즈
-     * 3. 각 잠재능력 UI에서 선택한 능력을 적용 
-     * 4. 적용된 잠재능력은 컨텐츠매니저에서 정보 저장
-     * 5. 맵 이동(웨이브 시작)시 장비+잠재+스텟 능력치 전달
-     */
     public Action OnStageClear;
     public Action OnWaveClear;
     public Action OnWaveStart;
@@ -61,13 +54,6 @@ public class ContentsManager
     }
     void Clear(bool isWin)
     {
-        level = 1;
-        exp = -1;
-        hp = -1;
-
-        AcquiredItems.Clear();
-        AbilityContainer.ClearAbilities();
-
         Pause();
 
         Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI").Init(isWin);
@@ -81,6 +67,14 @@ public class ContentsManager
             }
         }
 
+        level = 1;
+        exp = -1;
+        hp = -1;
+        dropgold = 0;
+        killcount = 0;
+
+        AcquiredItems.Clear();
+        AbilityContainer.ClearAbilities();
     }
 
     void TryDrop(string monsterid) 

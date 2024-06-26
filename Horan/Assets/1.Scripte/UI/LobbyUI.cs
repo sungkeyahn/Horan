@@ -52,10 +52,7 @@ public class LobbyUI : SceneUI
     public void OnBtnClicked_Setting(PointerEventData data)
     {
         Debug.Log("Setting");
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-
-        //Managers.UIManager.ShowPopupUI<SettingUI>("SettingUI");
-        //Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
+        Application.Quit();
     }
 
 

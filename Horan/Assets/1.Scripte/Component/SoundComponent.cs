@@ -10,23 +10,26 @@ public class SoundComponent : MonoBehaviour
     public Animator Anim;
     public string AnimName;
 
-    bool IsLoop;
+    bool isLoop;
+    bool isPlaying;
     private void Start()
     {
         Prefab = InstanceSoundObejct(SoundName);
-        IsLoop = Prefab.GetComponent<AudioSource>().loop;
-        if (IsLoop)
+        isLoop = Prefab.GetComponent<AudioSource>().loop;
+        if (isLoop)
             PlaySound(0.4f);
     }
     private void Update()
     {
-        if (Anim != null && !IsLoop)
+        if (Anim != null && !isLoop)
         {
             if (Anim.GetCurrentAnimatorStateInfo(0).IsName(AnimName))
             {
+                if (!isPlaying)
+                    PlaySound();
                 var normalizedTime = Anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
-                    if (normalizedTime != 0 && normalizedTime < 1f)
-                        PlaySound();
+                if (normalizedTime != 0 && normalizedTime < 1f) isPlaying = true;
+                else isPlaying = false;
             }
         }
     }

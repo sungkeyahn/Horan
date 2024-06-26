@@ -46,34 +46,41 @@ public class ContentsManager
         stat.OnStatChanged -= LevelUP;
         stat.OnStatChanged += LevelUP;
     }
-    public void Clear(string NextSceneName)
+    public void Clear(string NextSceneName,bool isWin=true)
     {
-        if (string.IsNullOrEmpty(NextSceneName))  Clear();
+        MonsterCounts = 0;
+        if (string.IsNullOrEmpty(NextSceneName))  Clear(isWin);
         else
         {
             Managers.ContentsManager.AbilityContainer.OnAbilityUpdate = null;
+            level = stat.Level;
+            exp = stat.Exp;
+            hp = stat.Hp;
             Managers.MySceneManager.LoadScene(NextSceneName);
         }
     }
-    void Clear() 
+    void Clear(bool isWin)
     {
-        Pause();
-
-        Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI").Init(true);
-
-        //세이브 파일에 데이터 추가 
-        Managers.DataLoder.DataCache_Save.User.gold += dropgold;
-
-        foreach (int i in AcquiredItems.Keys) //얻은 아이템 키 받아서 세이브 데이터에 벨류 증가
-        {
-            Managers.DataLoder.DataCache_Save.Inventory.values[Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(i))] += AcquiredItems[i];
-        }
-
-        AcquiredItems.Clear();
-        AbilityContainer.ClearAbilities();
         level = 1;
         exp = -1;
         hp = -1;
+
+        AcquiredItems.Clear();
+        AbilityContainer.ClearAbilities();
+
+        Pause();
+
+        Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI").Init(isWin);
+        //if (isWin) //세이브 파일에 데이터 추가 
+        {
+            Managers.DataLoder.DataCache_Save.User.gold += dropgold;
+
+            foreach (int i in AcquiredItems.Keys) //얻은 아이템 키 받아서 세이브 데이터에 벨류 증가
+            {
+                Managers.DataLoder.DataCache_Save.Inventory.values[Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(i))] += AcquiredItems[i];
+            }
+        }
+
     }
 
     void TryDrop(string monsterid) 

@@ -33,13 +33,13 @@ public class BossBCtrl : MonsterController
         Stat.OnUnitDead += Dead;
 
         #region ATTACKInfo
-        AtkInfo_Default1 = new AIAttackInfo("ATTACK_DEFAULT1", 0, 0.25f, 4, 60, 0, 0, 0, false,Effect_NONE);
-        AtkInfo_Default2 = new AIAttackInfo("ATTACK_DEFAULT2", 0, 0.25f, 4, 60,  0, 0, 0, false, Effect_NONE);
+        AtkInfo_Default1 = new AIAttackInfo("ATTACK_DEFAULT1", 0, 0.2f, 4, 60, 0, 0, 0, false,Effect_NONE);
+        AtkInfo_Default2 = new AIAttackInfo("ATTACK_DEFAULT2", 0, 0.2f, 4, 60,  0, 0, 0, false, Effect_NONE);
         AtkInfo_Default3 = new AIAttackInfo("ATTACK_DEFAULT3", 0, 0.25f, 4, 60, 0, 0, 0.5f, false, Effect_NONE);
 
-        AtkInfo_Dash1 = new AIAttackInfo("ATTACK_DASH1", 0.55f, 0.25f, 10, 45,  2, 5, 0.75f, false, Effect_NONE);
-        AtkInfo_Dash2 = new AIAttackInfo("ATTACK_DASH2", 0.55f, 0.25f, 10, 45, 2, 5, 0.75f, false, Effect_NONE);
-        AtkInfo_Jump = new AIAttackInfo("ATTACK_JUMP", 0.15f, 0.75f, 7, 180,  2.5f, 2, 1, true, Effect_NONE);
+        AtkInfo_Dash1 = new AIAttackInfo("ATTACK_DASH1", 0.25f, 0.25f, 7, 45, 0.3f, 5, 0.3f, false, Effect_NONE);
+        AtkInfo_Dash2 = new AIAttackInfo("ATTACK_DASH2", 0.2f, 0.25f, 7, 45, 0.3f, 5, 0.3f, false, Effect_NONE);
+        AtkInfo_Jump = new AIAttackInfo("ATTACK_JUMP", 0.5f, 0.75f, 7, 180, 0.25f, 4, 0.6f, true, Effect_NONE);
         #endregion
 
         #region Pattern
@@ -203,9 +203,10 @@ public class BossBCtrl : MonsterController
 
         yield return new WaitForSeconds(info.damageTime);
         CheckAttackRange(info.atkRange, info.atkAngle);
-        yield return new WaitForSeconds(info.waitSecond);
 
-        StopUnit(.5f);
+        StopUnit(info.waitSecond);
+        yield return new WaitForSeconds(info.waitSecond);
+        //StopUnit(0.5f);
         Attacking = false;
     }
     IEnumerator AttackMove(Vector3 targetPosition, float moveDuration, float jumpHeight = 0)

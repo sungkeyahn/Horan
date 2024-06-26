@@ -15,9 +15,6 @@ public class GameScene1TEST : BaseScene
             //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_BossMapBGM"), 1f);
        // else
             //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_DefaultMapBGM"), 1f);
-
-
-
         //플레이어+몬스터 생성 코드 필요
         player = FindObjectOfType<PlayerController>().gameObject;
         Camera.main.GetComponent<CameraComponent>().SetPlayer(player);
@@ -34,14 +31,12 @@ public class GameScene1TEST : BaseScene
     protected virtual void ClearScene() 
     {
         isClear = true;
-        PlayerStat stat = player.GetComponent<PlayerStat>();
-        Managers.ContentsManager.level = stat.Level;
-        Managers.ContentsManager.exp = stat.Exp;
-        Managers.ContentsManager.hp = stat.Hp;
-
         Managers.ContentsManager.OnWaveClear -= ClearScene;
     }
-
+    /*        PlayerStat stat = player.GetComponent<PlayerStat>();
+        Managers.ContentsManager.level = stat.Level;
+        Managers.ContentsManager.exp = stat.Exp;
+        Managers.ContentsManager.hp = stat.Hp;*/
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && isClear)

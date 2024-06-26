@@ -37,10 +37,10 @@ public class PlayerController : UnitController
         #region Input
         //input.MouseAction -= OnPlayerMouseEvent;
         //input.KeyAction -= OnPlayerKeyBoardEvent;
-        //input.MouseAction += OnPlayerMouseEvent;
+       // input.MouseAction += OnPlayerMouseEvent;
         //input.KeyAction += OnPlayerKeyBoardEvent;
         //input.TouchAction -= OnPlayerTouchEvent;
-        //input.TouchAction += OnPlayerTouchEvent;
+       // input.TouchAction += OnPlayerTouchEvent;
 
         #endregion
         #region Stat
@@ -48,13 +48,6 @@ public class PlayerController : UnitController
         Stat.OnHit += OnCharacterHit;
         Stat.OnUnitTakeDamaged += OnCharacterTakeDamaged;
         Stat.OnUnitDead += Dead;
-        #endregion
-        #region Effect + Sound
-        //StepSound1 = Managers.PrefabManager.PrefabInstance("Sound_Step1", transform);
-        //StepSound2 = Managers.PrefabManager.PrefabInstance("Sound_Step2", transform);
-        //SwingSound1 = Managers.PrefabManager.PrefabInstance("Sound_Swing1", transform);
-        //SwingSound2 = Managers.PrefabManager.PrefabInstance("Sound_Swing2", transform);
-        //impact_spark_block
         #endregion
         #region Acts 
         Act attack = new Act((int)ECharacterAct.FAttack, Attack);
@@ -73,6 +66,7 @@ public class PlayerController : UnitController
 
         Act guard = new Act((int)ECharacterAct.Guard, Guard);
         guard.AddAllowActID((int)ECharacterAct.FAttack);
+        guard.AddAllowActID((int)ECharacterAct.SAttack);
         guard.AddAllowActID((int)ECharacterAct.Counter);
 
         Act dash = new Act((int)ECharacterAct.Dash, Dash);
@@ -168,11 +162,11 @@ public class PlayerController : UnitController
                     Act.Execution((int)ECharacterAct.Dash);
                 break;
             case InputComponent.KeyBoardEvent.ButtonUp:
-                if (isGuard && !Input.GetKeyDown(KeyCode.E))
-                {
-                    isGuard = false;
-                    Act.Finish((int)ECharacterAct.Guard);
-                }
+                //if (isGuard && !Input.GetKeyDown(KeyCode.E))
+               // {
+                    //isGuard = false;
+                   // Act.Finish((int)ECharacterAct.Guard);
+                //}
                 break;
             default:
                 break;
@@ -289,16 +283,13 @@ public class PlayerController : UnitController
     {
         atkCount += 1;
 
+        AttackRotationCorrection();
 
         for (int i = 0; i < anims.Length; i++)
         {
             anims[i].Play(animinfo.name, -1, 0);
         }
-        //if (UnityEngine.Random.Range(0, 2) == 0)
-            //Managers.PrefabManager.PlaySound(SwingSound1);
-        //else 
-                    //Managers.PrefabManager.PlaySound(SwingSound2);
-        
+
         atkAble = false;
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
         weapon.Area.enabled = true;
@@ -316,6 +307,19 @@ public class PlayerController : UnitController
         }
         yield return null;
 
+    }
+    void AttackRotationCorrection()
+    {
+        TargetSerchComponent box = GetComponentInChildren<TargetSerchComponent>();
+        if (box)
+        {
+            box.SelectMainTarget();
+            if (box.mainTarget)
+            {
+                Vector3 dir = new Vector3(box.mainTarget.transform.position.x - transform.position.x, 0, box.mainTarget.transform.position.z - transform.position.z);
+                move.SetMove(dir, dir, 0);
+            }
+        }
     }
     #endregion
     #region Guard
@@ -354,6 +358,8 @@ public class PlayerController : UnitController
     }
     void Counter()
     {
+        Stat.atkType = PlayerStat.ECharacterAtkType.CounterAtk;
+
         StartCoroutine("COUNTER");
     }
     IEnumerator COUNTER()
@@ -387,28 +393,25 @@ public class PlayerController : UnitController
     IEnumerator DASH()
     {
         DashCount -= 1;
-
         Stat.isDamageable = false;
 
-        move.SetTransMove(Vector3.forward, 6, 0.4f);
-
-        //어기서 새로이 대시 공격 판정이 들어가야함 
-
-        for (int i = 0; i < anims.Length;i++)
-        {
-            anims[i].Play("DASH");
-        }
-
         DashAtkInput = false;
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.2f);
         if (DashAtkInput)
         {
             Act.Execution((int)ECharacterAct.DashAttack);
-            yield return null;
+            move.SetTransMove(Vector3.forward, 10, 0.4f);
+        }
+        else
+        {
+            for (int i = 0; i < anims.Length; i++)
+            {
+                anims[i].Play("DASH");
+            }
+            move.SetTransMove(Vector3.forward, 6, 0.4f);
         }
 
-
-        yield return new WaitForSeconds(0.2f); //대쉬 시간
+        yield return new WaitForSeconds(0.55f); //대쉬 시간
         Stat.isDamageable = true;
         Act.Finish((int)ECharacterAct.Dash);
 
@@ -418,6 +421,8 @@ public class PlayerController : UnitController
     bool DashAtkInput;
     void DashAttack()
     {
+        Stat.atkType = PlayerStat.ECharacterAtkType.DashAtk;
+
         StartCoroutine("DASHATTACK");
     }
     IEnumerator DASHATTACK()
@@ -427,6 +432,7 @@ public class PlayerController : UnitController
         {
             anims[i].Play("DASHATTACK");
         }
+
         weapon.Area.enabled = true;
         yield return new WaitForSeconds(0.3f); // 공격 활성화 
         weapon.Area.enabled = false;
@@ -481,8 +487,7 @@ public class PlayerController : UnitController
         for (int i = 0; i < anims.Length; i++)
             anims[i].Play("DEAD");
         yield return new WaitForSeconds(2.0f);
-        Managers.ContentsManager.Pause();
-        Managers.UIManager.ShowPopupUI<GameResultUI>("GameResultUI").Init(false);
+        Managers.ContentsManager.Clear("",false);
        
     }
 

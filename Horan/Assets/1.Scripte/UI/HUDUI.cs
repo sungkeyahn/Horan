@@ -14,13 +14,18 @@ public class HUDUI : SceneUI
 {
     bool isinit=false;
     enum Components 
-    { Text_Level, Slider_ExpBar, Slider_HpBar, Slider_SpBar, Button_Dash, Button_Atk1, Button_Atk2, Button_Atk3, Button_Defens, Button_Pause, Button_Move, Panel_AbilityICons , Text_QuestResult }
+    { Text_Level, Slider_ExpBar, Slider_HpBar, Slider_SpBar, Button_Dash, Button_Atk1, Button_Atk2, Button_Atk3, Button_Defens, Button_Pause, Button_Move, Panel_AbilityICons , Text_QuestResult , Image_MovePad }
 
     public Action<EPlayerCharacterCtrlEvent> OnCharacterAction;
     public Action<EPlayerCharacterCtrlEvent> OnCharacterEnd;
 
     PlayerController ctrl;
     PlayerStat stat;
+
+    public Vector3 input;
+    RectTransform MovePad;
+    RectTransform MoveIever;
+    Vector2 MovePadCenterPos;
     public override void Init()
     {
         if (isinit) return;
@@ -28,7 +33,7 @@ public class HUDUI : SceneUI
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_Pause), OnBtnClicked_Pause, UIEvent.Click);
 
-        BindEvent(GetObject((int)Components.Button_Move), OnBtnClicked_Move, UIEvent.Click);
+        //BindEvent(GetObject((int)Components.Button_Move), OnBtnClicked_Move, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Move), OnBtnPointUp_Move, UIEvent.PointUp);
 
         BindEvent(GetObject((int)Components.Button_Move), OnBtnDraged_Move, UIEvent.Drag); //이동 패드 드래그 
@@ -40,9 +45,11 @@ public class HUDUI : SceneUI
         BindEvent(GetObject((int)Components.Button_Atk2), OnBtnClicked_SAttack, UIEvent.Click);
 
         MovePad = GetObject((int)Components.Button_Move).GetComponent<RectTransform>();
+        MoveIever = GetObject((int)Components.Image_MovePad).GetComponent<RectTransform>();
         MovePadCenterPos = new Vector2(MovePad.anchoredPosition.x/2+ MovePad.rect.width / 2, MovePad.anchoredPosition.y/2 + MovePad.rect.height / 2);
-        Debug.Log(MovePad.anchoredPosition);
-        Debug.Log(MovePadCenterPos);
+
+
+
 
         isinit = true;
     }
@@ -139,28 +146,28 @@ public class HUDUI : SceneUI
       //  Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
     }
 
-    //플레이어 조작  클릭 시리즈는 각 버튼에 알맞는 이벤트를 뿌려주고 해당 버튼이미지처리 만 해주기
-    public void OnBtnClicked_Move(PointerEventData data)
-    {
-    }
-    public void OnBtnPointUp_Move(PointerEventData data)
-    {
-        OnCharacterEnd.Invoke(EPlayerCharacterCtrlEvent.Move);
-        this.input = Vector2.zero;
-    }
-    public Vector3 input;
-    Vector2 MovePadCenterPos;
-    RectTransform MovePad;
     public void OnBtnDraged_Move(PointerEventData data)
     {
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(MovePad, data.position, data.pressEventCamera, out Vector2 localVector))
-        {
             this.input = (localVector - MovePadCenterPos).normalized;
-            Debug.Log(localVector - MovePadCenterPos);
-        }
-        if (OnCharacterAction!=null)
-        OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Move);
+        if (OnCharacterAction != null)
+            OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Move);
+
+        var clampedDir = (localVector - MovePadCenterPos).magnitude < 40 ?
+         (localVector - MovePadCenterPos) : (localVector - MovePadCenterPos).normalized * 40;
+        MoveIever.anchoredPosition = clampedDir;
+        //MoveIever.anchoredPosition = (localVector - MovePadCenterPos);
+
     }
+    public void OnBtnPointUp_Move(PointerEventData data)
+    {
+        this.input = Vector2.zero;
+        if (OnCharacterEnd != null)
+            OnCharacterEnd.Invoke(EPlayerCharacterCtrlEvent.Move);
+
+        MoveIever.anchoredPosition = Vector2.zero;
+    }
+
     public void OnBtnClicked_Dash(PointerEventData data)
     {
         if (OnCharacterAction != null)

@@ -33,7 +33,6 @@ public class EffectComponent : MonoBehaviour
     {
         if (Anim != null)
         {
-            Debug.Log(Anim.GetCurrentAnimatorStateInfo(0).IsName(AnimName));
             if (Anim.GetCurrentAnimatorStateInfo(0).IsName(AnimName))
             {
                 var normalizedTime = Anim.GetCurrentAnimatorStateInfo(0).normalizedTime;

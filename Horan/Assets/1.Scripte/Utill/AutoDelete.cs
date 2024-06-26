@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class AutoDelete : MonoBehaviour
 {
+    [SerializeField]
+    float lifetime = 1f;
     private void Start()
     {
         StartCoroutine(DeleteTime());
     }
-    float lifetime = 1f;
     public void SetLifeTime(float time)
     {
         if (0<time)

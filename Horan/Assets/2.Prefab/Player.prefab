@@ -1216,6 +1216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1960917688479177468}
   - component: {fileID: 5935122880188171939}
+  - component: {fileID: 410003426531963684}
   - component: {fileID: 5851436863998269308}
   - component: {fileID: 3031040946525338378}
   - component: {fileID: 4225852342532152040}
@@ -1225,6 +1226,12 @@ GameObject:
   - component: {fileID: 4566082510070906066}
   - component: {fileID: 473636114411626018}
   - component: {fileID: 7733655872235546829}
+  - component: {fileID: 602307980897287407}
+  - component: {fileID: 303778558665340341}
+  - component: {fileID: 6467852838033586619}
+  - component: {fileID: 8033322225919522983}
+  - component: {fileID: 6627221364358657570}
+  - component: {fileID: 1243502487993979307}
   m_Layer: 6
   m_Name: Sound
   m_TagString: Untagged
@@ -1260,6 +1267,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundName: Sound_dash_2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: DASHATTACK
+--- !u!114 &410003426531963684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_Swing_Strong1
   Anim: {fileID: 5214917995946972727}
   AnimName: DASHATTACK
 --- !u!114 &5851436863998269308
@@ -1397,6 +1419,96 @@ MonoBehaviour:
   SoundName: Sound_Swing1
   Anim: {fileID: 5214917995946972727}
   AnimName: FATTACK3
+--- !u!114 &602307980897287407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_glaive_1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GLAIVE_FATTACK1
+--- !u!114 &303778558665340341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_glaive_2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GLAIVE_FATTACK2
+--- !u!114 &6467852838033586619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_glaive_1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GLAIVE_FATTACK3
+--- !u!114 &8033322225919522983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_glaive_2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GLAIVE_SATTACK3
+--- !u!114 &6627221364358657570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_glaive_1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GLAIVE_SATTACK2
+--- !u!114 &1243502487993979307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_walk_2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: MOVE
 --- !u!1 &4684825820446952984
 GameObject:
   m_ObjectHideFlags: 0

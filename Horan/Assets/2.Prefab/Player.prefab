@@ -1674,6 +1674,11 @@ GameObject:
   - component: {fileID: 965024941672403794}
   - component: {fileID: 5972949564326070051}
   - component: {fileID: 6767979591369382329}
+  - component: {fileID: 545483168186970470}
+  - component: {fileID: 5145371075704222138}
+  - component: {fileID: 2096450910759593780}
+  - component: {fileID: 6441073892144948646}
+  - component: {fileID: 6958903318610655675}
   m_Layer: 8
   m_Name: Weapon
   m_TagString: Untagged
@@ -1836,6 +1841,106 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: FATTACK3
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &545483168186970470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_02
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: SATTACK1
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &5145371075704222138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_02
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: SATTACK2
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &2096450910759593780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_02
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: SATTACK3
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &6441073892144948646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_02
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: GLAIVE_SATTACK3
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &6958903318610655675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_02
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: GLAIVE_SATTACK2
   SpawnTime: 0.15
   DeleteTime: 0.5
   Anim: {fileID: 5214917995946972727}

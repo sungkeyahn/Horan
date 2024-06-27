@@ -22,7 +22,7 @@ public class PlayerController : UnitController
     MoveComponent move;
 
     public Weapon weapon;
-    public Equipment[] equipments = new Equipment[4];
+    public Equipment[] equipments = new Equipment[5];
 
     private void Awake()
     {
@@ -451,6 +451,9 @@ public class PlayerController : UnitController
         {
             switch (equipments[i].type)
             {
+                case Data.EEquipmentType.Weapon:
+                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
+                    break;
                 case Data.EEquipmentType.Head:
                     equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.head);
                     break;
@@ -462,7 +465,7 @@ public class PlayerController : UnitController
                     break;
             }
         }
-        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
+        //weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
 
         anims = GetComponentsInChildren<Animator>(); 
     }

@@ -11,6 +11,7 @@ public class Equipment : MonoBehaviour, IEquip
     int ID;
     public Data.EEquipmentType type;
     protected PlayerStat onwerStat;
+    GameObject Ob;
     private void Awake()
     {
         onwerStat = GetComponentInParent<PlayerStat>();
@@ -20,19 +21,18 @@ public class Equipment : MonoBehaviour, IEquip
     {
         if (id == ID) return;
 
-
         if (Managers.DataLoder.DataCache_Equipments.ContainsKey(id))
         {
-            if (0 < transform.childCount)
-                Destroy(transform.GetChild(0).gameObject);
+            //if (0 < transform.childCount) Destroy(transform.GetChild(0).gameObject);
+            if (Ob!=null) Destroy(Ob);
+            
             GameObject prefab = Resources.Load<GameObject>(Managers.DataLoder.DataCache_Equipments[id].equipmentprefabpath);
             if (prefab)
             {
-                Instantiate(prefab, gameObject.transform);
+                Ob = Instantiate(prefab, gameObject.transform);
                 ApplyEquipmentStat(ID,id);
                 ID = id;
             }
-
         }
     }
 

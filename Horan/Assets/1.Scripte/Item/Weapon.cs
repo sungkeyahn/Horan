@@ -7,9 +7,11 @@ public struct ECharacterAtkInfo
 { 
 }
 
-public class Weapon : Equipment
+//이거 MonoBehavior로 바꾸고 Equipment에서 일괄적으로 장비 장착 해야 겟는데?
+public class Weapon : MonoBehaviour
 {
     int weaponid;
+    PlayerStat onwerStat;
     MeshFilter meshFilter;
     MeshRenderer meshRenderer;
     public BoxCollider Area { get; private set; } //공격 범위 콜라이더
@@ -24,6 +26,11 @@ public class Weapon : Equipment
         meshFilter = GetComponent<MeshFilter>();
         meshRenderer = GetComponent<MeshRenderer>();
     }
+    private void Start()
+    {
+        AttachWeapon();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         GameObject hitob = other.gameObject;
@@ -62,6 +69,7 @@ public class Weapon : Equipment
             }
         }
     }
+    /*
     public override void Equip(int id)
     {
         if (id == weaponid) return;
@@ -79,12 +87,28 @@ public class Weapon : Equipment
             ApplyEquipmentStat(weaponid, id);
             AttachSocket();
         }
-    }
-    void AttachSocket()
+    }*/
+
+    public void AttachWeapon()
     {
-        WeaponSocket Socket = FindObjectOfType<WeaponSocket>();
-        transform.parent = Socket.transform;
-        transform.localPosition = new Vector3(Managers.DataLoder.DataCache_Weapon[weaponid].socketpos[0], Managers.DataLoder.DataCache_Weapon[weaponid].socketpos[1], Managers.DataLoder.DataCache_Weapon[weaponid].socketpos[2]);
-        transform.localRotation = Quaternion.Euler(Managers.DataLoder.DataCache_Weapon[weaponid].socketrot[0], Managers.DataLoder.DataCache_Weapon[weaponid].socketrot[1], Managers.DataLoder.DataCache_Weapon[weaponid].socketrot[2]);
+        weaponid = Managers.DataLoder.DataCache_Save.Equip.weapon;
+        if (Managers.DataLoder.DataCache_Weapon.ContainsKey(weaponid))
+        {
+            meshFilter.mesh = Resources.Load<Mesh>(Managers.DataLoder.DataCache_Equipments[weaponid].meshpath);
+            meshRenderer.material = Resources.Load<Material>(Managers.DataLoder.DataCache_Equipments[weaponid].materialpath);
+
+            for (int i = 0; i < Managers.DataLoder.DataCache_Weapon[weaponid].fatkaniminfo.Count; i++)
+                AnimInfo_FATK.Add(Managers.DataLoder.DataCache_Weapon[weaponid].fatkaniminfo[i]);
+            for (int i = 0; i < Managers.DataLoder.DataCache_Weapon[weaponid].satkaniminfo.Count; i++)
+                AnimInfo_SATK.Add(Managers.DataLoder.DataCache_Weapon[weaponid].satkaniminfo[i]);
+
+            WeaponSocket Socket = FindObjectOfType<WeaponSocket>();
+            if (Socket)
+            {
+                transform.parent = Socket.transform;
+                transform.localPosition = new Vector3(Managers.DataLoder.DataCache_Weapon[weaponid].socketpos[0], Managers.DataLoder.DataCache_Weapon[weaponid].socketpos[1], Managers.DataLoder.DataCache_Weapon[weaponid].socketpos[2]);
+                transform.localRotation = Quaternion.Euler(Managers.DataLoder.DataCache_Weapon[weaponid].socketrot[0], Managers.DataLoder.DataCache_Weapon[weaponid].socketrot[1], Managers.DataLoder.DataCache_Weapon[weaponid].socketrot[2]);
+            }
+        }
     }
 }

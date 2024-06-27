@@ -6,6 +6,6 @@ public class WeaponSocket : MonoBehaviour
 {
     void Start()
     {
-  
+        FindObjectOfType<Weapon>().AttachWeapon();
     }
 }

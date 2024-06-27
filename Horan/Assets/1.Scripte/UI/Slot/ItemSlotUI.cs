@@ -82,8 +82,6 @@ public class ItemSlotUI : BaseUI
     {
         if (itemdata == null) return;
         int i = Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(itemdata.id)); //¼ö·® 
-        if (Managers.DataLoder.DataCache_Save.Inventory.values.Contains(i))
-        {
             if (0 < Managers.DataLoder.DataCache_Save.Inventory.values[i])
             {
                 UpgradeUI upgrade = GetComponentInParent<UpgradeUI>();
@@ -95,7 +93,6 @@ public class ItemSlotUI : BaseUI
                     CloseBtnObject.SetActive(true);
                 }
             }
-        }
     }
     public void OnClicked_Equip(PointerEventData data)
     {

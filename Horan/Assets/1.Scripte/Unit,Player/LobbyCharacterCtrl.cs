@@ -7,7 +7,7 @@ public class LobbyCharacterCtrl : MonoBehaviour
     Animator[] anims;
     PlayerStat Stat;
     Weapon weapon;
-    Equipment[] equipments = new Equipment[4];
+    Equipment[] equipments = new Equipment[5];
 
     private void Start()
     {
@@ -19,7 +19,6 @@ public class LobbyCharacterCtrl : MonoBehaviour
         Stat.StatInit(Managers.ContentsManager.level, Managers.ContentsManager.exp, Managers.ContentsManager.hp);
 
         UpdateEquipments();
-
     }
 
     public void UpdateEquipments()
@@ -37,10 +36,13 @@ public class LobbyCharacterCtrl : MonoBehaviour
                 case Data.EEquipmentType.Accessory:
                     equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.accessory);
                     break;
+                case Data.EEquipmentType.Weapon:
+                    equipments[i].Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
+                    break;
             }
         }
-        weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
-
+        //weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
+            
         InventoryUI invenuI = FindObjectOfType<InventoryUI>();
         if (invenuI)
         {

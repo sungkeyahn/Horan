@@ -5,7 +5,7 @@
       "name": "Common_Weapon_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
-      "equipmentprefabpath": "Equipment/Sword1",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -23,7 +23,7 @@
       "name": "Default_Weapon_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
-      "equipmentprefabpath": "Equipment/Sword1",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -41,7 +41,7 @@
       "name": "Rare_Weapon_A",
       "meshpath": "Mesh/weapon_sword",
       "materialpath": "Material/weapon_01",
-      "equipmentprefabpath": "Equipment/Sword1",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -59,7 +59,7 @@
       "name": "Common_Weapon_B",
       "meshpath": "Mesh/weapon_glaive",
       "materialpath": "Material/weapon_02",
-      "equipmentprefabpath": "Equipment/Sword2",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -77,7 +77,7 @@
       "name": "Default_Weapon_B",
       "meshpath": "Mesh/weapon_glaive",
       "materialpath": "Material/weapon_02",
-      "equipmentprefabpath": "Equipment/Sword2",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -95,7 +95,7 @@
       "name": "Rare_Weapon_B",
       "meshpath": "Mesh/weapon_glaive",
       "materialpath": "Material/weapon_02",
-      "equipmentprefabpath": "Equipment/Sword2",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -113,7 +113,7 @@
       "name": "Common_Weapon_C",
       "meshpath": "Mesh/weapon_dadao",
       "materialpath": "Material/weapon_02",
-      "equipmentprefabpath": "Equipment/Sword3",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -131,7 +131,7 @@
       "name": "Default_Weapon_C",
       "meshpath": "Mesh/weapon_dadao",
       "materialpath": "Material/weapon_02",
-      "equipmentprefabpath": "Equipment/Sword3",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -149,7 +149,7 @@
       "name": "Rare_Weapon_C",
       "meshpath": "Mesh/weapon_dadao",
       "materialpath": "Material/weapon_02",
-      "equipmentprefabpath": "Equipment/Sword3",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -167,7 +167,7 @@
       "name": "Common_Weapon_D",
       "meshpath": "Mesh/weapon_saber",
       "materialpath": "Material/weapon_03",
-      "equipmentprefabpath": "Equipment/Sword4",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -185,7 +185,7 @@
       "name": "Default_Weapon_D",
       "meshpath": "Mesh/weapon_saber",
       "materialpath": "Material/weapon_03",
-      "equipmentprefabpath": "Equipment/Sword4",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -203,7 +203,7 @@
       "name": "Rare_Weapon_D",
       "meshpath": "Mesh/weapon_saber",
       "materialpath": "Material/weapon_03",
-      "equipmentprefabpath": "Equipment/Sword4",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -221,7 +221,7 @@
       "name": "Unique_Weapon_A",
       "meshpath": "Mesh/weapon_sword_03",
       "materialpath": "Material/weapon_04",
-      "equipmentprefabpath": "Equipment/Sword4",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -239,7 +239,7 @@
       "name": "Legendary_Weapon_A",
       "meshpath": "Mesh/weapon_sword_02",
       "materialpath": "Material/weapon_04",
-      "equipmentprefabpath": "Equipment/Sword4",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {
@@ -257,7 +257,7 @@
       "name": "Unique_Weapon_B",
       "meshpath": "Mesh/weapon_glaive_02",
       "materialpath": "Material/weapon_04",
-      "equipmentprefabpath": "Equipment/Sword2",
+      "equipmentprefabpath": "Equipment/Weapon",
       "type": 1,
       "abilitys": [
         {

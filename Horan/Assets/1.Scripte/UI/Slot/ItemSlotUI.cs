@@ -69,14 +69,13 @@ public class ItemSlotUI : BaseUI
                 break;
         }
 
-
-        if (Managers.DataLoder.DataCache_Items.ContainsKey(startID + slotindex) && slotindex == Managers.DataLoder.DataCache_Items[startID + slotindex].slotindex)
-            itemdata = Managers.DataLoder.DataCache_Items[startID + slotindex];
-        if (itemdata != null)
-            SetTransparent();
-        else
-            gameObject.GetComponent<Image>().color = c;
-
+        gameObject.GetComponent<Image>().color = c;
+        if (Managers.DataLoder.DataCache_Items.ContainsKey(startID + slotindex))
+            if (slotindex == Managers.DataLoder.DataCache_Items[startID + slotindex].slotindex)
+            {
+                itemdata = Managers.DataLoder.DataCache_Items[startID + slotindex];
+                SetTransparent();
+            }
 
     }
     public void OnClicked_ItemSlot(PointerEventData data)
@@ -141,14 +140,13 @@ public class ItemSlotUI : BaseUI
     {
         if (itemdata == null) return;
         int i = Managers.DataLoder.DataCache_Save.Inventory.keys.FindIndex(x => x.Equals(itemdata.id)); //¼ö·® 
-        if (Managers.DataLoder.DataCache_Save.Inventory.values.Contains(i))
-        {
-            int count = Managers.DataLoder.DataCache_Save.Inventory.values[i];
-            GetObject((int)Components.Text_ItemCount).GetComponent<TMPro.TMP_Text>().text = count.ToString();
-            if (0 < count)
-                gameObject.GetComponent<Image>().color = a;
-            else
-                gameObject.GetComponent<Image>().color = b;
-        }
+        Debug.Log(i);
+        int count = Managers.DataLoder.DataCache_Save.Inventory.values[i];
+        GetObject((int)Components.Text_ItemCount).GetComponent<TMPro.TMP_Text>().text = count.ToString();
+        if (0 < count)
+            gameObject.GetComponent<Image>().color = a;
+        else
+            gameObject.GetComponent<Image>().color = b;
+        
     }
 }

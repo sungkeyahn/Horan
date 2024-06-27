@@ -121,7 +121,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: c8a1a515cb9f61b49a2f19610e14d2c0, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: fb72f8849c8f66e43bda7f205a6aed70, type: 2}
 --- !u!1 &1974028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3130,7 +3130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1006413952514989170, guid: 798a4c8a951fd0949ac984beed9531b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.9
+      value: -30.19
       objectReference: {fileID: 0}
     - target: {fileID: 1006413952514989170, guid: 798a4c8a951fd0949ac984beed9531b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3138,7 +3138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1006413952514989170, guid: 798a4c8a951fd0949ac984beed9531b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.4
+      value: 5.94
       objectReference: {fileID: 0}
     - target: {fileID: 1006413952514989170, guid: 798a4c8a951fd0949ac984beed9531b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6763,7 +6763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1006413952514989170, guid: 798a4c8a951fd0949ac984beed9531b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.2
+      value: 9.7
       objectReference: {fileID: 0}
     - target: {fileID: 1006413952514989170, guid: 798a4c8a951fd0949ac984beed9531b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7814,6 +7814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 651411061}
   - component: {fileID: 651411060}
+  - component: {fileID: 651411062}
   m_Layer: 0
   m_Name: invisible
   m_TagString: Untagged
@@ -7840,7 +7841,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 12, y: 6, z: 2}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &651411061
 Transform:
@@ -7851,12 +7852,28 @@ Transform:
   m_GameObject: {fileID: 651411059}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.4423831, z: -0, w: 0.8968262}
-  m_LocalPosition: {x: -41.37, y: -1, z: 15.09}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -36.91, y: -1, z: 16.15}
+  m_LocalScale: {x: 12, y: 6, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 199296771}
   m_LocalEulerAnglesHint: {x: 0, y: -52.512, z: 0}
+--- !u!208 &651411062
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651411059}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &656404302
 PrefabInstance:
   m_ObjectHideFlags: 0

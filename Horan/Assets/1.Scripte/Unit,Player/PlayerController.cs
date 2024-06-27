@@ -124,7 +124,6 @@ public class PlayerController : UnitController
                     if (atkAble && atkCount < weapon.AnimInfo_FATK.Count)
                     {
                         Act.Execution((int)ECharacterAct.FAttack);
-                        DashAtkInput = true;
                     }//Debug.Log("Click");
                 }
                 break;
@@ -281,6 +280,8 @@ public class PlayerController : UnitController
     }
     IEnumerator ATTACK(Data.AnimInfomation animinfo)
     {
+        DashAtkInput = true;
+
         atkCount += 1;
 
         AttackRotationCorrection();
@@ -297,11 +298,15 @@ public class PlayerController : UnitController
         weapon.Area.enabled = false;
         atkAble = true;
 
+
         yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length - (animinfo.delay + animinfo.judgmenttime));
 
         if (atkAble)
         {
+            DashAtkInput = false;//asdasdasdasdasdasdasdasd
+
             atkCount = 0;
+
             Act.Finish((int)ECharacterAct.FAttack);
             Act.Finish((int)ECharacterAct.SAttack);
         }
@@ -397,7 +402,7 @@ public class PlayerController : UnitController
         if (DashAtkInput)
         {
             Act.Execution((int)ECharacterAct.DashAttack);
-            move.SetTransMove(Vector3.forward, 10, 0.4f);
+            move.SetTransMove(Vector3.forward, 15, 0.25f);
         }
         else
         {

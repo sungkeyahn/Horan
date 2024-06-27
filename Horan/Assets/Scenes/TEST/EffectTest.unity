@@ -988,6 +988,26 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 4559566924498846152, guid: 7555fc887a913574195755a06255ce19, type: 3}
   m_PrefabInstance: {fileID: 1806452364}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &949008642 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4619272615336478363, guid: c88a143d57b752c4187c28b361583032, type: 3}
+  m_PrefabInstance: {fileID: 8894384332000345017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &949008646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949008642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_Swing2
+  Anim: {fileID: 8894384332000345020}
+  AnimName: FATTACK2
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,6 +1756,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6444041301739232997, guid: c88a143d57b752c4187c28b361583032, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8894384332000345052}
+    - targetCorrespondingSourceObject: {fileID: 4619272615336478363, guid: c88a143d57b752c4187c28b361583032, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 949008646}
   m_SourcePrefab: {fileID: 100100000, guid: c88a143d57b752c4187c28b361583032, type: 3}
 --- !u!1 &8894384332000345018 stripped
 GameObject:

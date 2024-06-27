@@ -1215,7 +1215,23 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1960917688479177468}
-  - component: {fileID: 7642837571716173915}
+  - component: {fileID: 5935122880188171939}
+  - component: {fileID: 410003426531963684}
+  - component: {fileID: 5851436863998269308}
+  - component: {fileID: 3031040946525338378}
+  - component: {fileID: 4225852342532152040}
+  - component: {fileID: 5775031017044575936}
+  - component: {fileID: 2461364620570677634}
+  - component: {fileID: 4044251958315588132}
+  - component: {fileID: 4566082510070906066}
+  - component: {fileID: 473636114411626018}
+  - component: {fileID: 7733655872235546829}
+  - component: {fileID: 602307980897287407}
+  - component: {fileID: 303778558665340341}
+  - component: {fileID: 6467852838033586619}
+  - component: {fileID: 8033322225919522983}
+  - component: {fileID: 6627221364358657570}
+  - component: {fileID: 1243502487993979307}
   m_Layer: 6
   m_Name: Sound
   m_TagString: Untagged
@@ -1238,7 +1254,127 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2435593321547199307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7642837571716173915
+--- !u!114 &5935122880188171939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_dash_2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: DASHATTACK
+--- !u!114 &410003426531963684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_Swing_Strong1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: DASHATTACK
+--- !u!114 &5851436863998269308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_dash_1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: DASH
+--- !u!114 &3031040946525338378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_Swing2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: FATTACK2
+--- !u!114 &4225852342532152040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_CounterA
+  Anim: {fileID: 5214917995946972727}
+  AnimName: COUNTERATTACK
+--- !u!114 &5775031017044575936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_Swing_Strong1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: SATTACK1
+--- !u!114 &2461364620570677634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_Swing_Strong2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: SATTACK2
+--- !u!114 &4044251958315588132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_Swing_Strong1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: SATTACK3
+--- !u!114 &4566082510070906066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1253,6 +1389,126 @@ MonoBehaviour:
   SoundName: Sound_Swing1
   Anim: {fileID: 5214917995946972727}
   AnimName: FATTACK1
+--- !u!114 &473636114411626018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_Swing2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: FATTACK2
+--- !u!114 &7733655872235546829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_Swing1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: FATTACK3
+--- !u!114 &602307980897287407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_glaive_1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GLAIVE_FATTACK1
+--- !u!114 &303778558665340341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_glaive_2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GLAIVE_FATTACK2
+--- !u!114 &6467852838033586619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_glaive_1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GLAIVE_FATTACK3
+--- !u!114 &8033322225919522983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_glaive_2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GLAIVE_SATTACK3
+--- !u!114 &6627221364358657570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_glaive_1
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GLAIVE_SATTACK2
+--- !u!114 &1243502487993979307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_walk_2
+  Anim: {fileID: 5214917995946972727}
+  AnimName: MOVE
 --- !u!1 &4684825820446952984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,6 +1935,10 @@ GameObject:
   - component: {fileID: 2096450910759593780}
   - component: {fileID: 6441073892144948646}
   - component: {fileID: 6958903318610655675}
+  - component: {fileID: 4680157100474033833}
+  - component: {fileID: 8354608067300177048}
+  - component: {fileID: 5307252258108345797}
+  - component: {fileID: 5897236229696464751}
   m_Layer: 8
   m_Name: Weapon
   m_TagString: Untagged
@@ -1941,6 +2201,86 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: GLAIVE_SATTACK2
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &4680157100474033833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_03
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: GLAIVE_FATTACK1
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &8354608067300177048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_03
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: GLAIVE_FATTACK2
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &5307252258108345797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_03
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: GLAIVE_FATTACK3
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &5897236229696464751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_01
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: DASHATTACK
   SpawnTime: 0.15
   DeleteTime: 0.5
   Anim: {fileID: 5214917995946972727}

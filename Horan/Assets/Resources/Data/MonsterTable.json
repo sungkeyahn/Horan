@@ -10,7 +10,7 @@
       "atkrange": "3",
       "sensingrange": "8",
       "dropgold": "15",
-      "dropexp": "25",
+      "dropexp": "20",
       "dropitems": [
         {
           "id": 1504,
@@ -46,15 +46,15 @@
     },
     {
       "name": "Soldier_Bow",
-      "maxHp": "60",
+      "maxHp": "75",
       "maxSp": "100",
-      "damage": "20",
+      "damage": "10",
       "walkspeed": "2",
       "runspeed": "4",
       "atkrange": "10",
       "sensingrange": "15",
       "dropgold": "5",
-      "dropexp": "25",
+      "dropexp": "20",
       "dropitems": [
         {
           "id": 1504,
@@ -97,8 +97,8 @@
       "runspeed": "4",
       "atkrange": "10",
       "sensingrange": "15",
-      "dropgold": "5",
-      "dropexp": "10",
+      "dropgold": "50",
+      "dropexp": "50",
       "dropitems": [
         {
           "id": 1501,
@@ -141,7 +141,7 @@
       "runspeed": "4",
       "atkrange": "10",
       "sensingrange": "15",
-      "dropgold": "5",
+      "dropgold": "50",
       "dropexp": "10",
       "dropitems": [
         {

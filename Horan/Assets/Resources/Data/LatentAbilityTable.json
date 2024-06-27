@@ -11,24 +11,24 @@
     {
       "id": 1,
       "abilityname": "비급",
-      "abilityinfo": "최대 기력이 25 증가합니다.",
-      "iconpath": "icon_ability_absorb",
+      "abilityinfo": "최대 기력이 15 증가합니다.",
+      "iconpath": "icon_ability_energy_up",
       "type": 2,
       "value": 25
     },
     {
       "id": 2,
       "abilityname": "참격",
-      "abilityinfo": "공격력이 10 증가합니다.",
-      "iconpath": "icon_ability_absorb",
+      "abilityinfo": "공격력이 5 증가합니다.",
+      "iconpath": "icon_ability_fast_attack",
       "type": 3,
-      "value": 10
+      "value": 5
     },
     {
       "id": 3,
       "abilityname": "불굴",
-      "abilityinfo": "체력이 천천히 회복됩니다.",
-      "iconpath": "icon_ability_absorb",
+      "abilityinfo": "체력이 더 빨리 재생됩니다.",
+      "iconpath": "icon_ability_hp_up",
       "type": 4,
       "value": 10
     }

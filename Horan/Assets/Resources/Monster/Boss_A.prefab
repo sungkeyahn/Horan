@@ -267,6 +267,37 @@ Transform:
   - {fileID: 8883482084832733219}
   m_Father: {fileID: 1311804672843801911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1436861209409258593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3722302846464433725}
+  m_Layer: 0
+  m_Name: sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3722302846464433725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436861209409258593}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.65681475, y: 0.41473332, z: 1.2132115}
+  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5085742006037333129}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1851178660393553489
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +769,7 @@ GameObject:
   - component: {fileID: 5773147009849844372}
   - component: {fileID: 566038954088039111}
   - component: {fileID: 2448707578986195448}
+  - component: {fileID: 6353598253361586889}
   m_Layer: 0
   m_Name: weapon_pole
   m_TagString: Untagged
@@ -810,6 +842,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6353598253361586889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071601506319459860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_01_slash_01
+  Position: {x: 0.25, y: 0.15, z: -0.01}
+  Rotation: {x: 180, y: 30, z: -80}
+  AnimName: ATTACK_DEFAULT2
+  SpawnTime: 0.1
+  DeleteTime: 0.75
+  Anim: {fileID: 0}
+  isProjectiles: 0
 --- !u!1 &4290437930038303687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,6 +1310,8 @@ Transform:
   - {fileID: 2965507024495464718}
   - {fileID: 3047905721180526614}
   - {fileID: 3837600955390960808}
+  - {fileID: 3722302846464433725}
+  - {fileID: 2877790774214430017}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4559566924498846152
@@ -1389,6 +1443,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyName: 
+--- !u!1 &6210612775048321821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2877790774214430017}
+  - component: {fileID: 2420639029041949361}
+  - component: {fileID: 9171196113146621248}
+  m_Layer: 0
+  m_Name: effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2877790774214430017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210612775048321821}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5085742006037333129}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2420639029041949361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210612775048321821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_01_dashattck
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: ATTACK_DASH2
+  SpawnTime: 0.1
+  DeleteTime: 0.5
+  Anim: {fileID: 4559566924498846152}
+  isProjectiles: 0
+--- !u!114 &9171196113146621248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210612775048321821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_01_jumpattack
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: ATTACK_JUMP3
+  SpawnTime: 0.05
+  DeleteTime: 0.5
+  Anim: {fileID: 4559566924498846152}
+  isProjectiles: 0
 --- !u!1 &6277337931369773756
 GameObject:
   m_ObjectHideFlags: 0

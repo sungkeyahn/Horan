@@ -195,71 +195,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3554372041197421522, guid: 798a4c8a951fd0949ac984beed9531b9, type: 3}
   m_PrefabInstance: {fileID: 671166039}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &309094300 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8297858316990855015, guid: 7555fc887a913574195755a06255ce19, type: 3}
-  m_PrefabInstance: {fileID: 1806452364}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &309094302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309094300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EffectName: boss_01_jumpattack
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0}
-  AnimName: ATTACK_JUMP3
-  SpawnTime: 0.1
-  DeleteTime: 0.4
-  Anim: {fileID: 892150268}
-  isProjectiles: 0
---- !u!114 &309094303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309094300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EffectName: boss_01_jumpattack_start
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 90, y: 0, z: 0}
-  AnimName: ATTACK_JUMP
-  SpawnTime: 0.1
-  DeleteTime: 0.25
-  Anim: {fileID: 892150268}
-  isProjectiles: 0
---- !u!114 &309094304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309094300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EffectName: boss_01_dashattck
-  Position: {x: 0, y: -5.6, z: -3}
-  Rotation: {x: 0, y: 0, z: 0}
-  AnimName: ATTACK_DASH2
-  SpawnTime: 0.1
-  DeleteTime: 0.25
-  Anim: {fileID: 892150268}
-  isProjectiles: 0
 --- !u!1 &411724873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,27 +1359,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5589966004818217931, guid: 7555fc887a913574195755a06255ce19, type: 3}
+      propertyPath: Position.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5947721551378867504, guid: 7555fc887a913574195755a06255ce19, type: 3}
       propertyPath: m_Name
       value: Boss_A
       objectReference: {fileID: 0}
     - target: {fileID: 5947721551378867504, guid: 7555fc887a913574195755a06255ce19, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8297858316990855015, guid: 7555fc887a913574195755a06255ce19, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 309094304}
-    - targetCorrespondingSourceObject: {fileID: 8297858316990855015, guid: 7555fc887a913574195755a06255ce19, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 309094303}
-    - targetCorrespondingSourceObject: {fileID: 8297858316990855015, guid: 7555fc887a913574195755a06255ce19, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 309094302}
     - targetCorrespondingSourceObject: {fileID: 4071601506319459860, guid: 7555fc887a913574195755a06255ce19, type: 3}
       insertIndex: -1
       addedObject: {fileID: 874401209}

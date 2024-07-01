@@ -276,6 +276,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3722302846464433725}
+  - component: {fileID: 8100032088152775191}
+  - component: {fileID: 1757293116056988999}
+  - component: {fileID: 5059971738538676583}
+  - component: {fileID: 6102473293034603115}
   m_Layer: 0
   m_Name: sound
   m_TagString: Untagged
@@ -298,6 +302,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5085742006037333129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8100032088152775191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436861209409258593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: boss_01_attack_01
+  Anim: {fileID: 4559566924498846152}
+  AnimName: ATTACK_DEFAULT1
+--- !u!114 &1757293116056988999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436861209409258593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: boss_01_attack_02
+  Anim: {fileID: 4559566924498846152}
+  AnimName: ATTACK_DEFAULT2
+--- !u!114 &5059971738538676583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436861209409258593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: boss_01_attack_04
+  Anim: {fileID: 4559566924498846152}
+  AnimName: ATTACK_JUMP3
+--- !u!114 &6102473293034603115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436861209409258593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: boss_01_attack_03
+  Anim: {fileID: 4559566924498846152}
+  AnimName: ATTACK_DASH2
 --- !u!1 &1851178660393553489
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +834,7 @@ GameObject:
   - component: {fileID: 566038954088039111}
   - component: {fileID: 2448707578986195448}
   - component: {fileID: 6353598253361586889}
+  - component: {fileID: 3856204602299019120}
   m_Layer: 0
   m_Name: weapon_pole
   m_TagString: Untagged
@@ -858,9 +923,29 @@ MonoBehaviour:
   Position: {x: 0.25, y: 0.15, z: -0.01}
   Rotation: {x: 180, y: 30, z: -80}
   AnimName: ATTACK_DEFAULT2
-  SpawnTime: 0.1
+  SpawnTime: 0.075
   DeleteTime: 0.75
-  Anim: {fileID: 0}
+  Anim: {fileID: 4559566924498846152}
+  isProjectiles: 0
+--- !u!114 &3856204602299019120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071601506319459860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_01_slash_01
+  Position: {x: 0.25, y: 0.15, z: -0.01}
+  Rotation: {x: 180, y: 30, z: -80}
+  AnimName: ATTACK_DEFAULT1
+  SpawnTime: 0.075
+  DeleteTime: 0.75
+  Anim: {fileID: 4559566924498846152}
   isProjectiles: 0
 --- !u!1 &4290437930038303687
 GameObject:

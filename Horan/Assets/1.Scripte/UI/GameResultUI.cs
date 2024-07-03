@@ -11,6 +11,8 @@ public class GameResultUI : PopupUI
     
     TMP_Text resultText;
     TMP_Text resultInfoText;
+    
+    AudioSource Sound_Win;
 
     public override void Init()
     {
@@ -31,11 +33,11 @@ public class GameResultUI : PopupUI
         SetResultText(isWin);
         SetInfoText(Managers.ContentsManager.killcount, Managers.ContentsManager.dropgold, Managers.ContentsManager.AcquiredItems.Count);
 
-        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_GameWin"), 1f);
+        Sound_Win = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_GameWin"], transform).GetComponent<AudioSource>();
+        Sound_Win.Play();
     }
     public void OnBtnClicked_CloseBtn(PointerEventData data)
     {
-        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         Managers.UIManager.ClosePopupUI(this);
         Managers.ContentsManager.Resume();
         Managers.MySceneManager.LoadScene("Lobby");

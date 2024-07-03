@@ -13,8 +13,8 @@ public class UpgradeUI : PopupUI
     public List<StatSlotUI> statSlotUIs = new List<StatSlotUI>();
     public List<UpgradeSlotUI> upgradeSlotUIs = new List<UpgradeSlotUI>();
 
-    Color selectedBtnColor = new Color(1, 1, 1, 1);
-    Color defaultBtnColor = new Color(1, 1, 1, 0.25f);
+    AudioSource Sound_Click;
+    AudioSource Sound_Upgrade;
 
     int ID;
     Einventype inventype = Einventype.Weapon;
@@ -30,6 +30,9 @@ public class UpgradeUI : PopupUI
         BindEvent(GetObject((int)Components.Button_HatTab), OnBtnClicked_HatTab, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_AccTab), OnBtnClicked_AccTab, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_MatTab), OnBtnClicked_MatTab, UIEvent.Click);
+        
+        Sound_Click = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Click"], transform).GetComponent<AudioSource>();
+        Sound_Upgrade = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Upgrade"], transform).GetComponent<AudioSource>();
 
         GameObject prefab_ItemSlotUI = Resources.Load<GameObject>($"UI/Slot/ItemSlot");
         for (int i = 0; i < 20; i++)
@@ -44,12 +47,14 @@ public class UpgradeUI : PopupUI
     }
     public void OnBtnClicked_ClosePopup(PointerEventData data)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        Sound_Click.Play();
         ClosePopupUI();
         Managers.UIManager.GetSceneUI().gameObject.SetActive(true);
     }
     public void OnBtnClicked_Upgrade(PointerEventData data)
     {
+        if (!Managers.DataLoder.DataCache_Upgrade.ContainsKey(ID)) return;
+       
         bool isUpgradePossible = true;
 
         float totalGold = Managers.DataLoder.DataCache_Save.User.gold; // 필요 재화 양 
@@ -76,42 +81,37 @@ public class UpgradeUI : PopupUI
             //아이템 강화 습득
             Managers.ContentsManager.AddItem(Managers.DataLoder.DataCache_Upgrade[ID].resultitemid);
 
+            //갱신
+            for (int i = 0; i < itemslots.Count; i++)
+                itemslots[i].Init(i, inventype);
             SetGold();
-            TabClick(inventype);
 
-           // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Upgrade"), 1f);
+            Sound_Upgrade.Play();
         }
     }
     public void OnBtnClicked_WeaponTab(PointerEventData data)
     {
-        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Einventype.Weapon);
     }
     public void OnBtnClicked_CostumeTab(PointerEventData data)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
         TabClick(Einventype.Costume);
     }
     public void OnBtnClicked_HatTab(PointerEventData data)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-
         TabClick(Einventype.Hat);
     }
     public void OnBtnClicked_AccTab(PointerEventData data)
     {
-      //  Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-
         TabClick(Einventype.Acc);
     }
     public void OnBtnClicked_MatTab(PointerEventData data)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-
         TabClick(Einventype.Mat);
     }
     public void TabClick(Einventype type)
     {
+        Sound_Click.Play();
         inventype = type;
         for (int i = 0; i < itemslots.Count; i++)
             itemslots[i].Init(i, type);
@@ -170,7 +170,7 @@ public class UpgradeUI : PopupUI
     }
     public void SelectItem(int selectedInvenItemID=-1)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        Sound_Click.Play();
 
         if (!Managers.DataLoder.DataCache_Upgrade.ContainsKey(selectedInvenItemID)) return;
         ID = selectedInvenItemID;
@@ -180,7 +180,7 @@ public class UpgradeUI : PopupUI
 
         string path = Managers.DataLoder.DataCache_Items[Managers.DataLoder.DataCache_Upgrade[selectedInvenItemID].resultitemid].iconfilename;
         GetObject((int)Components.Image_ResultItemICon).GetComponent<Image>().sprite = Managers.DataLoder.DataCache_Sprite[path]; //결과 아이템 아이콘
-
+        GetObject((int)Components.Image_ResultItemICon).GetComponent<Image>().color = Color.white;
 
         float totalGold = Managers.DataLoder.DataCache_Save.User.gold; // 필요 재화 양 
         float needGold = Managers.DataLoder.DataCache_Upgrade[selectedInvenItemID].needgold;

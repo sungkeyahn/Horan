@@ -36,16 +36,17 @@ public class EffectComponent : MonoBehaviour
             if (Anim.GetCurrentAnimatorStateInfo(0).IsName(AnimName))
             {
                 var normalizedTime = Anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
-                if (isSpawned &&  normalizedTime  <= SpawnTime)
-                    isSpawned = false;
-
-                if (normalizedTime != 0 && normalizedTime < 1f && SpawnTime < normalizedTime) 
+                if (normalizedTime != 0 && normalizedTime < 1f && SpawnTime < normalizedTime)
                 {
                     if (!isSpawned)
-                        SpawnEffect(EffectName); //StartCoroutine(EffectSpawn());
-                    isSpawned = true;
+                    {
+                        SpawnEffect(EffectName);
+                        isSpawned = true;
+                    }
                 }
             }
+            else
+                isSpawned = false;
         }
     }
     GameObject SpawnEffect(string key)

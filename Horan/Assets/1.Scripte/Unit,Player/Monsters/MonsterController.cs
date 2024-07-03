@@ -54,7 +54,6 @@ public  class MonsterController : UnitController
     protected EffectInfo Effect_NONE = new EffectInfo("", Vector3.zero, 0f);
 
 
-
     private void Awake()
     {
         Anim = GetComponent<Animator>();
@@ -63,8 +62,10 @@ public  class MonsterController : UnitController
     }
     protected virtual void Start()
     {
-        SpawnPoint = transform.position;
         Managers.ContentsManager.SpawnUnit(MyName);
+        SpawnPoint = transform.position;
+        Sound_Hit = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Hit"].GetComponent<AudioSource>(), transform);
+        Stat.OnUnitTakeDamaged += () => { Sound_Hit.Play();};
     }
     private void Update()
     {

@@ -77,6 +77,8 @@ public class ItemSlotUI : BaseUI
                 SetTransparent();
             }
 
+        EquipBtnObject.SetActive(false);
+        CloseBtnObject.SetActive(false);
     }
     public void OnClicked_ItemSlot(PointerEventData data)
     {
@@ -118,6 +120,8 @@ public class ItemSlotUI : BaseUI
             LobbyCharacterCtrl ctrl = FindObjectOfType<LobbyCharacterCtrl>();
             if (ctrl) ctrl.UpdateEquipments();
         }
+        EquipBtnObject.SetActive(false);
+        CloseBtnObject.SetActive(false);
     }
     public void OnClicked_Close(PointerEventData data)
     {

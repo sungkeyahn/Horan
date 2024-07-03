@@ -34,15 +34,7 @@ public class PlayerController : UnitController
     }
     private void Start()
     {
-        #region Input
-        //input.MouseAction -= OnPlayerMouseEvent;
-        //input.KeyAction -= OnPlayerKeyBoardEvent;
-       // input.MouseAction += OnPlayerMouseEvent;
-        //input.KeyAction += OnPlayerKeyBoardEvent;
-        //input.TouchAction -= OnPlayerTouchEvent;
-       // input.TouchAction += OnPlayerTouchEvent;
-
-        #endregion
+        Sound_Hit = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Hit"].GetComponent<AudioSource>(),transform);
         #region Stat
         Stat.StatInit(Managers.ContentsManager.level, Managers.ContentsManager.exp, Managers.ContentsManager.hp);
         Stat.OnHit += OnCharacterHit;
@@ -475,7 +467,7 @@ public class PlayerController : UnitController
     }
     void OnCharacterTakeDamaged()
     {
-
+        Sound_Hit.Play();
     }
     void Dead()
     {//캐릭터 조작 입력 + 재생중인 사운드 + 캐릭터 물리 + 실행중인 애니메이션 끄고 사망 결과창 출력

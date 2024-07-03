@@ -8,5 +8,6 @@ using UnityEngine;
 public class UnitController : MonoBehaviour
 {
     public string MyName;
+    protected AudioSource Sound_Hit;
 
 }

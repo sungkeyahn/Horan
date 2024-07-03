@@ -11,27 +11,27 @@ public class SelectAbilityUI : PopupUI
 
     enum Components { Panel_AbilityPopup, Button_ClosePopup}
 
-    
+    AudioSource Sound_Click;
+    AudioSource Sound_LevelUp;
+
     PlayerStat Stat;
 
     public override void Init()
     {
         if (isInit) return;
         Bind<GameObject>(typeof(Components));
-        //BindEvent(GetObject((int)Components.Button_ClosePopup), OnBtnClicked_ClosePopup, UIEvent.Click);
+
+        Sound_Click = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Click"], transform).GetComponent<AudioSource>();
+        Sound_LevelUp = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_LevelUp"], transform).GetComponent<AudioSource>();
 
         Stat = Managers.ContentsManager.stat;
-        //SelectAbilityPopup 프리팹 동적 생성 필요
         GameObject prefab = Resources.Load<GameObject>($"UI/Slot/SelectAbilitySlot");
         for (int i = 0; i < 3; i++)
         {
             GameObject ob = Instantiate(prefab, GetObject((int)Components.Panel_AbilityPopup).transform);
             ob.name = "SelectAbilitySlot";
-            ob.GetComponent<SelectAbilitySlotUI>().Init(UnityEngine.Random.Range(1, Managers.DataLoder.DataCache_LatentAbility.Count),Stat);
-           
+            ob.GetComponent<SelectAbilitySlotUI>().Init(UnityEngine.Random.Range(1, Managers.DataLoder.DataCache_LatentAbility.Count),Stat);           
         }
-        //동적 생성 이후 해당 버튼 클릭시 Close 호출 필요
-
 
         isInit = true;
     }
@@ -39,12 +39,11 @@ public class SelectAbilityUI : PopupUI
     {
         Init();
         Stat = stat;
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_LevelUp"), 1f);
+        Sound_LevelUp.Play();
     }
-
     public void OnBtnClicked_ClosePopup(PointerEventData data)
     {
-      //  Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        Sound_Click.Play();
         ClosePopupUI();
     }
     public override void ClosePopupUI()

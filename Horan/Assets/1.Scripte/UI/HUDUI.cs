@@ -22,10 +22,11 @@ public class HUDUI : SceneUI
     PlayerController ctrl;
     PlayerStat stat;
 
-    public Vector3 input;
+    public Vector3 input; 
+    Vector2 MovePadCenterPos;
     RectTransform MovePad;
     RectTransform MoveIever;
-    Vector2 MovePadCenterPos;
+
     public override void Init()
     {
         if (isinit) return;
@@ -33,9 +34,7 @@ public class HUDUI : SceneUI
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_Pause), OnBtnClicked_Pause, UIEvent.Click);
 
-        //BindEvent(GetObject((int)Components.Button_Move), OnBtnClicked_Move, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Move), OnBtnPointUp_Move, UIEvent.PointUp);
-
         BindEvent(GetObject((int)Components.Button_Move), OnBtnDraged_Move, UIEvent.Drag); //이동 패드 드래그 
 
         BindEvent(GetObject((int)Components.Button_Dash), OnBtnClicked_Dash, UIEvent.Click);
@@ -47,9 +46,6 @@ public class HUDUI : SceneUI
         MovePad = GetObject((int)Components.Button_Move).GetComponent<RectTransform>();
         MoveIever = GetObject((int)Components.Image_MovePad).GetComponent<RectTransform>();
         MovePadCenterPos = new Vector2(MovePad.anchoredPosition.x/2+ MovePad.rect.width / 2, MovePad.anchoredPosition.y/2 + MovePad.rect.height / 2);
-
-
-
 
         isinit = true;
     }

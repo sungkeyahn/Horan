@@ -10,7 +10,10 @@ public class ShopItemSlotUI : BaseUI
     bool isInit;
     enum Components { Image_ProductICon, Text_PriceValue, Button_ShopSlot, Text_ShopSlotBtnName }
     public List<ItemSlotUI> itemslots = new List<ItemSlotUI>();
-    
+
+    AudioSource Sound_Buy;
+    AudioSource Sound_Sell;
+
     int itemID;
     float price;
 
@@ -18,6 +21,10 @@ public class ShopItemSlotUI : BaseUI
     {
         if (isInit) return;
         Bind<GameObject>(typeof(Components));
+
+        Sound_Buy = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Buy"], transform).GetComponent<AudioSource>();
+        Sound_Sell = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Sell"], transform).GetComponent<AudioSource>();
+
         isInit = true;
     }
     public void Init(Data.EShopTabType type,int index)
@@ -46,8 +53,8 @@ public class ShopItemSlotUI : BaseUI
     {
         if (Managers.ContentsManager.ConsumeGold(price))
         {
+            Sound_Buy.Play();
             Managers.ContentsManager.AddItem(itemID);
-            //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Buy"), 1f);
         }
         GetComponentInParent<ShopUI>().SetGold();
         GetComponentInParent<ShopUI>().TabClick(GetComponentInParent<ShopUI>().inventype);
@@ -56,8 +63,8 @@ public class ShopItemSlotUI : BaseUI
     {
         if (Managers.ContentsManager.RemoveItem(itemID))
         {
+            Sound_Sell.Play();
             Managers.ContentsManager.AcquireGold(price); 
-            //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Sell"), 1f);
         }
         GetComponentInParent<ShopUI>().SetGold();
         GetComponentInParent<ShopUI>().TabClick(GetComponentInParent<ShopUI>().inventype);

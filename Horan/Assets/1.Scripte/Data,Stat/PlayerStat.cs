@@ -151,9 +151,11 @@ public class PlayerStat : Stat, IDamageInteraction
                 OnHit.Invoke();
             if (isDamageable)
             {
-                if (OnUnitTakeDamaged != null)
-                    OnUnitTakeDamaged.Invoke();
+                float pre = Hp;
                 Hp = Mathf.Clamp(Hp - damage, -1, MaxHp);
+                if (OnUnitTakeDamaged != null && pre > Hp)
+                    OnUnitTakeDamaged.Invoke();
+
                 return true;
             }
         }

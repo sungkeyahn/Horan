@@ -9,6 +9,9 @@ public abstract class BaseScene : MonoBehaviour
     [SerializeField]
     public string NextSceneName;
 
+    protected AudioSource Sound_BGM;
+
+
     void Awake()
     {
         Init();

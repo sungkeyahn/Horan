@@ -8,7 +8,9 @@ public class SelectAbilitySlotUI : BaseUI
 {
     bool isInit=false;
     enum Components { Button_SelectAbilitySlot, Image_AbilutyICon, Text_AbilityName, Text_AbilityInfo }
-    
+   
+    AudioSource Sound_Click;
+
     int ID;
     PlayerStat Stat;
 
@@ -18,6 +20,8 @@ public class SelectAbilitySlotUI : BaseUI
        
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_SelectAbilitySlot), OnBtnClicked_AbilitySlot, UIEvent.Click);
+
+        Sound_Click = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Click"], transform).GetComponent<AudioSource>();
 
         isInit = true;
     }
@@ -31,7 +35,7 @@ public class SelectAbilitySlotUI : BaseUI
     }
     public void OnBtnClicked_AbilitySlot(PointerEventData data)
     {
-        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        Sound_Click.Play();
 
         LatentAbility ability = new LatentAbility(ID);
         Managers.ContentsManager.AbilityContainer.AddAbility(ability, Stat);
@@ -39,15 +43,3 @@ public class SelectAbilitySlotUI : BaseUI
         Managers.ContentsManager.Resume();
     }
 }
-/* 팝업  스크립트 따로 만들어서 거기다 구현 해야 함
-BindEvent(GetObject((int)Components.Button_Option1), OnBtnClicked_Option1, UIEvent.Click);
-BindEvent(GetObject((int)Components.Button_Option2), OnBtnClicked_Option2, UIEvent.Click);
-BindEvent(GetObject((int)Components.Button_Option3), OnBtnClicked_Option3, UIEvent.Click);
-Option1Text = GetObject((int)Components.Button_Option1).GetComponentInChildren<TMP_Text>();
-Option2Text = GetObject((int)Components.Button_Option2).GetComponentInChildren<TMP_Text>();
-Option3Text = GetObject((int)Components.Button_Option3).GetComponentInChildren<TMP_Text>();
-      Option1Text.text = Managers.DataLoder.DataCache_LatentAbility[Option1AbilityID].abilityname;
-Option2Text.text = Managers.DataLoder.DataCache_LatentAbility[Option2AbilityID].abilityname;
-Option3Text.text = Managers.DataLoder.DataCache_LatentAbility[Option3AbilityID].abilityname;
-
- */

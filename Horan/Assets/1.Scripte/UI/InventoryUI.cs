@@ -5,33 +5,31 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-/*
- * ¹«±â : 1001 ~ 1015
- * ¿Ê : 1100 ~ 1112
- * ¸ðÀÚ : 1201 ~ 1212
- * ¾Ç¼¼ : 1301 ~ 1305
- * Àç·á : 1501 ~ 1504
- */
+
 public class InventoryUI : PopupUI
 {
     bool isInit = false;
     enum Components { Panel_Stat, Panel_ItemSlots , Button_WeaponTab , Button_CostumeTab, Button_HatTab, Button_AccTab, Button_MatTab, Text_Gold, Button_ClosePopup}
+    public enum EStatSlotInfo { Atk, Hp, Sp, RegenHp }
+
     public List<ItemSlotUI> itemslots=new List<ItemSlotUI>();
     public List<StatSlotUI> statslots = new List<StatSlotUI>();
-
-    public enum EStatSlotInfo { Atk, Hp, Sp, RegenHp }
+    
+    AudioSource Sound_Click;
+    
     public override void Init()
     {
         if (isInit) return;
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_ClosePopup), OnBtnClicked_ClosePopup, UIEvent.Click);
-
         BindEvent(GetObject((int)Components.Button_WeaponTab), OnBtnClicked_WeaponTab, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_CostumeTab), OnBtnClicked_CostumeTab, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_HatTab), OnBtnClicked_HatTab, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_AccTab), OnBtnClicked_AccTab, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_MatTab), OnBtnClicked_MatTab, UIEvent.Click);
-        
+
+        Sound_Click = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Click"], transform).GetComponent<AudioSource>();
+
         GameObject prefab = Resources.Load<GameObject>($"UI/Slot/ItemSlot");
         for (int i = 0; i < 20; i++)
         {
@@ -52,50 +50,45 @@ public class InventoryUI : PopupUI
 
         SetGold();
 
+
         isInit = true;
     }
 
-
     public void OnBtnClicked_ClosePopup(PointerEventData data)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        Sound_Click.Play();
         ClosePopupUI();
         Managers.UIManager.GetSceneUI().gameObject.SetActive(true);
     }
     public void OnBtnClicked_WeaponTab(PointerEventData data)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-        for (int i = 0; i < itemslots.Count; i++)
-            itemslots[i].Init(i, Einventype.Weapon);
+        ClickTab(Einventype.Weapon);
     }
     public void OnBtnClicked_CostumeTab(PointerEventData data)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-        for (int i = 0; i < itemslots.Count; i++)
-            itemslots[i].Init(i, Einventype.Costume);
+        ClickTab(Einventype.Costume);
     }
     public void OnBtnClicked_HatTab(PointerEventData data)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-        for (int i = 0; i < itemslots.Count; i++)
-            itemslots[i].Init(i, Einventype.Hat);
+        ClickTab(Einventype.Hat);
     }
     public void OnBtnClicked_AccTab(PointerEventData data)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-        for (int i = 0; i < itemslots.Count; i++)
-            itemslots[i].Init(i, Einventype.Acc);
+        ClickTab(Einventype.Acc);
     }
     public void OnBtnClicked_MatTab(PointerEventData data)
     {
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-        for (int i = 0; i < itemslots.Count; i++)
-            itemslots[i].Init(i, Einventype.Mat);
+        ClickTab(Einventype.Mat);
     }
 
     public void SetGold()
     {
         GetObject((int)Components.Text_Gold).GetComponent<TMP_Text>().text = Managers.DataLoder.DataCache_Save.User.gold.ToString();
     }
-
+    void ClickTab(Einventype einventype )
+    {
+        Sound_Click.Play();
+        for (int i = 0; i < itemslots.Count; i++)
+            itemslots[i].Init(i, einventype);
+    }  
 }

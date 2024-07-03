@@ -5,22 +5,24 @@ using UnityEngine;
 public class LobbyScene : BaseScene
 {
     LobbyUI lobby;
+
+
+    //구입 판매 강화 클릭
+
     protected override void Init()
     {
         Debug.Log("Enter the Lobby Scene");
         SceneName = "Lobby";
-        lobby= Managers.UIManager.ShowSceneUI<LobbyUI>("LobbyUI");
-       
-        //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_LobbyBGM"),0.1f);
-        //lobby.Init();
+        lobby= Managers.UIManager.ShowSceneUI<LobbyUI>("LobbyUI"); //lobby.Init();
+            
+        Sound_BGM = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_LobbyBGM"], transform).GetComponent<AudioSource>();
+        Sound_BGM.Play();
     }
-    private void Start()
-    {
-        //Data.Save_User userinfo = Managers.DataLoder.DataCache_Save.User;
-        /*lobby.SetUserName(userinfo.name);
-        lobby.SetUserLevel(userinfo.level);
-        lobby.SetGoldText(userinfo.gold);
-        lobby.SetExBar(userinfo.exp);*/
-    }
-
+   
+    /*
+    Sound_Click = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Click"], transform).GetComponent<AudioSource>();
+        Sound_Buy = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Buy"], transform).GetComponent<AudioSource>();
+        Sound_Sell = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Sell"], transform).GetComponent<AudioSource>();
+        Sound_Upgrade = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Upgrade"], transform).GetComponent<AudioSource>();
+        */
 }

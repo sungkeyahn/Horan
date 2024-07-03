@@ -8,6 +8,9 @@ public class LobbyUI : SceneUI
 {
     bool isinit=false;
     enum Components { Button_Start , Button_Invetory , Button_Shop, Button_Upgrade, Button_Setting }
+    
+    AudioSource Sound_Click;
+
     public override void Init()
     {
         if (isinit) return;
@@ -18,34 +21,31 @@ public class LobbyUI : SceneUI
         BindEvent(GetObject((int)Components.Button_Shop), OnBtnClicked_Shop, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Upgrade), OnBtnClicked_Upgrade, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Setting), OnBtnClicked_Setting, UIEvent.Click);
+
+        Sound_Click = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Click"]).GetComponent<AudioSource>();
+
         isinit = true;
     }
     public void OnBtnClicked_Start(PointerEventData data)
     {
-      //  Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
+        Sound_Click.Play();
         Managers.ContentsManager.StageSelect(1);
     }
     public void OnBtnClicked_Inventory(PointerEventData data)
-    {
-       Debug.Log("Inventory");
-       //Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-
+    {        
+       Sound_Click.Play();
        Managers.UIManager.ShowPopupUI<InventoryUI>("InventoryUI");
        Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
     }
     public void OnBtnClicked_Shop(PointerEventData data)
     {
-        Debug.Log("Shop");
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-
+        Sound_Click.Play();
         Managers.UIManager.ShowPopupUI<ShopUI>("ShopUI");
         Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
     }
     public void OnBtnClicked_Upgrade(PointerEventData data)
     {
-        Debug.Log("Upgrade");
-       // Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Click"), 1f);
-
+        Sound_Click.Play();
         Managers.UIManager.ShowPopupUI<UpgradeUI>("UpgradeUI");
         Managers.UIManager.GetSceneUI().gameObject.SetActive(false);
     }
@@ -54,8 +54,5 @@ public class LobbyUI : SceneUI
         Debug.Log("Setting");
         Application.Quit();
     }
-
-
-
 }
 

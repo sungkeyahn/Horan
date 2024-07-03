@@ -10,11 +10,14 @@ public class SoundComponent : MonoBehaviour
     public Animator Anim;
     public string AnimName;
 
+    AudioSource Audio;
+
     bool isLoop;
-    bool isPlaying;
+    bool playOnce;
     private void Start()
     {
         Prefab = InstanceSoundObejct(SoundName);
+        Audio = Prefab.GetComponent<AudioSource>();
         isLoop = Prefab.GetComponent<AudioSource>().loop;
         if (isLoop)
             PlaySound(0.4f);
@@ -25,13 +28,17 @@ public class SoundComponent : MonoBehaviour
         {
             if (Anim.GetCurrentAnimatorStateInfo(0).IsName(AnimName))
             {
-                if (!isPlaying)
-                    PlaySound();
                 var normalizedTime = Anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
-                if (normalizedTime != 0 && normalizedTime < 1f) isPlaying = true;
-                else isPlaying = false;
+                if (normalizedTime != 0 && normalizedTime < 1f && !playOnce)
+                {
+                    PlaySound();
+                    playOnce = true;
+                }
             }
+            else
+                playOnce = false;
         }
+
     }
     public GameObject InstanceSoundObejct(string key)
     {
@@ -47,11 +54,10 @@ public class SoundComponent : MonoBehaviour
     {
         if (Prefab)
         {
-            AudioSource audio = Prefab.GetComponent<AudioSource>();
-            if (audio && !audio.isPlaying)
+            if (Audio && !Audio.isPlaying)
             {
-                audio.volume = volume;
-                audio.Play();
+                Audio.volume = volume;
+                Audio.Play();
             }
         }
     }

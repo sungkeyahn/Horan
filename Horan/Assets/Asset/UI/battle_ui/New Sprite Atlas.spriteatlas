@@ -43,7 +43,6 @@ SpriteAtlas:
     - {fileID: 2800000, guid: df01ac7111d84fd4aa8ba2772450980f, type: 3}
     - {fileID: 2800000, guid: dce0d6e50bf50704e8a3be0bc98d6aaa, type: 3}
     - {fileID: 2800000, guid: cdd9db1a8ed948f41975d7f4ae3eb57e, type: 3}
-    - {fileID: 2800000, guid: 40a42d60144bd554a93d72c149c2ed7e, type: 3}
     - {fileID: 2800000, guid: f40c724a7361bba4c8beb119697a5584, type: 3}
     - {fileID: 2800000, guid: 75f58dd95ac5cb74085d3fd92fab48d1, type: 3}
     - {fileID: 2800000, guid: 15b34a4bd18a48c478cdfb9cd5a2ad97, type: 3}
@@ -56,7 +55,6 @@ SpriteAtlas:
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
-    - 40a42d60144bd554a93d72c149c2ed7e: 21300000
     - 088db9c0e9f95cc4ab70ff58ab267aae: 21300000
     - df01ac7111d84fd4aa8ba2772450980f: 21300000
     - 342358d19ed63714a8983906dcd446bc: 21300000
@@ -78,7 +76,6 @@ SpriteAtlas:
     - f2330fcf9f797f94c9ccc74224a9d00e: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 40a42d60144bd554a93d72c149c2ed7e, type: 3}
   - {fileID: 21300000, guid: 088db9c0e9f95cc4ab70ff58ab267aae, type: 3}
   - {fileID: 21300000, guid: df01ac7111d84fd4aa8ba2772450980f, type: 3}
   - {fileID: 21300000, guid: 342358d19ed63714a8983906dcd446bc, type: 3}
@@ -99,7 +96,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 604c73de4ad3eae47912a3249547de03, type: 3}
   - {fileID: 21300000, guid: f2330fcf9f797f94c9ccc74224a9d00e, type: 3}
   m_PackedSpriteNamesToIndex:
-  - item_box
   - energy_bar2
   - exp_bar
   - boss_bar2

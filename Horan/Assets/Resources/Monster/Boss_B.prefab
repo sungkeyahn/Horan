@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 4281050320433763834}
   - component: {fileID: 3372179015876985867}
   - component: {fileID: 4108268458788203450}
+  - component: {fileID: 8076281725788333729}
+  - component: {fileID: 1726039134092352735}
+  - component: {fileID: 3167786075948645292}
+  - component: {fileID: 8598144635594138400}
   m_Layer: 7
   m_Name: weapon_saber
   m_TagString: Untagged
@@ -83,6 +87,86 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8076281725788333729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488332384211990118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_slash_01
+  Position: {x: 0.133, y: 0.33, z: 0.038}
+  Rotation: {x: 90, y: 180, z: -90}
+  AnimName: ATTACK_DEFAULT1
+  SpawnTime: 0.25
+  DeleteTime: 0.5
+  Anim: {fileID: 8762451633576446627}
+  isProjectiles: 0
+--- !u!114 &1726039134092352735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488332384211990118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_slash_01
+  Position: {x: 0.133, y: 0.33, z: 0.038}
+  Rotation: {x: 90, y: 180, z: -90}
+  AnimName: ATTACK_DEFAULT3
+  SpawnTime: 0.25
+  DeleteTime: 0.5
+  Anim: {fileID: 8762451633576446627}
+  isProjectiles: 0
+--- !u!114 &3167786075948645292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488332384211990118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_slash_01
+  Position: {x: 0.133, y: 0.33, z: 0.038}
+  Rotation: {x: 90, y: 180, z: -90}
+  AnimName: ATTACK_DASH1
+  SpawnTime: 0.25
+  DeleteTime: 0.5
+  Anim: {fileID: 8762451633576446627}
+  isProjectiles: 0
+--- !u!114 &8598144635594138400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488332384211990118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_slash_01
+  Position: {x: 0.03, y: 0.167, z: 0.038}
+  Rotation: {x: 90, y: 180, z: -90}
+  AnimName: ATTACK_DASH2
+  SpawnTime: 0.25
+  DeleteTime: 0.5
+  Anim: {fileID: 8762451633576446627}
+  isProjectiles: 0
 --- !u!1 &546545267001933016
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +828,11 @@ GameObject:
   - component: {fileID: 4600818428361646248}
   - component: {fileID: 1951233512797028953}
   - component: {fileID: 4623105158760852840}
+  - component: {fileID: 369585872429807717}
+  - component: {fileID: 5872562446516221174}
+  - component: {fileID: 4153349540941230928}
+  - component: {fileID: 1625044075933382572}
+  - component: {fileID: 365533869044235451}
   m_Layer: 7
   m_Name: weapon_saber (1)
   m_TagString: Untagged
@@ -816,6 +905,106 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &369585872429807717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979733107327804669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_slash_01
+  Position: {x: -0.225, y: 0.3, z: 0.043}
+  Rotation: {x: 90, y: -180, z: 90}
+  AnimName: ATTACK_DEFAULT2
+  SpawnTime: 0.25
+  DeleteTime: 0.5
+  Anim: {fileID: 8762451633576446627}
+  isProjectiles: 0
+--- !u!114 &5872562446516221174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979733107327804669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_slash_01
+  Position: {x: -0.225, y: 0.3, z: 0.043}
+  Rotation: {x: 90, y: -180, z: 90}
+  AnimName: ATTACK_DEFAULT3
+  SpawnTime: 0.25
+  DeleteTime: 0.5
+  Anim: {fileID: 8762451633576446627}
+  isProjectiles: 0
+--- !u!114 &4153349540941230928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979733107327804669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_slash_01
+  Position: {x: -0.225, y: 0.3, z: 0.043}
+  Rotation: {x: 90, y: -180, z: 90}
+  AnimName: ATTACK_DASH1
+  SpawnTime: 0.25
+  DeleteTime: 0.5
+  Anim: {fileID: 8762451633576446627}
+  isProjectiles: 0
+--- !u!114 &1625044075933382572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979733107327804669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_slash_01
+  Position: {x: -0.017, y: 0.171, z: 0.043}
+  Rotation: {x: 90, y: -180, z: 90}
+  AnimName: ATTACK_DASH2
+  SpawnTime: 0.25
+  DeleteTime: 0.5
+  Anim: {fileID: 8762451633576446627}
+  isProjectiles: 0
+--- !u!114 &365533869044235451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979733107327804669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_slash_x
+  Position: {x: -0.017, y: -1.238, z: 0.441}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: ARPG_Dual_Wield_Attack_Heavy2
+  SpawnTime: 0.25
+  DeleteTime: 0.5
+  Anim: {fileID: 8762451633576446627}
+  isProjectiles: 0
 --- !u!1 &5021259837714086780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7479992769908426911}
   - component: {fileID: 6861644927227221524}
+  - component: {fileID: 1485473739729504515}
   m_Layer: 7
   m_Name: boss_02
   m_TagString: Untagged
@@ -1675,6 +1865,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00072437525, y: -0.62838864, z: -0.0013641715}
     m_Extent: {x: 1.3780868, y: 1.6719713, z: 0.5719118}
   m_DirtyAABB: 0
+--- !u!114 &1485473739729504515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832588980458577226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_02_ready_02
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: ATTACK_JUMP
+  SpawnTime: 0
+  DeleteTime: 0.5
+  Anim: {fileID: 0}
+  isProjectiles: 0
 --- !u!1 &8005431903621094336
 GameObject:
   m_ObjectHideFlags: 0

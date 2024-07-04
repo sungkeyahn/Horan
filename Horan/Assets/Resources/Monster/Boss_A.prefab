@@ -1577,7 +1577,7 @@ MonoBehaviour:
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0}
   AnimName: ATTACK_DASH2
-  SpawnTime: 0.1
+  SpawnTime: 0.05
   DeleteTime: 0.5
   Anim: {fileID: 4559566924498846152}
   isProjectiles: 0

@@ -1276,6 +1276,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3905617591611259354, guid: d6aab40df8bbb8b42bd92ca73693ed9e, type: 3}
   m_PrefabInstance: {fileID: 266122337}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &268244443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 268244444}
+  - component: {fileID: 268244445}
+  m_Layer: 12
+  m_Name: Post
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &268244444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268244443}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.85, y: -0.1, z: -32.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1657297950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &268244445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268244443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 699200441c590e649987395e82391847, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &270534917
 GameObject:
   m_ObjectHideFlags: 0
@@ -9599,6 +9648,7 @@ Transform:
   - {fileID: 1815300214}
   - {fileID: 873985704}
   - {fileID: 1771307431}
+  - {fileID: 268244444}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1670554660
@@ -9722,7 +9772,7 @@ GameObject:
   - component: {fileID: 1697657495}
   - component: {fileID: 1697657494}
   - component: {fileID: 1697657493}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -110,7 +110,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6856da25294464740877a855d272cdb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   prefab: {fileID: 4472598511631070869, guid: a96767d1c7a46084e92165170942d376, type: 3}
   offset: {x: 0, y: 0, z: 0}
   hp: 3

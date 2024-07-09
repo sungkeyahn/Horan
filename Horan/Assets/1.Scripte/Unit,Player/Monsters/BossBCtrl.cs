@@ -32,6 +32,9 @@ public class BossBCtrl : MonsterController
         Stat.OnHit += HitEffect;
         Stat.OnUnitDead += Dead;
 
+        //UI
+        Managers.UIManager.ShowPopupUI<BossHPBarUI>("BossHPBarUI").Init(Stat,"BOSS_TypeB");
+
         #region ATTACKInfo
         AtkInfo_Default1 = new AIAttackInfo("ATTACK_DEFAULT1", 0, 0.2f, 4, 60, 0, 0, 0, false,Effect_NONE);
         AtkInfo_Default2 = new AIAttackInfo("ATTACK_DEFAULT2", 0, 0.2f, 4, 60,  0, 0, 0, false, Effect_NONE);

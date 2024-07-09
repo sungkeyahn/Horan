@@ -36,6 +36,9 @@ public class BossACtrl : MonsterController
         Stat.OnHit += HitEffect;
         Stat.OnUnitDead += Dead;
 
+        //UI
+        Managers.UIManager.ShowPopupUI<BossHPBarUI>("BossHPBarUI").Init(Stat, "BOSS_TypeA");
+
         #region EffectInfo
         Effect_DashAtk = new EffectInfo("boss_01_dashattck", new Vector3(0.5f, 3, 3.5f), 0.25f);
         Effect_JumpAtk = new EffectInfo("boss_01_jumpattack", Vector3.zero, 0.55f);
@@ -152,7 +155,6 @@ public class BossACtrl : MonsterController
             return BT_Node.NodeState.Success;
             return BT_Node.NodeState.Failure;
     }
-
 
     #region Deco
     bool HasTarget()

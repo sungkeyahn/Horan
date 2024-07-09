@@ -122,11 +122,11 @@ public  class MonsterController : UnitController
  
         StopUnit(true);
         StopAllCoroutines();
-        StartCoroutine("DEAD");
+        StartCoroutine(DEAD());
     }
     protected IEnumerator DEAD()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4.5f);
         Destroy(gameObject);
     }
 

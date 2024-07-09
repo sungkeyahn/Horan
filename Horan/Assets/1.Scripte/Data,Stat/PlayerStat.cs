@@ -129,7 +129,7 @@ public class PlayerStat : Stat, IDamageInteraction
         MaxSp = 100;
         Attack = 20;
         Critical = 0.5f;
-        Speed = 6.5f;
+        Speed = 8f;
         HpRegenTime = 5;
         HpRegenAmount = 5f;
         SpRegenTime = 5;

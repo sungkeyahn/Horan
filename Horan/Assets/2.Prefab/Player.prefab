@@ -1232,6 +1232,8 @@ GameObject:
   - component: {fileID: 8033322225919522983}
   - component: {fileID: 6627221364358657570}
   - component: {fileID: 1243502487993979307}
+  - component: {fileID: 6228258303814090352}
+  - component: {fileID: 843316486265340889}
   m_Layer: 6
   m_Name: Sound
   m_TagString: Untagged
@@ -1509,6 +1511,36 @@ MonoBehaviour:
   SoundName: Sound_walk_2
   Anim: {fileID: 5214917995946972727}
   AnimName: MOVE
+--- !u!114 &6228258303814090352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_CounterB
+  Anim: {fileID: 5214917995946972727}
+  AnimName: COUNTER
+--- !u!114 &843316486265340889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619272615336478363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: Sound_CounterC
+  Anim: {fileID: 5214917995946972727}
+  AnimName: GUARD
 --- !u!1 &4684825820446952984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,6 +1971,8 @@ GameObject:
   - component: {fileID: 8354608067300177048}
   - component: {fileID: 5307252258108345797}
   - component: {fileID: 5897236229696464751}
+  - component: {fileID: 628340094558551116}
+  - component: {fileID: 6745396001040106854}
   m_Layer: 8
   m_Name: Weapon
   m_TagString: Untagged
@@ -1973,7 +2007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee07709db1a4cca479178e9886be0097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
 --- !u!65 &7450333159937548230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2061,8 +2094,8 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: FATTACK1
-  SpawnTime: 0.15
-  DeleteTime: 0.5
+  SpawnTime: 0.35
+  DeleteTime: 0.4
   Anim: {fileID: 5214917995946972727}
   isProjectiles: 0
 --- !u!114 &5972949564326070051
@@ -2081,8 +2114,8 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: FATTACK2
-  SpawnTime: 0.15
-  DeleteTime: 0.5
+  SpawnTime: 0.35
+  DeleteTime: 0.4
   Anim: {fileID: 5214917995946972727}
   isProjectiles: 0
 --- !u!114 &6767979591369382329
@@ -2101,8 +2134,8 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: FATTACK3
-  SpawnTime: 0.15
-  DeleteTime: 0.5
+  SpawnTime: 0.35
+  DeleteTime: 0.4
   Anim: {fileID: 5214917995946972727}
   isProjectiles: 0
 --- !u!114 &545483168186970470
@@ -2141,7 +2174,7 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: SATTACK2
-  SpawnTime: 0.15
+  SpawnTime: 0.3
   DeleteTime: 0.5
   Anim: {fileID: 5214917995946972727}
   isProjectiles: 0
@@ -2161,7 +2194,7 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: SATTACK3
-  SpawnTime: 0.15
+  SpawnTime: 0.3
   DeleteTime: 0.5
   Anim: {fileID: 5214917995946972727}
   isProjectiles: 0
@@ -2181,7 +2214,7 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: GLAIVE_SATTACK3
-  SpawnTime: 0.15
+  SpawnTime: 0.3
   DeleteTime: 0.5
   Anim: {fileID: 5214917995946972727}
   isProjectiles: 0
@@ -2282,6 +2315,46 @@ MonoBehaviour:
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: DASHATTACK
   SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &628340094558551116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: musa_slash_01
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: COUNTERATTACK
+  SpawnTime: 0.15
+  DeleteTime: 0.5
+  Anim: {fileID: 5214917995946972727}
+  isProjectiles: 0
+--- !u!114 &6745396001040106854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444041301739232997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: Hit_block
+  Position: {x: 0.1, y: 0.16, z: 0.03}
+  Rotation: {x: 100, y: 117, z: 16}
+  AnimName: HIT
+  SpawnTime: 0.05
   DeleteTime: 0.5
   Anim: {fileID: 5214917995946972727}
   isProjectiles: 0

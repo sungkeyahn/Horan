@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 1031311861661738409}
   - component: {fileID: 6419826670197783457}
   - component: {fileID: 4757800799292940060}
+  - component: {fileID: 1068313537032645620}
   m_Layer: 9
   m_Name: weapon_dadao_test
   m_TagString: Untagged
@@ -417,6 +418,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9a544a91d3ece4ca01e0541b209fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1068313537032645620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535455742034773116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: qing_slash_01
+  Position: {x: -0.5, y: 0.2, z: 0.15}
+  Rotation: {x: -55, y: 5, z: -140}
+  AnimName: ATTACK
+  SpawnTime: 0.35
+  DeleteTime: 0.55
+  Anim: {fileID: 6093513415463098157}
+  isProjectiles: 0
 --- !u!1 &1547230400104664027
 GameObject:
   m_ObjectHideFlags: 0

@@ -368,6 +368,8 @@ GameObject:
   - component: {fileID: 8390266224961545114}
   - component: {fileID: 3516663949541630342}
   - component: {fileID: 1723020683723211258}
+  - component: {fileID: 3189789245870708414}
+  - component: {fileID: 2734396194080057809}
   m_Layer: 7
   m_Name: weapon_bow_test
   m_TagString: Untagged
@@ -440,6 +442,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3189789245870708414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893165154430302887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: SHOOTING
+  Position: {x: 0, y: 0.18, z: 0.1}
+  Rotation: {x: -180, y: 90, z: 0}
+  AnimName: Hit_crash
+  SpawnTime: 0.3
+  DeleteTime: 0.4
+  Anim: {fileID: 8362315992343142102}
+  isProjectiles: 0
+--- !u!114 &2734396194080057809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893165154430302887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: SHOOTING
+  Position: {x: 0, y: 0.18, z: 0.1}
+  Rotation: {x: -180, y: 90, z: 0}
+  AnimName: 
+  SpawnTime: 0
+  DeleteTime: 0
+  Anim: {fileID: 8362315992343142102}
+  isProjectiles: 1
 --- !u!1 &896265374935820613
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +924,8 @@ GameObject:
   - component: {fileID: 2672315231790493751}
   - component: {fileID: 5637689052264259020}
   - component: {fileID: 5191160179271846099}
+  - component: {fileID: 3558144780808920045}
+  - component: {fileID: 4146287790191715978}
   m_Layer: 7
   m_Name: BowEnemy
   m_TagString: Enemy
@@ -1039,6 +1083,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyName: 
+--- !u!114 &3558144780808920045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554372041197421522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_01_projectiles
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: SHOOTING
+  SpawnTime: 0.25
+  DeleteTime: 1
+  Anim: {fileID: 8362315992343142102}
+  isProjectiles: 1
+--- !u!114 &4146287790191715978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554372041197421522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: Hit_crash
+  Position: {x: 0.396, y: 2.8, z: 1.25}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: SHOOTING
+  SpawnTime: 0.25
+  DeleteTime: 1
+  Anim: {fileID: 8362315992343142102}
+  isProjectiles: 0
 --- !u!1 &3697663364467049395
 GameObject:
   m_ObjectHideFlags: 0

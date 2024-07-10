@@ -28,7 +28,7 @@ public class BossHPBarUI : PopupUI
             transform.SetParent(stat.gameObject.transform);
         }
 
-        SetHPRatio(StatIdentifier.Hp,1,1);
+        slider.value = 1;
     }
     void SetHPRatio(StatIdentifier identifier,float pre ,float current)
     {

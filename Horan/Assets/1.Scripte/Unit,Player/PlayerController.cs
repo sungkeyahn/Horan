@@ -173,56 +173,44 @@ public class PlayerController : UnitController
     int atkCount = 0;
     void Attack()
     {
-        Data.AnimInfomation animinfo = weapon.AnimInfo_FATK[atkCount];
-
         Stat.atkType = PlayerStat.ECharacterAtkType.FAtk;
 
-        StopCoroutine(ATTACK(animinfo));
+        Data.AnimInfomation animinfo = weapon.AnimInfo_FATK[atkCount];
+      
         StartCoroutine(ATTACK(animinfo));
     }
     void SAttack()
     {
-        Data.AnimInfomation animinfo = weapon.AnimInfo_SATK[atkCount];
-        
         Stat.atkType = PlayerStat.ECharacterAtkType.SAtk;
 
-        StopCoroutine(ATTACK(animinfo));
+        Data.AnimInfomation animinfo = weapon.AnimInfo_SATK[atkCount];        
+         
         StartCoroutine(ATTACK(animinfo));
     }
     IEnumerator ATTACK(Data.AnimInfomation animinfo)
     {
+        atkAble = false;
         DashAtkInput = true;
-
         atkCount += 1;
 
         AttackRotationCorrection();
+        AttackContactCheck();
 
         for (int i = 0; i < anims.Length; i++)
         {
-            anims[i].Play(animinfo.name, -1, 0);
+            anims[i].Play(animinfo.name, -1, 0); 
         }
 
-        atkAble = false;
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
-        weapon.Area.enabled = true;
-        yield return new WaitForSeconds(animinfo.judgmenttime); // 공격 비활성화 
-        weapon.Area.enabled = false;
         atkAble = true;
-
-
-        yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length - (animinfo.delay + animinfo.judgmenttime));
-
+        yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length - animinfo.delay);
         if (atkAble)
         {
-            DashAtkInput = false;
-
             atkCount = 0;
-
+            DashAtkInput = false;
             Act.Finish((int)ECharacterAct.FAttack);
             Act.Finish((int)ECharacterAct.SAttack);
         }
-        yield return null;
-
     }
     void AttackRotationCorrection()
     {
@@ -234,6 +222,47 @@ public class PlayerController : UnitController
             {
                 Vector3 dir = new Vector3(box.mainTarget.transform.position.x - transform.position.x, 0, box.mainTarget.transform.position.z - transform.position.z);
                 move.SetMove(dir, dir, 0);
+            }
+        }
+    }
+    void AttackContactCheck()
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position,3f, 1<<7 | 1<<12 );
+        for (int i = 0; i < cols.Length; i++)
+        {
+            Vector3 dir = cols[i].transform.position - transform.position;
+            if (Vector3.Angle(transform.forward, dir) <= 160f / 2f)
+            {
+                GameObject hitob = cols[i].gameObject;
+                IDamageInteraction damageable = hitob.GetComponent<IDamageInteraction>();
+                if (damageable != null)
+                {
+                    Debug.Log("Hit!!!!");
+                    float finaldamage = Stat.Attack;
+
+                    switch (Stat.atkType)
+                    {
+                        case PlayerStat.ECharacterAtkType.FAtk:
+                            break;
+                        case PlayerStat.ECharacterAtkType.SAtk:
+                            finaldamage = finaldamage * 1.5f;
+                            break;
+                        case PlayerStat.ECharacterAtkType.DashAtk:
+                            finaldamage = finaldamage * 2f;
+                            break;
+                        case PlayerStat.ECharacterAtkType.CounterAtk:
+                            finaldamage = finaldamage * 2.5f;
+                            break;
+                    }
+
+                    if (UnityEngine.Random.Range(0, 99) < Stat.Critical)
+                        finaldamage = finaldamage * 1.5f;
+
+                    if (damageable.TakeDamage(finaldamage))
+                    {
+                        Managers.PrefabManager.SpawnEffect("Hit_strong", weapon.transform.position);
+                    }
+                }
             }
         }
     }

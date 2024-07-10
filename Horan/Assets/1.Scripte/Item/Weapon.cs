@@ -30,18 +30,18 @@ public class Weapon : MonoBehaviour
     {
         AttachWeapon();
     }
+    
+    //        
 
     private void OnTriggerEnter(Collider other)
     {
         GameObject hitob = other.gameObject;
         if (hitob)
         {
+            Debug.Log("ATTCKT");
             IDamageInteraction damageable = hitob.GetComponent<IDamageInteraction>();
             if (damageable != null)
             {
-                //공격에 대한 정보를가지고 전달할 복합 데이터 필요
-                //참조 : PalyerStat, ->AttackType , 
-                //스텟 + *치명 판정 + *공격 타입 배수 적용 
                 float finaldamage = onwerStat.Attack;
 
                 switch (onwerStat.atkType)
@@ -67,6 +67,7 @@ public class Weapon : MonoBehaviour
                     Managers.PrefabManager.SpawnEffect("Hit_strong",transform.position);
                 }
             }
+            Area.enabled = false;
         }
     }
     /*
@@ -97,6 +98,8 @@ public class Weapon : MonoBehaviour
             meshFilter.mesh = Resources.Load<Mesh>(Managers.DataLoder.DataCache_Equipments[weaponid].meshpath);
             meshRenderer.material = Resources.Load<Material>(Managers.DataLoder.DataCache_Equipments[weaponid].materialpath);
 
+            AnimInfo_FATK.Clear();
+            AnimInfo_SATK.Clear();
             for (int i = 0; i < Managers.DataLoder.DataCache_Weapon[weaponid].fatkaniminfo.Count; i++)
                 AnimInfo_FATK.Add(Managers.DataLoder.DataCache_Weapon[weaponid].fatkaniminfo[i]);
             for (int i = 0; i < Managers.DataLoder.DataCache_Weapon[weaponid].satkaniminfo.Count; i++)

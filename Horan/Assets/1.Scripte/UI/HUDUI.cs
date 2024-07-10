@@ -149,8 +149,8 @@ public class HUDUI : SceneUI
         if (OnCharacterAction != null)
             OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Move);
 
-        var clampedDir = (localVector - MovePadCenterPos).magnitude < 40 ?
-         (localVector - MovePadCenterPos) : (localVector - MovePadCenterPos).normalized * 40;
+        var clampedDir = (localVector - MovePadCenterPos).magnitude < 75 ? //40
+         (localVector - MovePadCenterPos) : (localVector - MovePadCenterPos).normalized * 75;
         MoveIever.anchoredPosition = clampedDir;
         //MoveIever.anchoredPosition = (localVector - MovePadCenterPos);
 

@@ -414,7 +414,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.7457627
+  m_ExitTime: 0.75
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -485,7 +485,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.74137926
+  m_ExitTime: 1
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -714,7 +714,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FATTACK1
-  m_Speed: 1.25
+  m_Speed: 1.36
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3360443323724734475}
@@ -910,7 +910,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FATTACK3
-  m_Speed: 1.25
+  m_Speed: 1.35
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -8292836318873595987}
@@ -989,7 +989,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 535571447660027793}
-    m_Position: {x: -300, y: 100, z: 0}
+    m_Position: {x: -290, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5163283037863874579}
     m_Position: {x: -300, y: 140, z: 0}
@@ -1169,7 +1169,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FATTACK2
-  m_Speed: 1.25
+  m_Speed: 1.4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3793276230515376577}

@@ -1011,7 +1011,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   isCounter: 0
-  DashCount: 1
 --- !u!1 &3996507444771914549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,8 +2093,8 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: FATTACK1
-  SpawnTime: 0.35
-  DeleteTime: 0.4
+  SpawnTime: 0.2
+  DeleteTime: 0.3
   Anim: {fileID: 5214917995946972727}
   isProjectiles: 0
 --- !u!114 &5972949564326070051
@@ -2114,8 +2113,8 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: FATTACK2
-  SpawnTime: 0.35
-  DeleteTime: 0.4
+  SpawnTime: 0.2
+  DeleteTime: 0.3
   Anim: {fileID: 5214917995946972727}
   isProjectiles: 0
 --- !u!114 &6767979591369382329
@@ -2134,8 +2133,8 @@ MonoBehaviour:
   Position: {x: 0.1, y: 0.16, z: 0.03}
   Rotation: {x: 100, y: 117, z: 16}
   AnimName: FATTACK3
-  SpawnTime: 0.35
-  DeleteTime: 0.4
+  SpawnTime: 0.2
+  DeleteTime: 0.3
   Anim: {fileID: 5214917995946972727}
   isProjectiles: 0
 --- !u!114 &545483168186970470

@@ -280,6 +280,9 @@ GameObject:
   - component: {fileID: 1757293116056988999}
   - component: {fileID: 5059971738538676583}
   - component: {fileID: 6102473293034603115}
+  - component: {fileID: 453185941631084907}
+  - component: {fileID: 7715269868312845381}
+  - component: {fileID: 4751076639483976570}
   m_Layer: 0
   m_Name: sound
   m_TagString: Untagged
@@ -346,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: boss_01_attack_04
   Anim: {fileID: 4559566924498846152}
-  AnimName: ATTACK_JUMP3
+  AnimName: ATTACK_JUMP2
 --- !u!114 &6102473293034603115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +363,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundName: boss_01_attack_03
+  Anim: {fileID: 4559566924498846152}
+  AnimName: ATTACK_DASH2
+--- !u!114 &453185941631084907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436861209409258593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: boss_01_ready
+  Anim: {fileID: 4559566924498846152}
+  AnimName: ATTACK_DASH
+--- !u!114 &7715269868312845381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436861209409258593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: boss_01_jump_ready
+  Anim: {fileID: 4559566924498846152}
+  AnimName: ATTACK_JUMP
+--- !u!114 &4751076639483976570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436861209409258593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef11e98940253c459190797f1ea63c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundName: boss_01_attack_flame
   Anim: {fileID: 4559566924498846152}
   AnimName: ATTACK_DASH2
 --- !u!1 &1851178660393553489
@@ -920,11 +968,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EffectName: boss_01_slash_01
-  Position: {x: 0.25, y: 0.15, z: -0.01}
-  Rotation: {x: 180, y: 30, z: -80}
+  Position: {x: -1.32, y: -0.7, z: 0.35}
+  Rotation: {x: 13.5, y: -78, z: -86}
   AnimName: ATTACK_DEFAULT2
-  SpawnTime: 0.075
-  DeleteTime: 0.75
+  SpawnTime: 0.05
+  DeleteTime: 0.4
   Anim: {fileID: 4559566924498846152}
   isProjectiles: 0
 --- !u!114 &3856204602299019120
@@ -943,8 +991,8 @@ MonoBehaviour:
   Position: {x: 0.25, y: 0.15, z: -0.01}
   Rotation: {x: 180, y: 30, z: -80}
   AnimName: ATTACK_DEFAULT1
-  SpawnTime: 0.075
-  DeleteTime: 0.75
+  SpawnTime: 0.05
+  DeleteTime: 0.4
   Anim: {fileID: 4559566924498846152}
   isProjectiles: 0
 --- !u!1 &4290437930038303687
@@ -1539,6 +1587,7 @@ GameObject:
   - component: {fileID: 2877790774214430017}
   - component: {fileID: 2420639029041949361}
   - component: {fileID: 9171196113146621248}
+  - component: {fileID: 3378720346117599767}
   m_Layer: 0
   m_Name: effect
   m_TagString: Untagged
@@ -1596,9 +1645,29 @@ MonoBehaviour:
   EffectName: boss_01_jumpattack
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0}
-  AnimName: ATTACK_JUMP3
+  AnimName: ATTACK_JUMP2
+  SpawnTime: 0.5
+  DeleteTime: 1.25
+  Anim: {fileID: 4559566924498846152}
+  isProjectiles: 0
+--- !u!114 &3378720346117599767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210612775048321821}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b058c7e6227004bafdf92a82556f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectName: boss_01_jumpattack_start
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  AnimName: ATTACK_JUMP
   SpawnTime: 0.05
-  DeleteTime: 0.5
+  DeleteTime: 0.3
   Anim: {fileID: 4559566924498846152}
   isProjectiles: 0
 --- !u!1 &6277337931369773756

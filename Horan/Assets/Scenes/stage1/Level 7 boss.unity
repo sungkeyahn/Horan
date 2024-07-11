@@ -17693,7 +17693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delta: {x: -2, y: 14, z: -9}
   minCameraBoundary: {x: -35, y: 0, z: -52}
-  maxCameraBoundary: {x: 18, y: 0, z: 12}
+  maxCameraBoundary: {x: 20, y: 0, z: 14}
 --- !u!81 &1870438905
 AudioListener:
   m_ObjectHideFlags: 0

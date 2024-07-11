@@ -749,7 +749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4555873674164441325, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7552067024150332958, guid: aecd3154cca4a0e47a0bffc3006c911b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -896,6 +896,10 @@ PrefabInstance:
     - target: {fileID: 6233702783191027145, guid: 45599375c0f6314469a24af22d68abe7, type: 3}
       propertyPath: m_Name
       value: BreakableObject_Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233702783191027145, guid: 45599375c0f6314469a24af22d68abe7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

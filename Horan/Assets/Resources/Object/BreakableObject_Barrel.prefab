@@ -150,7 +150,7 @@ MonoBehaviour:
   type: 1
   prefab: {fileID: 4472598511631070869, guid: a96767d1c7a46084e92165170942d376, type: 3}
   offset: {x: 0, y: 0, z: 0}
-  hp: 3
+  hp: 1
 --- !u!208 &2584852577090622532
 NavMeshObstacle:
   m_ObjectHideFlags: 0

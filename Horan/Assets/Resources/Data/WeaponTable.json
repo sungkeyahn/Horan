@@ -24,7 +24,7 @@
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.45,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
@@ -46,34 +46,34 @@
       "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK2",
-          "delay": 0.15,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK3",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.45,
+          "judgmenttime": 0.2
         }
       ],
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.15,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK2",
-          "delay": 0.15,
+          "delay": 0.45,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK3",
-          "delay": 0.15,
+          "delay": 0.75,
           "judgmenttime": 0.4
         }
       ]
@@ -85,34 +85,34 @@
       "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK2",
-          "delay": 0.15,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK3",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.45,
+          "judgmenttime": 0.2
         }
       ],
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.15,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK2",
-          "delay": 0.15,
+          "delay": 0.45,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK3",
-          "delay": 0.15,
+          "delay": 0.75,
           "judgmenttime": 0.4
         }
       ]
@@ -124,34 +124,34 @@
       "fatkaniminfo": [
         {
           "name": "GLAIVE_FATTACK1",
-          "delay": 0.3,
+          "delay": 0.4,
           "judgmenttime": 0.25
         },
         {
           "name": "GLAIVE_FATTACK2",
-          "delay": 0.15,
+          "delay": 0.5,
           "judgmenttime": 0.25
         },
         {
           "name": "GLAIVE_FATTACK3",
-          "delay": 0.3,
+          "delay": 0.45,
           "judgmenttime": 0.25
         }
       ],
       "satkaniminfo": [
         {
           "name": "GLAIVE_SATTACK3",
-          "delay": 0.2,
+          "delay": 0.6,
           "judgmenttime": 0.3
         },
         {
           "name": "GLAIVE_SATTACK2",
-          "delay": 0.2,
+          "delay": 0.5,
           "judgmenttime": 0.3
         },
         {
           "name": "GLAIVE_SATTACK3",
-          "delay": 0.2,
+          "delay": 0.85,
           "judgmenttime": 0.3
         }
       ]
@@ -163,34 +163,34 @@
       "fatkaniminfo": [
         {
           "name": "GLAIVE_FATTACK1",
-          "delay": 0.3,
+          "delay": 0.4,
           "judgmenttime": 0.25
         },
         {
           "name": "GLAIVE_FATTACK2",
-          "delay": 0.15,
+          "delay": 0.5,
           "judgmenttime": 0.25
         },
         {
           "name": "GLAIVE_FATTACK3",
-          "delay": 0.3,
+          "delay": 0.45,
           "judgmenttime": 0.25
         }
       ],
       "satkaniminfo": [
         {
           "name": "GLAIVE_SATTACK3",
-          "delay": 0.2,
+          "delay": 0.6,
           "judgmenttime": 0.3
         },
         {
           "name": "GLAIVE_SATTACK2",
-          "delay": 0.2,
+          "delay": 0.5,
           "judgmenttime": 0.3
         },
         {
           "name": "GLAIVE_SATTACK3",
-          "delay": 0.2,
+          "delay": 0.85,
           "judgmenttime": 0.3
         }
       ]
@@ -200,36 +200,36 @@
       "socketpos": [ 0.04, 0.13, 0.03 ],
       "socketrot": [ 105, 67, -35 ],
       "fatkaniminfo": [
-        {
+         {
           "name": "GLAIVE_FATTACK1",
-          "delay": 0.3,
+          "delay": 0.4,
           "judgmenttime": 0.25
         },
         {
           "name": "GLAIVE_FATTACK2",
-          "delay": 0.15,
+          "delay": 0.5,
           "judgmenttime": 0.25
         },
         {
           "name": "GLAIVE_FATTACK3",
-          "delay": 0.3,
+          "delay": 0.45,
           "judgmenttime": 0.25
         }
       ],
       "satkaniminfo": [
         {
           "name": "GLAIVE_SATTACK3",
-          "delay": 0.2,
+          "delay": 0.6,
           "judgmenttime": 0.3
         },
         {
           "name": "GLAIVE_SATTACK2",
-          "delay": 0.2,
+          "delay": 0.5,
           "judgmenttime": 0.3
         },
         {
           "name": "GLAIVE_SATTACK3",
-          "delay": 0.2,
+          "delay": 0.85,
           "judgmenttime": 0.3
         }
       ]
@@ -241,34 +241,34 @@
       "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.3,
+          "delay": 0.35,
           "judgmenttime": 0.25
         },
         {
           "name": "FATTACK2",
-          "delay": 0.15,
-          "judgmenttime": 0.25
+          "delay": 0.4,
+          "judgmenttime": 0.3
         },
         {
           "name": "FATTACK3",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.45,
+          "judgmenttime": 0.2
         }
       ],
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.15,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK2",
-          "delay": 0.15,
+          "delay": 0.45,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK3",
-          "delay": 0.15,
+          "delay": 0.75,
           "judgmenttime": 0.4
         }
       ]
@@ -280,34 +280,34 @@
       "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.3,
+          "delay": 0.35,
           "judgmenttime": 0.25
         },
         {
           "name": "FATTACK2",
-          "delay": 0.15,
-          "judgmenttime": 0.25
+          "delay": 0.4,
+          "judgmenttime": 0.3
         },
         {
           "name": "FATTACK3",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.45,
+          "judgmenttime": 0.2
         }
       ],
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.15,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK2",
-          "delay": 0.15,
+          "delay": 0.45,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK3",
-          "delay": 0.15,
+          "delay": 0.75,
           "judgmenttime": 0.4
         }
       ]
@@ -319,34 +319,34 @@
       "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.3,
+          "delay": 0.35,
           "judgmenttime": 0.25
         },
         {
           "name": "FATTACK2",
-          "delay": 0.15,
-          "judgmenttime": 0.25
+          "delay": 0.4,
+          "judgmenttime": 0.3
         },
         {
           "name": "FATTACK3",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.45,
+          "judgmenttime": 0.2
         }
       ],
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.15,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK2",
-          "delay": 0.15,
+          "delay": 0.45,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK3",
-          "delay": 0.15,
+          "delay": 0.75,
           "judgmenttime": 0.4
         }
       ]
@@ -358,34 +358,34 @@
       "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK2",
-          "delay": 0.15,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK3",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.45,
+          "judgmenttime": 0.2
         }
       ],
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.15,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK2",
-          "delay": 0.15,
+          "delay": 0.45,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK3",
-          "delay": 0.15,
+          "delay": 0.75,
           "judgmenttime": 0.4
         }
       ]
@@ -397,34 +397,34 @@
       "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK2",
-          "delay": 0.15,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK3",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.45,
+          "judgmenttime": 0.2
         }
       ],
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.15,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK2",
-          "delay": 0.15,
+          "delay": 0.45,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK3",
-          "delay": 0.15,
+          "delay": 0.75,
           "judgmenttime": 0.4
         }
       ]
@@ -436,34 +436,34 @@
       "fatkaniminfo": [
         {
           "name": "FATTACK1",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK2",
-          "delay": 0.15,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK3",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.45,
+          "judgmenttime": 0.2
         }
       ],
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.15,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK2",
-          "delay": 0.15,
+          "delay": 0.45,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK3",
-          "delay": 0.15,
+          "delay": 0.75,
           "judgmenttime": 0.4
         }
       ]
@@ -473,36 +473,36 @@
       "socketpos": [ 0.01, 0.16, 0.03 ],
       "socketrot": [ 100, 117, 16 ],
       "fatkaniminfo": [
-        {
+       {
           "name": "FATTACK1",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK2",
-          "delay": 0.15,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK3",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.45,
+          "judgmenttime": 0.2
         }
       ],
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.15,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK2",
-          "delay": 0.15,
+          "delay": 0.45,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK3",
-          "delay": 0.15,
+          "delay": 0.75,
           "judgmenttime": 0.4
         }
       ]
@@ -512,36 +512,36 @@
       "socketpos": [ 0.01, 0.16, 0.03 ],
       "socketrot": [ 100, 117, 16 ],
       "fatkaniminfo": [
-        {
+       {
           "name": "FATTACK1",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK2",
-          "delay": 0.15,
-          "judgmenttime": 0.25
+          "delay": 0.25,
+          "judgmenttime": 0.2
         },
         {
           "name": "FATTACK3",
-          "delay": 0.3,
-          "judgmenttime": 0.25
+          "delay": 0.45,
+          "judgmenttime": 0.2
         }
       ],
       "satkaniminfo": [
         {
           "name": "SATTACK1",
-          "delay": 0.15,
+          "delay": 0.55,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK2",
-          "delay": 0.15,
+          "delay": 0.45,
           "judgmenttime": 0.4
         },
         {
           "name": "SATTACK3",
-          "delay": 0.15,
+          "delay": 0.75,
           "judgmenttime": 0.4
         }
       ]
@@ -553,34 +553,34 @@
       "fatkaniminfo": [
         {
           "name": "GLAIVE_FATTACK1",
-          "delay": 0.3,
+          "delay": 0.4,
           "judgmenttime": 0.25
         },
         {
           "name": "GLAIVE_FATTACK2",
-          "delay": 0.15,
+          "delay": 0.5,
           "judgmenttime": 0.25
         },
         {
           "name": "GLAIVE_FATTACK3",
-          "delay": 0.3,
+          "delay": 0.45,
           "judgmenttime": 0.25
         }
       ],
       "satkaniminfo": [
         {
           "name": "GLAIVE_SATTACK3",
-          "delay": 0.2,
+          "delay": 0.6,
           "judgmenttime": 0.3
         },
         {
           "name": "GLAIVE_SATTACK2",
-          "delay": 0.2,
+          "delay": 0.5,
           "judgmenttime": 0.3
         },
         {
           "name": "GLAIVE_SATTACK3",
-          "delay": 0.2,
+          "delay": 0.85,
           "judgmenttime": 0.3
         }
       ]

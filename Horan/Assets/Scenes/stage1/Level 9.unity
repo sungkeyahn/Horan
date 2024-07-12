@@ -9037,7 +9037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: 
-  NextSceneName: 
+  NextSceneName: Level 10
 --- !u!4 &1210198873
 Transform:
   m_ObjectHideFlags: 0
@@ -12956,7 +12956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 699200441c590e649987395e82391847, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 94196056d9bd3d94c94a26068c691995, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -16417,7 +16417,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.9339623, g: 0.8878659, b: 0.76214844, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30

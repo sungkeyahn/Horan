@@ -119,7 +119,7 @@ public  class MonsterController : UnitController
         isDead = true;
 
         Managers.ContentsManager.DeadUnit(MyName);
- 
+
         StopUnit(true);
         StopAllCoroutines();
         StartCoroutine(DEAD());

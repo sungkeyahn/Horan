@@ -237,7 +237,6 @@ public class PlayerController : UnitController
                 IDamageInteraction damageable = hitob.GetComponent<IDamageInteraction>();
                 if (damageable != null)
                 {
-                    Debug.Log("Hit!!!!");
                     float finaldamage = Stat.Attack;
 
                     switch (Stat.atkType)

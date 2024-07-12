@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class SelectAbilitySlotUI : BaseUI
@@ -27,7 +28,9 @@ public class SelectAbilitySlotUI : BaseUI
     }
     public void Init(int id,PlayerStat stat)
     {
-        Init();
+        Init(); 
+        GetObject((int)Components.Image_AbilutyICon).GetComponent<Image>().sprite = Managers.DataLoder.DataCache_Sprite[$"icon_ability{id}"];
+
         GetObject((int)Components.Text_AbilityName).GetComponent<TMP_Text>().text = Managers.DataLoder.DataCache_LatentAbility[id].abilityname;
         GetObject((int)Components.Text_AbilityInfo).GetComponent<TMP_Text>().text = Managers.DataLoder.DataCache_LatentAbility[id].abilityinfo;
         ID = id;

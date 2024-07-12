@@ -25,13 +25,15 @@ public class TargetSerchComponent : MonoBehaviour
 
     public void SelectMainTarget(float RotAngle = 180f)
     {
+        mainTarget = null;
         if (close_monsters.Count>0)
         {
             mainTarget = null;
             MainTargetDistance = float.MaxValue;
             for (int i = 0; i < close_monsters.Count; i++)
             {
-                if (close_monsters[i] == null) return;
+                if (close_monsters[i] == null) continue;
+                if (close_monsters[i].Stat.hp <= 0) continue;
                 Vector3 dir = close_monsters[i].transform.position - transform.position;
                 if (Vector3.Angle(transform.forward, dir) <= RotAngle/2 && Vector3.Distance(close_monsters[i].transform.position, transform.position) < MainTargetDistance) //감지 시야각 
                 {

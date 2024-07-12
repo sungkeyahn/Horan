@@ -38,7 +38,6 @@ public class Weapon : MonoBehaviour
         GameObject hitob = other.gameObject;
         if (hitob)
         {
-            Debug.Log("ATTCKT");
             IDamageInteraction damageable = hitob.GetComponent<IDamageInteraction>();
             if (damageable != null)
             {

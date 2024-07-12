@@ -29,6 +29,10 @@ public class ContentsManager
     {
         AcquiredItems.Clear();
         AbilityContainer.ClearAbilities();
+        AbilityContainer.OnAbilityUpdate = null;
+        OnMonsterDead = null;
+        OnMonsterSpawn = null;
+
         Managers.MySceneManager.LoadScene($"Level {stage}");
     }
     public void WaveStart() // Scene Scripte애서 호출 

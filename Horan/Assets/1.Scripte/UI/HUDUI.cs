@@ -52,9 +52,6 @@ public class HUDUI : SceneUI
     public void Init(PlayerController Ctrl)
     {
         Init();
-        Managers.ContentsManager.OnMonsterDead -= UpdateQusetInfo;
-        Managers.ContentsManager.OnMonsterSpawn -= UpdateQusetInfo;
-        Managers.ContentsManager.AbilityContainer.OnAbilityUpdate -= AddAbilityIcon;
 
         Managers.ContentsManager.OnMonsterDead += UpdateQusetInfo;
         Managers.ContentsManager.OnMonsterSpawn += UpdateQusetInfo;
@@ -184,6 +181,7 @@ public class HUDUI : SceneUI
         if (OnCharacterAction != null)
             OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.SAttack);
     }
+
 
 }
 

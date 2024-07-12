@@ -11,7 +11,6 @@ public class LobbyScene : BaseScene
 
     protected override void Init()
     {
-        Debug.Log("Enter the Lobby Scene");
         SceneName = "Lobby";
         lobby= Managers.UIManager.ShowSceneUI<LobbyUI>("LobbyUI"); //lobby.Init();
             

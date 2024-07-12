@@ -7,25 +7,25 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: qing_swordman_02_b
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: qing_hat_death 9
+  m_Shader: {fileID: 4800000, guid: 3e7899f24eae03e43910c579b8481df4, type: 3}
   m_ValidKeywords:
+  - EDGE_COLOR
+  m_InvalidKeywords:
   - _ALPHATEST_ON
   - _METALLICGLOSSMAP
   - _NORMALMAP
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
-  stringTagMap:
-    RenderType: TransparentCutout
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 698defef878fb2f4faaeb0830087b660, type: 3}
+        m_Texture: {fileID: 2800000, guid: e4fb8674f8e6fb44f8d1bfcfa9d8563b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,20 +40,28 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DissolveTex:
+        m_Texture: {fileID: 2800000, guid: 8b8c0d2a94fa4d540af8c62c70c48cd6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EdgeAroundRamp:
+        m_Texture: {fileID: 2800000, guid: 6e6ee1f34b0234741b0b85bb5a5fd843, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4098e11dbc76c6e48be69783db9993f6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3225814cab602ed44bb244b49061e665, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 855e663cf0ec490419edaffce6e5da2d, type: 3}
+        m_Texture: {fileID: 2800000, guid: e6aa83cbe1f9fca4e99abbb34c1026a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: d43d9a356a99454439afc97119ee8e0c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6c7ee79a42e68d74c94ae988ab2bb44e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -63,24 +71,30 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
+    - _CullMode: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 1
+    - _Edge: 0.1
+    - _EdgeAround: 0.5
+    - _EdgeAroundHDR: 1.8
+    - _EdgeAroundPower: 3.26
+    - _EdgeDistortion: 0.4
+    - _GlossMapScale: 0.8
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimPower: 0
+    - _Progress: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _UseEdgeColor: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

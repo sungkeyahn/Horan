@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2746c5bf200f87c4992b72ff40ebc449, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 7e85e872f49423c448905da5e6b8f32c, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -350,6 +350,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -400,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -420,13 +424,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (37)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -490,6 +498,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -540,7 +552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -566,7 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65739278239736734, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_RootOrder
@@ -612,6 +624,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 85.276
       objectReference: {fileID: 0}
+    - target: {fileID: 2011264011079418443, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -632,7 +648,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_ScaleInLightmap
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
@@ -700,6 +716,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1002799931021534228, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_Name
       value: tiledwall_corner
@@ -836,6 +856,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 106
@@ -886,7 +910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1023,13 +1047,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1002799931021534228, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_Name
       value: tiledwall_corner (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2135134920321589115, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_RootOrder
@@ -1093,13 +1121,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (15)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -1229,13 +1261,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (62)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -1365,13 +1401,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (29)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -1471,13 +1511,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -1547,7 +1591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65739278239736734, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_RootOrder
@@ -1593,6 +1637,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 93.427
       objectReference: {fileID: 0}
+    - target: {fileID: 2011264011079418443, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1611,13 +1659,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1002799931021534228, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_Name
       value: tiledwall_corner (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2135134920321589115, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_RootOrder
@@ -1875,6 +1927,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 87
@@ -1925,7 +1981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1945,13 +2001,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1002799931021534228, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_Name
       value: tiledwall_corner (5)
       objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2135134920321589115, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_RootOrder
@@ -2015,13 +2075,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1002799931021534228, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_Name
       value: tiledwall_corner (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2135134920321589115, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_RootOrder
@@ -2133,6 +2197,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 103
@@ -2183,7 +2251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2275,7 +2343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65739278239736734, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_RootOrder
@@ -2321,6 +2389,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 2011264011079418443, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2339,6 +2411,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 51
@@ -2389,7 +2465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2479,6 +2555,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 83
@@ -2529,7 +2609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2549,6 +2629,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 73
@@ -2599,7 +2683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2619,6 +2703,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -2669,7 +2757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2899,6 +2987,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 88
@@ -2949,7 +3041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3035,13 +3127,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (40)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -3175,13 +3271,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -3245,6 +3345,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 36
@@ -3295,7 +3399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3645,13 +3749,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (57)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -3863,7 +3971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65739278239736734, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_RootOrder
@@ -3909,6 +4017,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -38.916
       objectReference: {fileID: 0}
+    - target: {fileID: 2011264011079418443, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3927,13 +4039,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (63)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -3997,13 +4113,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (31)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -4214,13 +4334,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1002799931021534228, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_Name
       value: tiledwall_corner (6)
       objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2135134920321589115, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_RootOrder
@@ -4385,13 +4509,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (43)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -4521,13 +4649,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -4591,13 +4723,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (61)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -4667,7 +4803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65739278239736734, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_RootOrder
@@ -4713,6 +4849,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -224.225
       objectReference: {fileID: 0}
+    - target: {fileID: 2011264011079418443, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4731,13 +4871,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (28)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -4977,6 +5121,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 78
@@ -5027,7 +5175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5047,6 +5195,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -5097,7 +5249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5337,7 +5489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65739278239736734, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_RootOrder
@@ -5382,6 +5534,10 @@ PrefabInstance:
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -79.466
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011264011079418443, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5467,13 +5623,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (36)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -5603,13 +5763,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (19)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -5739,7 +5903,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.12e-43, y: 2.7233332e-37, z: 6.12e-43, w: 3.8326006e-38}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 6e-44, z: 7.1e-44, w: 3.992e-42}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -5767,13 +5931,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (18)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -6489,13 +6657,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (35)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -6625,13 +6797,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (60)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -6695,13 +6871,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (64)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -6835,13 +7015,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (13)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -6971,13 +7155,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (34)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -7173,13 +7361,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (42)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -7729,13 +7921,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (46)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -7997,13 +8193,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -8137,13 +8337,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (50)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -8207,13 +8411,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (14)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -8727,13 +8935,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (41)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -9317,13 +9529,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (32)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -9523,13 +9739,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (33)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -9593,13 +9813,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (22)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -9931,13 +10155,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (55)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -10343,13 +10571,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -10413,6 +10645,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -10463,7 +10699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10799,6 +11035,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 107
@@ -10849,7 +11089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10875,7 +11115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65739278239736734, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_RootOrder
@@ -10920,6 +11160,10 @@ PrefabInstance:
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -42.505
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011264011079418443, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11001,6 +11245,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -11051,7 +11299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11300,6 +11548,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 120
@@ -11372,7 +11624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65739278239736734, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_RootOrder
@@ -11418,6 +11670,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -10.608
       objectReference: {fileID: 0}
+    - target: {fileID: 2011264011079418443, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11436,6 +11692,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (4)
@@ -11661,13 +11921,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (48)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -11731,6 +11995,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (1)
@@ -11797,6 +12065,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -11847,7 +12119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11867,6 +12139,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 126
@@ -11933,6 +12209,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90
@@ -11999,13 +12279,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (12)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -12069,6 +12353,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -12119,7 +12407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12139,13 +12427,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (53)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -12209,6 +12501,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 52
@@ -12259,7 +12555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12411,6 +12707,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -12461,7 +12761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12487,7 +12787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65739278239736734, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_RootOrder
@@ -12532,6 +12832,10 @@ PrefabInstance:
     - target: {fileID: 838334919606630692, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011264011079418443, guid: 42dc5ca9491684244ba1411bcccde218, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12621,13 +12925,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (66)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -12916,13 +13224,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (67)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -13048,6 +13360,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -13098,7 +13414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13188,13 +13504,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1002799931021534228, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_Name
       value: tiledwall_corner
       objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2135134920321589115, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_RootOrder
@@ -13320,13 +13640,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (20)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -13593,13 +13917,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (65)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -13865,6 +14193,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -13915,7 +14247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14137,6 +14469,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -14187,7 +14523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14273,6 +14609,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 89
@@ -14323,7 +14663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14343,6 +14683,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 84
@@ -14393,7 +14737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14413,13 +14757,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (30)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -14619,6 +14967,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1002799931021534228, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_Name
       value: tiledwall_corner (1)
@@ -14685,13 +15037,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -14755,6 +15111,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 35
@@ -14805,7 +15165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14825,13 +15185,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (58)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -14895,6 +15259,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 53
@@ -14945,7 +15313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15389,13 +15757,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (16)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -15659,6 +16031,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -15709,7 +16085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15795,6 +16171,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 86
@@ -15845,7 +16225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16100,6 +16480,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 56
@@ -16150,7 +16534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16170,6 +16554,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -16220,7 +16608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16306,6 +16694,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -16356,7 +16748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16376,13 +16768,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (11)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -16624,13 +17020,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (26)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -16694,6 +17094,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 105
@@ -16744,7 +17148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16834,13 +17238,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1002799931021534228, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_Name
       value: tiledwall_corner (7)
       objectReference: {fileID: 0}
     - target: {fileID: 1651225986814739905, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2135134920321589115, guid: eb485a4b52e8c4444a25ca5bfeeae222, type: 3}
       propertyPath: m_RootOrder
@@ -16970,13 +17378,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (27)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -17134,6 +17546,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -17184,7 +17600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17344,6 +17760,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (2)
@@ -17410,13 +17830,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -17546,13 +17970,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (51)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -17686,6 +18114,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 55
@@ -17736,7 +18168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17916,13 +18348,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (47)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -17986,13 +18422,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (17)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -18118,6 +18558,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -18168,7 +18612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18320,13 +18764,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (38)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -18588,13 +19036,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (54)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -18728,13 +19180,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (39)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -18847,6 +19303,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 48
@@ -18897,7 +19357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18917,13 +19377,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (44)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -19049,6 +19513,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 50
@@ -19099,7 +19567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19383,13 +19851,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (23)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -19589,6 +20061,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 104
@@ -19639,7 +20115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19659,13 +20135,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (21)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -19729,13 +20209,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (25)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -19904,6 +20388,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 5174347538244841938, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6306681562387696317, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_RootOrder
       value: 85
@@ -19954,7 +20442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6687288938726395911, guid: b6c1d27840b6e5842bffc3fb26ab360d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20181,13 +20669,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (56)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -20383,13 +20875,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (24)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -20453,13 +20949,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (52)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -20523,13 +21023,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (59)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder
@@ -20593,13 +21097,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1125313784}
     m_Modifications:
+    - target: {fileID: 1808521162915582229, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_Name
       value: tiledwall_straight 90 (45)
       objectReference: {fileID: 0}
     - target: {fileID: 3991501505240698139, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830744745476536918, guid: 856ce41049e2dc04da81c93501041c3f, type: 3}
       propertyPath: m_RootOrder

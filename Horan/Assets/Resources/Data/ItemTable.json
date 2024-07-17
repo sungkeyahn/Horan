@@ -5,407 +5,407 @@
       "name": "흔한 환도",
       "slotindex": 0,
       "type": 1,
-      "info": "공격력 10\n 방어력 10",
+      "info": "공격력 +10\n 방어력 +10",
       "iconfilename": "icon_weapon_sword_01"
     },
     {
       "id": 1002,
-      "name": "Default_Weapon_A",
+      "name": "일반 환도",
       "slotindex": 1,
       "type": 1,
-      "info": "일반 환도",
+      "info": "공격력 +15\n 방어력 +10",
       "iconfilename": "icon_weapon_sword_02"
     },
     {
       "id": 1003,
-      "name": "Rare_Weapon_A",
+      "name": "희귀한 환도",
       "slotindex": 2,
       "type": 1,
-      "info": "희귀한 환도",
+      "info": "공격력 +15\n 방어력 +15",
       "iconfilename": "icon_weapon_sword_03"
     },
     {
       "id": 1004,
-      "name": "Common_Weapon_B",
+      "name": "흔한 월도",
       "slotindex": 3,
       "type": 1,
-      "info": "흔한 월도",
+      "info": "공격력 +25\n 체력 +10",
       "iconfilename": "icon_weapon_glaive_01"
     },
     {
       "id": 1005,
-      "name": "Default_Weapon_B",
+      "name": "일반 월도",
       "slotindex": 4,
       "type": 1,
-      "info": "일반 월도",
+      "info": "공격력 +30\n 체력 +10",
       "iconfilename": "icon_weapon_glaive_02"
     },
     {
       "id": 1006,
-      "name": "Rare_Weapon_B",
+      "name": "희귀한 월도",
       "slotindex": 5,
       "type": 1,
-      "info": "희귀한 월도",
+      "info": "공격력 +30\n 체력 +15",
       "iconfilename": "icon_weapon_glaive_03"
     },
     {
       "iconfilename": "icon_weapon_dadao_01",
       "id": 1007,
-      "info": "흔한 대도",
-      "name": "Common_Weapon_C",
+      "info": "공격력 +10\n 체력 +10",
+      "name": "흔한 대도",
       "slotindex": 6,
       "type": 1
     },
     {
       "id": 1008,
-      "name": "Default_Weapon_C",
+      "name": "일반 대도",
       "slotindex": 7,
       "type": 1,
-      "info": "일반 대도",
+      "info": "공격력 +15\n 체력 +10",
       "iconfilename": "icon_weapon_dadao_02"
     },
     {
       "id": 1009,
-      "name": "Rare_Weapon_C",
+      "name": "희귀한 대도",
       "slotindex": 8,
       "type": 1,
-      "info": "희귀한 대도",
+      "info": "공격력 +15\n 체력 +15",
       "iconfilename": "icon_weapon_dadao_03"
     },
     {
       "id": 1010,
-      "name": "Common_Weapon_D",
+      "name": "흔한 곡도",
       "slotindex": 9,
       "type": 1,
-      "info": "흔한 곡도",
+      "info": "공격력 +10\n 치명타 +10",
       "iconfilename": "icon_weapon_saber_01"
     },
     {
       "id": 1011,
-      "name": "Default_Weapon_D",
+      "name": "일반 곡도",
       "slotindex": 10,
       "type": 1,
-      "info": "일반 곡도",
+      "info": "공격력 +15\n 치명타 +10",
       "iconfilename": "icon_weapon_saber_02"
     },
     {
       "id": 1012,
-      "name": "Rare_Weapon_D",
+      "name": "희귀한 곡도",
       "slotindex": 11,
       "type": 1,
-      "info": "희귀한 곡도",
+      "info": "공격력 +15\n 치명타 +15",
       "iconfilename": "icon_weapon_saber_03"
     },
     {
       "id": 1013,
-      "name": "Unique_Weapon_A",
+      "name": "전리품 환도",
       "slotindex": 12,
       "type": 1,
-      "info": "전리품 환도",
+      "info": "공격력 +20\n 기력 +20",
       "iconfilename": "icon_weapon_sword_04"
     },
     {
       "id": 1014,
-      "name": "Legendary_Weapon_A",
+      "name": "하사품 환도",
       "slotindex": 13,
       "type": 1,
-      "info": "하사품 환도",
+      "info": "공격력 +25\n 기력 +25",
       "iconfilename": "icon_weapon_sword_05"
     },
     {
       "id": 1015,
-      "name": "Unique_Weapon_B",
+      "name": "전리품 월도",
       "slotindex": 14,
       "type": 1,
-      "info": "전리품 월도",
+      "info": "공격력 +40\n 체력 +30",
       "iconfilename": "icon_weapon_glaive_04"
     },
     {
       "id": 1100,
-      "name": "DefaultClothes",
+      "name": "기본 지급 복장",
       "slotindex": 0,
       "type": 1,
-      "info": "기본 지급 복장",
+      "info": "낡고 흔한 옷",
       "iconfilename": "icon_main_cloth_00"
     },
     {
       "id": 1101,
-      "name": "Common_Clothes_A",
+      "name": "낡은 도포",
       "slotindex": 1,
       "type": 1,
-      "info": "낡은 도포",
+      "info": "체력 +15\n 기력 +20",
       "iconfilename": "icon_main_cloth_1_01"
     },
     {
       "id": 1102,
-      "name": "Default_Clothes_A",
+      "name": "평범한 도포",
       "slotindex": 2,
       "type": 1,
-      "info": "평범한 도포",
+      "info": "체력 +20\n 기력 +20",
       "iconfilename": "icon_main_cloth_1_02"
     },
     {
       "id": 1103,
-      "name": "Rare_Clothes_A",
+      "name": "튼튼한 도포",
       "slotindex": 3,
       "type": 1,
-      "info": "튼튼한 도포",
+      "info": "체력 +25\n 기력 +20",
       "iconfilename": "icon_main_cloth_1_03"
     },
     {
       "id": 1104,
-      "name": "Common_Clothes_B",
+      "name": "낡은 군복",
       "slotindex": 4,
       "type": 1,
-      "info": "낡은 군복",
+      "info": "기력 +5\n 공격력 +5",
       "iconfilename": "icon_main_cloth_2_01"
     },
     {
       "id": 1105,
-      "name": "Default_Clothes_B",
+      "name": "평범한 군복",
       "slotindex": 5,
       "type": 1,
-      "info": "평범한 군복",
+      "info": "기력 +10\n 공격력 +10",
       "iconfilename": "icon_main_cloth_2_02"
     },
     {
       "id": 1106,
-      "name": "Rare_Clothes_B",
+      "name": "튼튼한 군복",
       "slotindex": 6,
       "type": 1,
-      "info": "튼튼한 군복",
+      "info": "기력 +10\n 공격력 +10",
       "iconfilename": "icon_main_cloth_2_03"
     },
     {
       "id": 1107,
-      "name": "Common_Clothes_C",
+      "name": "낡은 두정갑",
       "slotindex": 7,
       "type": 1,
-      "info": "낡은 두정갑",
+      "info": "체력 +15\n 공격력 +5",
       "iconfilename": "icon_main_cloth_3a_01"
     },
     {
       "id": 1108,
-      "name": "Default_Clothes_C",
+      "name": "평범한 두정갑",
       "slotindex": 8,
       "type": 1,
-      "info": "평범한 두정갑",
+      "info": "체력 +20\n 공격력 +5",
       "iconfilename": "icon_main_cloth_3a_02"
     },
     {
       "id": 1109,
-      "name": "Rare_Clothes_C",
+      "name": "튼튼한 두정갑",
       "slotindex": 9,
       "type": 1,
-      "info": "튼튼한 두정갑",
+      "info": "체력 +25\n 공격력 +5",
       "iconfilename": "icon_main_cloth_3a_03"
     },
     {
       "id": 1110,
-      "name": "Common_Clothes_D",
+      "name": "낡은 철두정갑",
       "slotindex": 10,
       "type": 1,
-      "info": "낡은 철두정갑",
+      "info": "체력 +10\n 기력 +10\n 공격력 +5",
       "iconfilename": "icon_main_cloth_3b_01"
     },
     {
       "id": 1111,
-      "name": "Default_Clothes_D",
+      "name": "평범한 철두정갑",
       "slotindex": 11,
       "type": 1,
-      "info": "평범한 철두정갑",
+      "info": "체력 +15\n 기력 +15\n 공격력 +10",
       "iconfilename": "icon_main_cloth_3b_02"
     },
     {
       "id": 1112,
-      "name": "Rare_Clothes_D",
+      "name": "튼튼한 철두정갑",
       "slotindex": 12,
       "type": 1,
-      "info": "튼튼한 철두정갑",
+      "info": "체력 +20\n 기력 +20\n 공격력 +15",
       "iconfilename": "icon_main_cloth_3b_03"
     },
     {
       "id": 1200,
-      "name": "DefaultHead",
+      "name": "기본 지급 모자",
       "slotindex": 0,
       "type": 1,
-      "info": "기본 지급 모자",
+      "info": "무엇도 쓰지 않은 머리",
       "iconfilename": "icon_main_hat_0"
     },
     {
       "id": 1201,
-      "name": "Default_Head_A",
+      "name": "오래된 전립",
       "slotindex": 1,
       "type": 1,
-      "info": "오래된 전립",
+      "info": "기력 +10\n 체력 +10",
       "iconfilename": "icon_main_hat_1_01"
     },
     {
       "id": 1202,
-      "name": "Common_Head_A",
+      "name": "수선한 전립",
       "slotindex": 2,
       "type": 1,
-      "info": "수선한 전립",
+      "info": "기력 +15\n 체력 +10",
       "iconfilename": "icon_main_hat_1_02"
     },
     {
       "id": 1203,
-      "name": "Rare_Head_A",
+      "name": "갓 만든 전립",
       "slotindex": 3,
       "type": 1,
-      "info": "갓 만든 전립",
+      "info": "기력 +20\n 체력 +10",
       "iconfilename": "icon_main_hat_1_03"
     },
     {
       "id": 1204,
-      "name": "Default_Head_B",
+      "name": "오래된 군모",
       "slotindex": 4,
       "type": 1,
-      "info": "오래된 군모",
+      "info": "기력 +10\n 공격력 +5",
       "iconfilename": "icon_main_hat_2_01"
     },
     {
       "id": 1205,
-      "name": "Common_Head_B",
+      "name": "수선한 군모",
       "slotindex": 5,
       "type": 1,
-      "info": "수선한 군모",
+      "info": "기력 +15\n 공격력 +5",
       "iconfilename": "icon_main_hat_2_02"
     },
     {
       "id": 1206,
-      "name": "Rare_Head_B",
+      "name": "갓 만든 군모",
       "slotindex": 6,
       "type": 1,
-      "info": "갓 만든 군모",
+      "info": "기력 +20\n 공격력 +5",
       "iconfilename": "icon_main_hat_2_03"
     },
     {
       "id": 1207,
-      "name": "Default_Head_C",
+      "name": "낡은 투구",
       "slotindex": 7,
       "type": 1,
-      "info": "낡은 투구",
+      "info": "체력 +10\n 기력 +15",
       "iconfilename": "icon_main_hat_3a_01"
     },
     {
       "id": 1208,
-      "name": "Common_Head_C",
+      "name": "수선한 투구",
       "slotindex": 8,
       "type": 1,
-      "info": "수선한 투구",
+      "info": "체력 +15\n 기력 +15",
       "iconfilename": "icon_main_hat_3a_02"
     },
     {
       "id": 1209,
-      "name": "Rare_Head_C",
+      "name": "갓 만든 투구",
       "slotindex": 9,
       "type": 1,
-      "info": "갓 만든 투구",
+      "info": "체력 +15\n 기력 +20",
       "iconfilename": "icon_main_hat_3a_03"
     },
     {
       "id": 1210,
-      "name": "Default_Head_D",
+      "name": "낡은 철투구",
       "slotindex": 10,
       "type": 1,
-      "info": "낡은 철투구",
+      "info": "공격력 +5\n 체력 +15",
       "iconfilename": "icon_main_hat_3b_01"
     },
     {
       "id": 1211,
-      "name": "Common_Head_D",
+      "name": "수선한 철투구",
       "slotindex": 11,
       "type": 1,
-      "info": "수선한 철투구",
+      "info": "공격력 +10\n 체력 +15",
       "iconfilename": "icon_main_hat_3b_02"
     },
     {
       "id": 1212,
-      "name": "Rare_Head_D",
+      "name": "갓 만든 철투구",
       "slotindex": 12,
       "type": 1,
-      "info": "갓 만든 철투구",
+      "info": "공격력 +10\n 체력 +20",
       "iconfilename": "icon_main_hat_3b_03"
     },
     {
       "id": 1301,
-      "name": "Accessory_A",
+      "name": "기본 얼굴",
       "slotindex": 0,
       "type": 1,
-      "info": "기본 얼굴",
+      "info": "맨얼굴",
       "iconfilename": "icon_main_hat_0"
     },
     {
       "id": 1302,
-      "name": "Accessory_B",
+      "name": "하회탈",
       "slotindex": 1,
       "type": 1,
-      "info": "하회탈",
+      "info": "놀이판의 필수품",
       "iconfilename": "icon_acc_01"
     },
     {
       "id": 1303,
-      "name": "Accessory_C",
+      "name": "색안경",
       "slotindex": 2,
       "type": 1,
-      "info": "곰방대",
+      "info": "멋을 챙겼습니다.",
       "iconfilename": "icon_acc_02"
     },
     {
       "id": 1304,
-      "name": "Accessory_D",
+      "name": "곰방대",
       "slotindex": 3,
       "type": 1,
-      "info": "안경",
+      "info": "품위를 챙겼습니다.",
       "iconfilename": "icon_acc_03"
     },
     {
       "id": 1305,
-      "name": "Accessory_E",
+      "name": "여유로운 미소",
       "slotindex": 4,
       "type": 1,
-      "info": "곰방대_안경",
+      "info": "품위와 멋을\n챙겼습니다.",
       "iconfilename": "icon_acc_05"
     },
     {
       "id": 1306,
-      "name": "Accessory_F",
+      "name": "삿갓",
       "slotindex": 5,
       "type": 1,
-      "info": "삿갓",
+      "info": "시원하고 은밀합니다.",
       "iconfilename": "icon_acc_04"
     },
     {
       "id": 1501,
-      "name": "Material_A",
+      "name": "청동 원석",
       "slotindex": 0,
       "type": 2,
-      "info": "청동 원석",
+      "info": "무구를 장식하는 재료",
       "iconfilename": "icon_craft_01"
     },
     {
       "id": 1502,
-      "name": "Material_B",
+      "name": "면포",
       "slotindex": 1,
       "type": 2,
-      "info": "면포",
+      "info": "무구를 감싸는 재료",
       "iconfilename": "icon_craft_02"
     },
     {
       "id": 1503,
-      "name": "Material_C",
+      "name": "가죽",
       "slotindex": 2,
       "type": 2,
-      "info": "가죽",
+      "info": "무구에 덧대는 재료",
       "iconfilename": "icon_craft_03"
     },
     {
       "id": 1504,
-      "name": "Material_D",
+      "name": "강철 주괴",
       "slotindex": 3,
       "type": 2,
-      "info": "강철 주괴",
+      "info": "무구를 고치는 재료",
       "iconfilename": "icon_craft_04"
     }
   ]

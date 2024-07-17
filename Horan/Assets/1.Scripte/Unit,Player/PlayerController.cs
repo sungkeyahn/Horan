@@ -11,19 +11,18 @@ public enum EPlayerAnimState
 
 public class PlayerController : UnitController
 {
-    HUDUI Hud;
-
     Animator[]anims;
-    
+ 
+    HUDUI Hud;
     PlayerStat Stat;
     ActComponent Act;
-
-    InputComponent input; //삭제 보류 
     MoveComponent move;
 
     public Weapon weapon;
     public Equipment[] equipments = new Equipment[5];
 
+    //에디터 키보드 마우스 조작용 컴포넌트 [개선 필요] 
+    InputComponent input;
     private void Awake()
     {
         equipments = GetComponentsInChildren<Equipment>();
@@ -139,23 +138,6 @@ public class PlayerController : UnitController
                 break;
         }
     }
-    void OnPlayerTouchEvent(Touch evt)
-    {
-        switch (evt.phase)
-        {
-            case TouchPhase.Began:
-                break;
-            case TouchPhase.Moved:
-                break;
-            case TouchPhase.Stationary:
-                break;
-            case TouchPhase.Ended:
-                break;
-            case TouchPhase.Canceled:
-                break;
-        }
-    }
-
     void Move()
     {
         Vector3 moveDir = new Vector3(Hud.input.x,0,Hud.input.y);
@@ -259,7 +241,7 @@ public class PlayerController : UnitController
 
                     if (damageable.TakeDamage(finaldamage))
                     {
-                        Managers.PrefabManager.SpawnEffect("Hit_strong", weapon.transform.position);
+                        Managers.PrefabManager.SpawnEffect("Hit_strong", hitob.transform.position);
                     }
                 }
             }
@@ -415,99 +397,20 @@ public class PlayerController : UnitController
         Sound_Hit.Play();
     }
     void Dead()
-    {//캐릭터 조작 입력 + 재생중인 사운드 + 캐릭터 물리 + 실행중인 애니메이션 끄고 사망 결과창 출력
+    {
         Hud.OnCharacterAction -= OnCharacterBtnEvent;
         Hud.OnCharacterEnd -= OnCharacterBtnEndEvent;
-        
-        move.SetMove();        
-
         Stat.OnUnitDead -= Dead;
 
         StartCoroutine(CharacterDestroy());     
     }
     IEnumerator CharacterDestroy()
-    {   
+    {
+        move.SetMove();
         for (int i = 0; i < anims.Length; i++)
             anims[i].Play("DEAD");
         yield return new WaitForSeconds(2.0f);
         Managers.ContentsManager.Clear("",false);
-       
     }
 
 }
-/*    void OnPlayerMouseEvent(InputComponent.MouseEvent evt)
-    {
-        switch (evt)
-        {
-            case InputComponent.MouseEvent.None:
-                {
-                }
-                break;
-            case InputComponent.MouseEvent.Press:
-                {
-
-                    // Debug.Log("Press");
-                }
-                break;
-            case InputComponent.MouseEvent.PointerDown:
-                {
-                    // Debug.Log("PointerDown");
-                }
-                break;
-            case InputComponent.MouseEvent.PointerUp:
-                {
-                    // Debug.Log("PointerUp");
-                }
-                break;
-            case InputComponent.MouseEvent.Click:
-                {
-                    if (atkAble && atkCount < weapon.AnimInfo_FATK.Count)
-                    {
-                        Act.Execution((int)ECharacterAct.FAttack);
-                    }//Debug.Log("Click");
-                }
-                break;
-            default:
-                break;
-        }
-    }
-    void OnPlayerKeyBoardEvent(InputComponent.KeyBoardEvent evt)
-    {
-        switch (evt)
-        {
-            case InputComponent.KeyBoardEvent.None:
-                {
-                    move.SetMove(0);
-                    //anim.SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
-                    for (int i = 0; i < anims.Length; i++)
-                    {
-                        anims[i].SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
-                    }
-                    Act.Finish((int)ECharacterAct.Move);
-                }
-                break;
-            case InputComponent.KeyBoardEvent.Press:
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-                {
-                    Act.Execution((int)ECharacterAct.Move);
-                }
-                if (Input.GetKey(KeyCode.E) && !isGuard)
-                {
-                    Act.Execution((int)ECharacterAct.Guard);
-                }
-                break;
-            case InputComponent.KeyBoardEvent.ButtonDown:
-                if (Input.GetKey(KeyCode.Space) && Stat.UseSP(20))
-                    Act.Execution((int)ECharacterAct.Dash);
-                break;
-            case InputComponent.KeyBoardEvent.ButtonUp:
-                //if (isGuard && !Input.GetKeyDown(KeyCode.E))
-               // {
-                    //isGuard = false;
-                   // Act.Finish((int)ECharacterAct.Guard);
-                //}
-                break;
-            default:
-                break;
-        }
-    }*/

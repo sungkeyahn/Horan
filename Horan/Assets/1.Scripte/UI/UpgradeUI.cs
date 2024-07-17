@@ -170,9 +170,9 @@ public class UpgradeUI : PopupUI
     }
     public void SelectItem(int selectedInvenItemID=-1)
     {
-        Sound_Click.Play();
-
         if (!Managers.DataLoder.DataCache_Upgrade.ContainsKey(selectedInvenItemID)) return;
+
+        Sound_Click.Play();
         ID = selectedInvenItemID;
         
         UpdateStatSlot(selectedInvenItemID);  // StatSlot  »ý¼º

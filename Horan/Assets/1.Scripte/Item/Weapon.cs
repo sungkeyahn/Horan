@@ -30,9 +30,6 @@ public class Weapon : MonoBehaviour
     {
         AttachWeapon();
     }
-    
-    //        
-
     private void OnTriggerEnter(Collider other)
     {
         GameObject hitob = other.gameObject;

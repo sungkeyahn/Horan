@@ -45,8 +45,11 @@ public class HUDUI : SceneUI
 
         MovePad = GetObject((int)Components.Button_Move).GetComponent<RectTransform>();
         MoveIever = GetObject((int)Components.Image_MovePad).GetComponent<RectTransform>();
-        MovePadCenterPos = new Vector2(MovePad.anchoredPosition.x/2+ MovePad.rect.width / 2, MovePad.anchoredPosition.y/2 + MovePad.rect.height / 2);
-
+        //MovePadCenterPos = new Vector2(MovePad.anchoredPosition.x/2+ MovePad.rect.width / 2, MovePad.anchoredPosition.y/2 + MovePad.rect.height / 2);
+        MovePadCenterPos = MoveIever.position;
+        // Debug.Log(MovePadCenterPos); -125,0
+        // Debug.Log(MoveIever.position); 140,140
+        
         isinit = true;
     }
     public void Init(PlayerController Ctrl)
@@ -71,7 +74,6 @@ public class HUDUI : SceneUI
                 UpdateStat(StatIdentifier.Exp);
             }
         }
-
     }
 
     void UpdateStat(StatIdentifier identifier, float preValue=0, float curValue=0)
@@ -143,6 +145,9 @@ public class HUDUI : SceneUI
     {
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(MovePad, data.position, data.pressEventCamera, out Vector2 localVector))
             this.input = (localVector - MovePadCenterPos).normalized;
+        Debug.Log(localVector);
+
+        
         if (OnCharacterAction != null)
             OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Move);
 

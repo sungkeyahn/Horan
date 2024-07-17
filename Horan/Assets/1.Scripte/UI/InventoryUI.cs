@@ -9,12 +9,14 @@ using TMPro;
 public class InventoryUI : PopupUI
 {
     bool isInit = false;
-    enum Components { Panel_Stat, Panel_ItemSlots , Button_WeaponTab , Button_CostumeTab, Button_HatTab, Button_AccTab, Button_MatTab, Text_Gold, Button_ClosePopup}
+    enum Components { Panel_Stat, Panel_ItemSlots , Button_WeaponTab , Button_CostumeTab, Button_HatTab, Button_AccTab, Button_MatTab, Text_Gold, ItemEquipPopupUI, Button_ClosePopup}
     public enum EStatSlotInfo { Atk, Hp, Sp, RegenHp }
 
     public List<ItemSlotUI> itemslots=new List<ItemSlotUI>();
     public List<StatSlotUI> statslots = new List<StatSlotUI>();
-    
+
+    ItemEquipPopupUI EquipPopup;
+
     AudioSource Sound_Click;
     
     public override void Init()
@@ -48,9 +50,11 @@ public class InventoryUI : PopupUI
             ob2.GetComponent<StatSlotUI>().Init((EStatSlotInfo)i);//EStatSlotInfo.Atk
         }
 
+        EquipPopup = GetObject((int)Components.ItemEquipPopupUI).GetComponent<ItemEquipPopupUI>();
+        EquipPopup.Init();
+        EquipPopup.gameObject.SetActive(false);
+
         SetGold();
-
-
         isInit = true;
     }
 
@@ -85,7 +89,16 @@ public class InventoryUI : PopupUI
     {
         GetObject((int)Components.Text_Gold).GetComponent<TMP_Text>().text = Managers.DataLoder.DataCache_Save.User.gold.ToString();
     }
-    void ClickTab(Einventype einventype )
+    public void ShowEquipPopup(int itemid)
+    {
+        if (EquipPopup)
+        {
+            EquipPopup.gameObject.SetActive(true);
+            EquipPopup.SetItem(itemid);
+        }
+    }
+
+    void ClickTab(Einventype einventype)
     {
         Sound_Click.Play();
         for (int i = 0; i < itemslots.Count; i++)

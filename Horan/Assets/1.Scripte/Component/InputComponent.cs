@@ -96,3 +96,80 @@ public class InputComponent : MonoBehaviour
         TouchAction = null;
     }
 }
+
+/*  void OnPlayerMouseEvent(InputComponent.MouseEvent evt)
+    {
+        switch (evt)
+        {
+            case InputComponent.MouseEvent.None:
+                {
+                }
+                break;
+            case InputComponent.MouseEvent.Press:
+                {
+
+                    // Debug.Log("Press");
+                }
+                break;
+            case InputComponent.MouseEvent.PointerDown:
+                {
+                    // Debug.Log("PointerDown");
+                }
+                break;
+            case InputComponent.MouseEvent.PointerUp:
+                {
+                    // Debug.Log("PointerUp");
+                }
+                break;
+            case InputComponent.MouseEvent.Click:
+                {
+                    if (atkAble && atkCount < weapon.AnimInfo_FATK.Count)
+                    {
+                        Act.Execution((int)ECharacterAct.FAttack);
+                    }//Debug.Log("Click");
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    void OnPlayerKeyBoardEvent(InputComponent.KeyBoardEvent evt)
+    {
+        switch (evt)
+        {
+            case InputComponent.KeyBoardEvent.None:
+                {
+                    move.SetMove(0);
+                    //anim.SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
+                    for (int i = 0; i < anims.Length; i++)
+                    {
+                        anims[i].SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
+                    }
+                    Act.Finish((int)ECharacterAct.Move);
+                }
+                break;
+            case InputComponent.KeyBoardEvent.Press:
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+                {
+                    Act.Execution((int)ECharacterAct.Move);
+                }
+                if (Input.GetKey(KeyCode.E) && !isGuard)
+                {
+                    Act.Execution((int)ECharacterAct.Guard);
+                }
+                break;
+            case InputComponent.KeyBoardEvent.ButtonDown:
+                if (Input.GetKey(KeyCode.Space) && Stat.UseSP(20))
+                    Act.Execution((int)ECharacterAct.Dash);
+                break;
+            case InputComponent.KeyBoardEvent.ButtonUp:
+                //if (isGuard && !Input.GetKeyDown(KeyCode.E))
+               // {
+                    //isGuard = false;
+                   // Act.Finish((int)ECharacterAct.Guard);
+                //}
+                break;
+            default:
+                break;
+        }
+    }*/

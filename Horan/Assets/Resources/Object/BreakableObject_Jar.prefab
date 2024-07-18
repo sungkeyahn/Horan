@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8614714238221384164}
   - component: {fileID: 8533912699818737621}
   - component: {fileID: 7076798672754732728}
+  - component: {fileID: 7975232227670866391}
   m_Layer: 12
   m_Name: BreakableObject_Jar
   m_TagString: Untagged
@@ -167,3 +168,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.915}
   m_TimeToStationary: 0.5
+--- !u!114 &7975232227670866391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959123771954651467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 6552c5f4d084260448cbf77ae456eec7, type: 2}

@@ -74,6 +74,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2965507024495464718}
   - component: {fileID: 2137658791776417515}
+  - component: {fileID: 4266515422876048813}
+  - component: {fileID: 5351004167404208327}
   m_Layer: 7
   m_Name: boss_01_head
   m_TagString: Untagged
@@ -173,6 +175,32 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00070536137, y: 0.7384303, z: 0.08891306}
     m_Extent: {x: 2.3962002, y: 0.5159349, z: 0.33021107}
   m_DirtyAABB: 0
+--- !u!114 &4266515422876048813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912687306989368093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 68afba5e17d385d4b85dc721816d6650, type: 2}
+--- !u!114 &5351004167404208327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912687306989368093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b343dac4f7c4b642bcc7dffd9451ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 8660e60261c5d534585e1904662e6889, type: 2}
 --- !u!1 &1051942003903796281
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +768,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2739427997684177363}
   - component: {fileID: 6306191062105502515}
+  - component: {fileID: 9134792949961446206}
+  - component: {fileID: 8650900543569021563}
   m_Layer: 7
   m_Name: boss_01
   m_TagString: Untagged
@@ -839,6 +869,32 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00013959408, y: -0.9756743, z: 0.011943728}
     m_Extent: {x: 1.9657538, y: 2.1497087, z: 0.6614083}
   m_DirtyAABB: 0
+--- !u!114 &9134792949961446206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981792524324802817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 79ab63ae1c0fe4d45a03d1bc620c6f83, type: 2}
+--- !u!114 &8650900543569021563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981792524324802817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b343dac4f7c4b642bcc7dffd9451ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 8c560750f1c16e74fb6391382e625f65, type: 2}
 --- !u!1 &4012591690163713406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,6 +2123,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3047905721180526614}
   - component: {fileID: 1721078519182302175}
+  - component: {fileID: 3348221658985130132}
+  - component: {fileID: 7788017716284065916}
   m_Layer: 7
   m_Name: boss_01a
   m_TagString: Untagged
@@ -2147,6 +2205,32 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000436306, y: -0.6021847, z: 0.11221933}
     m_Extent: {x: 0.6449188, y: 0.5552786, z: 0.49204332}
   m_DirtyAABB: 0
+--- !u!114 &3348221658985130132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297858316990855015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 79ab63ae1c0fe4d45a03d1bc620c6f83, type: 2}
+--- !u!114 &7788017716284065916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297858316990855015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b343dac4f7c4b642bcc7dffd9451ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 8c560750f1c16e74fb6391382e625f65, type: 2}
 --- !u!1 &8425971048792291230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,6 +2337,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3544771257990492307}
   - component: {fileID: 8152216397160706827}
+  - component: {fileID: 8508656109580237112}
+  - component: {fileID: 1112211436872869933}
   m_Layer: 7
   m_Name: boss_01_arms
   m_TagString: Untagged
@@ -2336,3 +2422,29 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0012100935, y: 0.2565785, z: 0.05173569}
     m_Extent: {x: 1.4834076, y: 0.51203305, z: 0.28555754}
   m_DirtyAABB: 0
+--- !u!114 &8508656109580237112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913202292488431590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 513f23f96ff530244b35d4d1103651cc, type: 2}
+--- !u!114 &1112211436872869933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913202292488431590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b343dac4f7c4b642bcc7dffd9451ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 752c90d36ceffa640985a699a8529506, type: 2}

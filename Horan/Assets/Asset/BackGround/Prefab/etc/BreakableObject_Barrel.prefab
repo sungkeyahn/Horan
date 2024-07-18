@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3772212793823404090}
   - component: {fileID: 5211432248826722678}
   - component: {fileID: 2506798856721601236}
+  - component: {fileID: 4594137703763304868}
   m_Layer: 12
   m_Name: BreakableObject_Barrel
   m_TagString: Untagged
@@ -167,3 +168,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.74500006}
   m_TimeToStationary: 0.5
+--- !u!114 &4594137703763304868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873640720342716333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 4759be87892477b489e2348cb1d94f43, type: 2}

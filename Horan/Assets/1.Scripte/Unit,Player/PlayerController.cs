@@ -96,7 +96,7 @@ public class PlayerController : UnitController
                 Act.Execution((int)ECharacterAct.Move);
                 break;
             case EPlayerCharacterCtrlEvent.Dash:
-                if (!isDash)
+                if (!isDash && !isGuard)
                     if (Stat.UseSP(20))
                         Act.Execution((int)ECharacterAct.Dash);
                 break;

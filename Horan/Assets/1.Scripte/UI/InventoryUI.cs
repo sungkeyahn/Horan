@@ -22,6 +22,8 @@ public class InventoryUI : PopupUI
     public override void Init()
     {
         if (isInit) return;
+
+        #region Bind
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_ClosePopup), OnBtnClicked_ClosePopup, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_WeaponTab), OnBtnClicked_WeaponTab, UIEvent.Click);
@@ -29,6 +31,21 @@ public class InventoryUI : PopupUI
         BindEvent(GetObject((int)Components.Button_HatTab), OnBtnClicked_HatTab, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_AccTab), OnBtnClicked_AccTab, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_MatTab), OnBtnClicked_MatTab, UIEvent.Click);
+
+        BindEvent(GetObject((int)Components.Button_WeaponTab), OnPointDown_WeaponTab, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_CostumeTab), OnPointDown_CostumeTab, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_HatTab), OnPointDown_HatTab, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_AccTab), OnPointDown_AccTab, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_MatTab), OnPointDown_MatTab, UIEvent.PointDown);
+
+        BindEvent(GetObject((int)Components.Button_WeaponTab), OnPointUp_WeaponTab, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_CostumeTab), OnPointUp_CostumeTab, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_HatTab), OnPointUp_HatTab, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_AccTab), OnPointUp_AccTab, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_MatTab), OnPointUp_MatTab, UIEvent.PointUp);
+
+        #endregion Bind
+
 
         Sound_Click = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Click"], transform).GetComponent<AudioSource>();
 
@@ -85,6 +102,7 @@ public class InventoryUI : PopupUI
         ClickTab(Einventype.Mat);
     }
 
+
     public void SetGold()
     {
         GetObject((int)Components.Text_Gold).GetComponent<TMP_Text>().text = Managers.DataLoder.DataCache_Save.User.gold.ToString();
@@ -103,5 +121,47 @@ public class InventoryUI : PopupUI
         Sound_Click.Play();
         for (int i = 0; i < itemslots.Count; i++)
             itemslots[i].Init(i, einventype);
-    }  
+    }
+
+    //Hover
+    public void OnPointDown_WeaponTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_WeaponTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointUp_WeaponTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_WeaponTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointDown_CostumeTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_CostumeTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointUp_CostumeTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_CostumeTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointDown_HatTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_HatTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointUp_HatTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_HatTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointDown_AccTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_AccTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointUp_AccTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_AccTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointDown_MatTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_MatTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointUp_MatTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_MatTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
 }

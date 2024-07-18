@@ -202,6 +202,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1515654371909139489}
   - component: {fileID: 2179013963602901908}
+  - component: {fileID: 9017950603348269106}
+  - component: {fileID: 2673105065108862555}
   m_Layer: 7
   m_Name: qing_swordman_01
   m_TagString: Untagged
@@ -299,6 +301,32 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0007968545, y: -0.66850054, z: 0.02134192}
     m_Extent: {x: 1.4013257, y: 1.6666263, z: 0.5702193}
   m_DirtyAABB: 0
+--- !u!114 &9017950603348269106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427463295736511873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b343dac4f7c4b642bcc7dffd9451ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 7befcc3d5e740894cadb3f4b2c662574, type: 2}
+--- !u!114 &2673105065108862555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427463295736511873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: ca5a67e0ef3cc2947b1577529abbaedb, type: 2}
 --- !u!1 &1535455742034773116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1080,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2466779763613619552}
   - component: {fileID: 3866923020984623708}
+  - component: {fileID: 1341952856351332272}
+  - component: {fileID: 205660847887418643}
   m_Layer: 7
   m_Name: qing_head
   m_TagString: Untagged
@@ -1145,6 +1175,32 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0019080043, y: 0.6078595, z: 0.06734495}
     m_Extent: {x: 1.728414, y: 0.3489608, z: 0.24129887}
   m_DirtyAABB: 0
+--- !u!114 &1341952856351332272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5736717572016129090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b343dac4f7c4b642bcc7dffd9451ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: cdc4cce419eb36947827854e58c3820f, type: 2}
+--- !u!114 &205660847887418643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5736717572016129090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: e6cb69e5483ed4a4480972e7d176ce3a, type: 2}
 --- !u!1 &6313337481727868492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,6 +1370,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3759728571747907434}
   - component: {fileID: 7886363146854971854}
+  - component: {fileID: 7609384791855465935}
+  - component: {fileID: 3146997094054633277}
   m_Layer: 7
   m_Name: qing_hat
   m_TagString: Untagged
@@ -1391,6 +1449,32 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000019818544, y: 0.4724381, z: 0.07706128}
     m_Extent: {x: 0.20137198, y: 0.1381867, z: 0.229869}
   m_DirtyAABB: 0
+--- !u!114 &7609384791855465935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866878021825542733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b343dac4f7c4b642bcc7dffd9451ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 2317efbe60587184e8bf74f683fac498, type: 2}
+--- !u!114 &3146997094054633277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866878021825542733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: f9f1539c00865ef4c84afa62ac2a3eb2, type: 2}
 --- !u!1 &6916008097991324095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1893,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3800985058973656285}
   - component: {fileID: 4979179907906362719}
+  - component: {fileID: 6007256925640881610}
+  - component: {fileID: 1572274337746017278}
   m_Layer: 7
   m_Name: qing_swordman_02
   m_TagString: Untagged
@@ -1900,3 +1986,29 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0030729175, y: 0.43186933, z: 0.029670939}
     m_Extent: {x: 1.3627977, y: 0.5326567, z: 0.34471607}
   m_DirtyAABB: 0
+--- !u!114 &6007256925640881610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047315970514417172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b343dac4f7c4b642bcc7dffd9451ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: eb6f1e8c276b0ab43b9f65dbe30dbc07, type: 2}
+--- !u!114 &1572274337746017278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047315970514417172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: bdf6f8d4ce1c96a45ba74370d70fd148, type: 2}

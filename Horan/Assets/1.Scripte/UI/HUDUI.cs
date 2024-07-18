@@ -145,9 +145,6 @@ public class HUDUI : SceneUI
     {
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(MovePad, data.position, data.pressEventCamera, out Vector2 localVector))
             this.input = (localVector - MovePadCenterPos).normalized;
-        Debug.Log(localVector);
-
-        
         if (OnCharacterAction != null)
             OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.Move);
 

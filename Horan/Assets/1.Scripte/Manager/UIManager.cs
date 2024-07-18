@@ -6,8 +6,9 @@ public class UIManager
 {
     public void SetCanvas(GameObject go, bool sort = true)
     {
-        Canvas canvas = go.GetComponent<Canvas>();
+        Canvas canvas = go.GetComponent<Canvas>(); 
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
         canvas.overrideSorting = true;
 
         if (sort)
@@ -20,6 +21,7 @@ public class UIManager
         {
             canvas.sortingOrder = 0;
         }
+
     }
     
     public GameObject Root

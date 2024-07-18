@@ -19,7 +19,7 @@ public class AutoDelete : MonoBehaviour
     }
     IEnumerator DeleteTime()
     {
-        yield return new WaitForSeconds(lifetime);
+        yield return new WaitForSecondsRealtime(lifetime);
         Destroy(gameObject);
         yield break;
     }

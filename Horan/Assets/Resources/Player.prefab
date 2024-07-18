@@ -1222,7 +1222,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 1, z: 5}
+  m_Size: {x: 5, y: 3, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7623787463477721632
 MonoBehaviour:
@@ -1237,6 +1237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainTarget: {fileID: 0}
+  close_monsters: []
+  close_objects: []
 --- !u!1 &4287625351164961560
 GameObject:
   m_ObjectHideFlags: 0

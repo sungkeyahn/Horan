@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class TestScripre : MonoBehaviour
 {
-    /*모바일 입력에 따라 바인딩 하기 
-
-캐릭터 공격 시 각도 보정 해주기 
-
-약공격 강공격 입력 구분해서 공격하기 
-
-약,강 공격 데미지 공식 분리
-
-대시공격 변경*/
-
-    void OnSingleTouch()
+    /*    void OnSingleTouch()
     {
         if (Input.touchCount>0)
         {
@@ -35,5 +25,21 @@ public class TestScripre : MonoBehaviour
             }
 
         }
+    }*/
+
+    private void Start()
+    {
+        //GetComponent<DissolveEffect>().DissolveEffectForUpdate(0.25f);
+
     }
+    bool aaa;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            aaa = !aaa;
+           // GetComponent<RimLightEfffect>().RimLightEffect(aaa);
+        }
+    }
+
 }

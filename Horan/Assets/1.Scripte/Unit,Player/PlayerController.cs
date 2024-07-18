@@ -30,6 +30,7 @@ public class PlayerController : UnitController
         move = GetComponent<MoveComponent>();
         Stat = GetComponent<PlayerStat>();
         input = GetComponent<InputComponent>();
+        box = GetComponentInChildren<TargetSerchComponent>();
     }
     private void Start()
     {
@@ -194,9 +195,9 @@ public class PlayerController : UnitController
             Act.Finish((int)ECharacterAct.SAttack);
         }
     }
+    TargetSerchComponent box;
     void AttackRotationCorrection()
     {
-        TargetSerchComponent box = GetComponentInChildren<TargetSerchComponent>();
         if (box)
         {
             box.SelectMainTarget();
@@ -209,13 +210,18 @@ public class PlayerController : UnitController
     }
     void AttackContactCheck()
     {
-        Collider[] cols = Physics.OverlapSphere(transform.position,3f, 1<<7 | 1<<12 );
-        for (int i = 0; i < cols.Length; i++)
+        for (int i = 0; i < box.close_monsters.Count; i++)
         {
-            Vector3 dir = cols[i].transform.position - transform.position;
+            if (box.close_monsters[i]==null)
+            {
+                box.close_monsters.RemoveAt(i);
+                continue;
+            }
+            Vector3 dir = box.close_monsters[i].transform.position - transform.position;
+
             if (Vector3.Angle(transform.forward, dir) <= 160f / 2f)
             {
-                GameObject hitob = cols[i].gameObject;
+                GameObject hitob = box.close_monsters[i].gameObject;//cols[i]
                 IDamageInteraction damageable = hitob.GetComponent<IDamageInteraction>();
                 if (damageable != null)
                 {
@@ -243,9 +249,29 @@ public class PlayerController : UnitController
                     {
                         Managers.PrefabManager.SpawnEffect("Hit_strong", hitob.transform.position);
                     }
+                    //cols[i] = null;
                 }
             }
+
         }
+
+        for (int i = 0; i < box.close_objects.Count; i++)
+        {
+            if (box.close_objects[i] == null)
+            {
+                box.close_objects.RemoveAt(i);
+                continue;
+            }
+            Vector3 dir = box.close_objects[i].transform.position - transform.position;
+
+            if (Vector3.Angle(transform.forward, dir) <= 160f / 2f)
+            {
+                GameObject hitob = box.close_objects[i].gameObject;//cols[i]
+                IDamageInteraction damageable = hitob.GetComponent<IDamageInteraction>();
+                damageable.TakeDamage(1);
+            } 
+        }
+
     }
     #endregion
     #region Guard
@@ -270,11 +296,11 @@ public class PlayerController : UnitController
         yield return new WaitForSeconds(GuardSuccessTime); //해당 시간안에 공격이 들어올시 카운터 어택 (이 시간은 아마 가드애니메이션 선딜시간이될듯?)
         if (isCounter)
         {
+            Act.Finish((int)ECharacterAct.Guard);
             Act.Execution((int)ECharacterAct.Counter);
-            yield return null;
+            yield break;
         }
         yield return new WaitForSeconds(1f);
-        //yield return new WaitUntil(() => !isGuard);
         isGuard = false;
         for (int i = 0; i < anims.Length; i++)
             anims[i].SetBool("GuardEnd", true);
@@ -295,14 +321,10 @@ public class PlayerController : UnitController
             anims[i].SetBool("GuardEnd", true);
             anims[i].Play("COUNTER");
         }
-        //Managers.PrefabManager.SpawnEffect("impact_spark_block", weapon.transform.position);
-
-        weapon.Area.enabled = true;
+        AttackContactCheck();
         yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length + 0.5f); // 공격 활성화 
-        weapon.Area.enabled = false;
         Stat.isDamageable = true;
         isGuard = false;
-
         Act.Finish((int)ECharacterAct.Counter);
     }
     #endregion
@@ -354,10 +376,9 @@ public class PlayerController : UnitController
             anims[i].Play("DASHATTACK");
         }
 
-        weapon.Area.enabled = true;
+        AttackContactCheck();
         yield return new WaitForSeconds(0.3f); // 공격 활성화 
-        weapon.Area.enabled = false;
-
+        
         yield return new WaitForSeconds(0.25f);//애니메이션 종료
         DashAtkInput = false;
         Act.Finish((int)ECharacterAct.DashAttack);

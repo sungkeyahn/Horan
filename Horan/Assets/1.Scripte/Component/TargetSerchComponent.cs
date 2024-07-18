@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class TargetSerchComponent : MonoBehaviour
 {
-    public MonsterController mainTarget;
-    List<MonsterController> close_monsters = new List<MonsterController>();
-    float MainTargetDistance=float.MaxValue;
+    float MainTargetDistance = float.MaxValue;
+    public MonsterController mainTarget; 
+    public List<MonsterController> close_monsters = new List<MonsterController>();
+    public List<BreakableObject> close_objects = new List<BreakableObject>();
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -14,12 +16,22 @@ public class TargetSerchComponent : MonoBehaviour
         {
             close_monsters.Add(other.GetComponent<MonsterController>());
         }
+        if (other.gameObject.layer == LayerMask.NameToLayer("BreakableObject"))
+        {
+            close_objects.Add(other.GetComponent<BreakableObject>());
+            other.GetComponent<RimLightEffect>().RimLightEffectSwitch(false);
+        }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             close_monsters.Remove(other.GetComponent<MonsterController>());
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("BreakableObject"))
+        {
+            close_objects.Remove(other.GetComponent<BreakableObject>());
+            other.GetComponent<RimLightEffect>().RimLightEffectSwitch(true);
         }
     }
 

@@ -15,6 +15,11 @@ public class LobbyUI : SceneUI
     {
         if (isinit) return;
         base.Init();
+
+        Canvas canvas = GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        canvas.worldCamera = Camera.main;
+
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_Start), OnBtnClicked_Start, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Invetory), OnBtnClicked_Inventory, UIEvent.Click);
@@ -23,6 +28,7 @@ public class LobbyUI : SceneUI
         BindEvent(GetObject((int)Components.Button_Setting), OnBtnClicked_Setting, UIEvent.Click);
 
         Sound_Click = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Click"]).GetComponent<AudioSource>();
+        
 
         isinit = true;
     }
@@ -51,6 +57,7 @@ public class LobbyUI : SceneUI
     }
     public void OnBtnClicked_Setting(PointerEventData data)
     {
+
         Debug.Log("Setting");
         Application.Quit();
     }

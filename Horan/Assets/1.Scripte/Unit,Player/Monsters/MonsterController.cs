@@ -111,8 +111,10 @@ public  class MonsterController : UnitController
 
     protected virtual void HitEffect()
     {
-      //  Managers.PrefabManager.PlaySound(Managers.PrefabManager.PrefabInstance("Sound_Hit1", transform),0.1f);
-        //StopUnit(true);
+        RimLightEffect []rimLights = GetComponentsInChildren<RimLightEffect>();
+        for (int i = 0; i < rimLights.Length; i++)
+            rimLights[i].RimLightEffectForSecoend(0.2f);
+        
     }
     protected virtual void Dead()
     {
@@ -126,7 +128,12 @@ public  class MonsterController : UnitController
     }
     protected IEnumerator DEAD()
     {
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(1.5f);
+        DissolveEffect[] dissolves = GetComponentsInChildren<DissolveEffect>();
+        for (int i = 0; i < dissolves.Length; i++)
+            dissolves[i].DissolveEffectForUpdate(0.5f);
+
+        yield return new WaitForSeconds(2.5f);
         Destroy(gameObject);
     }
 

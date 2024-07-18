@@ -22,6 +22,11 @@ public class UpgradeUI : PopupUI
     public override void Init()
     {
         if (isInit) return;
+
+        Canvas canvas = GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        canvas.worldCamera = Camera.main;
+
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_ClosePopup), OnBtnClicked_ClosePopup, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Upgrade), OnBtnClicked_Upgrade, UIEvent.Click);
@@ -43,6 +48,8 @@ public class UpgradeUI : PopupUI
             ob.GetComponent<ItemSlotUI>().Init(i, Einventype.Weapon);
         }
         SetGold();
+
+        GetComponent<Canvas>().worldCamera = Camera.main;
         isInit = true;
     }
     public void OnBtnClicked_ClosePopup(PointerEventData data)
@@ -53,6 +60,7 @@ public class UpgradeUI : PopupUI
     }
     public void OnBtnClicked_Upgrade(PointerEventData data)
     {
+        Instantiate(Managers.DataLoder.DataCache_Effect["enchant_effect"]);
         if (!Managers.DataLoder.DataCache_Upgrade.ContainsKey(ID)) return;
        
         bool isUpgradePossible = true;

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7262495131238425326}
   - component: {fileID: 8371812486191635682}
   - component: {fileID: 2145593216779076589}
+  - component: {fileID: -4558782563312791150}
   - component: {fileID: 2584852577090622532}
   m_Layer: 12
   m_Name: BreakableObject_Barrel
@@ -151,6 +152,19 @@ MonoBehaviour:
   prefab: {fileID: 4472598511631070869, guid: a96767d1c7a46084e92165170942d376, type: 3}
   offset: {x: 0, y: 0, z: 0}
   hp: 1
+--- !u!114 &-4558782563312791150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233702783191027145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 4759be87892477b489e2348cb1d94f43, type: 2}
 --- !u!208 &2584852577090622532
 NavMeshObstacle:
   m_ObjectHideFlags: 0

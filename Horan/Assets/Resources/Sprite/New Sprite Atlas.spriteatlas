@@ -278,11 +278,11 @@ SpriteAtlas:
   - icon_weapon_glaive_04
   - icon_main_hat_3b_01
   - icon_main_hat_3a_03
-  - icon_ability_hp_up
+  - icon_ability3
   - icon_weapon_sword_05
   - icon_ability_counter_attack
   - icon_craft_02
-  - icon_ability_energy_up
+  - icon_ability1
   - icon_craft_01
   - icon_main_hat_2_02
   - icon_main_hat_1_03
@@ -291,7 +291,7 @@ SpriteAtlas:
   - icon_weapon_glaive_01
   - icon_weapon_saber_01
   - icon_main_cloth_2_03
-  - icon_ability_fast_attack
+  - icon_ability2
   - icon_main_cloth_1_01
   - icon_main_hat_1_02
   - icon_weapon_dadao_01
@@ -306,7 +306,7 @@ SpriteAtlas:
   - icon_main_cloth_3b_02
   - icon_main_hat_3b_02
   - icon_weapon_glaive_02
-  - icon_ability_absorb
+  - icon_ability0
   - icon_main_hat_2_03
   - icon_main_cloth_3a_01
   m_RenderDataMap: {}

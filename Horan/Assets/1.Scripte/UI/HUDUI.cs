@@ -45,8 +45,8 @@ public class HUDUI : SceneUI
 
         MovePad = GetObject((int)Components.Button_Move).GetComponent<RectTransform>();
         MoveIever = GetObject((int)Components.Image_MovePad).GetComponent<RectTransform>();
-        //MovePadCenterPos = new Vector2(MovePad.anchoredPosition.x/2+ MovePad.rect.width / 2, MovePad.anchoredPosition.y/2 + MovePad.rect.height / 2);
-        MovePadCenterPos = MoveIever.position;
+        MovePadCenterPos = new Vector2(MovePad.anchoredPosition.x/2+ MovePad.rect.width / 2, MovePad.anchoredPosition.y/2 + MovePad.rect.height / 2);
+        //MovePadCenterPos = MoveIever.position;
         // Debug.Log(MovePadCenterPos); -125,0
         // Debug.Log(MoveIever.position); 140,140
         

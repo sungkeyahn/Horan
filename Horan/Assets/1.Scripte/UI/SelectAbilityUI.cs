@@ -52,4 +52,5 @@ public class SelectAbilityUI : PopupUI
         Managers.ContentsManager.Resume();
         Managers.UIManager.GetSceneUI().gameObject.SetActive(true);
     }
+
 }

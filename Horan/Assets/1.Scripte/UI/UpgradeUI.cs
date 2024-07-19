@@ -7,7 +7,7 @@ using TMPro;
 public class UpgradeUI : PopupUI
 {
     bool isInit;
-    enum Components { Button_ClosePopup, Panel_Stat, Panel_NeedMats, Panel_ItemSlots, Text_NeedGold, Image_ResultItemICon, Button_Upgrade , Button_WeaponTab, Button_CostumeTab, Button_HatTab, Button_AccTab, Button_MatTab, Text_Gold }
+    enum Components { Button_ClosePopup, Panel_Stat, Panel_Upgrade, Panel_NeedMats, Panel_ItemSlots, Text_NeedGold, Image_ResultItemICon, Button_Upgrade , Button_WeaponTab, Button_CostumeTab, Button_HatTab, Button_AccTab, Button_MatTab, Text_Gold }
 
     public List<ItemSlotUI> itemslots = new List<ItemSlotUI>();
     public List<StatSlotUI> statSlotUIs = new List<StatSlotUI>();
@@ -27,6 +27,7 @@ public class UpgradeUI : PopupUI
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = Camera.main;
 
+#region Bind
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_ClosePopup), OnBtnClicked_ClosePopup, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Upgrade), OnBtnClicked_Upgrade, UIEvent.Click);
@@ -35,7 +36,22 @@ public class UpgradeUI : PopupUI
         BindEvent(GetObject((int)Components.Button_HatTab), OnBtnClicked_HatTab, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_AccTab), OnBtnClicked_AccTab, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_MatTab), OnBtnClicked_MatTab, UIEvent.Click);
-        
+
+        BindEvent(GetObject((int)Components.Button_Upgrade), OnPointDown_UpgradeBtn, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_WeaponTab), OnPointDown_WeaponTab, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_CostumeTab), OnPointDown_CostumeTab, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_HatTab), OnPointDown_HatTab, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_AccTab), OnPointDown_AccTab, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_MatTab), OnPointDown_MatTab, UIEvent.PointDown);
+
+        BindEvent(GetObject((int)Components.Button_Upgrade), OnPointUp_UpgradeBtn, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_WeaponTab), OnPointUp_WeaponTab, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_CostumeTab), OnPointUp_CostumeTab, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_HatTab), OnPointUp_HatTab, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_AccTab), OnPointUp_AccTab, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_MatTab), OnPointUp_MatTab, UIEvent.PointUp);
+        #endregion Bind
+
         Sound_Click = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Click"], transform).GetComponent<AudioSource>();
         Sound_Upgrade = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Upgrade"], transform).GetComponent<AudioSource>();
 
@@ -49,7 +65,6 @@ public class UpgradeUI : PopupUI
         }
         SetGold();
 
-        GetComponent<Canvas>().worldCamera = Camera.main;
         isInit = true;
     }
     public void OnBtnClicked_ClosePopup(PointerEventData data)
@@ -60,7 +75,6 @@ public class UpgradeUI : PopupUI
     }
     public void OnBtnClicked_Upgrade(PointerEventData data)
     {
-        Instantiate(Managers.DataLoder.DataCache_Effect["enchant_effect"]);
         if (!Managers.DataLoder.DataCache_Upgrade.ContainsKey(ID)) return;
        
         bool isUpgradePossible = true;
@@ -94,7 +108,10 @@ public class UpgradeUI : PopupUI
                 itemslots[i].Init(i, inventype);
             SetGold();
 
+            //사운드 + 이펙트
             Sound_Upgrade.Play();
+            Transform tr = GetObject((int)Components.Panel_Upgrade).transform;
+            GameObject go = Instantiate(Managers.DataLoder.DataCache_Effect["enchant_effect"], tr);
         }
     }
     public void OnBtnClicked_WeaponTab(PointerEventData data)
@@ -196,6 +213,57 @@ public class UpgradeUI : PopupUI
         if (totalGold < needGold) GetObject((int)Components.Text_NeedGold).GetComponent<TMP_Text>().color = Color.red;
         else GetObject((int)Components.Text_NeedGold).GetComponent<TMP_Text>().color = Color.green;
 
+    }
+
+    //Hover
+    public void OnPointDown_UpgradeBtn(PointerEventData data)
+    {
+        GetObject((int)Components.Button_Upgrade).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointDown_WeaponTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_WeaponTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointDown_CostumeTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_CostumeTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointDown_HatTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_HatTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointDown_AccTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_AccTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointDown_MatTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_MatTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+
+    public void OnPointUp_UpgradeBtn(PointerEventData data)
+    {
+        GetObject((int)Components.Button_Upgrade).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointUp_WeaponTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_WeaponTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointUp_CostumeTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_CostumeTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointUp_HatTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_HatTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointUp_AccTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_AccTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointUp_MatTab(PointerEventData data)
+    {
+        GetObject((int)Components.Button_MatTab).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
     }
 
 }

@@ -21,6 +21,8 @@ public class ShopItemSlotUI : BaseUI
     {
         if (isInit) return;
         Bind<GameObject>(typeof(Components));
+        BindEvent(GetObject((int)Components.Button_ShopSlot), OnPointDown_ShopBtn, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_ShopSlot), OnPointUp_ShopBtn, UIEvent.PointUp);
 
         Sound_Buy = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Buy"], transform).GetComponent<AudioSource>();
         Sound_Sell = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Sell"], transform).GetComponent<AudioSource>();
@@ -69,6 +71,16 @@ public class ShopItemSlotUI : BaseUI
         GetComponentInParent<ShopUI>().SetGold();
         GetComponentInParent<ShopUI>().TabClick(GetComponentInParent<ShopUI>().inventype);
     }
+    
+    public void OnPointDown_ShopBtn(PointerEventData data) 
+    {
+        GetObject((int)Components.Button_ShopSlot).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointUp_ShopBtn(PointerEventData data) 
+    {
+        GetObject((int)Components.Button_ShopSlot).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+
 
 }
 

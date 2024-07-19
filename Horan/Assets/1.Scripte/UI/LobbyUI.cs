@@ -19,7 +19,7 @@ public class LobbyUI : SceneUI
         Canvas canvas = GetComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = Camera.main;
-
+#region Bind
         Bind<GameObject>(typeof(Components));
         BindEvent(GetObject((int)Components.Button_Start), OnBtnClicked_Start, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Invetory), OnBtnClicked_Inventory, UIEvent.Click);
@@ -27,6 +27,16 @@ public class LobbyUI : SceneUI
         BindEvent(GetObject((int)Components.Button_Upgrade), OnBtnClicked_Upgrade, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Setting), OnBtnClicked_Setting, UIEvent.Click);
 
+        BindEvent(GetObject((int)Components.Button_Start), OnPointDown_StartBtn, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_Invetory), OnPointDown_InvetoryBtn, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_Shop), OnPointDown_ShopBtn, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_Upgrade), OnPointDown_UpgradeBtn, UIEvent.PointDown);
+
+        BindEvent(GetObject((int)Components.Button_Start), OnPointUp_StartBtn, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_Invetory), OnPointUp_InvetoryBtn, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_Shop), OnPointUp_ShopBtn, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_Upgrade), OnPointUp_UpgradeBtn, UIEvent.PointUp);
+        #endregion Bind
         Sound_Click = Instantiate(Managers.DataLoder.DataCache_Sound["Sound_Click"]).GetComponent<AudioSource>();
         
 
@@ -61,5 +71,44 @@ public class LobbyUI : SceneUI
         Debug.Log("Setting");
         Application.Quit();
     }
+
+
+
+    //Hover
+    public void OnPointDown_StartBtn(PointerEventData data)
+    {
+        GetObject((int)Components.Button_Start).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointDown_InvetoryBtn(PointerEventData data)
+    {
+        GetObject((int)Components.Button_Invetory).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointDown_ShopBtn(PointerEventData data)
+    {
+        GetObject((int)Components.Button_Shop).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointDown_UpgradeBtn(PointerEventData data)
+    {
+        GetObject((int)Components.Button_Upgrade).GetComponentInChildren<TMPro.TMP_Text>().color = Color.gray;
+    }
+    public void OnPointUp_StartBtn(PointerEventData data)
+    {
+        GetObject((int)Components.Button_Start).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointUp_InvetoryBtn(PointerEventData data)
+    {
+        GetObject((int)Components.Button_Invetory).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointUp_ShopBtn(PointerEventData data)
+    {
+        GetObject((int)Components.Button_Shop).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+    public void OnPointUp_UpgradeBtn(PointerEventData data)
+    {
+        GetObject((int)Components.Button_Upgrade).GetComponentInChildren<TMPro.TMP_Text>().color = Color.white;
+    }
+
+
+
 }
 

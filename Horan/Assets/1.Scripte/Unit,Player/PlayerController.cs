@@ -181,7 +181,7 @@ public class PlayerController : UnitController
 
         for (int i = 0; i < anims.Length; i++)
         {
-            anims[i].Play(animinfo.name, -1, 0); 
+            anims[i].Play( animinfo.name, -1, 0); 
         }
 
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 

@@ -56,6 +56,7 @@ public class PlayerController : UnitController
         move.AddAllowActID((int)ECharacterAct.Dash);
         move.AddAllowActID((int)ECharacterAct.Move);
 
+
         Act guard = new Act((int)ECharacterAct.Guard, Guard);
         guard.AddAllowActID((int)ECharacterAct.FAttack);
         guard.AddAllowActID((int)ECharacterAct.SAttack);
@@ -86,6 +87,7 @@ public class PlayerController : UnitController
         Hud.Init(this);
         Hud.OnCharacterAction += OnCharacterBtnEvent;
         Hud.OnCharacterEnd += OnCharacterBtnEndEvent;
+
     }
 
     void OnCharacterBtnEvent(EPlayerCharacterCtrlEvent ctrlEvent)
@@ -93,7 +95,8 @@ public class PlayerController : UnitController
         switch (ctrlEvent)
         {
             case EPlayerCharacterCtrlEvent.Move:
-                Act.Execution((int)ECharacterAct.Move);
+                if (atkAble)
+                    Act.Execution((int)ECharacterAct.Move);
                 break;
             case EPlayerCharacterCtrlEvent.Dash:
                 if (!isDash && !isGuard)
@@ -120,9 +123,9 @@ public class PlayerController : UnitController
         switch (ctrlEvent)
         {
             case EPlayerCharacterCtrlEvent.Move:
+                move.SetMove(0);
                 for (int i = 0; i < anims.Length; i++)
                     anims[i].SetInteger("AnimState", (int)EPlayerAnimState.IDLE); 
-                move.SetMove(0);
                 Act.Finish((int)ECharacterAct.Move);
                 break;
             case EPlayerCharacterCtrlEvent.Dash:
@@ -145,6 +148,7 @@ public class PlayerController : UnitController
         move.SetMove(moveDir, moveDir, Stat.Speed);
         for (int i = 0; i < anims.Length; i++)
         {
+            anims[i].Play("MOVE");
             anims[i].SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
             anims[i].SetFloat("WalkX", moveDir.x);
             anims[i].SetFloat("WalkY", moveDir.z);
@@ -186,7 +190,8 @@ public class PlayerController : UnitController
 
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
         atkAble = true;
-        yield return new WaitForSeconds(anims[0].GetCurrentAnimatorStateInfo(0).length - animinfo.delay);
+        yield return new WaitForSeconds(0.25f);
+        //anims[0].GetCurrentAnimatorStateInfo(0).length - (animinfo.delay)
         if (atkAble)
         {
             atkCount = 0;
@@ -355,7 +360,7 @@ public class PlayerController : UnitController
         yield return new WaitForSeconds(0.55f); //Anim Delay TIime 
         Stat.isDamageable = true;
 
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(0.25f);
         
         Act.Finish((int)ECharacterAct.Dash);
 
@@ -385,6 +390,7 @@ public class PlayerController : UnitController
     }
     #endregion
 
+    RimLightEffect[] lightEffects;
     void Equip()
     {
         for (int i = 0; i < equipments.Length; i++)
@@ -405,13 +411,14 @@ public class PlayerController : UnitController
                     break;
             }
         }
-        //weapon.Equip(Managers.DataLoder.DataCache_Save.Equip.weapon);
-
-        anims = GetComponentsInChildren<Animator>(); 
+        anims = GetComponentsInChildren<Animator>();
+        lightEffects = GetComponentsInChildren<RimLightEffect>();
     }
     void OnCharacterHit()
     {
         isCounter = true;
+        for (int i = 0; i < lightEffects.Length; i++)
+            lightEffects[i].RimLightEffectForSecoend(0.15f);
     }
     void OnCharacterTakeDamaged()
     {

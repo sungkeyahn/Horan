@@ -30,7 +30,7 @@ public class SelectAbilityUI : PopupUI
         {
             GameObject ob = Instantiate(prefab, GetObject((int)Components.Panel_AbilityPopup).transform);
             ob.name = "SelectAbilitySlot";
-            ob.GetComponent<SelectAbilitySlotUI>().Init(UnityEngine.Random.Range(1, Managers.DataLoder.DataCache_LatentAbility.Count),Stat);           
+            ob.GetComponent<SelectAbilitySlotUI>().Init(UnityEngine.Random.Range(0, Managers.DataLoder.DataCache_LatentAbility.Count),Stat);           
         }
 
         isInit = true;

@@ -14,7 +14,7 @@ public class HUDUI : SceneUI
 {
     bool isinit=false;
     enum Components 
-    { Text_Level, Slider_ExpBar, Slider_HpBar, Slider_SpBar, Button_Dash, Button_Atk1, Button_Atk2, Button_Atk3, Button_Defens, Button_Pause, Button_Move, Panel_AbilityICons , Text_QuestResult , Image_MovePad }
+    { Text_Level, Slider_ExpBar, Slider_HpBar, Slider_SpBar, Button_Dash, Button_Atk1, Button_Atk2, Button_Atk3, Button_Defens, Button_Pause, Button_Move, Panel_AbilityICons , Text_QuestResult , Image_MovePad , Image_DefensBack , Image_DashBack, Image_Atk1Back , Image_Atk2Back }
 
     public Action<EPlayerCharacterCtrlEvent> OnCharacterAction;
     public Action<EPlayerCharacterCtrlEvent> OnCharacterEnd;
@@ -31,8 +31,9 @@ public class HUDUI : SceneUI
     {
         if (isinit) return;
         base.Init();
+        #region Bind
         Bind<GameObject>(typeof(Components));
-        BindEvent(GetObject((int)Components.Button_Pause), OnBtnClicked_Pause, UIEvent.Click);
+        //BindEvent(GetObject((int)Components.Button_Pause), OnBtnClicked_Pause, UIEvent.Click);
 
         BindEvent(GetObject((int)Components.Button_Move), OnBtnPointUp_Move, UIEvent.PointUp);
         BindEvent(GetObject((int)Components.Button_Move), OnBtnDraged_Move, UIEvent.Drag); //이동 패드 드래그 
@@ -42,6 +43,17 @@ public class HUDUI : SceneUI
 
         BindEvent(GetObject((int)Components.Button_Atk1), OnBtnClicked_FAttack, UIEvent.Click);
         BindEvent(GetObject((int)Components.Button_Atk2), OnBtnClicked_SAttack, UIEvent.Click);
+
+        BindEvent(GetObject((int)Components.Button_Dash), OnPointDown_Dash, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_Defens), OnPointDown_Guard, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_Atk1), OnPointDown_FAttack, UIEvent.PointDown);
+        BindEvent(GetObject((int)Components.Button_Atk2), OnPointDown_SAttack, UIEvent.PointDown);
+
+        BindEvent(GetObject((int)Components.Button_Dash), OnPointUp_Dash, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_Defens), OnPointUp_Guard, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_Atk1), OnPointUp_FAttack, UIEvent.PointUp);
+        BindEvent(GetObject((int)Components.Button_Atk2), OnPointUp_SAttack, UIEvent.PointUp);
+        #endregion 
 
         MovePad = GetObject((int)Components.Button_Move).GetComponent<RectTransform>();
         MoveIever = GetObject((int)Components.Image_MovePad).GetComponent<RectTransform>();
@@ -182,6 +194,40 @@ public class HUDUI : SceneUI
     {
         if (OnCharacterAction != null)
             OnCharacterAction.Invoke(EPlayerCharacterCtrlEvent.SAttack);
+    }
+
+    //Hover
+    public void OnPointUp_Dash(PointerEventData data)
+    {
+        GetObject((int)Components.Image_DashBack).GetComponent<Image>().color = Color.white;
+    }
+    public void OnPointUp_Guard(PointerEventData data)
+    {
+        GetObject((int)Components.Image_DefensBack).GetComponent<Image>().color = Color.white;
+    }
+    public void OnPointUp_FAttack(PointerEventData data)
+    {
+        GetObject((int)Components.Image_Atk1Back).GetComponent<Image>().color = Color.white;
+    }
+    public void OnPointUp_SAttack(PointerEventData data)
+    {
+        GetObject((int)Components.Image_Atk2Back).GetComponent<Image>().color = Color.white;
+    }
+    public void OnPointDown_Dash(PointerEventData data)
+    {
+        GetObject((int)Components.Image_DashBack).GetComponent<Image>().color = Color.gray;
+    }
+    public void OnPointDown_Guard(PointerEventData data)
+    {
+        GetObject((int)Components.Image_DefensBack).GetComponent<Image>().color = Color.gray;
+    }
+    public void OnPointDown_FAttack(PointerEventData data)
+    {
+        GetObject((int)Components.Image_Atk1Back).GetComponent<Image>().color = Color.gray;
+    }
+    public void OnPointDown_SAttack(PointerEventData data)
+    {
+        GetObject((int)Components.Image_Atk2Back).GetComponent<Image>().color = Color.gray;
     }
 
 

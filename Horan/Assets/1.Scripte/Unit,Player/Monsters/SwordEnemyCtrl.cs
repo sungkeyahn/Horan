@@ -5,12 +5,7 @@ using UnityEngine.AI;
 
 public class SwordEnemyCtrl : MonsterController
 {
-    const float SenseRange = 8;
-    const float AttackRange = 2;
-    const float PlayerSerchInterval = 1;
-    const float HPRatioCheckInterval = 1;
-    const float WanderingInterval = 5;
-    const float DangersHPRatio = 50;
+
     EnemyAttackBox atkbox1;
 
     void Awake()
@@ -78,7 +73,7 @@ public class SwordEnemyCtrl : MonsterController
         {
             if (!IsAnimationRunning("ATTACK"))
                 Anim.Play("ATTACK");
-            waitsecond = 2;
+            waitsecond = 1;
             return BT_Node.NodeState.Success;
         }
         return BT_Node.NodeState.Failure;
@@ -108,7 +103,7 @@ public class SwordEnemyCtrl : MonsterController
         {
             Nav.speed = 0;
             Nav.velocity = Vector3.zero;
-            waitsecond = 3; 
+            waitsecond = 1.5f; 
 
 
             WanderPos = Vector3.zero;

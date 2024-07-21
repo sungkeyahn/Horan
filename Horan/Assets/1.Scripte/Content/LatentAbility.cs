@@ -35,8 +35,7 @@ public class LatentAbility
     public LatentAbility(int id)
     {
         Data.DataSet_LatentAbility data = null;
-        Managers.DataLoder.DataCache_LatentAbility.TryGetValue(id, out data);
-        if (data != null)
+        if (Managers.DataLoder.DataCache_LatentAbility.TryGetValue(id, out data))
             Data = data;
     }
     public void Apply(PlayerStat stat)

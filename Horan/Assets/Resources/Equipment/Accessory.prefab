@@ -617,6 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3781165854537302276}
   - component: {fileID: 1453141852860165142}
+  - component: {fileID: 7510768155885827773}
   m_Layer: 0
   m_Name: musa_acc_01_b
   m_TagString: Untagged
@@ -694,6 +695,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000011205673, y: 0.062321067, z: 0.19203475}
     m_Extent: {x: 0.12388063, y: 0.12633193, z: 0.07120609}
   m_DirtyAABB: 0
+--- !u!114 &7510768155885827773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5363310602081845339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 21e4cc30dae2c114994aa6476549b4ad, type: 2}
 --- !u!1 &5521287820237945196
 GameObject:
   m_ObjectHideFlags: 0

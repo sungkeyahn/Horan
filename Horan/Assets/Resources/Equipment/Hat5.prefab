@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4357895676448331488}
   - component: {fileID: 1282560500716311527}
+  - component: {fileID: 8202408796807390695}
   m_Layer: 0
   m_Name: musa_hat_03
   m_TagString: Untagged
@@ -183,6 +184,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00000016391277, y: 0.5257787, z: 0.10596321}
     m_Extent: {x: 0.23040245, y: 0.2866332, z: 0.3179269}
   m_DirtyAABB: 0
+--- !u!114 &8202408796807390695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989045810288961957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 595c8f99119befc40ba193979de2589a, type: 2}
 --- !u!1 &1113766847113160625
 GameObject:
   m_ObjectHideFlags: 0

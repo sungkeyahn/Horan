@@ -277,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6410607878342019721}
   - component: {fileID: 5532342096225656482}
+  - component: {fileID: 3412815332388552099}
   m_Layer: 0
   m_Name: musa_02
   m_TagString: Untagged
@@ -378,6 +379,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0038294792, y: -0.7776616, z: -0.032357007}
     m_Extent: {x: 1.5894544, y: 1.7280712, z: 0.51776934}
   m_DirtyAABB: 0
+--- !u!114 &3412815332388552099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038238208997116850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: ddbd9de50b5a9494b92d1539802841de, type: 2}
 --- !u!1 &1205164499562653085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,6 +1046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2105867437602458381}
   - component: {fileID: 4064478728668195987}
+  - component: {fileID: 4058061169303092989}
   m_Layer: 0
   m_Name: musa_02_b
   m_TagString: Untagged
@@ -1117,6 +1132,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.000041872263, y: -0.94365984, z: 0.017106473}
     m_Extent: {x: 0.65691113, y: 1.0127141, z: 0.60997105}
   m_DirtyAABB: 0
+--- !u!114 &4058061169303092989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5548714937726768189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ba574dd3d405c4ab2e95861afa1418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: ddbd9de50b5a9494b92d1539802841de, type: 2}
 --- !u!1 &5765274885561936969
 GameObject:
   m_ObjectHideFlags: 0

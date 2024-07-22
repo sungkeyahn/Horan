@@ -55,6 +55,8 @@ public class PlayerController : UnitController
         Act move = new Act((int)ECharacterAct.Move, Move);
         move.AddAllowActID((int)ECharacterAct.Dash);
         move.AddAllowActID((int)ECharacterAct.Move);
+        move.AddAllowActID((int)ECharacterAct.FAttack);
+        move.AddAllowActID((int)ECharacterAct.SAttack);
 
 
         Act guard = new Act((int)ECharacterAct.Guard, Guard);
@@ -88,14 +90,15 @@ public class PlayerController : UnitController
         Hud.OnCharacterAction += OnCharacterBtnEvent;
         Hud.OnCharacterEnd += OnCharacterBtnEndEvent;
 
+
     }
+
 
     void OnCharacterBtnEvent(EPlayerCharacterCtrlEvent ctrlEvent)
     {
         switch (ctrlEvent)
         {
             case EPlayerCharacterCtrlEvent.Move:
-                if (atkAble)
                     Act.Execution((int)ECharacterAct.Move);
                 break;
             case EPlayerCharacterCtrlEvent.Dash:
@@ -108,11 +111,13 @@ public class PlayerController : UnitController
                     Act.Execution((int)ECharacterAct.Guard);
                 break;
             case EPlayerCharacterCtrlEvent.FAttack:
-                DashAtkInput = true;
+                MoveCancel();
+                  DashAtkInput = true;
                 if (atkAble && atkCount < weapon.AnimInfo_FATK.Count)
                     Act.Execution((int)ECharacterAct.FAttack); 
                 break;
             case EPlayerCharacterCtrlEvent.SAttack:
+                MoveCancel();
                 if (atkAble && atkCount < weapon.AnimInfo_SATK.Count)
                     Act.Execution((int)ECharacterAct.SAttack); 
                 break;
@@ -144,7 +149,9 @@ public class PlayerController : UnitController
     }
     void Move()
     {
-        Vector3 moveDir = new Vector3(Hud.input.x,0,Hud.input.y);
+
+        Vector3 moveDir = new Vector3(Hud.input.x, 0, Hud.input.y);
+
         move.SetMove(moveDir, moveDir, Stat.Speed);
         for (int i = 0; i < anims.Length; i++)
         {
@@ -153,8 +160,15 @@ public class PlayerController : UnitController
             anims[i].SetFloat("WalkX", moveDir.x);
             anims[i].SetFloat("WalkY", moveDir.z);
         }
+        
     }
-
+    void MoveCancel()
+    {
+        move.SetMove(0);
+        for (int i = 0; i < anims.Length; i++)
+            anims[i].SetInteger("AnimState", (int)EPlayerAnimState.IDLE);
+        Act.Finish((int)ECharacterAct.Move);
+    }
     #region Attack
     bool atkAble = true;
     int atkCount = 0;

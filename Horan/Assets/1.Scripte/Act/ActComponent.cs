@@ -4,10 +4,9 @@ using UnityEngine;
 
 
 public class ActComponent : MonoBehaviour
-{ //유닛별 ActionableActs 데이터는 따로 데이터테이블로 만들지 말고 유닛의 데이터 테이블에 속성으로 추가해 주는 방향으로 
-    
+{
     Dictionary<int,Act> ActionableActs=new Dictionary<int, Act>(); // 행위자가 실행 가능한 행동들
-    public Act CurAct { get; private set; } // 실행 중인 행위 
+    public Act CurAct { get; private set; } // 실행 중인 행위 정보
     
     public void AddAct(Act act)
     {

@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : IDataBind
+interface IEquip
 {
-    public int id;
-    
-    public void BindData()
-    {  
-
-    }
-
-
+    public void Equip(int id);
+}
+public class Item : MonoBehaviour
+{
+    public int ID;
 }

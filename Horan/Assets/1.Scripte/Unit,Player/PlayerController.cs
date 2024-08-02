@@ -9,20 +9,17 @@ public enum EPlayerAnimState
     DASH
 }
 
+
 public class PlayerController : UnitController
 {
     Animator[]anims;
  
     HUDUI Hud;
     PlayerStat Stat;
-    ActComponent Act;
-    MoveComponent move;
 
     public Weapon weapon;
     public Equipment[] equipments = new Equipment[5];
 
-    //에디터 키보드 마우스 조작용 컴포넌트 [개선 필요] 
-    InputComponent input;
     private void Awake()
     {
         equipments = GetComponentsInChildren<Equipment>();
@@ -90,9 +87,7 @@ public class PlayerController : UnitController
         Hud.OnCharacterAction += OnCharacterBtnEvent;
         Hud.OnCharacterEnd += OnCharacterBtnEndEvent;
 
-
     }
-
 
     void OnCharacterBtnEvent(EPlayerCharacterCtrlEvent ctrlEvent)
     {
@@ -149,7 +144,6 @@ public class PlayerController : UnitController
     }
     void Move()
     {
-
         Vector3 moveDir = new Vector3(Hud.input.x, 0, Hud.input.y);
 
         move.SetMove(moveDir, moveDir, Stat.Speed);
@@ -159,8 +153,7 @@ public class PlayerController : UnitController
             anims[i].SetInteger("AnimState", (int)EPlayerAnimState.MOVE);
             anims[i].SetFloat("WalkX", moveDir.x);
             anims[i].SetFloat("WalkY", moveDir.z);
-        }
-        
+        } 
     }
     void MoveCancel()
     {
@@ -204,8 +197,7 @@ public class PlayerController : UnitController
 
         yield return new WaitForSeconds(animinfo.delay); // 공격 활성화 
         atkAble = true;
-        yield return new WaitForSeconds(0.25f);
-        //anims[0].GetCurrentAnimatorStateInfo(0).length - (animinfo.delay)
+        yield return new WaitForSeconds (anims[0].GetCurrentAnimatorStateInfo(0).length - animinfo.delay);
         if (atkAble)
         {
             atkCount = 0;
@@ -271,7 +263,6 @@ public class PlayerController : UnitController
                     //cols[i] = null;
                 }
             }
-
         }
 
         for (int i = 0; i < box.close_objects.Count; i++)

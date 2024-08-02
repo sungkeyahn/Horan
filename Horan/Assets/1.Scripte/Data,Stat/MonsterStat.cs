@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterStat : Stat, IDataBind, IDamageInteraction
+public class MonsterStat : Stat, IDamageInteraction
 {
     const float spregenTime = 5;
     public bool isRegenable;
@@ -24,7 +24,7 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
 
     void Start()
     {
-        BindData();
+        DataSet();
         hp = maxhp;
         sp = maxsp;
 
@@ -32,7 +32,7 @@ public class MonsterStat : Stat, IDataBind, IDamageInteraction
         isDamageable = true;
     }
 
-    public void BindData()
+    public void DataSet()
     {
         MonsterController ctrl=GetComponent<MonsterController>();
         if (ctrl == null) return;

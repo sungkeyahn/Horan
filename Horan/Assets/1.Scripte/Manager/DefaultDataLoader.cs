@@ -2,11 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public interface IDataBind
-{
-    public void BindData();
-}
 public class DefaultDataLoader //CoreManager가 단 하나만 가지고 있을 클래스
 {
     //세이브 파일 캐시

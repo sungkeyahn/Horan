@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-interface IEquip
+public class Equipment : Item, IEquip
 {
-    public void Equip(int id);
-}
-public class Equipment : MonoBehaviour, IEquip
-{
-    int ID;
     public Data.EEquipmentType type;
     protected PlayerStat onwerStat;
     GameObject Ob;
@@ -23,7 +18,6 @@ public class Equipment : MonoBehaviour, IEquip
 
         if (Managers.DataLoder.DataCache_Equipments.ContainsKey(id))
         {
-            //if (0 < transform.childCount) Destroy(transform.GetChild(0).gameObject);
             if (Ob!=null) Destroy(Ob);
             
             GameObject prefab = Resources.Load<GameObject>(Managers.DataLoder.DataCache_Equipments[id].equipmentprefabpath);
@@ -35,11 +29,10 @@ public class Equipment : MonoBehaviour, IEquip
             }
         }
     }
-
     protected void ApplyEquipmentStat(int preID ,int ID)
     {
         if (Managers.DataLoder.DataCache_Equipments.ContainsKey(preID))
-            for (int i = 0; i < Managers.DataLoder.DataCache_Equipments[preID].abilitys.Count; i++)
+        for (int i = 0; i < Managers.DataLoder.DataCache_Equipments[preID].abilitys.Count; i++)
         {
             switch (Managers.DataLoder.DataCache_Equipments[preID].abilitys[i].type)
             {

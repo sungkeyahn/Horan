@@ -38,7 +38,7 @@ public struct AIAttackInfo
     public EffectInfo effectInfo;
 }
 
-public  class MonsterController : UnitController
+public  class MonsterController : UnitController 
 {
     public BTRunner Runner { get; protected set; }
     public Animator Anim { get; protected set; }
@@ -182,8 +182,7 @@ public  class MonsterController : UnitController
         return false;
     }
 
-    float AttackDistance =0;
-    float AngleRange =0;
+
     protected bool CheckAttackRange(float attackRange = 3,float atkAngle = 90)
     {
         if (Target == null) return false;
@@ -212,7 +211,8 @@ public  class MonsterController : UnitController
         }
         return false;
     }
-
+    float AttackDistance = 0;
+    float AngleRange = 0;
     void OnDrawGizmos()
     {
         // 기즈모 색상 설정
